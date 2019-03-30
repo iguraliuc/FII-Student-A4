@@ -136,3 +136,6 @@ label{
   color: white;
 }
 select{width: 220px;}
+input, select{
+  margin-bottom: 10%;
+}
