@@ -25,7 +25,7 @@ body{
   display: block;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid #3498db;
+  border: 2px solid #1c6a9e;
   padding: 14px 10px;
   width: 200px;
   outline: none;
@@ -35,7 +35,7 @@ body{
 }
 .box input[type = "email"]:focus,.box input[type = "password"]:focus{
   width: 280px;
-  border-color: #2ecc71;
+  border-color: #229854;
 }
 .box input[type = "submit"]{
   border:0;
@@ -43,7 +43,7 @@ body{
   display: block;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid #2ecc71;
+  border: 2px solid #229854;
   padding: 14px 40px;
   outline: none;
   color: white;
@@ -53,7 +53,7 @@ body{
 }
 
 .box input[type = "submit"]:hover{
-  background: #2ecc71;
+  background: #229854;
 }
 
 .box input[value = "Register"]{
@@ -62,7 +62,7 @@ body{
   display: block;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid #cc2e71;
+  border: 2px solid #8f204f;
   padding: 14px 40px;
   outline: none;
   color: white;
@@ -72,7 +72,7 @@ body{
 }
 
 .box input[value = "Register"]:hover{
-  background: #cc2e71;
+  background: #8f204f;
 }
 
 .box input[value = "Cancel"]{
@@ -81,7 +81,7 @@ body{
   display: block;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid grey;
+  border: 2px solid #4c4c4c;
   padding: 14px 40px;
   outline: none;
   color: white;
@@ -91,5 +91,5 @@ body{
 }
 
 .box input[value = "Cancel"]:hover{
-  background: grey;
+  background: #4c4c4c;
 }
