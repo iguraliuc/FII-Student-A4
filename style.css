@@ -18,6 +18,7 @@ body{
   color: white;
   text-transform: uppercase;
   font-weight: 500;
+  -moz-user-select: none; 
 }
 .box input[type = "email"],.box input[type = "password"]{
   border:0;
