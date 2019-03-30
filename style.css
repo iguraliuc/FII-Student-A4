@@ -61,7 +61,7 @@ user-select: none;
 }
 
 .box input[type = "submit"]:hover{
-  background: #229854;
+  background: #145931;
 }
 
 .box input[value = "Register"]{
@@ -80,7 +80,7 @@ user-select: none;
 }
 
 .box input[value = "Register"]:hover{
-  background: #8f204f;
+  background: #6A183A;
 }
 
 .box input[value = "Cancel"]{
@@ -99,5 +99,5 @@ user-select: none;
 }
 
 .box input[value = "Cancel"]:hover{
-  background: #4c4c4c;
+background: #323232;
 }
