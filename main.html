@@ -7,15 +7,59 @@
   </head>
   <body>
 
-    <form class="box" action="login.html" method="post">
+    <form class="box" action="main.html" method="post">
       <h1>FII Student</h1>
 
+<!--
+      <select name="Profesori">
+       <optgroup label="Grad 1">
+         <option value="A">A</option>
+         <option value="B">B</option>
+       </optgroup>
+       <optgroup label="Grad 2">
+         <option value="C">C</option>
+         <option value="D">D</option>
+       </optgroup>
+       </select>
+       <select name="Sali">
+       <optgroup label="Curs">
+         <option value="C2">C2</option>
+       </optgroup>
+       <optgroup label="Laborator">
+         <option value="C413">C413</option>
+       </optgroup>
+     </select>
+-->
+
+<label for="Profesori">Profesori:</label>
+     <input list="Profesori">
+    <datalist id="Profesori">
+      <option value="Ciobaca">
+      <option value="Pistol">
+      <option value="Iacob">
+      <option value="Masalagiu">
+      <option value="Varlan">
+    </datalist>
+
+<label for="Sali">Sali:</label>
+    <input list="Sali">
+   <datalist id="Sali">
+     <option value="C2">
+     <option value="C112">
+     <option value="C309">
+     <option value="C405">
+     <option value="C413">
+   </datalist>
+
+<!--
       <input type="button" name="" value="Profesori">
       <input type="button" name="" value="Sali">
       <input type="button" name="" value="Orar">
+-->
       <input type="button" name="" value="Noutati">
 
-      <input type="submit" name="" value="Logout" onclick="load()">
+      <input type="submit" name="" value="Search">
+      <input type="button" name="" value="Logout" onclick="load()">
     </form>
 
     <script type="text/javascript">
