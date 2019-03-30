@@ -7,11 +7,12 @@
   </head>
   <body>
 
-    <form class="box" action="https://profs.info.uaic.ro/~orar/" method="post">
+    <form class="box2" action="https://profs.info.uaic.ro/~orar/" method="post">
       <h1>FII Student</h1>
+<label>Options:</label>
+<div>
 
-<label for="Professor">Profs:</label>
-     <input list="Professor">
+     <input list="Professor" placeholder="Professor">
     <datalist id="Professor">
 
     <option value="Abacioaie Nicolae, Colab.">
@@ -132,9 +133,9 @@
     <option value="Yonder">
     <option value="Zalinescu Adrian, Conf. dr. ">
     </datalist>
-
-<label for="Class">Class:</label>
-    <input list="Class">
+</div>
+<div>
+    <input list="Class" placeholder="Class">
    <datalist id="Class">
 <!-- Alte sali -->
            <option value="Acvariu">
@@ -173,9 +174,9 @@
            <option value="C909">
 
    </datalist>
-
-   <label for="Subject">Objct:</label>
-       <input list="Subject">
+</div>
+<div>
+       <input list="Subject" placeholder="Subject">
       <datalist id="Subject">
 
 
@@ -246,6 +247,7 @@
           <option value="Topici speciale de programare .NET 	Asiminoaei Ioan, Informatica, anul 3">
 
         </datalist>
+  </div>
 
 <!--
 <label for="Group">Group:</label>
@@ -440,8 +442,8 @@
               </optgroup>
 </select>
 -->
-<label for="Group">Grup:</label>
-<input list="Group">
+<div>
+<input list="Group" placeholder="Group">
   <datalist id="Group">
 
             <option value="Master ingineria sistemelor soft">
@@ -526,7 +528,7 @@
                 <option value="Cursanti, anul 3">
 
   </datalist>
-
+</div>
 
       <input type="submit" name="" value="Search">
       <input type="button" name="" value="Logout" onclick="load()">
