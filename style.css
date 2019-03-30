@@ -26,7 +26,7 @@ body{
   margin: 20px auto;
   text-align: center;
   border: 2px solid #1c6a9e;
-  padding: 14px 10px;
+  padding: 10px 10px;
   width: 200px;
   outline: none;
   color: white;
@@ -44,7 +44,7 @@ body{
   margin: 20px auto;
   text-align: center;
   border: 2px solid #229854;
-  padding: 14px 40px;
+  padding: 10px 40px;
   outline: none;
   color: white;
   border-radius: 24px;
@@ -63,7 +63,7 @@ body{
   margin: 20px auto;
   text-align: center;
   border: 2px solid #8f204f;
-  padding: 14px 40px;
+  padding: 10px 30px;
   outline: none;
   color: white;
   border-radius: 24px;
@@ -82,7 +82,7 @@ body{
   margin: 20px auto;
   text-align: center;
   border: 2px solid #4c4c4c;
-  padding: 14px 40px;
+  padding: 10px 40px;
   outline: none;
   color: white;
   border-radius: 24px;
