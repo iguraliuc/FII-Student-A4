@@ -7,7 +7,7 @@
   </head>
   <body>
 
-    <form class="box" action="main.html" method="post">
+    <form class="box" action="https://profs.info.uaic.ro/~orar/" method="post">
       <h1>FII Student</h1>
 
 <label for="Professor">Profs:</label>
@@ -38,7 +38,7 @@
         <option value="DBMS">
         </datalist>
 <label for="Group">Group:</label>
-<select name="Year">
+<select name="Group">
   <optgroup label="Year 1">
     <optgroup label="Section A">
       <option value="IA1">Group 1</option>
@@ -125,14 +125,30 @@
       <input type="submit" name="" value="Search">
       <input type="button" name="" value="Logout" onclick="load()">
 
-      <input type="button" name="" value="News">
+      <input type="button" name="" value="More news" onclick="news()">
 
+
+      <article>
+       <header>
+         <h1>Most important heading here</h1>
+         <h3>Less important heading here</h3>
+         <p>Some additional information here</p>
+       </header>
+       <p>Lorem Ipsum dolor set amet....</p>
+     </article>
     </form>
 
     <script type="text/javascript">
     function load()
     {
       window.location.href = "login.html";
+    }
+    </script>
+
+    <script type="text/javascript">
+    function news()
+    {
+      window.location.href = "news.html";
     }
     </script>
 
