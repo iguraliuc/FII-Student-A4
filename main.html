@@ -10,28 +10,7 @@
     <form class="box" action="main.html" method="post">
       <h1>FII Student</h1>
 
-<!--
-      <select name="Profesori">
-       <optgroup label="Grad 1">
-         <option value="A">A</option>
-         <option value="B">B</option>
-       </optgroup>
-       <optgroup label="Grad 2">
-         <option value="C">C</option>
-         <option value="D">D</option>
-       </optgroup>
-       </select>
-       <select name="Sali">
-       <optgroup label="Curs">
-         <option value="C2">C2</option>
-       </optgroup>
-       <optgroup label="Laborator">
-         <option value="C413">C413</option>
-       </optgroup>
-     </select>
--->
-
-<label for="Profesori">Profesori:</label>
+<label for="Proffesors">Profs:</label>
      <input list="Profesori">
     <datalist id="Profesori">
       <option value="Ciobaca">
@@ -41,7 +20,7 @@
       <option value="Varlan">
     </datalist>
 
-<label for="Sali">Sali:</label>
+<label for="Class room">Class:</label>
     <input list="Sali">
    <datalist id="Sali">
      <option value="C2">
@@ -51,15 +30,98 @@
      <option value="C413">
    </datalist>
 
+
+
+         <select name="An">
+          <optgroup label="Anul 1">
+            <optgroup label="Semian A">
+            <option value="IA1">Grupa 1</option>
+            <option value="IA2">Grupa 2</option>
+            <option value="IA3">Grupa 3</option>
+            <option value="IA4">Grupa 4</option>
+            <option value="IA5">Grupa 5</option>
+            <option value="IA6">Grupa 6</option>
+            <option value="IA7">Grupa 7</option>
+          </optgroup>
+          <optgroup label="Semian B">
+          <option value="IB1">Grupa 1</option>
+          <option value="IB2">Grupa 2</option>
+          <option value="IB3">Grupa 3</option>
+          <option value="IB4">Grupa 4</option>
+          <option value="IB5">Grupa 5</option>
+          <option value="IB6">Grupa 6</option>
+          </optgroup>
+          </optgroup>
+          <optgroup label="Semian X">
+          <option value=" IX1">Grupa 1</option>
+          <option value="IX2">Grupa 2</option>
+          </optgroup>
+          <optgroup label="Anul 2">
+            <optgroup label="Semian A">
+            <option value="IIA1">Grupa 1</option>
+            <option value="IIA2">Grupa 2</option>
+            <option value="IIA3">Grupa 3</option>
+            <option value="IIA4">Grupa 4</option>
+            <option value="IIA5">Grupa 5</option>
+            <option value="IIA6">Grupa 6</option>
+            <option value="IIA7">Grupa 7</option>
+          </optgroup>
+          <optgroup label="Semian B">
+          <option value="IIB1">Grupa 1</option>
+          <option value="IIB2">Grupa 2</option>
+          <option value="IIB3">Grupa 3</option>
+          <option value="IIB4">Grupa 4</option>
+          <option value="IIB5">Grupa 5</option>
+          <option value="IIB6">Grupa 6</option>
+          </optgroup>
+          <optgroup label="Semian X">
+          <option value="IIX1">Grupa 1</option>
+          <option value="IIX2">Grupa 2</option>
+          </optgroup>
+          <optgroup label="Anul 3">
+            <optgroup label="Semian A">
+            <option value="IIIA1">Grupa 1</option>
+            <option value="IIIA2">Grupa 2</option>
+            <option value="IIIA3">Grupa 3</option>
+            <option value="IIIA4">Grupa 4</option>
+            <option value="IIIA5">Grupa 5</option>
+            <option value="IIIA6">Grupa 6</option>
+            <option value="IIIA7">Grupa 7</option>
+          </optgroup>
+          <optgroup label="Semian B">
+          <option value="IIIB1">Grupa 1</option>
+          <option value="IIIB2">Grupa 2</option>
+          <option value="IIIB3">Grupa 3</option>
+          <option value="IIIB4">Grupa 4</option>
+          <option value="IIIB5">Grupa 5</option>
+          <option value="IIIB6">Grupa 6</option>
+          </optgroup>
+          <optgroup label="Semian X">
+          <option value="IIIX1">Grupa 1</option>
+          <option value="IIIX2">Grupa 2</option>
+          </optgroup>
+
+          </optgroup>
+          </optgroup>
+          </select>
+
 <!--
-      <input type="button" name="" value="Profesori">
-      <input type="button" name="" value="Sali">
-      <input type="button" name="" value="Orar">
+          <select name="Sali">
+          <optgroup label="Curs">
+            <option value="C2">C2</option>
+          </optgroup>
+          <optgroup label="Laborator">
+            <option value="C413">C413</option>
+          </optgroup>
+        </select>
 -->
-      <input type="button" name="" value="Noutati">
+
 
       <input type="submit" name="" value="Search">
       <input type="button" name="" value="Logout" onclick="load()">
+
+      <input type="button" name="" value="Noutati">
+
     </form>
 
     <script type="text/javascript">
