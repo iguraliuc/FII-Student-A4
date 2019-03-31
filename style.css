@@ -49,7 +49,7 @@ body{
   text-transform: uppercase;
   font-weight: 500;
 }
-.box input[type = "email"],.box input[type = "password"],.box2 input[type = "email"],.box2 input[type = "password"]{
+.box input[type = "email"],.box input[type = "password"],.box2 input[type = "email"],.box2 input[type = "password"],input{
   border:0;
   background: none;
   display: block;
@@ -66,6 +66,11 @@ body{
 .box input[type = "email"]:focus,.box input[type = "password"]:focus,.box2 input[type = "email"]:focus,.box2 input[type = "password"]:focus{
   width: 280px;
   border-color: #229854;
+}
+input:hover{
+  width: 100%;
+  border-color: #229854;
+
 }
 .box input[type = "submit"],.box2 input[type = "submit"]{
   border:0;
@@ -168,7 +173,7 @@ border: none;
 label,h3{
   color: white;
 }
-
+/*
 div{
   flex-direction: column;
   align-items: center;
@@ -178,7 +183,7 @@ div{
 div>input{
   width: 100%;
 }
-
+*/
 article{
   //height: 200px;
   border: 2px solid #229854;
