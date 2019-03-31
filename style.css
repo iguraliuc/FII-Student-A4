@@ -70,7 +70,11 @@ body{
 input:hover{
   width: 100%;
   border-color: #229854;
+}
 
+input[type="button"]:hover,input[type="submit"]:hover,input[type="reset"]:hover{
+  width: 50%;
+  border-color: #229854;
 }
 .box input[type = "submit"],.box2 input[type = "submit"]{
   border:0;
