@@ -105,7 +105,7 @@ body{
   background: #6A183A;
 }
 
-.box input[value = "Cancel"], .box input[value = "Logout"],.box2 input[value = "Cancel"], .box2 input[value = "Logout"]{
+.box input[value = "Cancel"], .box input[value = "Logout"],.box2 input[value = "Cancel"], .box2 input[value = "Logout"],.box input[value = "Back"],.box2 input[value = "Back"]{
   border:0;
   background: none;
   display: block;
@@ -119,8 +119,39 @@ body{
   transition: 0.25s;
   cursor: pointer;
 }
+.box input[value = "Clear"],.box2 input[value = "Clear"]{
+border:0;
+background: none;
+display: block;
+margin: 20px auto;
+text-align: center;
+border: 2px solid #1c6a9e;
+padding: 10px 40px;
+outline: none;
+color: white;
+border-radius: 24px;
+transition: 0.25s;
+cursor: pointer;
+}
+.box input[value = "Previous page"],.box2 input[value = "Previous page"],.box input[value = "Next page"],.box2 input[value = "Next page"]{
+  border:0;
+  background: none;
+  //display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #1c6a9e;
+  padding: 10px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
 
-.box input[value = "Cancel"]:hover, .box input[value = "Logout"]:hover,.box2 input[value = "Cancel"]:hover, .box2 input[value = "Logout"]:hover{
+}
+.box input[value = "Clear"]:hover,.box2 input[value = "Clear"]:hover,.box input[value = "Previous page"]:hover,.box2 input[value = "Previous page"]:hover,.box input[value = "Next page"]:hover,.box2 input[value = "Next page"]:hover{
+background: #0b4770;
+}
+.box input[value = "Cancel"]:hover, .box input[value = "Logout"]:hover,.box2 input[value = "Cancel"]:hover, .box2 input[value = "Logout"]:hover,.box input[value = "Back"]:hover,.box2 input[value = "Back"]:hover{
 background: #323232;
 }
 
