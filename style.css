@@ -165,7 +165,7 @@ a:active, a:focus,button::-moz-focus-inner, input[type="reset"]::-moz-focus-inne
 border: none;
 }
 
-label{
+label,h3{
   color: white;
 }
 
