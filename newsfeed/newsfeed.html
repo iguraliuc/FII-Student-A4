@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Newsfeed</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="newsfeed.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="navBar.css">
+</head>
+
+<body>
+    <div id="navBarNF">
+        <nav class="navbar">
+            <a class="logo">
+                <img src="logo.png" alt="InforMate logo">
+            </a>
+
+            <form class="search" action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+            </form>
+
+            <ul class="navlinks">
+                <li class="navitem dropdown"><a class="active dropli" href="#news">NewsFeed</a>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </li>
+
+                <li class="navitem dropdown"><a class="dropli" href="#board">Boarduri</a>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </li>
+
+                <li class="navitem dropdown"><a class="dropli" href="#orar">Orar</a>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </li>
+
+                <li class="navitem dropdown"><a class="dropli" href="#sali">Sali</a>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </li>
+
+                <li class="navitem dropdown"><a class="dropli" href="#profi">Cadre Didactice</a>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </li>
+
+                <li class="navitem dropdown"><a class="dropli" href="#internship">Internship</a>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </li>
+
+                <li class="navitem dropdown"><a class="dropli" href="#cont">Contul Meu</a>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div id="mainContent">
+        <div id="leftNF" class="board-container">
+            <div id="profileMenu" draggable="true">
+                <div id="profileAvatar"><img
+                        src="https://scontent-sea1-1.cdninstagram.com/vp/48c11543638c8ae9d533ec5e7ec8104e/5CB89B74/t51.2885-15/e35/43603123_178922363059208_4840220131201752874_n.jpg?_nc_ht=scontent-sea1-1.cdninstagram.com&ig_cache_key=MTkxMjkxNDg0MDQ0MTQzMjAxNQ%3D%3D.2"
+                        alt=""></div>
+                <div id="profileLastName">Popescu </div>
+                <div id="profileFirstName">Mihai</div>
+                <div id="profileNavOptions">
+                    <div class="profile-nav-option">PROFIL</div>
+                    <div class="profile-nav-option">MESAJE</div>
+                </div>
+            </div>
+            <div class="lr-component"></div>
+            <div class="lr-component"></div>
+        </div>
+        <div id="rightNF" class="board-container">
+            <div class="lr-component"></div>
+            <div class="lr-component"></div>
+            <div class="lr-component"></div>
+            <div class="lr-component"></div>
+        </div>
+        <div id="middleNF">
+            <div class="mid-component"></div>
+            <div class="mid-component"></div>
+            <div class="mid-component"></div>
+        </div>
+    </div>
+    <div id="footerNF"></div>
+
+</body>
+<script src="newsfeed.js"></script>
+
+</html>
