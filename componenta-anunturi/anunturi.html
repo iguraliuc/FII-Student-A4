@@ -89,7 +89,7 @@
         var anunturi = document.getElementsByClassName("anunt-container");
         var first, second;
         if(nume == "all"){
-            console.log("am intrat");
+            
             for (i = 0; i < anunturi.length; i++){
                 first = anunturi[i].className.split(" ");
                 second = first[1];
@@ -103,9 +103,12 @@
             for (i = 0; i < anunturi.length; i++){
                 first = anunturi[i].className.split(" ");
                 second = first[1];
-                if(nume == second){
+                if(nume != second){
                     anunturi[i].style.visbility = "none";
                     anunturi[i].style.display = "none";
+                }else{
+                    anunturi[i].style.visbility = "visible";
+                    anunturi[i].style.display = "flex";
                 }
             }
         }
