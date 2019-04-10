@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="utf-8">
+  <title>Anunturi</title>
+  <link href="anunturi-style.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="board">
+        <div class="anunt-container materii">
+            <div class="date">
+                <p>04/07/2019</p> 
+                <p class = "day"> Mie.</p>
+            </div>
+            <div class="anunt">
+                <p class="top">Materii-Ingineria Programarii</p>
+                <p class="continut">Examenul de pe data de 04/27/2019 s-a mutat pe data de 04/28/2019 la ora 10:00</p>
+            </div>
+        </div>
+        <div class="anunt-container secretariat">
+                <div class="date">
+                        <p>04/07/2019</p> 
+                        <p class = "day"> Mie.</p>
+                </div>
+                <div class="anunt">
+                    <p class="top">Secretariat</p>
+                    <p class="continut">Studenti trebuie sa se prezinte la secretariat pentru a semna fisele semestriale in intervalul orar 10-12</p>
+                </div>
+        </div>
+        <div class="anunt-container noutati">
+                <div class="date">
+                        <p>04/07/2019</p> 
+                        <p class = "day"> Mie.</p>
+                </div>
+                <div class="anunt">
+                    <p class="top">Noutati</p>
+                    <p class="continut">Campionatul European de Securitate Cibernetică, în România. Înscrierile, până pe 5 aprilie. Este ultimul prilej pentru ca 
+                        toţi românii pasionaţi de IT să se înscrie la faza naţională a Campionatului European de Securitate Cibernetică de anul acesta din toamnă.
+                            Competiţia va avea loc pentru prima oară în România, la Palatul Parlamentului. 
+                    </p>
+                </div>
+        </div>
+        <div class="anunt-container secretariat">
+                <div class="date">
+                        <p>04/07/2019</p> 
+                        <p class = "day"> Mie.</p>
+                </div>
+                <div class="anunt">
+                    <p class="top">Secretariat</p>
+                    <p class="continut">Studenti trebuie sa se prezinte la secretariat pentru a semna fisele semestriale in intervalul orar 10-12</p>
+                </div>
+        </div>
+        <div class="anunt-container noutati">
+                <div class="date">
+                        <p>04/07/2019</p> 
+                        <p class = "day"> Mie.</p>
+                </div>
+                <div class="anunt">
+                    <p class="top">Noutati</p>
+                    <p class="continut">Campionatul European de Securitate Cibernetică, în România. Înscrierile, până pe 5 aprilie. Este ultimul prilej pentru ca 
+                        toţi românii pasionaţi de IT să se înscrie la faza naţională a Campionatului European de Securitate Cibernetică de anul acesta din toamnă.
+                            Competiţia va avea loc pentru prima oară în România, la Palatul Parlamentului.
+                    </p>
+                </div>
+        </div>
+    </div>
+
+    <div class="meniu">
+            <div id="myBtnContainer">
+                    <button class="btn active" onclick="filterSelection('all')"> Toate anunturile</button>
+                    <button class="btn" onclick="filterSelection('materii')"> Materii</button>
+                    <button class="btn" onclick="filterSelection('profesori')"> Profesori</button>
+                    <button class="btn" onclick="filterSelection('secretariat')"> Secretariat</button>
+                    <button class="btn" onclick="filterSelection('noutati')"> News</button>
+            </div>
+    </div>
+</div>
+
+</body>
+
+<script>
+
+    function filterSelection(nume){
+        var anunturi = document.getElementsByClassName("anunt-container");
+        var first, second;
+        if(nume == "all"){
+            
+            for (i = 0; i < anunturi.length; i++){
+                first = anunturi[i].className.split(" ");
+                second = first[1];
+               
+                anunturi[i].style.visbility = "visible";
+                anunturi[i].style.display = "flex";
+                
+            }
+        }else{
+        
+            for (i = 0; i < anunturi.length; i++){
+                first = anunturi[i].className.split(" ");
+                second = first[1];
+                if(nume != second){
+                    anunturi[i].style.visbility = "none";
+                    anunturi[i].style.display = "none";
+                }else{
+                    anunturi[i].style.visbility = "visible";
+                    anunturi[i].style.display = "flex";
+                }
+            }
+        }
+    }
+
+</script>
+</html>
