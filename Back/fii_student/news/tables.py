@@ -15,4 +15,4 @@ class NewsTable(django_tables2.Table):
 
     class Meta:
         model = News
-        attrs = {"style": "font-size: 0.8rem; width:100%; margin:auto;"}
+        # attrs = {"style": "font-size: 0.8rem; width:100%; margin:auto;"}
