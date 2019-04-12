@@ -8,3 +8,9 @@ from api.serializers import *
 class NewsViewSet(viewsets.ModelViewSet):
     queryset = News.objects.all().order_by('-inserted_time');
     serializer_class = NewsSerializer
+
+
+class PersonaliseAppViewSet(viewsets.ModelViewSet):
+    queryset = PersonaliseApp.objects.all().order_by('-inserted_time')
+    serializer_class = PersonaliseApp
+
