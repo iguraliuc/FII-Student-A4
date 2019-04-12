@@ -3,21 +3,22 @@ from utils.config import config
 
 """ create tables in the PostgreSQL database"""
 
-commands = (
-               """
-               DROP TABLE IF EXISTS news;
-               """,
-               """
-               CREATE TABLE news (
-                 news_id SERIAL PRIMARY KEY,
-                 title VARCHAR(255),
-                 body VARCHAR,
-                 author_name VARCHAR(255),
-           def create_tables():
+
+def create_tables():
+    commands = (
+       """
+       DROP TABLE IF EXISTS news;
+       """,
+       """
+       CREATE TABLE news (
+         news_id SERIAL PRIMARY KEY,
+         title VARCHAR(255),
+         body VARCHAR,
+         author_name VARCHAR(255),
            
           category VARCHAR(255),
           inserted_time TIMESTAMP DEFAULT now()
-        );
+        )
         """, """
         INSERT INTO news(title, body, author_name, category)
             VALUES(E'Campionatul European de Securitate Cibernetică, în România. Înscrierile, până pe 5 aprilie', E'Este ultimul prilej pentru ca toţi românii pasionaţi de IT să se înscrie la faza naţională a Campionatului European de Securitate Cibernetică de anul acesta din toamnă. Competiţia va avea loc pentru prima oară în România, la Palatul Parlamentului. Scopul este de la le testa tinerilor europeni aptitudinile de „hackeri”.
@@ -40,18 +41,6 @@ commands = (
         A cincea ediţie a Campionatului European de Securitate Cibernetică va avea loc în în România, la Palatul Parlamentului, între 9 şi 11 octombrie, anul acesta.', E'Cretu Marian', E'MATERII');
         """
         )
-
-    # conn = psycopg2.connect()
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #         'NAME': 'fii_student_db',
-    #         'USER': 'fii_studentuser',
-    #         'PASSWORD': '',
-    #         'HOST': 'localhost',
-    #         'PORT': '',
-    #     }
-    # }
     try:
         # read the connection parameters
         params = config()
