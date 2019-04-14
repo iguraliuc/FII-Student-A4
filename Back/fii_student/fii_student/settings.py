@@ -91,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'fii_student_db',
         'USER': 'fii_studentuser',
-        'PASSWORD': '',
+        'PASSWORD': '123qwe',
         'HOST': 'localhost',
         'PORT': '',
     }
