@@ -1,7 +1,10 @@
 from configparser import ConfigParser
-
+from os import getcwd
 
 def config(filename='database.ini', section='postgresql'):
+    # print(getcwd())
+    # with open(filename, 'r') as fin:
+    #     print(fin.read())
     # create a parser
     parser = ConfigParser()
     # read config file
