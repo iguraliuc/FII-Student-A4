@@ -1,0 +1,33 @@
+.container{
+    width: 25%;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.item{
+    margin: 20px auto;
+    font-size: 20px;
+}
+
+.item a:link{
+    color: black;
+}
+
+.item a:visited{
+    color: black;
+}
+
+.item a:hover{
+    text-decoration: underline
+}
+
+.item a:active{
+    color: gray
+    text-decoration: underline
+}
+
+.item a{
+    text-decoration:none
+}
