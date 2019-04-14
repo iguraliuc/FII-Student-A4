@@ -18,6 +18,8 @@ class Student(models.Model):
 
 class Board(models.Model):
     id = models.AutoField(primary_key=True, verbose_name='ID')
+    year = models.IntegerField(default=1)
+    subject = models.CharField(max_length=255, null=True)
 
     def __str__(self):
         return '{}'.format(self.id)
