@@ -43,7 +43,17 @@ li{
 .anunt{
     margin-left: 20px;
     margin-top: 20px;
+    padding-bottom: 20px;
 
+}
+
+.anunt a{
+    color: #00001c;
+    font-weight: bold;
+    padding: 5px;
+    background-color:#ffe234;
+    text-decoration: none;
+    
 }
 
 .date{

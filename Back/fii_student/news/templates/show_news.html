@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
+
 <head>
   <meta charset="utf-8">
   <title>Anunturi</title>
-
-{% load static %}
+    {% load static %}
   <link href="{% static "anunturi-style.css" %}" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
+
 <body>
 
 <div class="container">
@@ -20,23 +21,25 @@
                 </div>
                 <div class="anunt">
                     <p class="top">{{ obj.title }}</p>
-                    <p class="continut">{{ obj.body|slice:":350" }}...</p>
+                    <p class="continut">{{ obj.body|safe|slice:":350" }}...</p>
+                    <a href="/news/{{ obj.news_id }}">Deschide articolul complet!</a>
                 </div>
             </div>
         {% endfor %}
-    </div>
+
 
     <div class="meniu">
             <div id="myBtnContainer">
                     <button class="btn active" onclick="filterSelection('all')"> Toate anunturile</button>
-                    <button class="btn" onclick="filterSelection('MATERII')"> Materii</button>
-                    <button class="btn" onclick="filterSelection('PROFESORI')"> Profesori</button>
-                    <button class="btn" onclick="filterSelection('SECRETARIAT')"> Secretariat</button>
+                    <button class="btn" onclick="filterSelection('materii')"> Materii</button>
+                    <button class="btn" onclick="filterSelection('profesori')"> Profesori</button>
+                    <button class="btn" onclick="filterSelection('secretariat')"> Secretariat</button>
+                    <button class="btn" onclick="filterSelection('noutati')"> News</button>
             </div>
     </div>
 </div>
 
-
+</body>
 
 <script>
 
@@ -70,5 +73,4 @@
     }
 
 </script>
-</body>
 </html>

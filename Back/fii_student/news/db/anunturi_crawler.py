@@ -24,7 +24,7 @@ def create_date_anon(data):
     # print(date_anon)
     for item in date_anon:
         response_json = create_json(item)
-        print(response_json)
+        # print(response_json)
         with open("./jsons/{}".format(response_json["title"]), "w", encoding='utf-8') as f:
             json.dump(response_json, f, indent=4, ensure_ascii=False)
         f.close()
@@ -44,7 +44,7 @@ def create_json(item):
         title = title.replace("&#8211;", "")
     content = re.search(r'<p>([^$]+)(\.</p><div|</li></ul><div)', data)
     content = content.group(1)
-    print(content)
+    # print(content)
     final_dict["title"] = title
     final_dict["content"] = content
 

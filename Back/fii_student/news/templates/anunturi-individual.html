@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='RO-ro'>
+
+<head>
+  <meta charset="utf-8">
+  <title>Anunturi</title>
+    {% load static %}
+      <link href="{% static "anunturi-individual-style.css" %}" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="board">
+        <p> Materii-Ingineria Programarii</p>
+        <h1>{{ object.title }} </h1>
+        <div class="subtitle">
+            <p><i> </i></p>
+            <p>{{ object.inserted_time }}</p>
+        </div>
+
+        <p class="content">{{ object.body|safe }}</p>
+    </div>
+    <a href="/news/" class="meniu">
+
+            <img src="{% static "undo-solid.svg" %}">
+            <p>Intoarcere la pagina cu anunturi!</p>
+
+
+    </a>
+</div>
+
+</body>
+
+
+</html>
