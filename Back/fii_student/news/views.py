@@ -11,6 +11,8 @@ import os
 def show_news(request):
     post_url = reverse('news_show')
     generic_objects = News.objects.all()
+    # print(request)
+    # print(request.read())
     # filtered_objects = generic_objects
     # filtered = None
     #
@@ -26,3 +28,7 @@ def show_news(request):
                    'objects': generic_objects,
                    # 'filtered_objects': filtered,
                    })
+
+def show_specific_news(request):
+    post_url = reverse('news_show')
+    # my_object = News.objects.get(news_id=request.)
