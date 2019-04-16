@@ -1,6 +1,7 @@
 # from django.contrib.postgres.fields import ArrayField
 from django.db import models
 
+# from users.models import FiiUser
 
 #  -- DUMMY MODELS --
 
@@ -15,16 +16,18 @@ class Student(models.Model):
     def __str__(self):
         return '{}'.format(self.id)
 
+# -------------------
+
 
 class Board(models.Model):
     id = models.AutoField(primary_key=True, verbose_name='ID')
     year = models.IntegerField(default=1)
     subject = models.CharField(max_length=255, null=True)
+    teacher = models.CharField(max_length=255, null=True)
+    description = models.CharField(max_length=2000, null=True)
 
     def __str__(self):
         return '{}'.format(self.id)
-
-# -------------------
 
 
 class PersonaliseApp(models.Model):
@@ -35,6 +38,7 @@ class PersonaliseApp(models.Model):
 
     class Meta:
         db_table = 'personaliseApp'
+        managed = True
 
     def __str__(self):
         return 'Student[{}] -> Board[{}]'.format(self.student.id, self.board.id)
