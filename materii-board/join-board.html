@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="utf-8">
+  <title>Join Boards</title>
+  <link href="join-board-style.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="filtru">
+        <button class="button toti active" onclick="filter('Toti')">Toti anii</button>
+        <button class="button anI" onclick="filter('An I')">An I</button>
+        <button class="button anII" onclick="filter('An II')">An II</button>
+        <button class="button anIII" onclick="filter('An III')">An III</button>
+    </div>
+    <div class="main">
+            <div class="card">
+                    <div class="box">
+                        <div class="box-container">
+                            <div class="top-container">
+                                <p class="titlu">MATEMATICA</p>
+                                <p class="an">An I</p>
+                                <p class="prof">Lect. dr. Florin Iacob/Lect. dr. Andreea Arusoaie </p>
+                            </div>
+                            <div class="bottom-container">
+                                <p class="descriere">Prezentarea unor elemente de matematică utile în abordarea și parcurgerea programelor analitice ale disciplinelor de informatică prevăzute în cadrul studiilor de licență.</p>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="triangle"></div>
+                    <button class="btn">JOIN BOARD</button>
+                
+                    <button class="btn verified">Joined!<img src="correct.png"></button>
+            </div>
+        <div class="card">
+                <div class="box">
+                    <div class="box-container">
+                        <div class="top-container">
+                            <p class="titlu">MATEMATICA</p>
+                            <p class="an">An I</p>
+                            <p class="prof">Lect. dr. Florin Iacob/Lect. dr. Andreea Arusoaie </p>
+                        </div>
+                        <div class="bottom-container">
+                            <p class="descriere">Prezentarea unor elemente de matematică utile în abordarea și parcurgerea programelor analitice ale disciplinelor de informatică prevăzute în cadrul studiilor de licență.</p>
+                        </div>
+                    </div> 
+                </div>
+                <div class="triangle"></div>
+                <button class="btn">JOIN BOARD</button>
+                
+                <button class="btn verified">Joined!<img src="correct.png"></button>
+        </div>
+        <div class="card">
+                <div class="box">
+                    <div class="box-container">
+                        <div class="top-container">
+                            <p class="titlu">MATEMATICA</p>
+                            <p class="an">An I</p>
+                            <p class="prof">Lect. dr. Florin Iacob/Lect. dr. Andreea Arusoaie </p>
+                        </div>
+                        <div class="bottom-container">
+                            <p class="descriere">Prezentarea unor elemente de matematică utile în abordarea și parcurgerea programelor analitice ale disciplinelor de informatică prevăzute în cadrul studiilor de licență.</p>
+                        </div>
+                    </div> 
+                </div>
+                <div class="triangle"></div>
+           
+                <button class="btn">JOIN BOARD</button>
+                   
+               
+                <button class="btn verified">Joined!<img src="correct.png"></button>
+        </div>
+
+        <div class="card">
+            <div class="box">
+                <div class="box-container">
+                    <div class="top-container">
+                        <p class="titlu">LOGICA</p>
+                        <p class="an">An II</p>
+                        <p class="prof">Lect. dr. Florin Iacob/Lect. dr. Andreea Arusoaie </p>
+                    </div>
+                    <div class="bottom-container">
+                        <p class="descriere">Prezentarea unor elemente de matematică utile în abordarea și parcurgerea programelor analitice ale disciplinelor de informatică prevăzute în cadrul studiilor de licență.</p>
+                    </div>
+                </div> 
+            </div>
+            <div class="triangle"></div>
+       
+            <button class="btn">JOIN BOARD</button>
+               
+           
+            <button class="btn verified">Joined!<img src="correct.png"></button>
+    </div>
+
+    <div class="card">
+        <div class="box">
+            <div class="box-container">
+                <div class="top-container">
+                    <p class="titlu">MATEMATICA</p>
+                    <p class="an">An III</p>
+                    <p class="prof">Lect. dr. Florin Iacob/Lect. dr. Andreea Arusoaie </p>
+                </div>
+                <div class="bottom-container">
+                    <p class="descriere">Prezentarea unor elemente de matematică utile în abordarea și parcurgerea programelor analitice ale disciplinelor de informatică prevăzute în cadrul studiilor de licență.</p>
+                </div>
+            </div> 
+        </div>
+        <div class="triangle"></div>
+   
+        <button class="btn">JOIN BOARD</button>
+           
+       
+        <button class="btn verified">Joined!<img src="correct.png"></button>
+</div>
+
+<div class="card">
+        <div class="box">
+            <div class="box-container">
+                <div class="top-container">
+                    <p class="titlu">Limbaje formale, automate si calculatoare</p>
+                    <p class="an">An II</p>
+                    <p class="prof">Lect. dr. Florin Iacob/Lect. dr. Andreea Arusoaie </p>
+                </div>
+                <div class="bottom-container">
+                    <p class="descriere">Prezentarea unor elemente de matematică utile în abordarea și parcurgerea programelor analitice ale disciplinelor de informatică prevăzute în cadrul studiilor de licență.</p>
+                </div>
+            </div> 
+        </div>
+        <div class="triangle"></div>
+   
+        <button class="btn">JOIN BOARD</button>
+           
+       
+        <button class="btn verified">Joined!<img src="correct.png"></button>
+</div>
+    </div>
+
+    
+    
+        
+
+
+
+
+</body>
+<script>
+    function filter(an){
+
+        var btns = document.getElementsByClassName("button");
+
+        
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+
+       
+  
+
+
+        var button = document.getElementsByClassName("an");
+        for(var i = 0; i<button.length; i++){
+            var board = button[i].parentElement.parentElement.parentElement.parentElement;
+            if(button[i].textContent != an){
+                if(an == "Toti"){
+                    board.style.display = 'block';
+                    board.style.visibility = "visible";
+                }else{
+                    board.style.display = 'none';
+                    board.style.visibility = "hidden";
+                }
+            }else{
+                board.style.display = 'block';
+                board.style.visibility = "visible";
+            }
+        }
+
+        
+        
+    }
+    var btns = document.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                if(this.className.includes("joined")){
+                    this.className = this.className.replace(" joined", "");
+                }else if(!this.className.includes("verified")){
+                    this.className += " joined";
+                }
+
+                if(this.className.includes("verified")){
+                    this.style.display = 'none';
+                    this.style.visibility = 'hidden';
+                    var show = this.parentElement.getElementsByClassName("joined")[0];
+                    show.className = show.className.replace(" joined", "");
+                    show.style.display = 'block';
+                    show.style.visibility = 'visible';
+
+                    
+                }
+                join();
+               
+            });
+        }
+    
+    function join(){
+        var joined = document.getElementsByClassName("btn");
+        for (var i = 0; i < joined.length; i++) {
+            
+            if(joined[i].className.includes("joined")){
+                joined[i].style.display = 'none';
+                joined[i].style.visibility = "hidden";
+
+                var verified = joined[i].parentElement.getElementsByClassName("verified")[0];
+                verified.style.display = 'block';
+                verified.style.visibility = 'visible';
+            }
+        }
+    }
+
+</script>
+</html>
