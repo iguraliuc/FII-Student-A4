@@ -27,7 +27,7 @@ li{
 }
 
 
-.subtitle p:last-child{
+.subtitle >p:last-child{
     color:gray;
 }
 .container{
