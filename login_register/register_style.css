@@ -78,7 +78,7 @@ h2{
 }
 
 form{
-    height: 90%;
+    height: 100%;
     width: 80%;
     margin: auto;
     display: flex;
@@ -112,6 +112,18 @@ form .bottom{
     height:70px;
 }
 
+
+select{
+    border:none;
+    color:white;
+    background-image: linear-gradient(to right, #bfbedf, #c8c8e4, #d2d2ea, #dcddef, #e6e7f4);
+    padding: 15px;
+    width: 80%;
+}
+
+select option{
+    color:black;
+}
 /* animation */
 
 @keyframes expand {
