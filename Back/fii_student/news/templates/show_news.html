@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang='en'>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Anunturi</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Anunturi</title>
     {% load static %}
-  <link href="{% static "anunturi-style.css" %}" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href="{% static "anunturi-style.css" %}" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 
 <body>
@@ -16,39 +15,38 @@
         {% for obj in objects %}
             <div class="anunt-container {{ obj.category }}">
                 <div class="date">
-                    <p>{{ obj.inserted_time }}</p>
-{#                    <p class="day"> Mie.</p>#}
+                    <p>{{ obj.inserted_time|date:'d M Y' }}</p>
+                                        <p class="day"> {{ obj.inserted_time|date:'D' }}.</p>
                 </div>
                 <div class="anunt">
                     <p class="top">{{ obj.title }}</p>
-                    <p class="continut">{{ obj.body|safe|slice:":350" }}...</p>
-                    <a href="/news/{{ obj.news_id }}">Deschide articolul complet!</a>
+                    <div class="continut">{{ obj.body|safe|striptags|slice:":250" }}...</div>
+                    <a class="more" href="/news/{{ obj.news_id }}">Deschide articolul complet!</a>
                 </div>
             </div>
         {% endfor %}
 
-
+    </div>
     <div class="meniu">
-            <div id="myBtnContainer">
-                    <button class="btn active" onclick="filterSelection('all')"> Toate anunturile</button>
-                    <button class="btn" onclick="filterSelection('materii')"> Materii</button>
-                    <button class="btn" onclick="filterSelection('profesori')"> Profesori</button>
-                    <button class="btn" onclick="filterSelection('secretariat')"> Secretariat</button>
-                    <button class="btn" onclick="filterSelection('noutati')"> News</button>
-            </div>
+        <div id="myBtnContainer">
+            <button class="btn active" onclick="filterSelection('all')"> Toate anunturile</button>
+            <button class="btn" onclick="filterSelection('materii')"> Materii</button>
+            <button class="btn" onclick="filterSelection('profesori')"> Profesori</button>
+            <button class="btn" onclick="filterSelection('secretariat')"> Secretariat</button>
+            <button class="btn" onclick="filterSelection('noutati')"> News</button>
+        </div>
     </div>
 </div>
-
 </body>
 
 <script>
 
-    function filterSelection(nume){
+    function filterSelection(nume) {
         var anunturi = document.getElementsByClassName("anunt-container");
         var first, second;
-        if(nume == "all"){
+        if (nume == "all") {
 
-            for (i = 0; i < anunturi.length; i++){
+            for (i = 0; i < anunturi.length; i++) {
                 first = anunturi[i].className.split(" ");
                 second = first[1];
 
@@ -56,15 +54,15 @@
                 anunturi[i].style.display = "flex";
 
             }
-        }else{
+        } else {
 
-            for (i = 0; i < anunturi.length; i++){
+            for (i = 0; i < anunturi.length; i++) {
                 first = anunturi[i].className.split(" ");
                 second = first[1];
-                if(nume != second){
+                if (nume != second) {
                     anunturi[i].style.visbility = "none";
                     anunturi[i].style.display = "none";
-                }else{
+                } else {
                     anunturi[i].style.visbility = "visible";
                     anunturi[i].style.display = "flex";
                 }

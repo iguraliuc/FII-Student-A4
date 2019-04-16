@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # Created apps
     'news',
     'personaliseApp',
+    'users',
 ]
 
 REST_FRAMEWORK = {
@@ -116,6 +117,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'users.FiiUser'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
