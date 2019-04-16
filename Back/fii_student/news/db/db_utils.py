@@ -18,7 +18,8 @@ def create_tables():
          author_name VARCHAR(255),
            
           category VARCHAR(255),
-          inserted_time TIMESTAMP DEFAULT now()
+          inserted_time TIMESTAMP DEFAULT now(),
+          published_time TIMESTAMP
         )
         """
         # , """

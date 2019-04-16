@@ -13,11 +13,11 @@
 
 <div class="container">
     <div class="board">
-        <p> Materii-Ingineria Programarii</p>
         <h1>{{ object.title }} </h1>
+        <p> Materii-Ingineria Programarii</p>
         <div class="subtitle">
             <p><i>Autor...</i></p>
-            <p>{{ object.inserted_time|date:"d M Y      h:m" }}</p>
+            <p>{{ object.published_time|date:"d M Y      h:m" }}</p>
         </div>
 
         <p class="content">{{ object.body|safe }}</p>

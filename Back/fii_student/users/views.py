@@ -17,9 +17,9 @@ def signup(request):
             # user.profile.birth_date = form.cleaned_data.get('birth_date')
             user.save()
             raw_password = form.cleaned_data.get('password1')
-            user = authenticate(email = user.email, password=raw_password)
+            user = authenticate(email=user.email, password=raw_password)
             login(request, user)
-            return redirect('/')
+            return redirect('/news/')
     else:
         form = SignupForm()
     return render(request, 'signup.html', {'form': form})

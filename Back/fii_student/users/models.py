@@ -8,12 +8,11 @@ from django.utils.translation import ugettext_lazy as _
 
 from .managers import UserManager
 
-GRUPE = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7',
+GRUPE = ['-', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7',
          'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7',
          'X1', 'X2', 'X3', 'alta grupa']
-ANI_STUDIU = ['I', 'II', 'III']
-TIP_STUDII = ['Licenta', 'Master', 'Doctorat']
-ROLURI = ['Profesor', 'Student', 'Masterand', 'Doctorand']
+ANI_STUDIU = ['-', 'I', 'II', 'III']
+ROLURI = ['-', 'Profesor', 'Student', 'Masterand', 'Doctorand']
 
 
 class FiiUser(AbstractBaseUser):
@@ -23,7 +22,6 @@ class FiiUser(AbstractBaseUser):
     date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
     is_active = models.BooleanField(_('active'), default=True)
     rol = models.CharField(max_length=20, choices=[(x, x) for x in ROLURI])
-    tip_studii = models.CharField(max_length=20, choices=[(x, x) for x in TIP_STUDII])
     an_studiu = models.CharField(max_length=20, choices=[(x, x) for x in ANI_STUDIU])
     grupa = models.CharField(max_length=20, choices=[(x, x) for x in GRUPE])
     objects = UserManager()

@@ -17,6 +17,7 @@ class News(models.Model):
     category = models.CharField(max_length=32, choices=CATEGORY_CHOICES)
     body = models.TextField(blank=True, null=True)
     inserted_time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    published_time = models.DateTimeField(auto_now_add=False, blank=True, null=True)
 
     class Meta:
         db_table = 'news'

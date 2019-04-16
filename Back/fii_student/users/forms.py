@@ -10,7 +10,6 @@ class SignupForm(UserCreationForm):
     last_name = forms.CharField(max_length=63, required=True, help_text="Numele este obligatoriu")
     email = forms.EmailField(max_length=254, help_text='Este necesara o adresa de email UAIC valida.')
     rol = forms.ChoiceField(choices=[(x, x) for x in ROLURI], required=True, help_text="")
-    tip_studii = forms.ChoiceField(choices=[(x, x) for x in TIP_STUDII])
     an_studiu = forms.ChoiceField(choices=[(x, x) for x in ANI_STUDIU])
     grupa = forms.ChoiceField(choices=[(x, x) for x in GRUPE])
 

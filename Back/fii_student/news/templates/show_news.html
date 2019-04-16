@@ -15,8 +15,8 @@
         {% for obj in objects %}
             <div class="anunt-container {{ obj.category }}">
                 <div class="date">
-                    <p>{{ obj.inserted_time|date:'d M Y' }}</p>
-                                        <p class="day"> {{ obj.inserted_time|date:'D' }}.</p>
+                    <p>{{ obj.published_time|date:'d M Y' }}</p>
+                                        <p class="day"> {{ obj.published_time|date:'D' }}.</p>
                 </div>
                 <div class="anunt">
                     <p class="top">{{ obj.title }}</p>
