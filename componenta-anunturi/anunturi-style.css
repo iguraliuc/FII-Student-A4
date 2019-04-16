@@ -16,6 +16,7 @@ li{
     margin-top:20px;
     width:80%;
     display:flex; 
+    margin-bottom: 10px;
 }
 .board{
     width:80%;
@@ -30,20 +31,32 @@ li{
 }
 
 .anunt-container .anunt .continut{
-    height: 80px;
-   
-    /*overflow: hidden;
-    text-overflow:ellipsis;
-    white-space: nowrap;*/
-    overflow: auto;
+    height: 3.6em;
+    line-height: 1.2em;
+    overflow: hidden;
     background-color: white;
     padding-top: 20px;
+    margin-bottom: 20px;
+    
 }
 
-.anunt{
+
+
+.anunt-container .anunt{
+    width: 80%;
     margin-left: 20px;
     margin-top: 20px;
+    padding-bottom: 20px;
 
+}
+
+.anunt-container .anunt > a:last-child{
+    color: #00001c;
+    font-weight: bold;
+    padding: 5px;
+    background-color:#ffe234;
+    text-decoration: none;
+    
 }
 
 .date{
@@ -57,6 +70,9 @@ li{
     align-items: center; /* align vertical */
     flex-direction: column;
 }
+.date > p{
+    text-align:center;
+}
 
 
 .day{
@@ -68,7 +84,7 @@ li{
     background-color: white;
     border-bottom: 1.2px grey solid;
     padding: 5px 5px 15px 2px;
-    width: 50%;
+    width: 80%;
     font-weight: bold;
 }
 
@@ -78,6 +94,7 @@ li{
     -moz-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
     -webkit-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
     margin-left: 20px;
+    height: 100%;
 }
 
 .btn{
