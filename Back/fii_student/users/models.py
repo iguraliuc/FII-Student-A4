@@ -5,6 +5,7 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.models import PermissionsMixin
 
 from .managers import UserManager
 
@@ -15,7 +16,7 @@ ANI_STUDIU = ['-', 'I', 'II', 'III']
 ROLURI = ['-', 'Profesor', 'Student', 'Masterand', 'Doctorand']
 
 
-class FiiUser(AbstractBaseUser):
+class FiiUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), max_length=254, unique=True)
     first_name = models.CharField(_('first name'), max_length=63, blank=True)
     last_name = models.CharField(_('last name'), max_length=63, blank=True)
@@ -25,9 +26,15 @@ class FiiUser(AbstractBaseUser):
     an_studiu = models.CharField(max_length=20, choices=[(x, x) for x in ANI_STUDIU])
     grupa = models.CharField(max_length=20, choices=[(x, x) for x in GRUPE])
     objects = UserManager()
+    is_staff = models.BooleanField(_('staff status'), default=False)
     USERNAME_FIELD = 'email'
     # REQUIRED_FIELDS = ['email', 'first_name', 'user_name', 'rol']
     REQUIRED_FIELDS = []
+
+
+
+    # TODO: OrarPersonalizabil, mainPageCards, other prefferences
+
 
     class Meta:
         verbose_name = _('user')

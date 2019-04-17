@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'news',
     'personaliseApp',
     'users',
-    'resources'
+    'resources',
+    'orar'
 ]
 
 REST_FRAMEWORK = {

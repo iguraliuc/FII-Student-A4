@@ -30,6 +30,8 @@ urlpatterns = [
     path('personaliseApp/', include('personaliseApp.urls')),
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('users/', include('users.urls'))
+    path('users/', include('users.urls')),
+    path('orar/', include('orar.urls')),
+    path('resources/', include('resources.urls'))
 
 ]
