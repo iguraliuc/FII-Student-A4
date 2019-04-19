@@ -2,6 +2,7 @@
 from django.db import models
 
 # from users.models import FiiUser
+from orar.models import Rand
 
 #  -- DUMMY MODELS --
 
@@ -34,11 +35,17 @@ class PersonaliseApp(models.Model):
 
     id = models.AutoField(primary_key=True, verbose_name='ID')  # dunno if needed yet
     student = models.ForeignKey(Student, on_delete=models.CASCADE)  # _id
-    board = models.ForeignKey(Board, on_delete=models.CASCADE)  # _id
+    boards = models.ManyToManyField(Board)  # ), on_delete=models.CASCADE)  # _id
+    classes = models.ManyToManyField(Rand)
 
     class Meta:
         db_table = 'personaliseApp'
         managed = True
 
     def __str__(self):
-        return 'Student[{}] -> Board[{}]'.format(self.student.id, self.board.id)
+        return 'Student[{}] -> Boards[{}]'.format(self.student.id, 0)  # [board.id for board in self.boards.all()])
+
+    def init_orar(self):
+        # search classes
+        # self.boards.add()
+        pass

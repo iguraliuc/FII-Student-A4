@@ -26,7 +26,7 @@ def add_boards_and_get_ids(file_name):
                       description=board['description']
             )
             b.save()
-            b_list.append(b.id)
+            b_list.append(b)
     return b_list
 
 
@@ -44,7 +44,12 @@ def insert_values():
             break
         s = Student(name=list_names[_], surname=list_surnames[_])
         s.save()
-        p = PersonaliseApp(board_id=b_list[random.randrange(0, len(b_list))], student_id=s.id)
+        p = PersonaliseApp(student_id=s.id)
+        p.save()
+        p.boards.add(b_list[random.randrange(0, len(b_list))])
+        p.boards.add(b_list[random.randrange(0, len(b_list))])
+        # p.boards.set(b_list[random.randrange(0, len(b_list))])
+        # p = PersonaliseApp(student_id=s.id)
         p.save()
         pass
 

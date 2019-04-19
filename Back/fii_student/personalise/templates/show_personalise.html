@@ -11,7 +11,7 @@
 <h1>Student id -> Board id</h1>
 <ul>
 {% for perf in objects %}
-    <li id="id{{ forloop.counter }}">{{ perf.student_id }} -> {{ perf.board_id }}</li>
+    <li id="id{{ forloop.counter }}">{{ perf.student_id }} -> {{ perf.boards.all }}</li>
 {% endfor %}
 </ul>
 </body>
