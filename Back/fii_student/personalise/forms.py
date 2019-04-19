@@ -1,13 +1,13 @@
 from django import forms
-from .models import PersonaliseApp
+from .models import Personalise
 
 
-class PersonaliseAppForm(forms.ModelForm):
+class PersonaliseForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
-        super(PersonaliseAppForm, self).__init__(*args, **kwargs)
+        super(PersonaliseForm, self).__init__(*args, **kwargs)
 
     class Meta:
-        model = PersonaliseApp
+        model = Personalise
 
 
 

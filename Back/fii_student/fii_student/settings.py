@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     # Created apps
     'news',
-    'personaliseApp',
+    'personalise',
     'users',
     'resources',
     'orar'

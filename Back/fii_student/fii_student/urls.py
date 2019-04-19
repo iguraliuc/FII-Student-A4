@@ -27,7 +27,7 @@ router.register('news', NewsViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('news/', include('news.urls')),
-    path('personaliseApp/', include('personaliseApp.urls')),
+    path('personalise/', include('personalise.urls')),
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('users/', include('users.urls')),

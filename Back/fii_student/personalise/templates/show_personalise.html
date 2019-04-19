@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     {% load static %}
-    <link href="{% static "personalise_app-style.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "personalise-style.css" %}" rel="stylesheet" type="text/css">
     <title>PersonaliseApp</title>
 </head>
 <body>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 {% csrf_token %}
-<h1>Student id -> Board id</h1>
+<h1>Personalise info</h1>
 <ul>
 {% for perf in objects %}
-    <li id="id{{ forloop.counter }}">{{ perf.student_id }} -> {{ perf.boards.all }}</li>
+    <li id="id{{ forloop.counter }}">Student[id : {{ perf.student_id }}] -> Boards[nr : {{ perf.boards.all.count }}], Classes[nr : {{ perf.classes.all.count }}]</li>
 {% endfor %}
 </ul>
 </body>

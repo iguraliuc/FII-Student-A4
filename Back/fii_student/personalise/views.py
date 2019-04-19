@@ -1,4 +1,4 @@
-from .models import PersonaliseApp, Board
+from .models import Personalise, Board
 from utils import generics
 from django.shortcuts import render
 from django_tables2 import RequestConfig, tables
@@ -8,9 +8,9 @@ from django.db import connection
 import os
 
 
-def show_personalise_app(request):
-    post_url = reverse('personalise_app_show')
-    generic_objects = PersonaliseApp.objects.all()
+def show_personalise(request):
+    post_url = reverse('personalise_show')
+    generic_objects = Personalise.objects.all()
     # filtered_objects = generic_objects
     # filtered = None
     #
@@ -19,9 +19,9 @@ def show_personalise_app(request):
     #
     # tdelta = sum((float(i['time']) for i in connection.queries))
     # setattr(table, 'tdelta', tdelta)
-    return render(request, 'show_personalise_app.html',
+    return render(request, 'show_personalise.html',
                   {'title': 'PersonaliseApp',
-                   'post_url_name': 'personalise_app_show',
+                   'post_url_name': 'personalise_show',
                    'post_url': post_url,
                    'objects': generic_objects,
                    # 'filtered_objects': filtered,
