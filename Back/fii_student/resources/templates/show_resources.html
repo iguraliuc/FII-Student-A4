@@ -10,10 +10,11 @@
 <body>
 <div class="container">
     {% for obj in objects %}
-    <div class="item">
-        <a href="{{obj.url}}">{{obj.title}}</a>
+    <div class="item-container" onclick="location.href='{{obj.url}}';">
+        <div class="item">
+            <a href="{{obj.url}}">{{obj.title}}</a>
+        </div>
     </div>
-    <hr/>
     {% endfor %}
 </div>
 </body>

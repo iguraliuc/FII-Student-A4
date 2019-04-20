@@ -6,9 +6,27 @@
     text-align: center;
 }
 
+.container :hover{
+    background-color:#659df7;
+    border-radius: 5px 30px 30px 5px;
+}
+
+.item-container{
+    background-color: #92bbfc;
+    height: 60px;
+    border-radius: 5px 30px 30px 5px;
+    text-align: center;
+    margin: 5px auto;
+    cursor: pointer;
+    width: 75%;
+}
+
 .item{
-    margin: 20px auto;
-    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+    padding: 5px 10px;
+    font-weight: 600;
 }
 
 .item a:link{
@@ -19,15 +37,23 @@
     color: black;
 }
 
-.item a:hover{
-    text-decoration: underline
-}
-
-.item a:active{
-    color: gray
-    text-decoration: underline
-}
-
 .item a{
-    text-decoration:none
+    text-decoration:none;
+}
+
+@media (max-width: 1180px){
+
+    .item-container{
+        height:80px;
+    }
+
+}
+
+@media (max-width: 731px){
+
+    .item-container{
+        height:100px;
+    width: 150px;
+    }
+
 }

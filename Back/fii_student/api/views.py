@@ -11,6 +11,6 @@ class NewsViewSet(viewsets.ModelViewSet):
 
 
 class PersonaliseAppViewSet(viewsets.ModelViewSet):
-    queryset = PersonaliseApp.objects.all().order_by('-inserted_time')
-    serializer_class = PersonaliseApp
+    queryset = Personalise.objects.all().order_by('-inserted_time')
+    serializer_class = Personalise
 

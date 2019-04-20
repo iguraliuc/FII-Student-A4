@@ -30,6 +30,18 @@ def create_tables():
             VALUES(3, 'Reprezentarea studentilor in structurile de conducere', null, 'http://www.uaic.ro/studenti/reprezentarea-studentilor-structurile-de-conducere-2/', null);
         INSERT INTO resources(log_id, title, timestamp, url, path)
             VALUES(4, 'Orientare in Cariera, Insertie Profesionala si Alumni', null, 'http://www.uaic.ro/studenti/cariera/', null);
+        INSERT INTO resources(log_id, title, timestamp, url, path)
+            VALUES(5, 'Burse', null, 'http://www.uaic.ro/studenti/burse/', null);
+        INSERT INTO resources(log_id, title, timestamp, url, path)
+            VALUES(6, 'Cazare', null, 'http://www.uaic.ro/studenti/cazare/', null);
+        INSERT INTO resources(log_id, title, timestamp, url, path)
+            VALUES(7, 'Mobilitati academice pentru studenti', null, 'http://www.uaic.ro/studenti/mobilitati-academice-pentru-studenti/', null);
+        INSERT INTO resources(log_id, title, timestamp, url, path)
+            VALUES(8, 'Cantinele Universitatii', null, 'http://www.uaic.ro/studenti/cantinele-universitatii-alexandru-ioan-cuza/', null);
+        INSERT INTO resources(log_id, title, timestamp, url, path)
+            VALUES(9, 'Servicii Medicale', null, 'http://www.uaic.ro/studenti/servicii-medicale/', null);
+        INSERT INTO resources(log_id, title, timestamp, url, path)
+            VALUES(10, 'Biblioteci', null, 'http://www.uaic.ro/studenti/biblioteci/', null);
         """
     )
     try:

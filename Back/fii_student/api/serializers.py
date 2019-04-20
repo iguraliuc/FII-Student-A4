@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from news.models import News
-from personaliseApp.models import PersonaliseApp
+from personalise.models import Personalise
 from resources.models import Resources
 
 
@@ -10,9 +10,9 @@ class NewsSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('news_id', 'title', 'body', 'author_name', 'category')
 
 
-class PersonaliseAppSerializer(serializers.HyperlinkedModelSerializer):
+class PersonaliseSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = PersonaliseApp
+        model = Personalise
         fields = None  # to add fields here
 
 
