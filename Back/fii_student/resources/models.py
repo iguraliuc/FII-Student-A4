@@ -6,7 +6,7 @@ class Resources(models.Model):
     title = models.CharField(max_length=128)
     timestamp = models.DateTimeField(auto_now_add=False, blank=True, null=True)
     url = models.TextField()
-    path = models.TextField()
+    content = models.TextField()
 
     class Meta:
         db_table = 'resources'
@@ -15,5 +15,5 @@ class Resources(models.Model):
         return {
             'title': self.title,
             'url': self.url,
-            'path': self.path
+            'content': self.path
         }

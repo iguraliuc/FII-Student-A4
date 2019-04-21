@@ -10,11 +10,19 @@
 <body>
 <div class="container">
     {% for obj in objects %}
-    <div class="item-container" onclick="location.href='{{obj.url}}';">
-        <div class="item">
-            <a href="{{obj.url}}">{{obj.title}}</a>
-        </div>
-    </div>
+        {% if obj.url %}
+            <div class="item-container" onclick="location.href='{{obj.url}}';">
+                <div class="item">
+                    <a href="{{obj.url}}">{{obj.title}}</a>
+                </div>
+            </div>
+        {% else %}
+            <div class="item-container" onclick="location.href='/resources/{{obj.log_id}}';">
+                <div class="item">
+                    <a >{{obj.title}}</a>
+                </div>
+            </div>
+        {% endif %}
     {% endfor %}
 </div>
 </body>

@@ -1,6 +1,7 @@
 from .models import Resources
 from django.shortcuts import render
 from django.urls import reverse
+from django.views.generic import DetailView
 from pprint import pprint
 
 def show_resources(request):
@@ -24,3 +25,13 @@ def show_resources(request):
                    'objects': generic_objects,
                    # 'filter': filtered,
                    })
+
+class ResourceDetail(DetailView):
+    model = Resources
+    # post_url = reverse('news-detail')
+    template_name = "resource-individual.html"
+    pk_url_kwarg = 'log_id'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # context['now'] = timezone.now()
+        return context

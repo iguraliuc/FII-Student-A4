@@ -18,7 +18,7 @@ for it in lista:
     final_dict['site'] = it[0]
     final_dict['title'] = it[1]
 
-    with open("./jsons_link/{}".format(final_dict["title"]), "w", encoding='utf-8') as f:
+    with open("./jsons/{}".format(final_dict["title"]), "w", encoding='utf-8') as f:
         json.dump(final_dict, f, indent=4, ensure_ascii=False)
     f.close()
 
