@@ -17,6 +17,7 @@ dict_ani_studiu = {
     'III': 3
 }
 
+
 class Student(models.Model):
     id = models.AutoField(primary_key=True, verbose_name='ID')
     year = models.IntegerField(default=1)
@@ -44,33 +45,36 @@ class Board(models.Model):
 class Personalise(models.Model):
 
     id = models.AutoField(primary_key=True, verbose_name='ID')  # dunno if needed yet
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)  # _id
-    boards = models.ManyToManyField(Board)  # ), on_delete=models.CASCADE)  # _id
-    classes = models.ManyToManyField(Rand)
+    user = models.ForeignKey(Student, on_delete=models.CASCADE)  # _id
+    boards = models.ManyToManyField(Board)  #, through='PersonaliseBoard')  # ), on_delete=models.CASCADE)  # _id
+    classes = models.ManyToManyField(Rand, through='PersonaliseOrar')
 
     class Meta:
         db_table = 'personalise'
         managed = True
 
     def __str__(self):
-        return 'Student[{}] -> Boards[{}]'.format(self.student.id, 0)  # [board.id for board in self.boards.all()])
+        return 'Student[{}] -> Boards[{}]'.format(self.user.id, 0)  # [board.id for board in self.boards.all()])
 
     def init_orar(self):
-        v_materii = Materie.objects.filter(an=self.student.year)
+        v_materii = Materie.objects.filter(an=self.user.year)
         for v_materie in v_materii:
             v_id = v_materie.id
             for v_rand in Rand.objects.filter(curs=v_id):
-                self.classes.add(v_rand)
+                PersonaliseOrar.objects.create(personalise=self, rand=v_rand)
+                # self.classes.add(v_rand)
 
     def add_class(self, rand):
         if not isinstance(rand, Rand):
             return False
-        self.classes.add(rand)
+        # self.classes.add(rand)
+        PersonaliseOrar.objects.create(personalise=self, rand=rand)
 
     def remove_class(self, rand):
         if not isinstance(rand, Rand):
             return False
-        self.classes.remove(rand)
+        # self.classes.remove(rand)
+        self.classes.delete(rand=rand)
 
     def add_board(self, board):
         if not isinstance(board, Board):
@@ -80,4 +84,16 @@ class Personalise(models.Model):
     def remove_board(self, board):
         if not isinstance(board, Board):
             return False
-        self.boards.add(board)
+        self.boards.remove(board)
+
+
+# intermediate model for extra data in ManyToManyField for personalise -> classes
+class PersonaliseOrar(models.Model):
+    personalise = models.ForeignKey(Personalise, on_delete=models.CASCADE)
+    rand = models.ForeignKey(Rand, on_delete=models.CASCADE)
+    alert = models.BooleanField(default=False, verbose_name='ALERT')
+
+
+class PersonaliseBoard(models.Model):
+    # extra data for each board chosen
+    pass
