@@ -14,9 +14,9 @@
     {% csrf_token %}
     <div class="filtru">
         <button class="button toti active" onclick="filter('Toti')">Toti anii</button>
-        <button class="button anI" onclick="filter('An 1')">An I</button>
-        <button class="button anII" onclick="filter('An 2')">An II</button>
-        <button class="button anIII" onclick="filter('An 3')">An III</button>
+        <button class="button anI" onclick="filter('An I')">An I</button>
+        <button class="button anII" onclick="filter('An II')">An II</button>
+        <button class="button anIII" onclick="filter('An III')">An III</button>
     </div>
     <div class="main">
             {% for board in boards %}
@@ -38,7 +38,7 @@
 
                     <button class="btn verified">Joined!<img src="correct.png"></button>
             </div>
-        {% endfor %}
+            {% endfor %}
     </div>
 
 </body>

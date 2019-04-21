@@ -9,7 +9,9 @@ from orar.models import Rand
 GRUPE = ['-', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7',
          'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7',
          'X1', 'X2', 'X3', 'alta grupa']
+
 ANI_STUDIU = ['-', 'I', 'II', 'III']
+
 dict_ani_studiu = {
     '-': 0,
     'I': 1,
@@ -33,8 +35,8 @@ class Student(models.Model):
 
 class Board(models.Model):
     id = models.AutoField(primary_key=True, verbose_name='ID')
-    year = models.IntegerField(default=1)
-    subject = models.CharField(max_length=255, null=True)
+    year = models.CharField(max_length=20, choices=[(x, x) for x in ANI_STUDIU])
+    subject = models.CharField(max_length=255, null=True, unique=True)
     teacher = models.CharField(max_length=255, null=True)
     description = models.CharField(max_length=2000, null=True)
 

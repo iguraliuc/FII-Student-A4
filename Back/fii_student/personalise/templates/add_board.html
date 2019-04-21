@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Add a new board</title>
+      {% load static %}
+{#    <link href="{% static "add_board.css" %}" rel="stylesheet" type="text/css">#}
+</head>
+<body>
+{% block content %}
+<form class="box" method="post">
+  <h1>Add a new Board</h1>
+    {% csrf_token %}
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    <button type="submit">Add Board</button>
+</form>
+</body>
+{% endblock %}
+</html>

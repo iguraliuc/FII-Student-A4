@@ -24,7 +24,7 @@ def add_boards_and_get_ids(file_name):
         boards = json.load(ff)
         for board in boards:
             b = Board(
-                      year=int(board['year']),
+                      year=board['year'],
                       subject=board['subject'],
                       teacher=board['teacher'],
                       description=board['description']
@@ -37,11 +37,12 @@ def add_boards_and_get_ids(file_name):
 def insert_values():
 
     # clear db
-    Student.objects.all().delete()
+    # Student.objects.all().delete()
     Board.objects.all().delete()
-    Personalise.objects.all().delete()
+    # Personalise.objects.all().delete()
 
     b_list = add_boards_and_get_ids('boards.json')
+    return
     years = [1, 2, 3]
     #  populate db
     for _ in range(nr):
