@@ -45,7 +45,7 @@ class Board(models.Model):
 class Personalise(models.Model):
 
     id = models.AutoField(primary_key=True, verbose_name='ID')  # dunno if needed yet
-    user = models.ForeignKey(Student, on_delete=models.CASCADE)  # _id
+    # user = models.ForeignKey(Student, on_delete=models.CASCADE)  # _id
     boards = models.ManyToManyField(Board)  #, through='PersonaliseBoard')  # ), on_delete=models.CASCADE)  # _id
     classes = models.ManyToManyField(Rand, through='PersonaliseOrar')
 
@@ -54,15 +54,15 @@ class Personalise(models.Model):
         managed = True
 
     def __str__(self):
-        return 'Student[{}] -> Boards[{}]'.format(self.user.id, 0)  # [board.id for board in self.boards.all()])
+        return 'Boards[{}]'.format(0)  # [board.id for board in self.boards.all()])
 
-    def init_orar(self):
-        v_materii = Materie.objects.filter(an=self.user.year)
-        for v_materie in v_materii:
-            v_id = v_materie.id
-            for v_rand in Rand.objects.filter(curs=v_id):
+    def init_orar(self, an, grupa):
+        if an and an != '-' and grupa and grupa != '-' and an in dict_ani_studiu.keys():
+            for v_rand in Rand.objects.filter(an=dict_ani_studiu[an], grupa=grupa):
                 PersonaliseOrar.objects.create(personalise=self, rand=v_rand)
                 # self.classes.add(v_rand)
+            return True
+        return False
 
     def add_class(self, rand):
         if not isinstance(rand, Rand):

@@ -10,7 +10,7 @@ from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
 from .tokens import account_activation_token
-from .models import FiiUser
+from .models import FiiUser, Personalise
 
 
 def signup(request):
@@ -57,6 +57,12 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.email_confirmed = True
         user.save()
+        # init personalise
+        p = Personalise()
+        p.save()
+        p.init_orar(user.an_studiu, user.grupa)
+        user.personalise = p
+
         login(request, user)
         return redirect('landing_page.html')
     else:
