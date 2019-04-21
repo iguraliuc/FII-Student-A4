@@ -4,13 +4,14 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.utils.html import strip_tags
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, logout
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
 from .tokens import account_activation_token
 from .models import FiiUser
+
 
 def signup(request):
     if request.method == 'POST':
@@ -35,7 +36,7 @@ def signup(request):
             })
             user.email_user(subject, message)
 
-            return redirect('/activation_email_sent/')
+            return redirect('/users/activation_email_sent/')
     else:
         form = SignupForm()
     return render(request, 'signup2.html', {'form': form})
@@ -53,9 +54,15 @@ def activate(request, uidb64, token):
         user.email_confirmed = True
         user.save()
         login(request, user)
-        return redirect('/news/')
+        return redirect('')
     else:
-        return render(request, 'account_activation_invalid.html')
+        return render(request, 'activation_email_sent.html')
 
-def account_activation_sent(request):
-    render(request, 'account_activation_sent.html')
+
+def activation_email_sent(request):
+    return render(request, 'activation_email_sent.html')
+
+
+def logout_view(request):
+    logout(request)
+    return render(request, 'landing_page.html')
