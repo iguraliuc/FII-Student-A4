@@ -2,7 +2,7 @@
 from django.db import models
 
 # from users.models import FiiUser
-from orar.models import Rand, Materie
+from orar.models import Rand
 
 #  -- DUMMY MODELS --
 
