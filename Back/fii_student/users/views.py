@@ -26,7 +26,11 @@ def signup(request):
 
             current_site = get_current_site(request)
             subject = 'Activeaza contul FII-Student'
-            uid = urlsafe_base64_encode(force_bytes(user.pk)).decode('utf-8')
+            aux = urlsafe_base64_encode(force_bytes(user.pk))
+            if isinstance(aux, str):
+                uid = aux
+            else:
+                uid = aux.decode('utf-8')
             token = account_activation_token.make_token(user)
             message = render_to_string('activate_account.html', {
                 'user': user,
@@ -54,7 +58,7 @@ def activate(request, uidb64, token):
         user.email_confirmed = True
         user.save()
         login(request, user)
-        return redirect('')
+        return redirect('landing_page.html')
     else:
         return render(request, 'activation_email_sent.html')
 
