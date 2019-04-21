@@ -1,0 +1,560 @@
+{
+    "title": "Informatica, anul 2B",
+    "ore Luni": {
+        "zi": "Luni",
+        "materie 1": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "I2B5,I2B6",
+            "disciplina": "Programare functionala",
+            "tip": "Laborator",
+            "profesor": "Lect. Dr. Arusoaie Andrei",
+            "sala": "C412",
+            "frecventa": "",
+            "pachet": "1"
+        },
+        "materie 2": {
+            "incepe": "12:00",
+            "termina": "14:00",
+            "grupa": "I2",
+            "disciplina": "Modele continue si Matlab",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C112",
+            "frecventa": "",
+            "pachet": "1"
+        },
+        "materie 3": {
+            "incepe": "14:00",
+            "termina": "16:00",
+            "grupa": "I2B5",
+            "disciplina": "Ingineria programarii",
+            "tip": "Laborator",
+            "profesor": "Lect.dr. Moruz Alex",
+            "sala": "C401",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 4": {
+            "incepe": "14:00",
+            "termina": "16:00",
+            "grupa": "I2B1,I2B3,I2B4",
+            "disciplina": "Modele continue si Matlab",
+            "tip": "Laborator",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C210",
+            "frecventa": "",
+            "pachet": "1"
+        },
+        "materie 5": {
+            "incepe": "16:00",
+            "termina": "18:00",
+            "grupa": "I2B2,I2B5,I2B6,I2E1,I2E2",
+            "disciplina": "Modele continue si Matlab",
+            "tip": "Laborator",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C401",
+            "frecventa": "",
+            "pachet": "1"
+        },
+        "materie 6": {
+            "incepe": "16:00",
+            "termina": "18:00",
+            "grupa": "I2B3",
+            "disciplina": "Programare avansata",
+            "tip": "Laborator",
+            "profesor": "Colab. Coca Georgiana",
+            "sala": "C403",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 7": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "I2",
+            "disciplina": "Introducere in criptografie",
+            "tip": "Curs",
+            "profesor": "Prof.dr. Tiplea Ferucio Laurentiu",
+            "sala": "C112 , laptop",
+            "frecventa": "",
+            "pachet": "1"
+        },
+        "materie 8": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "I1,I2,I3",
+            "disciplina": "Matematica pentru concursuri",
+            "tip": "Alte activitati",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C2",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 9": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "I2B4",
+            "disciplina": "Programare avansata",
+            "tip": "Laborator",
+            "profesor": "Manolescu Catalin",
+            "sala": "C409",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Marti": {
+        "zi": "Marti",
+        "materie 1": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "I2B1",
+            "disciplina": "Limba engleza IV",
+            "tip": "Seminar",
+            "profesor": "Colab. Enachescu Cristian",
+            "sala": "C905",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "I2B2",
+            "disciplina": "Programare avansata",
+            "tip": "Laborator",
+            "profesor": "Colab. Gabor Silviu",
+            "sala": "C405",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 3": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "I2B",
+            "disciplina": "Ingineria programarii",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Moruz Alex",
+            "sala": "C309",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 4": {
+            "incepe": "12:00",
+            "termina": "14:00",
+            "grupa": "I2B",
+            "disciplina": "Tehnologii Web",
+            "tip": "Curs",
+            "profesor": "Conf.dr. Buraga Sabin Corneliu",
+            "sala": "C112",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 5": {
+            "incepe": "14:00",
+            "termina": "16:00",
+            "grupa": "I2B1",
+            "disciplina": "Ingineria programarii",
+            "tip": "Laborator",
+            "profesor": "Lect.dr. Moruz Alex",
+            "sala": "C412",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 6": {
+            "incepe": "14:00",
+            "termina": "16:00",
+            "grupa": "I2B4",
+            "disciplina": "Practica SGBD",
+            "tip": "Laborator",
+            "profesor": "Asist. dr. Varlan Simona-Elena",
+            "sala": "C411",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 7": {
+            "incepe": "14:00",
+            "termina": "16:00",
+            "grupa": "I2B2",
+            "disciplina": "Tehnologii Web",
+            "tip": "Laborator",
+            "profesor": "Asist. Panu Andrei",
+            "sala": "C405",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 8": {
+            "incepe": "16:00",
+            "termina": "18:00",
+            "grupa": "I2B6",
+            "disciplina": "Ingineria programarii",
+            "tip": "Laborator",
+            "profesor": "Lect.dr. Moruz Alex",
+            "sala": "C411",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 9": {
+            "incepe": "16:00",
+            "termina": "18:00",
+            "grupa": "I2B1",
+            "disciplina": "Practica SGBD",
+            "tip": "Laborator",
+            "profesor": "Asist. dr. Varlan Simona-Elena",
+            "sala": "C413",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 10": {
+            "incepe": "16:00",
+            "termina": "20:00",
+            "grupa": "I1,I2,I3",
+            "disciplina": "Programare competitiva II, facultativ, pregatire olimpiada",
+            "tip": "Curs",
+            "profesor": "drd. Diac Paul Colab. Ionita Alexandru",
+            "sala": "C412",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Miercuri": {
+        "zi": "Miercuri",
+        "materie 1": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "I2B",
+            "disciplina": "Practica SGBD",
+            "tip": "Curs",
+            "profesor": "Asist. dr. Varlan Simona-Elena",
+            "sala": "C112 , laptop",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "I2B2",
+            "disciplina": "Ingineria programarii",
+            "tip": "Laborator",
+            "profesor": "Lect. dr. Pistol Ionut",
+            "sala": "C401",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 3": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "I2B1",
+            "disciplina": "Tehnologii Web",
+            "tip": "Laborator",
+            "profesor": "Colab. Pavaloi Alexandru",
+            "sala": "C409",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 4": {
+            "incepe": "12:00",
+            "termina": "14:00",
+            "grupa": "I2",
+            "disciplina": "Antreprenoriat si inovare in IT",
+            "tip": "Curs",
+            "profesor": "Conf.dr. Forascu Corina",
+            "sala": "C309",
+            "frecventa": "",
+            "pachet": "1"
+        },
+        "materie 5": {
+            "incepe": "12:00",
+            "termina": "14:00",
+            "grupa": "I2B3",
+            "disciplina": "Ingineria programarii",
+            "tip": "Laborator",
+            "profesor": "Lect. dr. Pistol Ionut",
+            "sala": "C401",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 6": {
+            "incepe": "12:00",
+            "termina": "14:00",
+            "grupa": "I2B2",
+            "disciplina": "Practica SGBD",
+            "tip": "Laborator",
+            "profesor": "Asist. dr. Varlan Simona-Elena",
+            "sala": "C413",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 7": {
+            "incepe": "14:00",
+            "termina": "16:00",
+            "grupa": "I2A1,I2B",
+            "disciplina": "Antreprenoriat si inovare in IT",
+            "tip": "Seminar",
+            "profesor": "Conf.dr. Forascu Corina",
+            "sala": "C905",
+            "frecventa": "",
+            "pachet": "1"
+        },
+        "materie 8": {
+            "incepe": "14:00",
+            "termina": "16:00",
+            "grupa": "I2",
+            "disciplina": "Modele continue si Matlab",
+            "tip": "Consultatii",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C2",
+            "frecventa": "",
+            "pachet": "1"
+        },
+        "materie 9": {
+            "incepe": "14:00",
+            "termina": "16:00",
+            "grupa": "I2",
+            "disciplina": "Programare functionala",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Ciobaca Stefan",
+            "sala": "C112",
+            "frecventa": "",
+            "pachet": "1"
+        },
+        "materie 10": {
+            "incepe": "14:00",
+            "termina": "16:00",
+            "grupa": "I2B3",
+            "disciplina": "Tehnologii Web",
+            "tip": "Laborator",
+            "profesor": "Colab. Pavaloi Alexandru",
+            "sala": "C405",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 11": {
+            "incepe": "16:00",
+            "termina": "18:00",
+            "grupa": "I2B5",
+            "disciplina": "Practica SGBD",
+            "tip": "Laborator",
+            "profesor": "Asist. dr. Varlan Simona-Elena",
+            "sala": "C405",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Joi": {
+        "zi": "Joi",
+        "materie 1": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "I2A1,I2B4,I2B5,I2B6",
+            "disciplina": "Introducere in criptografie",
+            "tip": "Laborator",
+            "profesor": "Asist. drd. Nica Anca-Maria",
+            "sala": "C308",
+            "frecventa": "",
+            "pachet": "1"
+        },
+        "materie 2": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "I2B",
+            "disciplina": "Programare avansata",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Frasinaru Cristian",
+            "sala": "C112 , laptop",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 3": {
+            "incepe": "12:00",
+            "termina": "14:00",
+            "grupa": "I1A5,I2A6,I2B1,I2B2,I2B3,I2E2",
+            "disciplina": "Introducere in criptografie",
+            "tip": "Laborator",
+            "profesor": "Lect.dr. Iftene Sorin",
+            "sala": "C308",
+            "frecventa": "",
+            "pachet": "1"
+        },
+        "materie 4": {
+            "incepe": "14:00",
+            "termina": "16:00",
+            "grupa": "I2B3",
+            "disciplina": "Practica SGBD",
+            "tip": "Laborator",
+            "profesor": "Asist. dr. Varlan Simona-Elena",
+            "sala": "C412",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 5": {
+            "incepe": "14:00",
+            "termina": "16:00",
+            "grupa": "I2B1",
+            "disciplina": "Programare avansata",
+            "tip": "Laborator",
+            "profesor": "Lect.dr. Frasinaru Cristian",
+            "sala": "C411",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 6": {
+            "incepe": "16:00",
+            "termina": "18:00",
+            "grupa": "I2B6",
+            "disciplina": "Practica SGBD",
+            "tip": "Laborator",
+            "profesor": "Asist. dr. Varlan Simona-Elena",
+            "sala": "C413",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Vineri": {
+        "zi": "Vineri",
+        "materie 1": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "I2B4",
+            "disciplina": "Ingineria programarii",
+            "tip": "Laborator",
+            "profesor": "Colab. Olariu Florin",
+            "sala": "C403",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "I2B2",
+            "disciplina": "Limba engleza IV",
+            "tip": "Seminar",
+            "profesor": "drd. Perez Cenel Augusto",
+            "sala": "C903",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 3": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "I2B3",
+            "disciplina": "Limba engleza IV",
+            "tip": "Seminar",
+            "profesor": "drd. Perez Cenel Augusto",
+            "sala": "C909",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 4": {
+            "incepe": "12:00",
+            "termina": "14:00",
+            "grupa": "I2B5",
+            "disciplina": "Limba engleza IV",
+            "tip": "Seminar",
+            "profesor": "drd. Perez Cenel Augusto",
+            "sala": "C909",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 5": {
+            "incepe": "12:00",
+            "termina": "14:00",
+            "grupa": "I2B4",
+            "disciplina": "Tehnologii Web",
+            "tip": "Laborator",
+            "profesor": "Coman Alexandru",
+            "sala": "C409",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 6": {
+            "incepe": "14:00",
+            "termina": "16:00",
+            "grupa": "I2B6",
+            "disciplina": "Limba engleza IV",
+            "tip": "Seminar",
+            "profesor": "drd. Perez Cenel Augusto",
+            "sala": "C905",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 7": {
+            "incepe": "14:00",
+            "termina": "16:00",
+            "grupa": "I2B1,I2B2,I2B3,I2B4",
+            "disciplina": "Programare functionala",
+            "tip": "Laborator",
+            "profesor": "Colab. Rusu Radu",
+            "sala": "C403",
+            "frecventa": "",
+            "pachet": "1"
+        },
+        "materie 8": {
+            "incepe": "16:00",
+            "termina": "18:00",
+            "grupa": "I2B4",
+            "disciplina": "Limba engleza IV",
+            "tip": "Seminar",
+            "profesor": "drd. Perez Cenel Augusto",
+            "sala": "C905",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 9": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "I2B",
+            "disciplina": "Didactica informaticii",
+            "tip": "Seminar",
+            "profesor": "Colab. Tibu Mirela",
+            "sala": "C909",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Sambata": {
+        "zi": "Sambata",
+        "materie 1": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "I2B6",
+            "disciplina": "Programare avansata",
+            "tip": "Laborator",
+            "profesor": "Colab. Cusmuliuc Ciprian",
+            "sala": "C403",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "I2B5",
+            "disciplina": "Tehnologii Web",
+            "tip": "Laborator",
+            "profesor": "Coman Alexandru",
+            "sala": "C409",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 3": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "I2B5",
+            "disciplina": "Programare avansata",
+            "tip": "Laborator",
+            "profesor": "Colab. Cusmuliuc Ciprian",
+            "sala": "C403",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 4": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "I2B6",
+            "disciplina": "Tehnologii Web",
+            "tip": "Laborator",
+            "profesor": "Coman Alexandru",
+            "sala": "C409",
+            "frecventa": "",
+            "pachet": ""
+        }
+    }
+}

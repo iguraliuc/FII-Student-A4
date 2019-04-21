@@ -1,0 +1,92 @@
+{
+    "title": "Master lingvistica computationala, anul 2",
+    "ore Marti": {
+        "zi": "Marti",
+        "materie 1": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "",
+            "disciplina": "Aplicatii ale prelucrarii limbajului natural",
+            "tip": "Curs",
+            "profesor": "Conf.dr. Forascu Corina",
+            "sala": "C412",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "",
+            "disciplina": "Aplicatii ale prelucrarii limbajului natural",
+            "tip": "Seminar",
+            "profesor": "Conf.dr. Forascu Corina",
+            "sala": "C903",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Joi": {
+        "zi": "Joi",
+        "materie 1": {
+            "incepe": "16:00",
+            "termina": "18:00",
+            "grupa": "",
+            "disciplina": "Metode de invatare aplicate limbajului natural",
+            "tip": "Curs",
+            "profesor": "Conf.dr. Forascu Corina Colab. Oniciuc Oriana",
+            "sala": "C903 , Videoproiector+Laptop",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "",
+            "disciplina": "Metode de invatare aplicate limbajului natural",
+            "tip": "Seminar",
+            "profesor": "Conf.dr. Forascu Corina Colab. Oniciuc Oriana",
+            "sala": "C903 , Videoproiector+Laptop",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Vineri": {
+        "zi": "Vineri",
+        "materie 1": {
+            "incepe": "12:00",
+            "termina": "14:00",
+            "grupa": "",
+            "disciplina": "Cerc NLP",
+            "tip": "Cerc stiintific",
+            "profesor": "Prof.dr. Cristea Dan drd. Diac Paul Cerc. Dr. Gifu Daniela Conf. dr. Iftene Adrian Lect.dr. Moruz Alex Lect. dr. Pistol Ionut Conf. dr. Trandabat Diana",
+            "sala": "C210",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Sambata": {
+        "zi": "Sambata",
+        "materie 1": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "",
+            "disciplina": "Prelucrarea vorbirii si sisteme fuzzy",
+            "tip": "Curs",
+            "profesor": "Prof.dr. Teodorescu Horia",
+            "sala": "C411",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "",
+            "disciplina": "Prelucrarea vorbirii si sisteme fuzzy",
+            "tip": "Seminar",
+            "profesor": "Prof.dr. Teodorescu Horia",
+            "sala": "C411",
+            "frecventa": "",
+            "pachet": ""
+        }
+    }
+}

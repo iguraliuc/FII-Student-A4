@@ -1,0 +1,194 @@
+{
+    "title": "Informatica, anul 1A, grupa 3",
+    "ore Luni": {
+        "zi": "Luni",
+        "materie 1": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "",
+            "disciplina": "Sisteme de operare",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Vidrascu Cristian",
+            "sala": "C309 , laptop",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "12:00",
+            "termina": "14:00",
+            "grupa": "",
+            "disciplina": "Fundamente algebrice ale informaticii",
+            "tip": "Curs",
+            "profesor": "Prof.dr. Tiplea Ferucio Laurentiu",
+            "sala": "C2 , laptop , Videoproiector+Laptop",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 3": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "",
+            "disciplina": "Limba engleza II",
+            "tip": "Seminar",
+            "profesor": "Lect. dr. Onofrei Paula",
+            "sala": "C909",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 4": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "",
+            "disciplina": "Matematica pentru concursuri",
+            "tip": "Alte activitati",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C2",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Marti": {
+        "zi": "Marti",
+        "materie 1": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "",
+            "disciplina": "Programare orientata-obiect",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Gavrilut Dragos Prof.dr. Lucanu Dorel",
+            "sala": "C2 , laptop",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "",
+            "disciplina": "Probabilitati si statistica",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Zalinescu Adrian",
+            "sala": "C112 , laptop",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 3": {
+            "incepe": "14:00",
+            "termina": "16:00",
+            "grupa": "",
+            "disciplina": "Proiectarea algoritmilor",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Ciobaca Stefan Prof.dr. Lucanu Dorel",
+            "sala": "C2 , laptop",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 4": {
+            "incepe": "16:00",
+            "termina": "18:00",
+            "grupa": "",
+            "disciplina": "Pedagogie",
+            "tip": "Seminar",
+            "profesor": "Tatarusanu Florin",
+            "sala": "C903",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 5": {
+            "incepe": "16:00",
+            "termina": "20:00",
+            "grupa": "",
+            "disciplina": "Programare competitiva II, facultativ, pregatire olimpiada",
+            "tip": "Curs",
+            "profesor": "drd. Diac Paul Colab. Ionita Alexandru",
+            "sala": "C412",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Miercuri": {
+        "zi": "Miercuri",
+        "materie 1": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "",
+            "disciplina": "Proiectarea algoritmilor",
+            "tip": "Seminar",
+            "profesor": "Lect. Dr. Condurache Rodica",
+            "sala": "C905",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "12:00",
+            "termina": "14:00",
+            "grupa": "",
+            "disciplina": "Fundamente algebrice ale informaticii",
+            "tip": "Seminar",
+            "profesor": "Asist. drd. Nica Anca-Maria",
+            "sala": "C903",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Joi": {
+        "zi": "Joi",
+        "materie 1": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "",
+            "disciplina": "Etica si integritate academica",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Trandabat Diana",
+            "sala": "C905",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "",
+            "disciplina": "Programare orientata-obiect",
+            "tip": "Laborator",
+            "profesor": "Colab. Timcu Tudor",
+            "sala": "C409",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Vineri": {
+        "zi": "Vineri",
+        "materie 1": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "",
+            "disciplina": "Pedagogie",
+            "tip": "Curs",
+            "profesor": "Lect. Dr. Apostolache Roxana",
+            "sala": "C308",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "16:00",
+            "termina": "18:00",
+            "grupa": "",
+            "disciplina": "Probabilitati si statistica",
+            "tip": "Laborator",
+            "profesor": "Colab. Dr. Spiridonica Alexandru",
+            "sala": "C409",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 3": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "",
+            "disciplina": "Sisteme de operare",
+            "tip": "Laborator",
+            "profesor": "Colab. Rusu Bogdan",
+            "sala": "C409",
+            "frecventa": "",
+            "pachet": ""
+        }
+    }
+}

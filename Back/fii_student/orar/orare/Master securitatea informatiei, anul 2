@@ -1,0 +1,45 @@
+{
+    "title": "Master securitatea informatiei, anul 2",
+    "ore Marti": {
+        "zi": "Marti",
+        "materie 1": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "",
+            "disciplina": "Logici de incredere in securitatea informatiei",
+            "tip": "Curs",
+            "profesor": "Prof.dr. Masalagiu Cristian",
+            "sala": "C308",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Joi": {
+        "zi": "Joi",
+        "materie 1": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "",
+            "disciplina": "Logici de incredere in securitatea informatiei",
+            "tip": "Seminar",
+            "profesor": "Prof.dr. Masalagiu Cristian",
+            "sala": "C308",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Vineri": {
+        "zi": "Vineri",
+        "materie 1": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "",
+            "disciplina": "Metode bioinformatice in securitate",
+            "tip": "Curs",
+            "profesor": "Prof.dr. Tiplea Ferucio Laurentiu",
+            "sala": "",
+            "frecventa": "",
+            "pachet": ""
+        }
+    }
+}

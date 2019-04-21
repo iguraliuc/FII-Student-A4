@@ -1,0 +1,161 @@
+{
+    "title": "Master optimizare computationala, anul 1",
+    "ore Luni": {
+        "zi": "Luni",
+        "materie 1": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "",
+            "disciplina": "Aspecte pragmatice pentru ingineria serviciilor cloud: arhitecturi, procese si practici",
+            "tip": "Curs",
+            "profesor": "",
+            "sala": "",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "16:00",
+            "termina": "18:00",
+            "grupa": "",
+            "disciplina": "Calitatea sistemelor software",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Radulescu Vlad",
+            "sala": "C308",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 3": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "",
+            "disciplina": "Calitatea sistemelor software",
+            "tip": "Laborator",
+            "profesor": "Lect.dr. Radulescu Vlad",
+            "sala": "C210",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 4": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "",
+            "disciplina": "Data Mining",
+            "tip": "Laborator",
+            "profesor": "Conf. dr. Breaban Mihaela",
+            "sala": "C308",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Marti": {
+        "zi": "Marti",
+        "materie 1": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "",
+            "disciplina": "Metode inspirate din natura",
+            "tip": "Laborator",
+            "profesor": "Conf. dr. Breaban Mihaela",
+            "sala": "C403",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "10:00",
+            "termina": "14:00",
+            "grupa": "",
+            "disciplina": "Data Mining",
+            "tip": "Curs",
+            "profesor": "Prof.dr. Luchian Henri",
+            "sala": "C308 , laptop",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Miercuri": {
+        "zi": "Miercuri",
+        "materie 1": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "",
+            "disciplina": "Aspecte pragmatice pentru ingineria serviciilor cloud: arhitecturi, procese si practici",
+            "tip": "Laborator",
+            "profesor": "",
+            "sala": "",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "10:00",
+            "termina": "14:00",
+            "grupa": "",
+            "disciplina": "Metode inspirate din natura",
+            "tip": "Curs",
+            "profesor": "Prof.dr. Luchian Henri",
+            "sala": "C308 , laptop",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Joi": {
+        "zi": "Joi",
+        "materie 1": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "",
+            "disciplina": "Interactiune om-calculator",
+            "tip": "Laborator",
+            "profesor": "Colab. Grigoriu Alecsandru",
+            "sala": "C401",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "12:00",
+            "termina": "14:00",
+            "grupa": "",
+            "disciplina": "Interactiune om-calculator",
+            "tip": "Curs",
+            "profesor": "Conf.dr. Buraga Sabin Corneliu",
+            "sala": "C309",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 3": {
+            "incepe": "16:00",
+            "termina": "18:00",
+            "grupa": "",
+            "disciplina": "Capitole speciale de invatare automata",
+            "tip": "Curs",
+            "profesor": "Conf.dr. Ciortuz Liviu",
+            "sala": "C112",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 4": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "",
+            "disciplina": "Capitole speciale de invatare automata",
+            "tip": "Seminar",
+            "profesor": "Conf.dr. Ciortuz Liviu",
+            "sala": "C112",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Vineri": {
+        "zi": "Vineri",
+        "materie 1": {
+            "incepe": "12:00",
+            "termina": "14:00",
+            "grupa": "",
+            "disciplina": "Capitole speciale de invatare automata",
+            "tip": "Seminar",
+            "profesor": "Conf.dr. Ciortuz Liviu",
+            "sala": "C413",
+            "frecventa": "",
+            "pachet": ""
+        }
+    }
+}

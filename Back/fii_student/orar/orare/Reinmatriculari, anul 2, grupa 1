@@ -1,0 +1,136 @@
+{
+    "title": "Reinmatriculari, anul 2, grupa 1",
+    "ore Luni": {
+        "zi": "Luni",
+        "materie 1": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "",
+            "disciplina": "Ingineria programarii",
+            "tip": "Laborator",
+            "profesor": "Lect.dr. Moruz Alex",
+            "sala": "C409",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "12:00",
+            "termina": "14:00",
+            "grupa": "",
+            "disciplina": "Modele continue si Matlab",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C112",
+            "frecventa": "",
+            "pachet": "1"
+        },
+        "materie 3": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "",
+            "disciplina": "Introducere in criptografie",
+            "tip": "Curs",
+            "profesor": "Prof.dr. Tiplea Ferucio Laurentiu",
+            "sala": "C112 , laptop",
+            "frecventa": "",
+            "pachet": "1"
+        },
+        "materie 4": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "",
+            "disciplina": "Matematica pentru concursuri",
+            "tip": "Alte activitati",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C2",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Marti": {
+        "zi": "Marti",
+        "materie 1": {
+            "incepe": "16:00",
+            "termina": "20:00",
+            "grupa": "",
+            "disciplina": "Programare competitiva II, facultativ, pregatire olimpiada",
+            "tip": "Curs",
+            "profesor": "drd. Diac Paul Colab. Ionita Alexandru",
+            "sala": "C412",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "18:00",
+            "termina": "20:00",
+            "grupa": "",
+            "disciplina": "Programare avansata",
+            "tip": "Laborator",
+            "profesor": "Lect.dr. Frasinaru Cristian",
+            "sala": "C401",
+            "frecventa": "",
+            "pachet": ""
+        }
+    },
+    "ore Miercuri": {
+        "zi": "Miercuri",
+        "materie 1": {
+            "incepe": "08:00",
+            "termina": "10:00",
+            "grupa": "",
+            "disciplina": "Practica SGBD",
+            "tip": "Laborator",
+            "profesor": "Lect. dr. Varlan Cosmin",
+            "sala": "C405",
+            "frecventa": "",
+            "pachet": ""
+        },
+        "materie 2": {
+            "incepe": "12:00",
+            "termina": "14:00",
+            "grupa": "",
+            "disciplina": "Antreprenoriat si inovare in IT",
+            "tip": "Curs",
+            "profesor": "Conf.dr. Forascu Corina",
+            "sala": "C309",
+            "frecventa": "",
+            "pachet": "1"
+        },
+        "materie 3": {
+            "incepe": "14:00",
+            "termina": "16:00",
+            "grupa": "",
+            "disciplina": "Modele continue si Matlab",
+            "tip": "Consultatii",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C2",
+            "frecventa": "",
+            "pachet": "1"
+        },
+        "materie 4": {
+            "incepe": "14:00",
+            "termina": "16:00",
+            "grupa": "",
+            "disciplina": "Programare functionala",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Ciobaca Stefan",
+            "sala": "C112",
+            "frecventa": "",
+            "pachet": "1"
+        }
+    },
+    "ore Vineri": {
+        "zi": "Vineri",
+        "materie 1": {
+            "incepe": "10:00",
+            "termina": "12:00",
+            "grupa": "",
+            "disciplina": "Tehnologii Web",
+            "tip": "Laborator",
+            "profesor": "Colab. Amariei Ciprian",
+            "sala": "C403",
+            "frecventa": "",
+            "pachet": ""
+        }
+    }
+}
