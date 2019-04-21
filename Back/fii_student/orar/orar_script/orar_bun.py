@@ -104,7 +104,8 @@ def get_orare(site, title):
                 subject_dict['curs'] = item[i][3]
                 subject_dict['tip'] = item[i][4]
                 subject_dict['profesor'] = re.sub('\s+', ' ', item[i][5]).strip()
-                subject_dict['sala'] = re.sub('\s+', ' ', item[i][6]).strip()
+                subject_dict['sala'] = re.sub('\s+', ' ', item[i][6]).strip().split(',')[0].strip()
+                print(subject_dict['sala'])
                 # subject_dict['frecventa'] = item[i][7]
                 subject_dict['pachet'] = item[i][8]
                 subject_dict['zi'] = item[0][0].split(' ')[0]
@@ -115,7 +116,8 @@ def get_orare(site, title):
                 subject_dict['curs'] = item[i][2]
                 subject_dict['tip'] = item[i][3]
                 subject_dict['profesor'] = re.sub('\s+', ' ', item[i][4]).strip()
-                subject_dict['sala'] = re.sub('\s+', ' ', item[i][5]).strip()
+                subject_dict['sala'] = re.sub('\s+', ' ', item[i][5]).strip().split(',')[0].strip()
+                print(subject_dict['sala'])
                 # subject_dict['frecventa'] = item[i][6]
                 subject_dict['pachet'] = item[i][7]
                 subject_dict['zi'] = item[0][0].split(' ')[0]
