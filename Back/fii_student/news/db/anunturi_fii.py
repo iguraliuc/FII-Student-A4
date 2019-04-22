@@ -5,7 +5,7 @@ import json
 BASE_URL = r'https://www.info.uaic.ro/announcement_student/'
 
 
-def get_anouncements():
+def get_announcements_fii():
 
     response = requests.get(BASE_URL, verify=False)
     data = response.text
@@ -32,8 +32,7 @@ def create_date_anon(data):
 
 def create_json(item):
 
-    final_dict = {}
-    final_dict["date"] = item[0]
+    final_dict = {"date": item[0], 'source': 'FII'}
     response = requests.get(item[1], verify=False)
     data = response.text
     # print(type(data))
@@ -52,4 +51,4 @@ def create_json(item):
 
 
 
-get_anouncements()
+get_announcements_fii()

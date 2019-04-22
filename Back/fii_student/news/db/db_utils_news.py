@@ -1,7 +1,7 @@
 import psycopg2
 from utils.config import config
 from news.db.populate_db import get_real_data
-from news.db.anunturi_crawler import get_anouncements
+from news.db.anunturi_fii import get_announcements_fii
 """ create tables in the PostgreSQL database"""
 
 
@@ -28,7 +28,7 @@ def create_tables():
         # """
         ]
     try:
-        get_anouncements()
+        get_announcements_fii()
         commands += get_real_data()
         # read the connection parameters
         params = config()

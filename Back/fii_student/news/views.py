@@ -6,7 +6,7 @@ from django.views.generic import DetailView
 from django.contrib.auth.decorators import login_required
 
 
-@login_required
+# @login_required
 def show_news(request):
     post_url = reverse('news_show')
     generic_objects = News.objects.all()
