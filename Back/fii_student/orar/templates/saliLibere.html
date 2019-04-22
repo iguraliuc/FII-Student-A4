@@ -19,45 +19,7 @@
                               <button type="submit" name="An" value="An">Structura anului universitar</button>
                               <button type="submit" name="An" value="An" onclick="location.href='http:?sali_libere_acum=-';">Sali libere acum</button>
                               <button type="submit" name="An" value="An" onclick="location.href='/orar/program_sali/';">Disponibilitate sali</button>
-                         </div>
-
-                         <div id="selectTags">
-                            <form action="" method="">
-                                   <select name="materie" onchange="this.form.submit();">
-                                        <option value="">--Materie--</option>
-                                       {% for curs in cursuri %}
-                                       <option value="{{curs}}">{{curs}}</option>
-                                       {% endfor %}
-                                   </select>
-                              </form>
-
-                              <form action="" method="">
-                                   <select name="grupa" onchange="this.form.submit();">
-                                        <option value="">--Grupa--</option>
-                                       {% for grupa in grupe %}
-                                       <option value="{{grupa}}">{{grupa}}</option>
-                                       {% endfor %}
-                                   </select>
-                              </form>
-
-                              <form action="" method="">
-                                   <select name="Profesor" onchange="this.form.submit();">
-                                        <option value="">--Profesor--</option>
-                                       {% for sala in sali %}
-                                       <option value="{{sala}}">{{sala}}</option>
-                                       {% endfor %}
-
-                                   </select>
-                              </form>
-
-                              <form action="" method="">
-                                   <select name="sala" onchange="this.form.submit();">
-                                        <option value="">--Sala--</option>
-                                        {% for sala in sali %}
-                                       <option value="{{sala}}">{{sala}}</option>
-                                       {% endfor %}
-                                   </select>
-                              </form>
+                             <button type="submit" name="An" value="An" onclick="location.href='/orar?grupa=I2A4';">Back</button>
                          </div>
                </article>
 
