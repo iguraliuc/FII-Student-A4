@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          {% load static %}
+     	<title>Orar</title>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <link rel="stylesheet" type="text/css" href="{% static './css/bootstrap.min.css' %}">
+          <link rel="stylesheet" type="text/css" href="{% static 'saliLibere.css' %}">
+     </head>
+
+     <body>
+          <section>
+               <h1>Sali libere acum</h1>
+
+                      <article id="form">
+                         <div id="buttons">
+                              <button type="submit" name="Examene" value="Examene">Examene</button>
+                              <button type="submit" name="An" value="An">Structura anului universitar</button>
+                              <button type="submit" name="An" value="An" onclick="location.href='http:?sali_libere_acum=-';">Sali libere acum</button>
+                              <button type="submit" name="An" value="An" onclick="location.href='/orar/program_sali/';">Disponibilitate sali</button>
+                         </div>
+
+                         <div id="selectTags">
+                            <form action="" method="">
+                                   <select name="materie" onchange="this.form.submit();">
+                                        <option value="">--Materie--</option>
+                                       {% for curs in cursuri %}
+                                       <option value="{{curs}}">{{curs}}</option>
+                                       {% endfor %}
+                                   </select>
+                              </form>
+
+                              <form action="" method="">
+                                   <select name="grupa" onchange="this.form.submit();">
+                                        <option value="">--Grupa--</option>
+                                       {% for grupa in grupe %}
+                                       <option value="{{grupa}}">{{grupa}}</option>
+                                       {% endfor %}
+                                   </select>
+                              </form>
+
+                              <form action="" method="">
+                                   <select name="Profesor" onchange="this.form.submit();">
+                                        <option value="">--Profesor--</option>
+                                       {% for sala in sali %}
+                                       <option value="{{sala}}">{{sala}}</option>
+                                       {% endfor %}
+
+                                   </select>
+                              </form>
+
+                              <form action="" method="">
+                                   <select name="sala" onchange="this.form.submit();">
+                                        <option value="">--Sala--</option>
+                                        {% for sala in sali %}
+                                       <option value="{{sala}}">{{sala}}</option>
+                                       {% endfor %}
+                                   </select>
+                              </form>
+                         </div>
+               </article>
+
+               <article>
+                    <div class="grid-container">
+                         {% for rand in randuri %}
+                         <div class="grid-item">{{rand.sala}}</div>
+                         {% endfor %}
+                    </div>
+               </article>
+          </section>
+     </body>
+</html>

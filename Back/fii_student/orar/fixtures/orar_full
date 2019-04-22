@@ -3183,6 +3183,486 @@
         "model": "orar.Rand",
         "pk": 213,
         "fields": {
+            "ora_inceput": "12:00",
+            "ora_sfarsit": "14:00",
+            "grupa": "I1X1",
+            "curs": "Sisteme de operare",
+            "tip": "Laborator",
+            "profesor": "Lect.dr. Vidrascu Cristian",
+            "sala": "C411",
+            "pachet": "",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 214,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I1X1",
+            "curs": "Matematica pentru concursuri",
+            "tip": "Alte activitati",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C2",
+            "pachet": "",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 215,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I1X1",
+            "curs": "Programare orientata-obiect",
+            "tip": "Laborator",
+            "profesor": "Colab. Citea Alexandru",
+            "sala": "C413",
+            "pachet": "",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 216,
+        "fields": {
+            "ora_inceput": "16:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I1X1",
+            "curs": "Programare competitiva II, facultativ, pregatire olimpiada",
+            "tip": "Curs",
+            "profesor": "drd. Diac Paul Colab. Ionita Alexandru",
+            "sala": "C412",
+            "pachet": "",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 217,
+        "fields": {
+            "ora_inceput": "10:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I1X1",
+            "curs": "Etica si integritate academica",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Trandabat Diana",
+            "sala": "C905",
+            "pachet": "",
+            "zi": "Joi"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 218,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I1X1",
+            "curs": "Pedagogie",
+            "tip": "Curs",
+            "profesor": "Lect. Dr. Apostolache Roxana",
+            "sala": "C308",
+            "pachet": "",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 219,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I1X1",
+            "curs": "Proiectarea algoritmilor",
+            "tip": "Seminar",
+            "profesor": "Lect. dr. Patrut Bogdan",
+            "sala": "C905",
+            "pachet": "",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 220,
+        "fields": {
+            "ora_inceput": "12:00",
+            "ora_sfarsit": "14:00",
+            "grupa": "I1X1",
+            "curs": "Fundamente algebrice ale informaticii",
+            "tip": "Seminar",
+            "profesor": "Voicu Maria",
+            "sala": "C903",
+            "pachet": "",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 221,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I1X2",
+            "curs": "Matematica pentru concursuri",
+            "tip": "Alte activitati",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C2",
+            "pachet": "",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 222,
+        "fields": {
+            "ora_inceput": "16:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I1X2",
+            "curs": "Programare competitiva II, facultativ, pregatire olimpiada",
+            "tip": "Curs",
+            "profesor": "drd. Diac Paul Colab. Ionita Alexandru",
+            "sala": "C412",
+            "pachet": "",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 223,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I1X2",
+            "curs": "Proiectarea algoritmilor",
+            "tip": "Seminar",
+            "profesor": "Lect. Dr. Condurache Rodica",
+            "sala": "C114",
+            "pachet": "",
+            "zi": "Joi"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 224,
+        "fields": {
+            "ora_inceput": "10:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I1X2",
+            "curs": "Etica si integritate academica",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Trandabat Diana",
+            "sala": "C905",
+            "pachet": "",
+            "zi": "Joi"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 225,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I1X2",
+            "curs": "Pedagogie",
+            "tip": "Curs",
+            "profesor": "Lect. Dr. Apostolache Roxana",
+            "sala": "C308",
+            "pachet": "",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 226,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I1X2",
+            "curs": "Programare orientata-obiect",
+            "tip": "Laborator",
+            "profesor": "Colab. Balan Gheorghe",
+            "sala": "C409",
+            "pachet": "",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 227,
+        "fields": {
+            "ora_inceput": "14:00",
+            "ora_sfarsit": "16:00",
+            "grupa": "I1X2",
+            "curs": "Fundamente algebrice ale informaticii",
+            "tip": "Seminar",
+            "profesor": "Voicu Maria",
+            "sala": "C909",
+            "pachet": "",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 228,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I1X3",
+            "curs": "Matematica pentru concursuri",
+            "tip": "Alte activitati",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C2",
+            "pachet": "",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 229,
+        "fields": {
+            "ora_inceput": "16:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I1X3",
+            "curs": "Programare competitiva II, facultativ, pregatire olimpiada",
+            "tip": "Curs",
+            "profesor": "drd. Diac Paul Colab. Ionita Alexandru",
+            "sala": "C412",
+            "pachet": "",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 230,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I1X3",
+            "curs": "Proiectarea algoritmilor",
+            "tip": "Seminar",
+            "profesor": "Lect. Dr. Condurache Rodica",
+            "sala": "C905",
+            "pachet": "",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 231,
+        "fields": {
+            "ora_inceput": "10:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I1X3",
+            "curs": "Programare orientata-obiect",
+            "tip": "Laborator",
+            "profesor": "Colab. Lupascu Marilena",
+            "sala": "C403",
+            "pachet": "",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 232,
+        "fields": {
+            "ora_inceput": "10:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I1X3",
+            "curs": "Etica si integritate academica",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Trandabat Diana",
+            "sala": "C905",
+            "pachet": "",
+            "zi": "Joi"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 233,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I1X3",
+            "curs": "Pedagogie",
+            "tip": "Curs",
+            "profesor": "Lect. Dr. Apostolache Roxana",
+            "sala": "C308",
+            "pachet": "",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 234,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I1X4",
+            "curs": "Matematica pentru concursuri",
+            "tip": "Alte activitati",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C2",
+            "pachet": "",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 235,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I1X4",
+            "curs": "Programare orientata-obiect",
+            "tip": "Laborator",
+            "profesor": "Colab. Morosanu Dan",
+            "sala": "C405",
+            "pachet": "",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 236,
+        "fields": {
+            "ora_inceput": "16:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I1X4",
+            "curs": "Programare competitiva II, facultativ, pregatire olimpiada",
+            "tip": "Curs",
+            "profesor": "drd. Diac Paul Colab. Ionita Alexandru",
+            "sala": "C412",
+            "pachet": "",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 237,
+        "fields": {
+            "ora_inceput": "14:00",
+            "ora_sfarsit": "16:00",
+            "grupa": "I1X4",
+            "curs": "Proiectarea algoritmilor",
+            "tip": "Seminar",
+            "profesor": "Colab. Rusu Radu",
+            "sala": "C903",
+            "pachet": "",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 238,
+        "fields": {
+            "ora_inceput": "10:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I1X4",
+            "curs": "Etica si integritate academica",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Trandabat Diana",
+            "sala": "C905",
+            "pachet": "",
+            "zi": "Joi"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 239,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I1X4",
+            "curs": "Pedagogie",
+            "tip": "Curs",
+            "profesor": "Lect. Dr. Apostolache Roxana",
+            "sala": "C308",
+            "pachet": "",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 240,
+        "fields": {
+            "ora_inceput": "10:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I1X4",
+            "curs": "Programare orientata-obiect",
+            "tip": "Laborator",
+            "profesor": "Colab. Balan Gheorghe",
+            "sala": "C210",
+            "pachet": "",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 241,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I1X5",
+            "curs": "Matematica pentru concursuri",
+            "tip": "Alte activitati",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C2",
+            "pachet": "",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 242,
+        "fields": {
+            "ora_inceput": "16:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I1X5",
+            "curs": "Programare competitiva II, facultativ, pregatire olimpiada",
+            "tip": "Curs",
+            "profesor": "drd. Diac Paul Colab. Ionita Alexandru",
+            "sala": "C412",
+            "pachet": "",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 243,
+        "fields": {
+            "ora_inceput": "10:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I1X5",
+            "curs": "Etica si integritate academica",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Trandabat Diana",
+            "sala": "C905",
+            "pachet": "",
+            "zi": "Joi"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 244,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I1X5",
+            "curs": "Pedagogie",
+            "tip": "Curs",
+            "profesor": "Lect. Dr. Apostolache Roxana",
+            "sala": "C308",
+            "pachet": "",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 245,
+        "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
             "grupa": "I2E1",
@@ -3196,7 +3676,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 214,
+        "pk": 246,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -3211,7 +3691,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 215,
+        "pk": 247,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -3226,7 +3706,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 216,
+        "pk": 248,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -3241,7 +3721,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 217,
+        "pk": 249,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -3256,7 +3736,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 218,
+        "pk": 250,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -3271,7 +3751,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 219,
+        "pk": 251,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -3286,7 +3766,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 220,
+        "pk": 252,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -3301,7 +3781,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 221,
+        "pk": 253,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -3316,7 +3796,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 222,
+        "pk": 254,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -3331,7 +3811,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 223,
+        "pk": 255,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -3346,7 +3826,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 224,
+        "pk": 256,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -3361,7 +3841,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 225,
+        "pk": 257,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -3376,7 +3856,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 226,
+        "pk": 258,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -3391,7 +3871,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 227,
+        "pk": 259,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -3406,7 +3886,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 228,
+        "pk": 260,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -3421,7 +3901,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 229,
+        "pk": 261,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -3436,7 +3916,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 230,
+        "pk": 262,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -3451,7 +3931,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 231,
+        "pk": 263,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -3466,7 +3946,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 232,
+        "pk": 264,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -3481,7 +3961,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 233,
+        "pk": 265,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -3496,7 +3976,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 234,
+        "pk": 266,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -3511,7 +3991,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 235,
+        "pk": 267,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -3526,7 +4006,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 236,
+        "pk": 268,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -3541,7 +4021,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 237,
+        "pk": 269,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -3556,7 +4036,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 238,
+        "pk": 270,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -3571,7 +4051,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 239,
+        "pk": 271,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -3586,7 +4066,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 240,
+        "pk": 272,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -3601,7 +4081,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 241,
+        "pk": 273,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -3616,7 +4096,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 242,
+        "pk": 274,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -3631,7 +4111,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 243,
+        "pk": 275,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -3646,7 +4126,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 244,
+        "pk": 276,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -3661,7 +4141,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 245,
+        "pk": 277,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -3676,7 +4156,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 246,
+        "pk": 278,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -3691,7 +4171,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 247,
+        "pk": 279,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -3706,7 +4186,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 248,
+        "pk": 280,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -3721,7 +4201,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 249,
+        "pk": 281,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -3736,7 +4216,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 250,
+        "pk": 282,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -3751,7 +4231,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 251,
+        "pk": 283,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -3766,7 +4246,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 252,
+        "pk": 284,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -3781,7 +4261,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 253,
+        "pk": 285,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -3796,7 +4276,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 254,
+        "pk": 286,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -3811,7 +4291,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 255,
+        "pk": 287,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -3826,7 +4306,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 256,
+        "pk": 288,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -3841,7 +4321,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 257,
+        "pk": 289,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "20:00",
@@ -3856,7 +4336,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 258,
+        "pk": 290,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -3871,7 +4351,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 259,
+        "pk": 291,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -3886,7 +4366,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 260,
+        "pk": 292,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -3901,7 +4381,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 261,
+        "pk": 293,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -3916,7 +4396,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 262,
+        "pk": 294,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -3931,7 +4411,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 263,
+        "pk": 295,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -3946,7 +4426,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 264,
+        "pk": 296,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -3961,7 +4441,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 265,
+        "pk": 297,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -3976,7 +4456,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 266,
+        "pk": 298,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -3991,7 +4471,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 267,
+        "pk": 299,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4006,7 +4486,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 268,
+        "pk": 300,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4021,7 +4501,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 269,
+        "pk": 301,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4036,7 +4516,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 270,
+        "pk": 302,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4051,7 +4531,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 271,
+        "pk": 303,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4066,7 +4546,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 272,
+        "pk": 304,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -4081,7 +4561,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 273,
+        "pk": 305,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -4096,7 +4576,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 274,
+        "pk": 306,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -4111,7 +4591,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 275,
+        "pk": 307,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -4126,7 +4606,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 276,
+        "pk": 308,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -4141,7 +4621,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 277,
+        "pk": 309,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -4156,7 +4636,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 278,
+        "pk": 310,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -4171,7 +4651,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 279,
+        "pk": 311,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -4186,7 +4666,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 280,
+        "pk": 312,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -4201,7 +4681,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 281,
+        "pk": 313,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -4216,7 +4696,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 282,
+        "pk": 314,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -4231,7 +4711,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 283,
+        "pk": 315,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -4246,7 +4726,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 284,
+        "pk": 316,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -4261,7 +4741,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 285,
+        "pk": 317,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -4276,7 +4756,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 286,
+        "pk": 318,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -4291,7 +4771,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 287,
+        "pk": 319,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -4306,7 +4786,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 288,
+        "pk": 320,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -4321,7 +4801,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 289,
+        "pk": 321,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -4336,7 +4816,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 290,
+        "pk": 322,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -4351,7 +4831,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 291,
+        "pk": 323,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -4366,7 +4846,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 292,
+        "pk": 324,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4381,7 +4861,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 293,
+        "pk": 325,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4396,7 +4876,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 294,
+        "pk": 326,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4411,7 +4891,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 295,
+        "pk": 327,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4426,7 +4906,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 296,
+        "pk": 328,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4441,7 +4921,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 297,
+        "pk": 329,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4456,7 +4936,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 298,
+        "pk": 330,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4471,7 +4951,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 299,
+        "pk": 331,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -4486,7 +4966,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 300,
+        "pk": 332,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -4501,7 +4981,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 301,
+        "pk": 333,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -4516,7 +4996,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 302,
+        "pk": 334,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -4531,7 +5011,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 303,
+        "pk": 335,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -4546,7 +5026,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 304,
+        "pk": 336,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -4561,7 +5041,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 305,
+        "pk": 337,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -4576,7 +5056,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 306,
+        "pk": 338,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -4591,7 +5071,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 307,
+        "pk": 339,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -4606,7 +5086,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 308,
+        "pk": 340,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -4621,7 +5101,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 309,
+        "pk": 341,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -4636,7 +5116,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 310,
+        "pk": 342,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -4651,7 +5131,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 311,
+        "pk": 343,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -4666,7 +5146,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 312,
+        "pk": 344,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -4681,7 +5161,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 313,
+        "pk": 345,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4696,7 +5176,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 314,
+        "pk": 346,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4711,7 +5191,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 315,
+        "pk": 347,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4726,7 +5206,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 316,
+        "pk": 348,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -4741,7 +5221,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 317,
+        "pk": 349,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -4756,7 +5236,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 318,
+        "pk": 350,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -4771,7 +5251,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 319,
+        "pk": 351,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -4786,7 +5266,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 320,
+        "pk": 352,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -4801,7 +5281,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 321,
+        "pk": 353,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -4816,7 +5296,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 322,
+        "pk": 354,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -4831,7 +5311,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 323,
+        "pk": 355,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -4846,7 +5326,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 324,
+        "pk": 356,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -4861,7 +5341,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 325,
+        "pk": 357,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -4876,7 +5356,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 326,
+        "pk": 358,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4891,7 +5371,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 327,
+        "pk": 359,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4906,7 +5386,292 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 328,
+        "pk": 360,
+        "fields": {
+            "ora_inceput": "10:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I2X1",
+            "curs": "Ingineria programarii",
+            "tip": "Laborator",
+            "profesor": "Lect.dr. Moruz Alex",
+            "sala": "C409",
+            "pachet": "",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 361,
+        "fields": {
+            "ora_inceput": "12:00",
+            "ora_sfarsit": "14:00",
+            "grupa": "I2X1",
+            "curs": "Modele continue si Matlab",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C112",
+            "pachet": "1",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 362,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I2X1",
+            "curs": "Introducere in criptografie",
+            "tip": "Curs",
+            "profesor": "Prof.dr. Tiplea Ferucio Laurentiu",
+            "sala": "C112",
+            "pachet": "1",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 363,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I2X1",
+            "curs": "Matematica pentru concursuri",
+            "tip": "Alte activitati",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C2",
+            "pachet": "",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 364,
+        "fields": {
+            "ora_inceput": "16:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I2X1",
+            "curs": "Programare competitiva II, facultativ, pregatire olimpiada",
+            "tip": "Curs",
+            "profesor": "drd. Diac Paul Colab. Ionita Alexandru",
+            "sala": "C412",
+            "pachet": "",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 365,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I2X1",
+            "curs": "Programare avansata",
+            "tip": "Laborator",
+            "profesor": "Lect.dr. Frasinaru Cristian",
+            "sala": "C401",
+            "pachet": "",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 366,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I2X1",
+            "curs": "Practica SGBD",
+            "tip": "Laborator",
+            "profesor": "Lect. dr. Varlan Cosmin",
+            "sala": "C405",
+            "pachet": "",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 367,
+        "fields": {
+            "ora_inceput": "12:00",
+            "ora_sfarsit": "14:00",
+            "grupa": "I2X1",
+            "curs": "Antreprenoriat si inovare in IT",
+            "tip": "Curs",
+            "profesor": "Conf.dr. Forascu Corina",
+            "sala": "C309",
+            "pachet": "1",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 368,
+        "fields": {
+            "ora_inceput": "14:00",
+            "ora_sfarsit": "16:00",
+            "grupa": "I2X1",
+            "curs": "Modele continue si Matlab",
+            "tip": "Consultatii",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C2",
+            "pachet": "1",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 369,
+        "fields": {
+            "ora_inceput": "14:00",
+            "ora_sfarsit": "16:00",
+            "grupa": "I2X1",
+            "curs": "Programare functionala",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Ciobaca Stefan",
+            "sala": "C112",
+            "pachet": "1",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 370,
+        "fields": {
+            "ora_inceput": "10:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I2X1",
+            "curs": "Tehnologii Web",
+            "tip": "Laborator",
+            "profesor": "Colab. Amariei Ciprian",
+            "sala": "C403",
+            "pachet": "",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 371,
+        "fields": {
+            "ora_inceput": "12:00",
+            "ora_sfarsit": "14:00",
+            "grupa": "I2X2",
+            "curs": "Modele continue si Matlab",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C112",
+            "pachet": "1",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 372,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I2X2",
+            "curs": "Introducere in criptografie",
+            "tip": "Curs",
+            "profesor": "Prof.dr. Tiplea Ferucio Laurentiu",
+            "sala": "C112",
+            "pachet": "1",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 373,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I2X2",
+            "curs": "Matematica pentru concursuri",
+            "tip": "Alte activitati",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C2",
+            "pachet": "",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 374,
+        "fields": {
+            "ora_inceput": "16:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I2X2",
+            "curs": "Programare competitiva II, facultativ, pregatire olimpiada",
+            "tip": "Curs",
+            "profesor": "drd. Diac Paul Colab. Ionita Alexandru",
+            "sala": "C412",
+            "pachet": "",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 375,
+        "fields": {
+            "ora_inceput": "12:00",
+            "ora_sfarsit": "14:00",
+            "grupa": "I2X2",
+            "curs": "Antreprenoriat si inovare in IT",
+            "tip": "Curs",
+            "profesor": "Conf.dr. Forascu Corina",
+            "sala": "C309",
+            "pachet": "1",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 376,
+        "fields": {
+            "ora_inceput": "12:00",
+            "ora_sfarsit": "14:00",
+            "grupa": "I2X2",
+            "curs": "Tehnologii Web",
+            "tip": "Laborator",
+            "profesor": "Colab. Pavaloi Alexandru",
+            "sala": "C409",
+            "pachet": "",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 377,
+        "fields": {
+            "ora_inceput": "14:00",
+            "ora_sfarsit": "16:00",
+            "grupa": "I2X2",
+            "curs": "Modele continue si Matlab",
+            "tip": "Consultatii",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C2",
+            "pachet": "1",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 378,
+        "fields": {
+            "ora_inceput": "14:00",
+            "ora_sfarsit": "16:00",
+            "grupa": "I2X2",
+            "curs": "Programare functionala",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Ciobaca Stefan",
+            "sala": "C112",
+            "pachet": "1",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 379,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -4921,7 +5686,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 329,
+        "pk": 380,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -4936,7 +5701,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 330,
+        "pk": 381,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -4951,7 +5716,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 331,
+        "pk": 382,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4966,7 +5731,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 332,
+        "pk": 383,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4981,7 +5746,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 333,
+        "pk": 384,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -4996,7 +5761,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 334,
+        "pk": 385,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -5011,7 +5776,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 335,
+        "pk": 386,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -5026,7 +5791,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 336,
+        "pk": 387,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -5041,7 +5806,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 337,
+        "pk": 388,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -5056,7 +5821,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 338,
+        "pk": 389,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -5071,7 +5836,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 339,
+        "pk": 390,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -5086,7 +5851,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 340,
+        "pk": 391,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -5101,7 +5866,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 341,
+        "pk": 392,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -5116,7 +5881,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 342,
+        "pk": 393,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -5131,7 +5896,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 343,
+        "pk": 394,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -5146,7 +5911,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 344,
+        "pk": 395,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -5161,7 +5926,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 345,
+        "pk": 396,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -5176,7 +5941,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 346,
+        "pk": 397,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -5191,7 +5956,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 347,
+        "pk": 398,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -5206,7 +5971,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 348,
+        "pk": 399,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -5221,7 +5986,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 349,
+        "pk": 400,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -5236,7 +6001,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 350,
+        "pk": 401,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -5251,7 +6016,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 351,
+        "pk": 402,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -5266,7 +6031,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 352,
+        "pk": 403,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -5281,7 +6046,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 353,
+        "pk": 404,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -5296,7 +6061,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 354,
+        "pk": 405,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -5311,7 +6076,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 355,
+        "pk": 406,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -5326,7 +6091,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 356,
+        "pk": 407,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -5341,7 +6106,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 357,
+        "pk": 408,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -5356,7 +6121,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 358,
+        "pk": 409,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -5371,7 +6136,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 359,
+        "pk": 410,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -5386,7 +6151,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 360,
+        "pk": 411,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -5401,7 +6166,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 361,
+        "pk": 412,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -5416,7 +6181,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 362,
+        "pk": 413,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -5431,7 +6196,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 363,
+        "pk": 414,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -5446,7 +6211,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 364,
+        "pk": 415,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -5461,7 +6226,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 365,
+        "pk": 416,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -5476,7 +6241,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 366,
+        "pk": 417,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -5491,7 +6256,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 367,
+        "pk": 418,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -5506,7 +6271,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 368,
+        "pk": 419,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "20:00",
@@ -5521,7 +6286,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 369,
+        "pk": 420,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -5536,7 +6301,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 370,
+        "pk": 421,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -5551,7 +6316,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 371,
+        "pk": 422,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -5566,7 +6331,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 372,
+        "pk": 423,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "11:00",
@@ -5581,7 +6346,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 373,
+        "pk": 424,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "11:00",
@@ -5596,7 +6361,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 374,
+        "pk": 425,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -5611,7 +6376,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 375,
+        "pk": 426,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -5626,7 +6391,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 376,
+        "pk": 427,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -5641,7 +6406,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 377,
+        "pk": 428,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -5656,7 +6421,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 378,
+        "pk": 429,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -5671,7 +6436,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 379,
+        "pk": 430,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -5686,7 +6451,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 380,
+        "pk": 431,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -5701,7 +6466,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 381,
+        "pk": 432,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -5716,7 +6481,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 382,
+        "pk": 433,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -5731,7 +6496,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 383,
+        "pk": 434,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -5746,7 +6511,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 384,
+        "pk": 435,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -5761,7 +6526,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 385,
+        "pk": 436,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -5776,7 +6541,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 386,
+        "pk": 437,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -5791,7 +6556,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 387,
+        "pk": 438,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -5806,7 +6571,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 388,
+        "pk": 439,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -5821,7 +6586,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 389,
+        "pk": 440,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -5836,7 +6601,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 390,
+        "pk": 441,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -5851,7 +6616,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 391,
+        "pk": 442,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -5866,7 +6631,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 392,
+        "pk": 443,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "11:00",
@@ -5881,7 +6646,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 393,
+        "pk": 444,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "11:00",
@@ -5896,7 +6661,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 394,
+        "pk": 445,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "12:00",
@@ -5911,7 +6676,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 395,
+        "pk": 446,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -5926,7 +6691,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 396,
+        "pk": 447,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -5941,7 +6706,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 397,
+        "pk": 448,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -5956,7 +6721,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 398,
+        "pk": 449,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -5971,7 +6736,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 399,
+        "pk": 450,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -5986,7 +6751,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 400,
+        "pk": 451,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -6001,7 +6766,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 401,
+        "pk": 452,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -6016,7 +6781,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 402,
+        "pk": 453,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -6031,7 +6796,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 403,
+        "pk": 454,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -6046,7 +6811,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 404,
+        "pk": 455,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -6061,7 +6826,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 405,
+        "pk": 456,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -6076,7 +6841,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 406,
+        "pk": 457,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -6091,7 +6856,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 407,
+        "pk": 458,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -6106,7 +6871,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 408,
+        "pk": 459,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -6121,7 +6886,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 409,
+        "pk": 460,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -6136,7 +6901,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 410,
+        "pk": 461,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -6151,7 +6916,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 411,
+        "pk": 462,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -6166,7 +6931,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 412,
+        "pk": 463,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -6181,7 +6946,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 413,
+        "pk": 464,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -6196,7 +6961,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 414,
+        "pk": 465,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -6211,7 +6976,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 415,
+        "pk": 466,
         "fields": {
             "ora_inceput": "12:00",
             "ora_sfarsit": "14:00",
@@ -6226,7 +6991,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 416,
+        "pk": 467,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -6241,7 +7006,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 417,
+        "pk": 468,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -6256,7 +7021,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 418,
+        "pk": 469,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -6271,7 +7036,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 419,
+        "pk": 470,
         "fields": {
             "ora_inceput": "14:00",
             "ora_sfarsit": "16:00",
@@ -6286,7 +7051,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 420,
+        "pk": 471,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -6301,7 +7066,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 421,
+        "pk": 472,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -6316,7 +7081,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 422,
+        "pk": 473,
         "fields": {
             "ora_inceput": "16:00",
             "ora_sfarsit": "18:00",
@@ -6331,7 +7096,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 423,
+        "pk": 474,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -6346,7 +7111,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 424,
+        "pk": 475,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -6361,7 +7126,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 425,
+        "pk": 476,
         "fields": {
             "ora_inceput": "18:00",
             "ora_sfarsit": "20:00",
@@ -6376,7 +7141,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 426,
+        "pk": 477,
         "fields": {
             "ora_inceput": "08:00",
             "ora_sfarsit": "10:00",
@@ -6391,7 +7156,7 @@
     },
     {
         "model": "orar.Rand",
-        "pk": 427,
+        "pk": 478,
         "fields": {
             "ora_inceput": "10:00",
             "ora_sfarsit": "12:00",
@@ -6402,6 +7167,651 @@
             "sala": "C401",
             "pachet": "6",
             "zi": "Sambata"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 479,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I3E",
+            "curs": "Smart Card-uri si Aplicatii",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Birjoveanu Catalin",
+            "sala": "C309",
+            "pachet": "7",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 480,
+        "fields": {
+            "ora_inceput": "12:00",
+            "ora_sfarsit": "14:00",
+            "grupa": "I3E",
+            "curs": "Tehnici de ingineria limbajului natural",
+            "tip": "Laborator",
+            "profesor": "Cerc. Dr. Gifu Daniela Lect. dr. Pistol Ionut Conf. dr. Trandabat Diana",
+            "sala": "C409",
+            "pachet": "7",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 481,
+        "fields": {
+            "ora_inceput": "14:00",
+            "ora_sfarsit": "16:00",
+            "grupa": "I3E",
+            "curs": "Managementul clasei de elevi",
+            "tip": "Seminar",
+            "profesor": "Dr. Carasievici Laura",
+            "sala": "C905",
+            "pachet": "",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 482,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I3E",
+            "curs": "Matematica pentru concursuri",
+            "tip": "Alte activitati",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C2",
+            "pachet": "",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 483,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I3E",
+            "curs": "Numerical calculus",
+            "tip": "Laborator",
+            "profesor": "Calcai Doru",
+            "sala": "C401",
+            "pachet": "",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 484,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I3E",
+            "curs": "Tehnici de programare e platforma Android",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Gavrilut Dragos",
+            "sala": "C309",
+            "pachet": "5",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 485,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I3E",
+            "curs": "Psihologia comunicarii profesionale in domeniul IT-lui",
+            "tip": "Curs",
+            "profesor": "Armanu Nicoleta",
+            "sala": "C309",
+            "pachet": "6",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 486,
+        "fields": {
+            "ora_inceput": "10:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I3E",
+            "curs": "Programare bazata pe reguli",
+            "tip": "Laborator",
+            "profesor": "Lect. dr. Pistol Ionut",
+            "sala": "C409",
+            "pachet": "5",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 487,
+        "fields": {
+            "ora_inceput": "12:00",
+            "ora_sfarsit": "14:00",
+            "grupa": "I3E",
+            "curs": "Numerical calculus",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Ignat Anca",
+            "sala": "C309",
+            "pachet": "",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 488,
+        "fields": {
+            "ora_inceput": "14:00",
+            "ora_sfarsit": "16:00",
+            "grupa": "I3E",
+            "curs": "Cloud computing",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Alboaie Lenuta",
+            "sala": "C309",
+            "pachet": "6",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 489,
+        "fields": {
+            "ora_inceput": "14:00",
+            "ora_sfarsit": "16:00",
+            "grupa": "I3E",
+            "curs": "Programare MS-Office",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Radulescu Vlad",
+            "sala": "C308",
+            "pachet": "6",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 490,
+        "fields": {
+            "ora_inceput": "16:00",
+            "ora_sfarsit": "18:00",
+            "grupa": "I3E",
+            "curs": "Computer graphics",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Ghirvu Lucian",
+            "sala": "C112",
+            "pachet": "",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 491,
+        "fields": {
+            "ora_inceput": "16:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I3E",
+            "curs": "Programare competitiva II, facultativ, pregatire olimpiada",
+            "tip": "Curs",
+            "profesor": "drd. Diac Paul Colab. Ionita Alexandru",
+            "sala": "C412",
+            "pachet": "",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 492,
+        "fields": {
+            "ora_inceput": "10:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I3E",
+            "curs": "Retele Petri si aplicatii",
+            "tip": "Curs",
+            "profesor": "Lect. dr. Captarencu Oana",
+            "sala": "C112",
+            "pachet": "7",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 493,
+        "fields": {
+            "ora_inceput": "14:00",
+            "ora_sfarsit": "16:00",
+            "grupa": "I3E",
+            "curs": "Tehnici de ingineria limbajului natural",
+            "tip": "Curs",
+            "profesor": "Prof.dr. Cristea Dan",
+            "sala": "C309",
+            "pachet": "7",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 494,
+        "fields": {
+            "ora_inceput": "16:00",
+            "ora_sfarsit": "18:00",
+            "grupa": "I3E",
+            "curs": "Metodologii de lucru in mediul Open Source",
+            "tip": "Curs",
+            "profesor": "Yonder",
+            "sala": "C309",
+            "pachet": "6",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 495,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "11:00",
+            "grupa": "I3E",
+            "curs": "Practica pedagogica in invatamantul preuniversitar obligatoriu (2), facultativ",
+            "tip": "Alte activitati",
+            "profesor": "Asist.dr. Croitoru Eugen",
+            "sala": "Cabinet",
+            "pachet": "",
+            "zi": "Joi"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 496,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I3E",
+            "curs": "Programare bazata pe reguli",
+            "tip": "Curs",
+            "profesor": "Prof.dr. Cristea Dan",
+            "sala": "C309",
+            "pachet": "5",
+            "zi": "Joi"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 497,
+        "fields": {
+            "ora_inceput": "14:00",
+            "ora_sfarsit": "16:00",
+            "grupa": "I3E",
+            "curs": "Analiza retelelor media sociale",
+            "tip": "Laborator",
+            "profesor": "Conf. dr. Vitcu Anca",
+            "sala": "C401",
+            "pachet": "5",
+            "zi": "Joi"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 498,
+        "fields": {
+            "ora_inceput": "14:00",
+            "ora_sfarsit": "16:00",
+            "grupa": "I3E",
+            "curs": "Topici speciale de programare .NET",
+            "tip": "Laborator",
+            "profesor": "Lect. Asiminoaei Ioan",
+            "sala": "C409",
+            "pachet": "7",
+            "zi": "Joi"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 499,
+        "fields": {
+            "ora_inceput": "16:00",
+            "ora_sfarsit": "18:00",
+            "grupa": "I3E",
+            "curs": "Topici speciale de programare .NET",
+            "tip": "Curs",
+            "profesor": "Lect. Asiminoaei Ioan",
+            "sala": "C309",
+            "pachet": "7",
+            "zi": "Joi"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 500,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I3E",
+            "curs": "Aspecte computationale in teoria numerelor",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Iftene Sorin",
+            "sala": "C112",
+            "pachet": "5",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 501,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I3E",
+            "curs": "Cloud computing",
+            "tip": "Laborator",
+            "profesor": "Colab. Bogdan Ioana",
+            "sala": "C413",
+            "pachet": "6",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 502,
+        "fields": {
+            "ora_inceput": "10:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I3E",
+            "curs": "Computer Graphics",
+            "tip": "Laborator",
+            "profesor": "Lect.dr. Ghirvu Lucian",
+            "sala": "C401",
+            "pachet": "",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 503,
+        "fields": {
+            "ora_inceput": "10:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I3E",
+            "curs": "Managementul clasei de elevi",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Curelaru Versavia",
+            "sala": "C309",
+            "pachet": "",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 504,
+        "fields": {
+            "ora_inceput": "12:00",
+            "ora_sfarsit": "14:00",
+            "grupa": "I3E",
+            "curs": "Analiza retelelor media sociale",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Vitcu Anca",
+            "sala": "C308",
+            "pachet": "5",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 505,
+        "fields": {
+            "ora_inceput": "14:00",
+            "ora_sfarsit": "16:00",
+            "grupa": "I3E",
+            "curs": "Programare MS-Office",
+            "tip": "Laborator",
+            "profesor": "Lect.dr. Radulescu Vlad",
+            "sala": "C412",
+            "pachet": "6",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 506,
+        "fields": {
+            "ora_inceput": "10:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I3E",
+            "curs": "Metodologii de lucru in mediul Open Source",
+            "tip": "Laborator",
+            "profesor": "Yonder",
+            "sala": "C401",
+            "pachet": "6",
+            "zi": "Sambata"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 507,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I3X1",
+            "curs": "Smart Card-uri si Aplicatii",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Birjoveanu Catalin",
+            "sala": "C309",
+            "pachet": "7",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 508,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I3X1",
+            "curs": "Matematica pentru concursuri",
+            "tip": "Alte activitati",
+            "profesor": "Lect.dr. Iacob Florin",
+            "sala": "C2",
+            "pachet": "",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 509,
+        "fields": {
+            "ora_inceput": "18:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I3X1",
+            "curs": "Tehnici de programare e platforma Android",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Gavrilut Dragos",
+            "sala": "C309",
+            "pachet": "5",
+            "zi": "Luni"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 510,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I3X1",
+            "curs": "Psihologia comunicarii profesionale in domeniul IT-lui",
+            "tip": "Curs",
+            "profesor": "Armanu Nicoleta",
+            "sala": "C309",
+            "pachet": "6",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 511,
+        "fields": {
+            "ora_inceput": "14:00",
+            "ora_sfarsit": "16:00",
+            "grupa": "I3X1",
+            "curs": "Cloud computing",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Alboaie Lenuta",
+            "sala": "C309",
+            "pachet": "6",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 512,
+        "fields": {
+            "ora_inceput": "14:00",
+            "ora_sfarsit": "16:00",
+            "grupa": "I3X1",
+            "curs": "Programare MS-Office",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Radulescu Vlad",
+            "sala": "C308",
+            "pachet": "6",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 513,
+        "fields": {
+            "ora_inceput": "16:00",
+            "ora_sfarsit": "20:00",
+            "grupa": "I3X1",
+            "curs": "Programare competitiva II, facultativ, pregatire olimpiada",
+            "tip": "Curs",
+            "profesor": "drd. Diac Paul Colab. Ionita Alexandru",
+            "sala": "C412",
+            "pachet": "",
+            "zi": "Marti"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 514,
+        "fields": {
+            "ora_inceput": "10:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I3X1",
+            "curs": "Retele Petri si aplicatii",
+            "tip": "Curs",
+            "profesor": "Lect. dr. Captarencu Oana",
+            "sala": "C112",
+            "pachet": "7",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 515,
+        "fields": {
+            "ora_inceput": "14:00",
+            "ora_sfarsit": "16:00",
+            "grupa": "I3X1",
+            "curs": "Tehnici de ingineria limbajului natural",
+            "tip": "Curs",
+            "profesor": "Prof.dr. Cristea Dan",
+            "sala": "C309",
+            "pachet": "7",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 516,
+        "fields": {
+            "ora_inceput": "16:00",
+            "ora_sfarsit": "18:00",
+            "grupa": "I3X1",
+            "curs": "Metodologii de lucru in mediul Open Source",
+            "tip": "Curs",
+            "profesor": "Yonder",
+            "sala": "C309",
+            "pachet": "6",
+            "zi": "Miercuri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 517,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I3X1",
+            "curs": "Programare bazata pe reguli",
+            "tip": "Curs",
+            "profesor": "Prof.dr. Cristea Dan",
+            "sala": "C309",
+            "pachet": "5",
+            "zi": "Joi"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 518,
+        "fields": {
+            "ora_inceput": "16:00",
+            "ora_sfarsit": "18:00",
+            "grupa": "I3X1",
+            "curs": "Topici speciale de programare .NET",
+            "tip": "Curs",
+            "profesor": "Lect. Asiminoaei Ioan",
+            "sala": "C309",
+            "pachet": "7",
+            "zi": "Joi"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 519,
+        "fields": {
+            "ora_inceput": "08:00",
+            "ora_sfarsit": "10:00",
+            "grupa": "I3X1",
+            "curs": "Aspecte computationale in teoria numerelor",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Iftene Sorin",
+            "sala": "C112",
+            "pachet": "5",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 520,
+        "fields": {
+            "ora_inceput": "10:00",
+            "ora_sfarsit": "12:00",
+            "grupa": "I3X1",
+            "curs": "Managementul clasei de elevi",
+            "tip": "Curs",
+            "profesor": "Lect.dr. Curelaru Versavia",
+            "sala": "C309",
+            "pachet": "",
+            "zi": "Vineri"
+        }
+    },
+    {
+        "model": "orar.Rand",
+        "pk": 521,
+        "fields": {
+            "ora_inceput": "12:00",
+            "ora_sfarsit": "14:00",
+            "grupa": "I3X1",
+            "curs": "Analiza retelelor media sociale",
+            "tip": "Curs",
+            "profesor": "Conf. dr. Vitcu Anca",
+            "sala": "C308",
+            "pachet": "5",
+            "zi": "Vineri"
         }
     }
 ]
