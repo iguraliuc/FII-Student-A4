@@ -133,36 +133,43 @@ def index(request):
         template = loader.get_template('saliLibere.html')
         context = {'grupe': lista_grupe, 'sali': get_sali_unique(), 'cursuri': get_materii_unique(), 'randuri': randuri}
         return HttpResponse(template.render(context, request))
-
+    request_materie = ""
+    request_grupa = ""
+    request_sala = ""
+    request_profesor = ""
     if "sala" in request.GET:
         request_sala = request.GET['sala']
-        randuri = randuri.filter(sala=request_sala)
-        titlu = "Sala " + request_sala
+        if request_sala is not "":
+            randuri = randuri.filter(sala=request_sala)
+            titlu = "Sala " + request_sala
 
     if "materie" in request.GET:
         request_materie = request.GET['materie']
-        randuri = randuri.filter(curs=request_materie)
-        titlu = "Materia " + request_materie
+        if request_materie is not "":
+            randuri = randuri.filter(curs=request_materie)
+            titlu = "Materia " + request_materie
 
     if "profesor" in request.GET:
         request_profesor = request.GET['profesor']
-        randuri = randuri.filter(profesor=request_profesor)
-        titlu = "Profesor " + request_profesor
+        if request_profesor is not "":
+            randuri = randuri.filter(profesor=request_profesor)
+            titlu = "Profesor " + request_profesor
 
     if "grupa" in request.GET:
         request_grupa = request.GET['grupa']
-        grupa_len = len(request_grupa)
-        randuri = Rand.objects.filter(grupa__iregex=(r'([a-z0-9]{0})' + request_grupa + r'([a-z0-9]{0})')).exclude(
-            grupa__iregex=(r'[a-z0-9]' + request_grupa)).exclude(
-            grupa__iregex=(request_grupa + r'[a-z0-9]')).distinct()
-        for i in range(1, grupa_len):
-            req_group = request_grupa[0:i]
-            print(req_group)
-            randuri = randuri | Rand.objects.filter(
-                grupa__iregex=(r'([a-z0-9]{0})' + req_group + r'([a-z0-9]{0})')).exclude(
-                grupa__iregex=(r'[a-z0-9]' + req_group)).exclude(
-                grupa__iregex=(req_group + r'[a-z0-9]')).distinct()
-        titlu = "Grupa " + request_grupa
+        if request_grupa is not "":
+            grupa_len = len(request_grupa)
+            randuri = randuri.filter(grupa__iregex=(r'([a-z0-9]{0})' + request_grupa + r'([a-z0-9]{0})')).exclude(
+                grupa__iregex=(r'[a-z0-9]' + request_grupa)).exclude(
+                grupa__iregex=(request_grupa + r'[a-z0-9]')).distinct()
+            for i in range(1, grupa_len):
+                req_group = request_grupa[0:i]
+                print(req_group)
+                randuri = randuri | randuri.filter(
+                    grupa__iregex=(r'([a-z0-9]{0})' + req_group + r'([a-z0-9]{0})')).exclude(
+                    grupa__iregex=(r'[a-z0-9]' + req_group)).exclude(
+                    grupa__iregex=(req_group + r'[a-z0-9]')).distinct()
+            titlu = "Grupa " + request_grupa
 
     randuri = randuri.distinct()
     randuri = randuri.order_by('ora_inceput')
@@ -190,6 +197,6 @@ def index(request):
 
     context = {'grupe': lista_grupe, 'sali': get_sali_unique(), 'cursuri': get_materii_unique(), 'lista_ore': list,
                'titlu': titlu, 'luni': luni, 'marti': marti, 'miercuri': miercuri, 'joi': joi, 'vineri': vineri,
-               'sambata': sambata, 'duminica': duminica}
+               'sambata': sambata, 'duminica': duminica,'SALAH': request_sala,"GRUPAH": request_grupa, "MATERIAH": request_materie}
 
     return HttpResponse(template.render(context, request))
