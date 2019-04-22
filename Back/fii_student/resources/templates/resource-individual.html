@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
+
 <head>
-    <meta charset="UTF-8">
-    <title>{{object.title}}</title>
+
+      {% load staticfiles %}
+    <meta charset="utf-8">
+    <title>Anunturi</title>
+    <link href="{% static "resource-individual.css" %}" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
+
 <body>
-{{object.content|safe}}
+
+    <div class="container">
+        <div class="board">
+            <h1>{{object.title}} </h1>
+            <div class="subtitle">
+                <p> <!--{{object.timestamp}} --></p>
+            </div>
+            <div class="content">
+                {{object.content|safe}}
+            </div>
+        </div>
+        <a href="/resources" class="meniu">
+
+            <p> &Lang;&Lang;&Lang; Înapoi</p>
+
+
+
+
+        </a>
+    </div>
+
 </body>
+
+
 </html>
+
