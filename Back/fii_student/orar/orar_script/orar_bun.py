@@ -25,17 +25,17 @@ def generate_orare():
         ('participanti/orar_MSD.html', 'Master sisteme distribuite'),
         ('participanti/orar_MSI.html', 'Master securitatea informatiei'),
         ('participanti/orar_I1.html', 'Informatica, anul 1'),
-        ('participanti/orar_I1X1.html', 'Cursanti, anul 1, grupa 1'),
-        ('participanti/orar_I1X2.html', 'Cursanti, anul 1, grupa 2'),
-        ('participanti/orar_I1X3.html', 'Cursanti, anul 1, grupa 3'),
-        ('participanti/orar_I1X4.html', 'Cursanti, anul 1, grupa 4'),
-        ('participanti/orar_I1X5.html', 'Cursanti, anul 1, grupa 5'),
+        # ('participanti/orar_I1X1.html', 'Cursanti, anul 1, grupa 1'),
+        # ('participanti/orar_I1X2.html', 'Cursanti, anul 1, grupa 2'),
+        # ('participanti/orar_I1X3.html', 'Cursanti, anul 1, grupa 3'),
+        # ('participanti/orar_I1X4.html', 'Cursanti, anul 1, grupa 4'),
+        # ('participanti/orar_I1X5.html', 'Cursanti, anul 1, grupa 5'),
         ('participanti/orar_I2.html', 'Informatica, anul 2'),
-        ('participanti/orar_I2X1.html', 'Reinmatriculari, anul 2, grupa 1'),
-        ('participanti/orar_I2X2.html', 'Cursanti, anul 2, grupa 2'),
+        # ('participanti/orar_I2X1.html', 'Reinmatriculari, anul 2, grupa 1'),
+        # ('participanti/orar_I2X2.html', 'Cursanti, anul 2, grupa 2'),
         ('participanti/orar_I3.html', 'Informatica, anul 3'),
         ('participanti/orar_I3E.html', 'Informatica, anul 3 Engleza'),
-        ('participanti/orar_I3X1.html', 'Reinmatriculari, anul 3')
+        # ('participanti/orar_I3X1.html', 'Reinmatriculari, anul 3')
     ]
     for item in site_title:
         print(item)
