@@ -1,7 +1,8 @@
 from .models import Personalise, Board
+from users.models import FiiUser
 from .forms import BoardForm
 from utils import generics
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django_tables2 import RequestConfig, tables
 from django.urls import reverse
 from django.db import connection
@@ -52,3 +53,29 @@ def add_board(request):
     else:
         form = BoardForm()
     return render(request, 'add_board.html', {'form': form})
+
+
+def add_pref_board(request, uid, bid):
+    if request.method == 'POST':
+        user = get_object_or_404(FiiUser, pk=uid)
+        board = get_object_or_404(Board, pk=bid)
+        if user and board:
+            if not user.personalise:
+                p = Personalise()
+                p.save()
+                p.init_orar(user.an_studiu, user.grupa)
+                user.personalise = p
+                user.save()
+            user.personalise.add_board(board)
+    return render(request, 'join_board.html', {'status': 'True'})
+
+
+def remove_pref_board(request, uid, bid):
+    if request.method == 'POST':
+        user = get_object_or_404(FiiUser, pk=uid)
+        board = get_object_or_404(Board, pk=bid)
+        if user and board:
+            if not user.personalise:
+                return render(request, 'join_board.html', {'status': 'True'})
+            user.personalise.remove_board(board)
+    return render(request, 'join_board.html', {'status': 'True'})

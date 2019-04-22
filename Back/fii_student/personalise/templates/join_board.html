@@ -7,6 +7,38 @@
     {% load static %}
     <link href="{% static "join-board-style.css" %}" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        function call_update_user_boards(uid, bid){
+            {#var csrftoken = $("[name=csrfmiddlewaretoken]").val();#}
+            {# $.post('add_pref_board/'+uid+'/'+bid, function (data) {#}
+            {##}
+            {#    });#}
+            $.ajax({
+                url: 'add_pref_board/'+uid+'/'+bid,
+                type: 'POST',
+                data: {
+                    'csrfmiddlewaretoken': "{{ csrf_token }}"
+                },
+                success: function(data) {
+
+                }
+            });
+        }
+        function call_remove_user_boards(uid, bid){
+            $.ajax({
+                url: 'remove_pref_board/'+uid+'/'+bid,
+                type: 'POST',
+                data: {
+                    'csrfmiddlewaretoken': "{{ csrf_token }}"
+                },
+                success: function(data) {
+
+                }
+            });
+        }
+
+    </script>
 </head>
 
 <body>
@@ -34,9 +66,10 @@
                         </div>
                     </div>
                     <div class="triangle"></div>
-                    <button class="btn">JOIN BOARD</button>
+                    {% csrf_token %}
+                    <button class="btn" onclick="call_update_user_boards({{ user.id }},{{ board.id }})">JOIN BOARD</button>
 
-                    <button class="btn verified">Joined!<img src="correct.png"></button>
+                    <button class="btn verified" onclick="call_remove_user_boards({{ user.id }},{{ board.id }})">Joined!<img src="correct.png"></button>
             </div>
             {% endfor %}
     </div>
