@@ -62,31 +62,32 @@ class Personalise(models.Model):
         if an and an != '-' and grupa and grupa != '-' and an in dict_ani_studiu.keys():
             for v_rand in Rand.objects.filter(grupa = an + dict_ani_studiu[an] + grupa):
                 PersonaliseOrar.objects.create(personalise=self, rand=v_rand)
-                # self.classes.add(v_rand)
             return True
         return False
 
     def add_class(self, rand):
         if not isinstance(rand, Rand):
             return False
-        # self.classes.add(rand)
         PersonaliseOrar.objects.create(personalise=self, rand=rand)
+        return True
 
     def remove_class(self, rand):
         if not isinstance(rand, Rand):
             return False
-        # self.classes.remove(rand)
         self.classes.delete(rand=rand)
+        return True
 
     def add_board(self, board):
         if not isinstance(board, Board):
             return False
         self.boards.add(board)
+        return True
 
     def remove_board(self, board):
         if not isinstance(board, Board):
             return False
         self.boards.remove(board)
+        return True
 
     def check_has_board(self, board):
         if not isinstance(board, Board) or len(self.boards.filter(pk=board.id)) == 0:

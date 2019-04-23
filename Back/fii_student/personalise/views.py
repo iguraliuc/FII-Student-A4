@@ -60,35 +60,42 @@ def add_board(request):
 
 def add_pref_board(request, uid, bid):
     data = {
-        'status': 'True'
+        'status': 'False'
     }
-    serialized_data = simplejson.dumps(data)
     if request.method == 'POST':
-        user = get_object_or_404(FiiUser, pk=uid)
-        board = get_object_or_404(Board, pk=bid)
-        if user and board:
-            if not user.personalise:
-                p = Personalise()
-                p.save()
-                p.init_orar(user.an_studiu, user.grupa)
-                user.personalise = p
-                user.save()
-            user.personalise.add_board(board)
+        try:
+            user = get_object_or_404(FiiUser, pk=uid)
+            board = get_object_or_404(Board, pk=bid)
+            if user and board:
+                if not user.personalise:
+                    p = Personalise()
+                    p.save()
+                    p.init_orar(user.an_studiu, user.grupa)
+                    user.personalise = p
+                    user.save()
+                user.personalise.add_board(board)
+                data['status'] = 'True'
+        except Http404:
+            data['message'] = 'Invalid user or board!'
+    serialized_data = simplejson.dumps(data)
     return HttpResponse(serialized_data, content_type='application/json')
 
 
 def remove_pref_board(request, uid, bid):
     data = {
-        'status': 'True'
+        'status': 'False'
     }
-    serialized_data = simplejson.dumps(data)
     if request.method == 'POST':
-        user = get_object_or_404(FiiUser, pk=uid)
-        board = get_object_or_404(Board, pk=bid)
-        if user and board:
-            if not user.personalise:
-                return HttpResponse(serialized_data, content_type='application/json')
-            user.personalise.remove_board(board)
+        try:
+            user = get_object_or_404(FiiUser, pk=uid)
+            board = get_object_or_404(Board, pk=bid)
+            if user and board:
+                if user.personalise:
+                    user.personalise.remove_board(board)
+                    data['status'] = 'True'
+        except Http404:
+            data['message'] = 'Invalid user or board!'
+    serialized_data = simplejson.dumps(data)
     return HttpResponse(serialized_data, content_type='application/json')
 
 
@@ -99,13 +106,12 @@ def check_joined_board(request, uid, bid):
     try:
         user = get_object_or_404(FiiUser, pk=uid)
         board = get_object_or_404(Board, pk=bid)
+        if user and board:
+            if user.personalise and user.personalise.check_has_board(board):
+                data['status'] = 'True'
     except Http404:
         data['message'] = 'Invalid board or user!'
-        serialized_data = simplejson.dumps(data)
-        return HttpResponse(serialized_data, content_type='application/json')
-    if user and board:
-        if user.personalise and user.personalise.check_has_board(board):
-            data['status'] = 'True'
+
     serialized_data = simplejson.dumps(data)
     return HttpResponse(serialized_data, content_type='application/json')
 
@@ -114,10 +120,14 @@ def check_joined_boards(request, uid):
     data = {
         'boards': []
     }
-    user = get_object_or_404(FiiUser, pk=uid)
-    if user:
-        if user.personalise:
-            data['boards'] = [str(board.id) for board in user.personalise.boards.all()]
+    try:
+        user = get_object_or_404(FiiUser, pk=uid)
+        if user:
+            if user.personalise:
+                data['boards'] = [str(board.id) for board in user.personalise.boards.all()]
+    except Http404:
+        data['message'] = 'Invalid user!'
+
     serialized_data = simplejson.dumps(data)
     return HttpResponse(serialized_data, content_type='application/json')
 
