@@ -7,24 +7,24 @@
 
 body{
     font-family: 'Montserrat';
+    display: flex;
 }
 
 .filtru{
-    top: 0;
-    position: sticky;
+    width: 200px;
     display: flex;
-    width: 100%;
-    z-index: 11;
+    flex-direction: column;
 }
 
 .filtru .anI, .filtru .anII, .filtru .anIII, .filtru .toti{
     text-align: center;
-    background-color: rgb(32, 32, 32);
+    background-color: rgb(0, 88, 121);
     color: white;
     padding: 1em;
     border-style:none;
-    font-size: 1.3em;
-    width: 100%;
+    font-size: 1em;
+    margin: 0px;
+   
 }
 
 .filtru .active{
@@ -38,8 +38,8 @@ body{
     color: white;
     padding: 1em;
     border-style:none;
-    font-size: 1.3em;
-    width: 100%;
+    font-size: 1em;
+   
 }
 .main{
     margin: 0 auto;
@@ -63,12 +63,12 @@ body{
     height: 0; 
     border-left: 150px solid transparent;
     border-right: 150px solid transparent;
-    border-top: 100px solid #2C34A2;
+    border-top: 100px solid #09BCFF;
     transition: 0.2s;
 }
 .card:hover .box{
     box-shadow: 3px 0px 8px 8px rgba(0, 0, 0, 0.16);
-    background-color: #2C34A2;
+    background-color: #09BCFF;
     width: 100%;
     height: 80%;
     transition: 0.2s;
@@ -77,7 +77,7 @@ body{
 
 .card .box{
     box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    background-color: #2C34A2;
+    background-color: #09BCFF;
     width: 90%;
     height: 80%;
     margin: auto;
@@ -149,14 +149,14 @@ body{
     height: 0; 
     border-left: 135px solid transparent;
     border-right: 135px solid transparent;
-    border-top: 100px solid #2C34A2;
+    border-top: 100px solid #09BCFF;
 }
 
 
 .btn{
 
     text-align: center;
-    background-color: #A80DB0;
+    background-color: rgb(0, 88, 121);
     color: white;
     padding: 0.5em;
     border-style:none;
