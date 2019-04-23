@@ -26,3 +26,8 @@ class ResourcesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Resources
         fields = ('log_id', 'title', 'url', 'content')
+        
+class OrarSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Rand
+        fields = ('__all__')
