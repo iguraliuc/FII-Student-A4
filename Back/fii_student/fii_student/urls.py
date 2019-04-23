@@ -24,6 +24,7 @@ from fii_student import views as fii_student_views
 
 router = routers.DefaultRouter()
 router.register('news', NewsViewSet)
+router.register('boards', BoardViewSet)
 
 urlpatterns = [
     path('', fii_student_views.show_landing_page, name='show_landing_page'),

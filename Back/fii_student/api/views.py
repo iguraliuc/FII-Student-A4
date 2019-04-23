@@ -6,11 +6,16 @@ from api.serializers import *
 
 
 class NewsViewSet(viewsets.ModelViewSet):
-    queryset = News.objects.all().order_by('-inserted_time');
+    queryset = News.objects.all().order_by('-inserted_time')
     serializer_class = NewsSerializer
 
 
-class PersonaliseAppViewSet(viewsets.ModelViewSet):
-    queryset = Personalise.objects.all().order_by('-inserted_time')
+class PersonaliseViewSet(viewsets.ModelViewSet):
+    queryset = Personalise.objects.all()
     serializer_class = Personalise
+
+
+class BoardViewSet(viewsets.ModelViewSet):
+    queryset = Board.objects.all()
+    serializer_class = BoardSerializer
 
