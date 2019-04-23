@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from news.models import News
+from orar.models import Rand
 from personalise.models import Personalise, Board
 from resources.models import Resources
 
@@ -25,7 +26,7 @@ class BoardSerializer(serializers.HyperlinkedModelSerializer):
 class ResourcesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Resources
-        fields = ('log_id', 'title', 'url', 'content')
+        fields = ('resources_id', 'title', 'url', 'content')
         
 class OrarSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
