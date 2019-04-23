@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from news.models import News
+from orar.models import Rand
 from personalise.models import Personalise, Board
 from resources.models import Resources
 
