@@ -60,7 +60,7 @@ class Personalise(models.Model):
 
     def init_orar(self, an, grupa):
         if an and an != '-' and grupa and grupa != '-' and an in dict_ani_studiu.keys():
-            for v_rand in Rand.objects.filter(an=dict_ani_studiu[an], grupa=grupa):
+            for v_rand in Rand.objects.filter(grupa = an + dict_ani_studiu[an] + grupa):
                 PersonaliseOrar.objects.create(personalise=self, rand=v_rand)
                 # self.classes.add(v_rand)
             return True
