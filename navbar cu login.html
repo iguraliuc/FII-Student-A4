@@ -35,52 +35,56 @@
 				<li><a href="#">Cursuri</a></li>
 
         <li class="dropdown">
-          <a class="dropdown-toggle glyphicon" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Logare <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Logare <span class="caret"></span></a>
           <ul class="dropdown-menu" style="padding:20px;">
             <form action="/action_page.php">
               <label for="">Email:</label>
-              <input type="email" name="email" value="">
-              <br>
+              <div class="p-2"><input type="email" name="email" value="" style="">
+              <br></div>
               <label for="">Parola:</label>
-              <input type="password" name="password" value="">
-              <br><br>
+              <div class="p-2"><input type="password" name="password" value="">
+              <br></div><br>
+
               <input type="submit" value="Mai departe">
+<!---->
+
+<!---->
             </form>
           </ul>
         </li>
         <!---->
         <li class="dropdown">
-          <a class="dropdown-toggle glyphicon" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Inregistrare <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Inregistrare <span class="caret"></span></a>
           <ul class="dropdown-menu" style="padding:20px;">
-            <form action="/action_page.php">
+            <form class="d-flex flex-column" action="/action_page.php">
+
               <label for="">Email:</label>
-              <input type="email" name="email" value="">
-              <br>
+              <div class="p-2"><input type="email" name="email" value="">
+              <br></div>
               <label for="">Nume utilizator:</label>
-              <input type="text" name="" value="">
-              <br>
+              <div class="p-2"><input type="text" name="" value="">
+              <br></div>
 
               <label for="">Parola:</label>
-              <input type="password" name="password" value="">
-              <br>
+              <div class="p-2"><input type="password" name="password" value="">
+              <br></div>
               <label for="">An:</label>
-              <input type="text" name="" value="">
-              <br>
+              <div class="p-2"><input type="text" name="" value="">
+              <br></div>
               <label for="">Grupa:</label>
-              <input type="text" name="" value="">
+              <div class="p-2"><input type="text" name="" value="">
 
-              <br><br>
+              <br></div><br>
+
               <input type="submit" value="Mai departe">
             </form>
+            <div class="dropdown-divider"></div>
           </ul>
         </li>
 
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
-<!---->
 
-<!---->
+        <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
         <!--<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Deconectare</a></li>-->
       </ul>
     </div>
