@@ -9,9 +9,30 @@
           <link rel="stylesheet" type="text/css" href="{% static 'grupa.css' %}">
          <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
+{#  script which runs after page is load #}
+{#  sets corect checkboxes according to existing joined rands #}
+    $(
+        function(){
+                $.ajax({
+                url: '/personalise/orar/check_rands/'+{{ user.id }},
+                type: 'POST',
+                data: {
+                    'csrfmiddlewaretoken': "{{ csrf_token }}"
+                },
+                success: function(data, response) {
+                    for (var i = 0; i < data['rands'].length; i++) {
+                        var checkbox = document.getElementById(data['rands'][i]);
+                        if(checkbox){
+                            checkbox.checked = true;
+                        }
+                    }
+                }
+            });
+        }
+    );
         function call_add_rand(uid, rid) {
             $.ajax({
-                url: 'add_rand/' + uid + '/' + rid,
+                url: '/personalise/orar/add_rand/' + uid + '/' + rid,
                 type: 'POST',
                 data: {
                     'csrfmiddlewaretoken': "{{ csrf_token }}"
@@ -23,7 +44,7 @@
         }
         function call_remove_rand(uid, rid) {
             $.ajax({
-                url: 'remove_rand/' + uid + '/' + rid,
+                url: '/personalise/orar/remove_rand/' + uid + '/' + rid,
                 type: 'POST',
                 data: {
                     'csrfmiddlewaretoken': "{{ csrf_token }}"
@@ -53,6 +74,8 @@
                               <button type="submit" name="An" value="An">Structura anului universitar</button>
                               <button type="submit" name="An" value="An" onclick="location.href='http:?sali_libere_acum=-';">Sali libere acum</button>
                               <button type="submit" name="An" value="An" onclick="location.href='/orar/program_sali/';">Disponibilitate sali</button>
+                             <button type="submit" name="An" value="An" onclick="location.href='/personalise/orar/'">Orar general</button>
+                             <button type="submit" name="An" value="An" onclick="location.href='/personalise/orar/orar_personalised/'">Orarul meu personalizat</button>
                          </div>
 
                          <div id="selectTags">
@@ -127,7 +150,7 @@
                                         <th>Profesor</th>
                                         <th>Sala</th>
                                         <th>Pachet</th>
-                                       <th>Abonat</th>
+                                       <th>Joined</th>
                                    </tr>
                               </thead>
 
@@ -151,6 +174,7 @@
                                      <td>{{rand.sala}}</td>
 
                                      <td align="center">1</td>
+                                      <td align="center"><input class="cbox" type='checkbox' id="{{ rand.id }}" onclick="call_handle(this, {{ user.id }},{{ rand.id }})"></td>
                                    </tr>
 
                                    {% endfor %}
@@ -174,6 +198,7 @@
                                        <td>{{rand.sala}}</td>
 
                                      <td align="center">1</td>
+                                       <td align="center"><input class="cbox" type='checkbox' id="{{ rand.id }}" onclick="call_handle(this, {{ user.id }},{{ rand.id }})"></td>
                                    </tr>
 
                                    {% endfor %}
@@ -197,6 +222,7 @@
                                        <td>{{rand.sala}}</td>
 
                                      <td align="center">1</td>
+                                       <td align="center"><input class="cbox" type='checkbox' id="{{ rand.id }}" onclick="call_handle(this, {{ user.id }},{{ rand.id }})"></td>
                                    </tr>
 
                                    {% endfor %}
@@ -220,6 +246,7 @@
                                        <td>{{rand.sala}}</td>
 
                                      <td align="center">1</td>
+                                       <td align="center"><input class="cbox" type='checkbox' id="{{ rand.id }}" onclick="call_handle(this, {{ user.id }},{{ rand.id }})"></td>
                                    </tr>
 
                                    {% endfor %}
@@ -243,7 +270,7 @@
                                        <td>{{rand.sala}}</td>
 
                                      <td align="center">1</td>
-                                      <td align="center"><input type='checkbox' onclick="call_handle(this, {{ user.id }},{{ rand.id }})"></td>
+                                       <td align="center"><input class="cbox" type='checkbox' id="{{ rand.id }}" onclick="call_handle(this, {{ user.id }},{{ rand.id }})"></td>
                                    </tr>
 
                                    {% endfor %}
@@ -267,6 +294,7 @@
                                        <td>{{rand.sala}}</td>
 
                                      <td align="center">1</td>
+                                       <td align="center"><input class="cbox" type='checkbox' id="{{ rand.id }}" onclick="call_handle(this, {{ user.id }},{{ rand.id }})"></td>
                                    </tr>
 
                                    {% endfor %}
@@ -290,6 +318,7 @@
                                        <td>{{rand.sala}}</td>
 
                                      <td align="center">1</td>
+                                       <td align="center"><input class="cbox" type='checkbox' id="{{ rand.id }}" onclick="call_handle(this, {{ user.id }},{{ rand.id }})"></td>
                                    </tr>
 
                                    {% endfor %}

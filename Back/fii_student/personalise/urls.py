@@ -12,5 +12,7 @@ urlpatterns = [
     path('boards/check_joined_boards/<int:uid>', check_joined_boards, name='check_joined_boards'),
     path('orar/', show_orar, name='show_orar'),
     path('orar/add_rand/<int:uid>/<int:rid>', add_rand, name='add_rand'),
-    path('orar/remove_rand/<int:uid>/<int:rid>', remove_rand, name='remove_rand')
+    path('orar/remove_rand/<int:uid>/<int:rid>', remove_rand, name='remove_rand'),
+    path('orar/check_rands/<int:uid>', check_rands, name='check_rands'),
+    path('orar/orar_personalised/', show_orar_personalised, name='show_orar_personalised')
 ]
