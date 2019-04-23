@@ -14,5 +14,6 @@ urlpatterns = [
     path('orar/add_rand/<int:uid>/<int:rid>', add_rand, name='add_rand'),
     path('orar/remove_rand/<int:uid>/<int:rid>', remove_rand, name='remove_rand'),
     path('orar/check_rands/<int:uid>', check_rands, name='check_rands'),
-    path('orar/orar_personalised/', show_orar_personalised, name='show_orar_personalised')
+    path('orar/orar_personalised/', show_orar_personalised, name='show_orar_personalised'),
+    path('orar/orar_personalised/reset_orar/', reset_orar, name='reset_orar'),
 ]

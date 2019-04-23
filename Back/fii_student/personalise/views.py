@@ -353,3 +353,8 @@ def show_orar_personalised(request):
                'sambata': sambata, 'duminica': duminica,'SALAH': request_sala,"GRUPAH": request_grupa, "MATERIAH": request_materie, "PROFESORH": request_profesor}
 
     return HttpResponse(template.render(context, request))
+
+
+def reset_orar(request):
+    request.user.personalise.init_orar(request.user.an_studiu, request.user.grupa)
+    return redirect('../')

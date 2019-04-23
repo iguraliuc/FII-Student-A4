@@ -59,6 +59,7 @@ class Personalise(models.Model):
         return 'Boards[{}]'.format(0)  # [board.id for board in self.boards.all()])
 
     def init_orar(self, an, grupa):
+        PersonaliseOrar.objects.filter(personalise=self).delete()
         if an and an != '-' and grupa and grupa != '-' and an in dict_ani_studiu.keys():
             for v_rand in Rand.objects.filter(grupa = "I" + str(dict_ani_studiu[an]) + grupa):
                 PersonaliseOrar.objects.create(personalise=self, rand=v_rand)
