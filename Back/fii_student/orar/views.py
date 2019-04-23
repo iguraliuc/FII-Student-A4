@@ -80,6 +80,15 @@ def program_sali(request):
 
     return HttpResponse(template.render(context, request))
 
+def get_profesori_unique():
+    with open('./orar/orare/nume_profesori.txt', 'r') as file:
+        data = file.read().replace('\n', '')
+    data=data.replace('\"','')
+    data=data.replace('[','')
+    data=data.replace(']','')
+    data=data.replace("    ","")
+    profesori=data.split(",")
+    return profesori
 
 
 
@@ -104,11 +113,6 @@ def index(request):
         for aux in gr.split(','):
             _grupe_set.add(aux)
     lista_grupe = sorted(_grupe_set)
-    with open('./orar/orare/nume_profesori.txt', 'r') as file:
-        data = file.read().replace('\n', '')
-    data=data.replace('\"','')
-    data=data.replace("    ","")
-    profesori=data.split(",")
 
     print(datetime.datetime.now().strftime("%A"))
     randuri = Rand.objects.all()
@@ -201,7 +205,7 @@ def index(request):
     # grupe = Rand.objects.all().values('grupa').exclude(grupa__contains=',').distinct()
     # print(Rand.objects.values('sala').distinct())
 
-    context = {'grupe': lista_grupe, 'sali': get_sali_unique(), 'cursuri': get_materii_unique(),'profesori': profesori, 'lista_ore': list,
+    context = {'grupe': lista_grupe, 'sali': get_sali_unique(), 'cursuri': get_materii_unique(),'profesori': get_profesori_unique(), 'lista_ore': list,
                'titlu': titlu, 'luni': luni, 'marti': marti, 'miercuri': miercuri, 'joi': joi, 'vineri': vineri,
                'sambata': sambata, 'duminica': duminica,'SALAH': request_sala,"GRUPAH": request_grupa, "MATERIAH": request_materie,'PROFESORH':request_profesor}
 
