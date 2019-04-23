@@ -1,3 +1,6 @@
+import simplejson as simplejson
+from django.http import HttpResponse, Http404
+
 from .models import Personalise, Board
 from users.models import FiiUser
 from .forms import BoardForm
@@ -22,7 +25,7 @@ def show_personalise(request):
     # tdelta = sum((float(i['time']) for i in connection.queries))
     # setattr(table, 'tdelta', tdelta)
     return render(request, 'show_personalise.html',
-                  {'title': 'PersonaliseApp',
+                  {'title': 'Personalise',
                    'post_url_name': 'personalise_show',
                    'post_url': post_url,
                    'objects': generic_objects,
@@ -56,6 +59,10 @@ def add_board(request):
 
 
 def add_pref_board(request, uid, bid):
+    data = {
+        'status': 'True'
+    }
+    serialized_data = simplejson.dumps(data)
     if request.method == 'POST':
         user = get_object_or_404(FiiUser, pk=uid)
         board = get_object_or_404(Board, pk=bid)
@@ -67,15 +74,50 @@ def add_pref_board(request, uid, bid):
                 user.personalise = p
                 user.save()
             user.personalise.add_board(board)
-    return render(request, 'join_board.html', {'status': 'True'})
+    return HttpResponse(serialized_data, content_type='application/json')
 
 
 def remove_pref_board(request, uid, bid):
+    data = {
+        'status': 'True'
+    }
+    serialized_data = simplejson.dumps(data)
     if request.method == 'POST':
         user = get_object_or_404(FiiUser, pk=uid)
         board = get_object_or_404(Board, pk=bid)
         if user and board:
             if not user.personalise:
-                return render(request, 'join_board.html', {'status': 'True'})
+                return HttpResponse(serialized_data, content_type='application/json')
             user.personalise.remove_board(board)
-    return render(request, 'join_board.html', {'status': 'True'})
+    return HttpResponse(serialized_data, content_type='application/json')
+
+
+def check_joined_board(request, uid, bid):
+    data = {
+        'status': 'False'
+    }
+    try:
+        user = get_object_or_404(FiiUser, pk=uid)
+        board = get_object_or_404(Board, pk=bid)
+    except Http404:
+        data['message'] = 'Invalid board or user!'
+        serialized_data = simplejson.dumps(data)
+        return HttpResponse(serialized_data, content_type='application/json')
+    if user and board:
+        if user.personalise and user.personalise.check_has_board(board):
+            data['status'] = 'True'
+    serialized_data = simplejson.dumps(data)
+    return HttpResponse(serialized_data, content_type='application/json')
+
+
+def check_joined_boards(request, uid):
+    data = {
+        'boards': []
+    }
+    user = get_object_or_404(FiiUser, pk=uid)
+    if user:
+        if user.personalise:
+            data['boards'] = [str(board.id) for board in user.personalise.boards.all()]
+    serialized_data = simplejson.dumps(data)
+    return HttpResponse(serialized_data, content_type='application/json')
+

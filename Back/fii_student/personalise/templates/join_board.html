@@ -10,29 +10,25 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
         function call_update_user_boards(uid, bid){
-            {#var csrftoken = $("[name=csrfmiddlewaretoken]").val();#}
-            {# $.post('add_pref_board/'+uid+'/'+bid, function (data) {#}
-            {##}
-            {#    });#}
             $.ajax({
                 url: 'add_pref_board/'+uid+'/'+bid,
                 type: 'POST',
                 data: {
                     'csrfmiddlewaretoken': "{{ csrf_token }}"
                 },
-                success: function(data) {
+                success: function(data, response) {
 
                 }
             });
         }
-        function call_remove_user_boards(uid, bid){
+        function call_remove_user_boards(uid, bid) {
             $.ajax({
-                url: 'remove_pref_board/'+uid+'/'+bid,
+                url: 'remove_pref_board/' + uid + '/' + bid,
                 type: 'POST',
                 data: {
                     'csrfmiddlewaretoken': "{{ csrf_token }}"
                 },
-                success: function(data) {
+                success: function (data, response) {
 
                 }
             });
@@ -67,16 +63,54 @@
                     </div>
                     <div class="triangle"></div>
                     {% csrf_token %}
-                    <button class="btn" onclick="call_update_user_boards({{ user.id }},{{ board.id }})">JOIN BOARD</button>
+                    <button class="btn" id="{{ board.id }}" onclick="call_update_user_boards({{ user.id }},{{ board.id }})">JOIN BOARD</button>
 
-                    <button class="btn verified" onclick="call_remove_user_boards({{ user.id }},{{ board.id }})">Joined!<img src="correct.png"></button>
+                    <button class="btn verified" id="{{ board.id }}" onclick="call_remove_user_boards({{ user.id }},{{ board.id }})">Joined!<img src="{% static 'correct.png' %}"></button>
             </div>
             {% endfor %}
     </div>
+<script>
+{#  script which runs after page is load #}
+{#  sets corect buttons according to existing joined boards #}
+    $(
+        function(){
+                console.log('da');
+                $.ajax({
+                url: 'check_joined_boards/'+{{ user.id }},
+                type: 'POST',
+                data: {
+                    'csrfmiddlewaretoken': "{{ csrf_token }}"
+                },
+                success: function(data, response) {
+                    var btns = document.getElementsByClassName("btn");
+                    {#console.log(data["boards"]);#}
+                    for (var i = 0; i < btns.length; i++) {
+                        if(! btns[i].className.includes("verified")){
+                            {#console.log(btns[i].id.toString());#}
+                            if(data['boards'].indexOf(btns[i].id.toString()) >= 0){
+                                {#console.log('yes');#}
+
+                                btns[i].className = btns[i].className + " joined";
+                                btns[i].style.display = 'none';
+                                btns[i].style.visibility = "hidden";
+
+                                var verified = btns[i].parentElement.getElementsByClassName("verified")[0];
+                                verified.style.display = 'block';
+                                verified.style.visibility = 'visible';
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    );
+
+</script>
 
 </body>
 
 <script>
+
     function filter(an){
 
         var btns = document.getElementsByClassName("button");
@@ -89,9 +123,6 @@
                 this.className += " active";
             });
         }
-
-
-
 
 
         var button = document.getElementsByClassName("an");
@@ -117,23 +148,23 @@
     var btns = document.getElementsByClassName("btn");
         for (var i = 0; i < btns.length; i++) {
             btns[i].addEventListener("click", function() {
-                if(this.className.includes("joined")){
-                    this.className = this.className.replace(" joined", "");
-                }else if(!this.className.includes("verified")){
-                    this.className += " joined";
-                }
+                    if (this.className.includes("joined")) {
+                        this.className = this.className.replace(" joined", "");
+                    } else if (!this.className.includes("verified")) {
+                        this.className += " joined";
+                    }
 
-                if(this.className.includes("verified")){
-                    this.style.display = 'none';
-                    this.style.visibility = 'hidden';
-                    var show = this.parentElement.getElementsByClassName("joined")[0];
-                    show.className = show.className.replace(" joined", "");
-                    show.style.display = 'block';
-                    show.style.visibility = 'visible';
+                    if (this.className.includes("verified")) {
+                        this.style.display = 'none';
+                        this.style.visibility = 'hidden';
+                        var show = this.parentElement.getElementsByClassName("joined")[0];
+                        show.className = show.className.replace(" joined", "");
+                        show.style.display = 'block';
+                        show.style.visibility = 'visible';
 
 
-                }
-                join();
+                    }
+                    join();
 
             });
         }

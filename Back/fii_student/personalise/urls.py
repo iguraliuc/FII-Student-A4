@@ -8,4 +8,6 @@ urlpatterns = [
     path('add_board/', add_board, name='add_board'),
     path('boards/add_pref_board/<int:uid>/<int:bid>', add_pref_board, name='add_pref_board'),
     path('boards/remove_pref_board/<int:uid>/<int:bid>', remove_pref_board, name='remove_pref_board'),
+    path('boards/check_joined_board/<int:uid>/<int:bid>', check_joined_board, name='check_joined_board'),
+    path('boards/check_joined_boards/<int:uid>', check_joined_boards, name='check_joined_boards')
 ]

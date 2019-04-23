@@ -88,6 +88,11 @@ class Personalise(models.Model):
             return False
         self.boards.remove(board)
 
+    def check_has_board(self, board):
+        if not isinstance(board, Board) or len(self.boards.filter(pk=board.id)) == 0:
+            return False
+        return True
+
 
 # intermediate model for extra data in ManyToManyField for personalise -> classes
 class PersonaliseOrar(models.Model):
