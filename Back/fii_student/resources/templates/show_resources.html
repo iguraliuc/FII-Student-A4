@@ -19,10 +19,9 @@
         <div class="buttons-container">
 
             <button type="button" class="filter-btn show-all">Afișează tot</button>
-            <button type="button" class="filter-btn filter1">filter1</button>
-            <button type="button" class="filter-btn filter2">filter2</button>
-            <button type="button" class="filter-btn filter3">filter3</button>
-            <button type="button" class="filter-btn filter4">filter4</button>
+            {% for type in types %}
+                <button type="button" class="filter-btn {{type.type}}">{{type.type}}</button>
+            {% endfor %}
         </div>
 
         <div class="resources-container">
@@ -30,13 +29,13 @@
 
                 {% for obj in objects %}
         {% if obj.url %}
-            <li data-type="filter1" class="resources-item" >
+            <li data-type="{{obj.type}}" class="resources-item" >
                 <a href="{{obj.url}}" class="list-item-text">{{obj.title}}</a>
 
             </li>
         {% else %}
-             <li data-type="filter2" class="resources-item" >
-                <a href="/resources/{{obj.log_id}}" class="list-item-text">{{obj.title}}</a>
+             <li data-type="{{obj.type}}" class="resources-item" >
+                <a href="/resources/{{obj.resources_id}}" class="list-item-text">{{obj.title}}</a>
 
             </li>
         {% endif %}

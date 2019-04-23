@@ -15,6 +15,7 @@ for url in URLS:
     final_dict['date'] = str(datetime.datetime.now())
     final_dict['title'] = re.search(r'class="post-title">([^<]+)<', data).group(1)
     final_dict['content'] = re.search(r'(<div\s*class=post-content>[^$]+?</div>)', data).group(1)
+    final_dict['type'] = 'internal'
 
     with open("./jsons/{}".format(final_dict["title"]), "w", encoding='utf-8') as f:
         json.dump(final_dict, f, indent=4, ensure_ascii=False)

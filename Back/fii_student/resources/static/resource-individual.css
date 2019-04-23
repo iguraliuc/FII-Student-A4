@@ -1,21 +1,14 @@
-:root {
-    --light-color: white;
-    --light-medium-color: lightblue;
-    --medium-color: blue;
-    --medium-dark-color: darkblue;
-    --dark-color: black;
-}
-
 * {
     margin: 0px;
     padding: 0px;
     font-size: 15px;
-    color: var(--medium-dark-color);
 }
 
 body {
     font-family: 'Montserrat';
-    background-color: black;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
 
 li {
@@ -25,68 +18,79 @@ li {
 .board h1 {
     font-size: 40px;
     margin-bottom: 10px;
-    text-align: center;
 }
 
 .subtitle {
     margin: auto;
     width: 80%;
     display: flex;
-    justify-content: center;
-    border-bottom: 1px var(--medium-dark-color) solid;
+    justify-content: space-between;
+    border-bottom: 1px gray solid;
     padding-bottom: 10px;
 }
 
 .subtitle>p:last-child {
-    opacity: 0.5;
-    color: var(--medium-color);
+    color: gray;
 }
 
 .container {
-    margin: auto;
     margin-top: 20px;
     width: 80%;
     display: flex;
+    align-content: center;
+    justify-content: center;
 }
 
 .board {
+    text-align: center;
     width: 80%;
-    box-shadow: 3px 0px 6px 4px var(--medium-dark-color);
-    -moz-box-shadow: 3px 0px 6px 4px var(--medium-dark-color);
-    -webkit-box-shadow: 3px 0px 6px 4px var(--medium-dark-color);
+    box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
     padding: 50px;
+    background-color: #09BCFF;
     box-sizing: border-box;
-    background-color: var(--light-medium-color);
 }
 
 .board .content {
     margin-top: 20px;
+    background-color: white;
+    padding: 2vw;;
+}
+
+.board>p:first-child {
+    padding: 5px;
+    background-color: #09BCFF;
+    color: white;
+    width: 20%;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .meniu {
-    width: 18%;
-    box-shadow: 3px 0px 6px 4px var(--medium-dark-color);
-    -moz-box-shadow: 3px 0px 6px 4px var(--medium-dark-color);
-    -webkit-box-shadow: 3px 0px 6px 4px var(--medium-dark-color);
-    margin-left: 20px;
-    display: flex;
-    height: 6vw;
-    width: 6vw;
+    width: auto;
+    box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
+    background-color: white;
+    margin-top: 20px;
+    display: inline-block;
+    float: left;
+    justify-content: space-around;
+    padding: 20px;
     transition: 0.5s;
-    background-color: var(--light-medium-color);
 }
 
 .meniu:hover {
     transition: 0.5s;
-    width: 7vw;
-    box-shadow: 3px 0px 6px 4px var(--medium-dark-color);
-    -moz-box-shadow: 3px 0px 6px 4px var(--medium-dark-color);
-    -webkit-box-shadow: 3px 0px 6px 4px var(--medium-dark-color);
-    background-color: var(--medium-dark-color);
+    box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
+    background-color: #09BCFF;
 }
 
 .meniu:hover p {
-    color: var(--light-color);
+    color: white;
 }
 
 .meniu {
@@ -96,4 +100,28 @@ li {
 
 .meniu p {
     margin: auto;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    background-color: #ddd;
+}
+
+.btn.active {
+    background-color: #666;
+    color: white;
+}
+
+.meniu>p {
+    color: black;
 }

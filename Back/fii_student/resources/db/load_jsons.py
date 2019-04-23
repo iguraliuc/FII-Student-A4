@@ -2,7 +2,7 @@ import os
 import json
 import datetime
 
-insert_command = "INSERT INTO resources(title, timestamp, url, content) VALUES("
+insert_command = "INSERT INTO resources(title, timestamp, url, content, type) VALUES("
 
 
 def get_real_data():
@@ -14,9 +14,9 @@ def get_real_data():
         with open(fpath, 'rb') as fin:
             json_file = json.loads(fin.read())
             if 'site' in json_file :
-                new_command = insert_command + '\'' + json_file['title'] + '\',' + 'null' + ',\'' + json_file['site'] + '\',' + 'null)'
+                new_command = insert_command + '\'' + json_file['title'] + '\',' + 'null' + ',\'' + json_file['site'] + '\',' + 'null,\'' + json_file['type'] + '\')'
             elif 'content' in json_file :
-                new_command = insert_command + '\'' + json_file['title'] + '\',' + 'null' + ', null' + ',\'' + json_file['content'] + '\')'
+                new_command = insert_command + '\'' + json_file['title'] + '\',' + 'null' + ', null' + ',\'' + json_file['content'] + '\',\'' + json_file['type'] + '\')'
             # print(new_command)
             commands.append(new_command)
             # return commands

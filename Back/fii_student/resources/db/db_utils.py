@@ -14,14 +14,15 @@ def create_tables():
          --
          DROP TABLE IF EXISTS resources;
          CREATE TABLE "resources" (
-             "log_id" serial NOT NULL PRIMARY KEY, 
+             "resources_id" serial NOT NULL PRIMARY KEY, 
              "title" varchar(128) NOT NULL, 
              "timestamp" timestamp with time zone NULL, 
              "url" text, 
-             "content" text
+             "content" text,
+             "type" text
          );
          COMMIT;
-         """,
+         """
         # """
         # INSERT INTO resources(log_id, title, timestamp, url, content)
         #     VALUES(1, 'Ghidul Studentului UAIC', null, 'http://www.uaic.ro/studenti/ghidul-studentului-uaic/', null);

@@ -17,6 +17,7 @@ for it in lista:
     final_dict['date'] = str(datetime.datetime.now())
     final_dict['site'] = it[0]
     final_dict['title'] = it[1]
+    final_dict['type'] = 'external'
 
     with open("./jsons/{}".format(final_dict["title"]), "w", encoding='utf-8') as f:
         json.dump(final_dict, f, indent=4, ensure_ascii=False)

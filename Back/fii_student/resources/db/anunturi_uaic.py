@@ -31,6 +31,7 @@ for url in URLS:
     final_dict['title'] = url.rsplit('/')[-2]
     soup = BeautifulSoup(data, features="lxml")
     final_dict['content'] = soup.findAll("body")[0].renderContents().decode('utf-8')
+    final_dict['type'] = 'external'
 
     with open("./jsons/{}".format(final_dict["title"]), "w", encoding='utf-8') as f:
         json.dump(final_dict, f, indent=4, ensure_ascii=False)
