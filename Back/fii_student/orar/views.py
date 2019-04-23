@@ -26,6 +26,14 @@ def get_sali_unique():
             sali_unice.add(sala.get_sala())
     return sorted(sali_unice)
 
+def get_profesori_unique():
+    profesori_unici = {"Colab. Pantiru Gabriel"}
+    toti_profesorii = Rand.objects.all()
+    for profesor in toti_profesorii:
+        if profesor.get_profesor() is not "":
+            profesori_unici.add(profesor.get_profesor())
+    return sorted(profesori_unici)
+
 
 def get_zile():
     randuri = Rand.objects.all()
@@ -131,7 +139,7 @@ def index(request):
         randuri = randuri.exclude(sala__in=sali_ocupate.values('sala')).exclude(sala = "").distinct('sala')
         print(sali_ocupate)
         template = loader.get_template('saliLibere.html')
-        context = {'grupe': lista_grupe, 'sali': get_sali_unique(), 'cursuri': get_materii_unique(), 'randuri': randuri}
+        context = {'grupe': lista_grupe, 'sali': get_sali_unique(), 'cursuri': get_materii_unique(), 'randuri': randuri, 'profesori': get_profesori_unique()}
         return HttpResponse(template.render(context, request))
     request_materie = ""
     request_grupa = ""
@@ -195,8 +203,8 @@ def index(request):
     # grupe = Rand.objects.all().values('grupa').exclude(grupa__contains=',').distinct()
     # print(Rand.objects.values('sala').distinct())
 
-    context = {'grupe': lista_grupe, 'sali': get_sali_unique(), 'cursuri': get_materii_unique(), 'lista_ore': list,
+    context = {'grupe': lista_grupe, 'sali': get_sali_unique(), 'cursuri': get_materii_unique(), 'profesori': get_profesori_unique(), 'lista_ore': list,
                'titlu': titlu, 'luni': luni, 'marti': marti, 'miercuri': miercuri, 'joi': joi, 'vineri': vineri,
-               'sambata': sambata, 'duminica': duminica,'SALAH': request_sala,"GRUPAH": request_grupa, "MATERIAH": request_materie}
+               'sambata': sambata, 'duminica': duminica,'SALAH': request_sala,"GRUPAH": request_grupa, "MATERIAH": request_materie, "PROFESORH": request_profesor}
 
     return HttpResponse(template.render(context, request))

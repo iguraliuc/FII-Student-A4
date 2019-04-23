@@ -23,3 +23,6 @@ class Rand(models.Model):
 
     def get_materie(self):
         return self.curs
+
+    def get_profesor(self):
+        return self.profesor
