@@ -24,3 +24,8 @@ class ResourcesViewSet(viewsets.ModelViewSet):
     queryset = Resources.objects.all()
     serializer_class = ResourcesSerializer
 
+class OrarViewSet(viewsets.ModelViewSet):
+    queryset = Rand.objects.all()
+    serializer_class = OrarSerializer
+    
+    
