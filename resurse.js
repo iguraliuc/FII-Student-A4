@@ -4,12 +4,13 @@ var active = document.getElementsByClassName("show-all")[0];
 
 function setActive(btn) {
     btn.style.color = "var(--medium-dark-color)";
-    btn.style.backgroundColor = "var(--light-medium-color)";
+    btn.style.backgroundColor = "var(--medium-color)";
+
 }
 
 function unsetActive(btn) {
     btn.style.color = "var(--light-color)";
-    btn.style.backgroundColor = "var(--medium-dark-color)";
+    btn.style.backgroundColor = "var(--light-medium-color)";
 }
 
 
