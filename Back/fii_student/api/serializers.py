@@ -24,5 +24,5 @@ class BoardSerializer(serializers.HyperlinkedModelSerializer):
 
 class ResourcesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model= Resources
-        fields = ('log_id', 'title', 'url', 'path')
+        model = Resources
+        fields = ('log_id', 'title', 'url', 'content')

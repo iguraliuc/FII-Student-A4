@@ -19,3 +19,8 @@ class BoardViewSet(viewsets.ModelViewSet):
     queryset = Board.objects.all()
     serializer_class = BoardSerializer
 
+
+class ResourcesViewSet(viewsets.ModelViewSet):
+    queryset = Resources.objects.all()
+    serializer_class = ResourcesSerializer
+
