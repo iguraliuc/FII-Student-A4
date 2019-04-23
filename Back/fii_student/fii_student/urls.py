@@ -26,6 +26,7 @@ router = routers.DefaultRouter()
 router.register('news', NewsViewSet)
 router.register('boards', BoardViewSet)
 router.register('resources', ResourcesViewSet)
+router.register('orar',OrarViewSet)
 
 urlpatterns = [
     path('', fii_student_views.show_landing_page, name='show_landing_page'),
