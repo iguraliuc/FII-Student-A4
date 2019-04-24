@@ -1,11 +1,64 @@
-
-{% block title %}Login{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    {% load static %}
+    <link href="{% static "login_style.css" %}" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+</head>
+<body>
 {% csrf_token %}
 {% block content %}
-  <h2>Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-  </form>
+    <div class="container">
+
+        <div class="left">
+            <div class="titlu">
+                <p>LOGO</p>
+                <h1>Fii Student</h1>
+            </div>
+        </div>
+
+        <div class="right-container">
+            <div class="right">
+                <div class="titlu">
+                    <h1>LOGIN</h1>
+                    {#                    <h3>-mesaj de intampinare-</h3>#}
+                </div>
+                {#                <form method="post">#}
+                {#                    {{ form.as_p }}#}
+                {#                    <button type="submit">Login</button>#}
+                {#                </form>#}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="icon">
+                        <img src="{% static 'user-solid.svg' %} ">
+                        <div class="pass-container">
+                            {#                            <input type="text" name="Username" placeholder="Username">#}
+                            {{ form.username }}
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <img src="{% static 'unlock-alt-solid.svg' %}">
+                        <div class="pass-container">
+                            {#                            <input type="text" name="Password" placeholder="Password">#}
+                            {{ form.password }}
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <input type="submit" value="SIGN IN">
+                        <a href="{% url 'signup' %}">Creeaza cont</a>
+                        <a href="{% url 'show_landing_page' %}">Am uitat parola</a>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
 {% endblock %}
+
+</body>
+
+</html>

@@ -4,13 +4,14 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.utils.html import strip_tags
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, logout
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
 from .tokens import account_activation_token
-from .models import FiiUser
+from .models import FiiUser, Personalise
+
 
 def signup(request):
     if request.method == 'POST':
@@ -25,7 +26,11 @@ def signup(request):
 
             current_site = get_current_site(request)
             subject = 'Activeaza contul FII-Student'
-            uid = urlsafe_base64_encode(force_bytes(user.pk)).decode('utf-8')
+            aux = urlsafe_base64_encode(force_bytes(user.pk))
+            if isinstance(aux, str):
+                uid = aux
+            else:
+                uid = aux.decode('utf-8')
             token = account_activation_token.make_token(user)
             message = render_to_string('activate_account.html', {
                 'user': user,
@@ -35,7 +40,7 @@ def signup(request):
             })
             user.email_user(subject, message)
 
-            return redirect('/activation_email_sent/')
+            return redirect('/users/activation_email_sent/')
     else:
         form = SignupForm()
     return render(request, 'signup2.html', {'form': form})
@@ -52,10 +57,22 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.email_confirmed = True
         user.save()
-        login(request, user)
-        return redirect('/news/')
-    else:
-        return render(request, 'account_activation_invalid.html')
+        # init personalise
+        p = Personalise()
+        p.save()
+        p.init_orar(user.an_studiu, user.grupa)
+        user.personalise = p
 
-def account_activation_sent(request):
-    render(request, 'account_activation_sent.html')
+        login(request, user)
+        return redirect('landing_page.html')
+    else:
+        return render(request, 'activation_email_sent.html')
+
+
+def activation_email_sent(request):
+    return render(request, 'activation_email_sent.html')
+
+
+def logout_view(request):
+    logout(request)
+    return render(request, 'landing_page.html')

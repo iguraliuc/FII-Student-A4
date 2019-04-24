@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+    {% load staticfiles %}
+
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Resources</title>
 
-    {% load static %}
-    <link href="{% static "resources.css" %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static "resources.css" %}">
+
 </head>
+
 <body>
-<div class="container">
-    {% for obj in objects %}
-    <div class="item-container" onclick="location.href='{{obj.url}}';">
-        <div class="item">
-            <a href="{{obj.url}}">{{obj.title}}</a>
+    <div class="resources-main-container">
+        <div class="buttons-container">
+
+            <button type="button" class="filter-btn show-all">Afișează tot</button>
+            {% for type in types %}
+                <button type="button" class="filter-btn {{type.type}}">{{type.type}}</button>
+            {% endfor %}
+        </div>
+
+        <div class="resources-container">
+            <ul class="resources-list">
+
+                {% for obj in objects %}
+        {% if obj.url %}
+            <li data-type="{{obj.type}}" class="resources-item" >
+                <a href="{{obj.url}}" class="list-item-text">{{obj.title}}</a>
+
+            </li>
+        {% else %}
+             <li data-type="{{obj.type}}" class="resources-item" >
+                <a href="/resources/{{obj.resources_id}}" class="list-item-text">{{obj.title}}</a>
+
+            </li>
+        {% endif %}
+    {% endfor %}
+
+
+            </ul>
         </div>
     </div>
-    {% endfor %}
-</div>
 </body>
+<script src="{% static "resources.js" %}"></script>
+
 </html>

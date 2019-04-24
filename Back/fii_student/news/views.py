@@ -1,14 +1,12 @@
 from .models import News
-from .filters import NewsFilter
-from .tables import NewsTable
-from utils import generics
-from django.shortcuts import render, get_object_or_404
-from django_tables2 import RequestConfig, tables
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.db import connection
 from django.views.generic import DetailView
+from django.contrib.auth.decorators import login_required
 
-import os
+
+# @login_required
 def show_news(request):
     post_url = reverse('news_show')
     generic_objects = News.objects.all()

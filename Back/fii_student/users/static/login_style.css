@@ -1,16 +1,17 @@
-*{
+* {
     margin: 0;
     padding: 0;
 
 }
-p{
+
+p {
     color: #35363A;
     font-family: "Verdana", Arial, sans-serif;
     font-style: normal;
     font-weight: normal;
 }
 
-h1, h3{
+h1, h3 {
 
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
@@ -18,63 +19,68 @@ h1, h3{
     font-weight: normal;
 }
 
-h2{
+h2 {
     color: #35363A;
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
-    font-size:30px;
+    font-size: 30px;
     font-weight: normal;
 
 }
 
-h3{
+h3 {
     font-size: 20px;
 }
-.container{
+
+.container {
     display: flex;
     height: 100vh;
 }
 
-.left{
+.left {
     width: 100%;
     height: 100vh;
     background-color: #3B3D6D;
 
-    background-image: url('login-tech.jpg');
+    background-image: url('/static/login-tech.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 
 }
-.left .titlu{
+
+.left .titlu {
     margin-top: 10%;
     margin-left: 20%;
 }
 
-.left .titlu h1, .left .titlu p{
+.left .titlu h1, .left .titlu p {
     color: white;
 }
-.right-container{
+
+.right-container {
     background-color: #E6E7F4;
     height: 100vh;
     width: 100%;
 }
-.right{
+
+.right {
     background-color: #E6E7F4;
-   /* display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    */
-    width:100%;
+    /* display: flex;
+     flex-direction: column;
+     justify-content: space-evenly;
+     align-items: center;
+     */
+    width: 100%;
     height: 80vh;
-    margin-top:10%;
+    margin-top: 10%;
 }
-.right .titlu{
+
+.right .titlu {
     text-align: center;
 }
 
-form{
+form {
     height: 90%;
     width: 80%;
     margin: auto;
@@ -85,29 +91,29 @@ form{
 
 }
 
-
-form  a{
+form a {
     text-decoration: none;
-     font-size: 18px;
-     color:#45419A;
- }
+    font-size: 18px;
+    color: #45419A;
+}
 
- form .pass-container{
+form .pass-container {
     text-align: center;
     width: 100%;
- }
+}
 
-form .pass-container input[type=text]{
-    margin:auto;
- }
+form .pass-container input[type=text] {
+    margin: auto;
+}
 
-form img{
+form img {
     margin-right: auto;
     height: 100%;
 }
-form .icon{
+
+form .icon {
     height: 50px;
-    display:flex;
+    display: flex;
     width: 100%;
     justify-content: center;
 
@@ -115,35 +121,44 @@ form .icon{
     animation-duration: 2s;
 
 }
-form .bottom{
-    display:flex;
+
+form .bottom {
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height:70px;
+    height: 100px;
 }
 
 /* animation */
 
 @keyframes expand {
-    from {width:0%;}
-    to {width:80%;}
+    from {
+        width: 0;
+    }
+    to {
+        width: 80%;
+    }
 }
 
 @keyframes appear {
-    from {opacity: 0;}
-    to {opacity:1;}
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* end animations */
 
-input[type=text]{
+input[type=text] {
 
     display: block;
     width: 80%;
     border-style: none;
     height: 50px;
-    padding-left:10px;
+    padding-left: 10px;
     box-sizing: border-box;
 
     background-image: linear-gradient(to right, #bfbedf, #c8c8e4, #d2d2ea, #dcddef, #e6e7f4);
@@ -152,33 +167,46 @@ input[type=text]{
     animation-duration: 2s;
 }
 
-input[type=text]:focus{
-    outline:none;
-    border:1px #7877B8 solid;
+input[type=text]:focus {
+    outline: none;
+    border: 1px #7877B8 solid;
 
 }
 
-input[type=text]::-webkit-input-placeholder{
-    color:white;
+input[type=text]::-webkit-input-placeholder {
+    color: white;
 }
 
-input[type=submit]{
-    height:40px;
+input[type=submit] {
+    height: 40px;
     width: 120px;
     border: 1px solid #7877B8;
-    background-color:#E6E7F4;
-    color:#7877B8;
+    background-color: #E6E7F4;
+    color: #7877B8;
     font-weight: bold;
     border-radius: 20px;
 }
 
-input[type=submit]:hover{
+input[type=submit]:hover {
     transition: 200ms;
-    height:40px;
+    height: 40px;
     width: 120px;
     border: 1px solid #7877B8;
-    background-color:#7877B8;
-    color:#E6E7F4;
+    background-color: #7877B8;
+    color: #E6E7F4;
     font-weight: bold;
     border-radius: 20px;
+}
+
+input[type=password] {
+    display: block;
+    width: 80%;
+    border-style: none;
+    height: 50px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    background-image: linear-gradient(to right, #bfbedf, #c8c8e4, #d2d2ea, #dcddef, #e6e7f4);
+    animation-name: expand;
+    animation-duration: 2s;
+    margin:auto;
 }

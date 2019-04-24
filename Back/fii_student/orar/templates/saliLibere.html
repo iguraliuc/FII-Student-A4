@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          {% load static %}
+     	<title>Orar</title>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <link rel="stylesheet" type="text/css" href="{% static './css/bootstrap.min.css' %}">
+          <link rel="stylesheet" type="text/css" href="{% static 'saliLibere.css' %}">
+     </head>
+
+     <body>
+          <section>
+               <h1>Sali libere acum</h1>
+
+                      <article id="form">
+                         <div id="buttons">
+                              <button type="submit" name="Examene" value="Examene">Examene</button>
+                              <button type="submit" name="An" value="An">Structura anului universitar</button>
+                              <button type="submit" name="An" value="An" onclick="location.href='http:?sali_libere_acum=-';">Sali libere acum</button>
+                              <button type="submit" name="An" value="An" onclick="location.href='/orar/program_sali/';">Disponibilitate sali</button>
+                             <button type="submit" name="An" value="An" onclick="location.href='/orar?grupa=I2A4';">Back</button>
+                         </div>
+               </article>
+
+               <article>
+                    <div class="grid-container">
+                         {% for rand in randuri %}
+                         <div class="grid-item">{{rand.sala}}</div>
+                         {% endfor %}
+                    </div>
+               </article>
+          </section>
+     </body>
+</html>

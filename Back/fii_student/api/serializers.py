@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from news.models import News
-from personalise.models import Personalise
+from orar.models import Rand
+from personalise.models import Personalise, Board
 from resources.models import Resources
 
 
@@ -16,7 +17,18 @@ class PersonaliseSerializer(serializers.HyperlinkedModelSerializer):
         fields = None  # to add fields here
 
 
+class BoardSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Board
+        fields = ('id', 'year', 'subject', 'teacher', 'description')
+
+
 class ResourcesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model= Resources
-        fields = ('log_id', 'title', 'url', 'path')
+        model = Resources
+        fields = ('resources_id', 'title', 'url', 'content')
+        
+class OrarSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Rand
+        fields = ('__all__')

@@ -44,8 +44,13 @@ INSTALLED_APPS = [
     'personalise',
     'users',
     'resources',
-    'orar'
+    'orar',
+    'fii_student'
 ]
+
+LOGIN_URL = '/users/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -82,6 +87,12 @@ TEMPLATES = [
         },
     },
 ]
+
+
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
+TEMPLATE_DIRS = (
+    os.path.join(SETTINGS_PATH, 'templates'),
+)
 
 WSGI_APPLICATION = 'fii_student.wsgi.application'
 

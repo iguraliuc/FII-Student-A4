@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>Signup</title>
     {% load static %}
     <link href="{% static "register_style.css" %}" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
         <div class="left">
             <div class="titlu">
                 <p>LOGO</p>
-                <h1>TITLU APLICATIE</h1>
+                <h1>Fii Student</h1>
             </div>
         </div>
 
@@ -24,7 +24,7 @@
                     <h2>INREGISTRARE</h2>
 
                 </div>
-                <form action="login.html" method="post">
+                <form method="post">
                     {% csrf_token %}
                     {% for field in form %}
                         <p>
@@ -40,6 +40,7 @@
                     {% endfor %}
                     <div class="bottom">
                         <input type="submit" value="Create account">
+                        <a href="{% url 'login' %}" style="font-size: 16px;">Mergi la login</a>
                     </div>
                 </form>
             </div>

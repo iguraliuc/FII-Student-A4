@@ -10,6 +10,8 @@ from fii_student.settings import EMAIL_HOST_USER
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+from personalise.models import Personalise
+
 
 from .managers import UserManager
 
@@ -30,14 +32,13 @@ class FiiUser(AbstractBaseUser, PermissionsMixin):
     rol = models.CharField(max_length=20, choices=[(x, x) for x in ROLURI])
     an_studiu = models.CharField(max_length=20, choices=[(x, x) for x in ANI_STUDIU])
     grupa = models.CharField(max_length=20, choices=[(x, x) for x in GRUPE])
+    personalise = models.ForeignKey(Personalise, null=True, on_delete=models.CASCADE)
 
     objects = UserManager()
     is_staff = models.BooleanField(_('staff status'), default=False)
     USERNAME_FIELD = 'email'
     # REQUIRED_FIELDS = ['email', 'first_name', 'user_name', 'rol']
     REQUIRED_FIELDS = []
-
-
 
     # TODO: OrarPersonalizabil, mainPageCards, other prefferences
 

@@ -25,10 +25,13 @@ def get_real_data():
         fpath = os.path.join(os.getcwd(), 'jsons', f)
         with open(fpath, 'rb') as fin:
             json_file = json.loads(fin.read())
-            day = int(json_file['date'].split(' ')[0])
-            month = MONTH[json_file['date'].split(' ')[1][:-1]]
-            year = int(json_file['date'].split(' ')[2])
-            published_date = datetime.datetime(year=year, month=month, day=day)
+            if 'FII' in json_file['source']:
+                day = int(json_file['date'].split(' ')[0])
+                month = MONTH[json_file['date'].split(' ')[1][:-1]]
+                year = int(json_file['date'].split(' ')[2])
+                published_date = datetime.datetime(year=year, month=month, day=day)
+            else:
+                published_date = "no_date"
             new_command = insert_command + '\'' + json_file['title'] + '\', \'' + json_file['content'] + \
                             '\', \'\', \'\', \'' + str(published_date) + '\')'
             # print(new_command)
