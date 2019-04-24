@@ -171,7 +171,7 @@ def show_orar(request):
     if "profesor" in request.GET:
         request_profesor = request.GET['profesor']
         if request_profesor is not "":
-            randuri = randuri.filter(profesor=request_profesor)
+            randuri = randuri.filter(profesor__contains=request_profesor)
             titlu = "Profesor " + request_profesor
 
     if "grupa" in request.GET:
@@ -309,7 +309,7 @@ def show_orar_personalised(request):
     if "profesor" in request.GET:
         request_profesor = request.GET['profesor']
         if request_profesor is not "":
-            randuri = randuri.filter(profesor=request_profesor)
+            randuri = randuri.filter(profesor__contains=request_profesor)
             titlu = "Profesor " + request_profesor
 
     if "grupa" in request.GET:
