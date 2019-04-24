@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html lang='en'>
-
+{% extends 'landing_page2.html' %}
+{% block content %}
 <head>
 
       {% load staticfiles %}
@@ -22,7 +21,7 @@
                 {{object.content|safe}}
             </div>
         </div>
-        <a href="/resources" class="meniu">
+        <a href="/resources/" class="meniu">
 
             <p> &Lang;&Lang;&Lang; Înapoi</p>
 
@@ -37,3 +36,4 @@
 
 </html>
 
+{% endblock %}

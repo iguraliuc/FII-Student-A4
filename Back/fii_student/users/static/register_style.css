@@ -181,7 +181,9 @@ input[type=submit]{
     font-weight: bold;
     border-radius: 20px;
 }
-
+.logo{
+    max-width: 70%;
+}
 input[type=submit]:hover{
     transition: 200ms;
     height:40px;

@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang='en'>
+{% extends 'landing_page2.html' %}
 
+{% block content %}
 <head>
   <meta charset="utf-8">
   <title>Join Boards</title>
@@ -40,7 +40,7 @@
 <body>
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
     {% csrf_token %}
-    <div class="filtru">
+    <div class="filtru" style="padding-top: 30px;">
         <button class="button toti active" onclick="filter('Toti')">Toti anii</button>
         <button class="button anI" onclick="filter('An I')">An I</button>
         <button class="button anII" onclick="filter('An II')">An II</button>
@@ -185,5 +185,4 @@
     }
 
 </script>
-
-</html>
+{% endblock %}

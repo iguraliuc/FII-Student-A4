@@ -31,7 +31,7 @@ def get_sali_unique():
 def get_zile():
     randuri = Rand.objects.all()
     rand = {}
-    rand['Luni'] = luni = randuri.filter(zi='Luni')
+    rand['Luni'] = randuri.filter(zi='Luni')
     rand['Marti'] = randuri.filter(zi='Marti')
     rand['Miercuri'] = randuri.filter(zi='Miercuri')
     rand['Joi'] = randuri.filter(zi='Joi')

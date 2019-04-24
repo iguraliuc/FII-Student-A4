@@ -1,7 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from news.models import News
 from api.serializers import *
 
 
@@ -24,8 +23,12 @@ class ResourcesViewSet(viewsets.ModelViewSet):
     queryset = Resources.objects.all()
     serializer_class = ResourcesSerializer
 
+
 class OrarViewSet(viewsets.ModelViewSet):
     queryset = Rand.objects.all()
     serializer_class = OrarSerializer
-    
-    
+
+
+class UsersViewSet(viewsets.ModelViewSet):
+    queryset = FiiUser.objects.all()
+    serializer_class = UsersSerializer

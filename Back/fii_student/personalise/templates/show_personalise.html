@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'landing_page2.html' %}
+
+{% block content %}
 <head>
     {% load static %}
     <link href="{% static "personalise-style.css" %}" rel="stylesheet" type="text/css">
@@ -15,4 +16,4 @@
 {% endfor %}
 </ul>
 </body>
-</html>
+{% endblock %}

@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends 'landing_page2.html' %}
+
+{% block content %}
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Anunturi</title>
     {% load static %}
     <link href="{% static "anunturi-style.css" %}" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-</head>
 
-<body>
 
 <div class="container">
     <div class="board">
         {% for obj in objects %}
-            <div class="anunt-container {{ obj.category }}">
+            <div class="anunt-container {{ obj.source }}">
                 <div class="date">
                     <p>{{ obj.published_time|date:'d M Y' }}</p>
                                         <p class="day"> {{ obj.published_time|date:'D' }}.</p>
@@ -30,14 +28,13 @@
     <div class="meniu">
         <div id="myBtnContainer">
             <button class="btn active" onclick="filterSelection('all')"> Toate anunturile</button>
-            <button class="btn" onclick="filterSelection('materii')"> Materii</button>
-            <button class="btn" onclick="filterSelection('profesori')"> Profesori</button>
-            <button class="btn" onclick="filterSelection('secretariat')"> Secretariat</button>
-            <button class="btn" onclick="filterSelection('noutati')"> News</button>
+            <button class="btn" onclick="filterSelection('UAIC')"> UAIC</button>
+            <button class="btn" onclick="filterSelection('FII')"> FII</button>
+            <button class="btn" onclick="filterSelection('ORAR')"> ORAR</button>
+{#            <button class="btn" onclick="filterSelection('noutati')"> News</button>#}
         </div>
     </div>
 </div>
-</body>
 
 <script>
 
@@ -71,4 +68,4 @@
     }
 
 </script>
-</html>
+{% endblock %}

@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
+{% extends 'landing_page2.html' %}
+{% block content %}
 <head>
 
     {% load staticfiles %}
@@ -15,7 +14,7 @@
 </head>
 
 <body>
-    <div class="resources-main-container">
+    <div class="resources-main-container" style="padding-top:50px">
         <div class="buttons-container">
 
             <button type="button" class="filter-btn show-all">Afișează tot</button>
@@ -49,3 +48,4 @@
 <script src="{% static "resources.js" %}"></script>
 
 </html>
+{% endblock %}

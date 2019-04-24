@@ -6,15 +6,15 @@ BASE_URL = r'https://www.info.uaic.ro/announcement_student/'
 
 
 def get_announcements_fii():
-
-    response = requests.get(BASE_URL, verify=False)
-    data = response.text
-    create_date_anon(data)
-    pages = re.findall(r'class=page-numbers href=([^>]+)>', data)
-    for page in pages:
-        response = requests.get(page, verify=False)
-        data = response.text
-        create_date_anon(data)
+    print("Anunturi fii")
+    # response = requests.get(BASE_URL, verify=False)
+    # data = response.text
+    # create_date_anon(data)
+    # pages = re.findall(r'class=page-numbers href=([^>]+)>', data)
+    # for page in pages:
+    #     response = requests.get(page, verify=False)
+    #     data = response.text
+    #     create_date_anon(data)
 
 
 def create_date_anon(data):

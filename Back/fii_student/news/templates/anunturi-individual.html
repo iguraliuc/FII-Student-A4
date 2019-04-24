@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang='RO-ro'>
+{% extends 'landing_page2.html' %}
 
-<head>
+{% block content %}
   <meta charset="utf-8">
   <title>Anunturi</title>
     {% load static %}
       <link href="{% static "anunturi-individual-style.css" %}" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-</head>
 
-<body>
 
 <div class="container">
     <div class="board">
@@ -31,7 +28,4 @@
     </a>
 </div>
 
-</body>
-
-
-</html>
+{% endblock %}

@@ -18,6 +18,8 @@ class News(models.Model):
     body = models.TextField(blank=True, null=True)
     inserted_time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     published_time = models.DateTimeField(auto_now_add=False, blank=True, null=True)
+    expire_time = models.DateTimeField(auto_now_add=False, blank=True, null=True)
+    source = models.CharField(max_length=255)
 
     class Meta:
         db_table = 'news'
