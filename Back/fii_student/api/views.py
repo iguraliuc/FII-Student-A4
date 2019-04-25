@@ -28,7 +28,3 @@ class OrarViewSet(viewsets.ModelViewSet):
     queryset = Rand.objects.all()
     serializer_class = OrarSerializer
 
-
-class UsersViewSet(viewsets.ModelViewSet):
-    queryset = FiiUser.objects.all()
-    serializer_class = UsersSerializer
