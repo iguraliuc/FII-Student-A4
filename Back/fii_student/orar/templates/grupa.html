@@ -15,7 +15,7 @@
                    <article id="form">
                          <div id="buttons">
                               <button type="submit" name="Examene" value="Examene">Examene</button>
-                              <button type="submit" name="An" value="An">Structura anului universitar</button>
+                              <button type="submit" name="An" value="An" onclick="location.href='http://www.uaic.ro/studii/structura-anului-universitar/';">Structura anului universitar</button>
                               <button type="submit" name="An" value="An" onclick="location.href='http:?sali_libere_acum=-';">Sali libere acum</button>
                               <button type="submit" name="An" value="An" onclick="location.href='/orar/program_sali/';">Disponibilitate sali</button>
                          </div>
@@ -106,15 +106,15 @@
                                    {% for rand in luni %}
 
                                                             <tr>
-                                     <td> {{rand.ora_inceput}}</td>
-                                     <td> {{rand.ora_sfarsit}}</td>
+                                     <td> {{rand.ora_inceput|time:'H:i'}}</td>
+                                     <td> {{rand.ora_sfarsit|time:'H:i'}}</td>
                                      <td>{{rand.curs}}</td>
                                      <td>{{rand.tip}}</td>
                                      <td>{{rand.grupa}}</td>
                                      <td>{{rand.profesor}}</td>
                                      <td>{{rand.sala}}</td>
 
-                                     <td align="center">1</td>
+                                     <td align="center">{{rand.pachet}}</td>
                                    </tr>
 
                                    {% endfor %}
@@ -129,15 +129,15 @@
                                    {% for rand in marti %}
 
                                    <tr>
-                                     <td> {{rand.ora_inceput}}</td>
-                                     <td> {{rand.ora_sfarsit}}</td>
+                                     <td> {{rand.ora_inceput|time:'H:i'}}</td>
+                                     <td> {{rand.ora_sfarsit|time:'H:i'}}</td>
                                      <td>{{rand.curs}}</td>
                                      <td>{{rand.tip}}</td>
                                        <td>{{rand.grupa}}</td>
                                      <td>{{rand.profesor}}</td>
                                        <td>{{rand.sala}}</td>
 
-                                     <td align="center">1</td>
+                                     <td align="center">{{rand.pachet}}</td>
                                    </tr>
 
                                    {% endfor %}
@@ -152,15 +152,15 @@
                                    {% for rand in miercuri %}
 
                                    <tr>
-                                     <td> {{rand.ora_inceput}}</td>
-                                     <td> {{rand.ora_sfarsit}}</td>
+                                     <td> {{rand.ora_inceput|time:'H:i'}}</td>
+                                     <td> {{rand.ora_sfarsit|time:'H:i'}}</td>
                                      <td>{{rand.curs}}</td>
                                      <td>{{rand.tip}}</td>
                                        <td>{{rand.grupa}}</td>
                                      <td>{{rand.profesor}}</td>
                                        <td>{{rand.sala}}</td>
 
-                                     <td align="center">1</td>
+                                     <td align="center">{{rand.pachet}}</td>
                                    </tr>
 
                                    {% endfor %}
@@ -175,15 +175,15 @@
                                    {% for rand in joi %}
 
                                    <tr>
-                                     <td> {{rand.ora_inceput}}</td>
-                                     <td> {{rand.ora_sfarsit}}</td>
+                                     <td> {{rand.ora_inceput|time:'H:i'}}</td>
+                                     <td> {{rand.ora_sfarsit|time:'H:i'}}</td>
                                      <td>{{rand.curs}}</td>
                                      <td>{{rand.tip}}</td>
                                        <td>{{rand.grupa}}</td>
                                      <td>{{rand.profesor}}</td>
                                        <td>{{rand.sala}}</td>
 
-                                     <td align="center">1</td>
+                                     <td align="center">{{rand.pachet}}</td>
                                    </tr>
 
                                    {% endfor %}
@@ -198,15 +198,15 @@
                                    {% for rand in vineri %}
 
                                    <tr>
-                                     <td> {{rand.ora_inceput}}</td>
-                                     <td> {{rand.ora_sfarsit}}</td>
+                                     <td> {{rand.ora_inceput|time:'H:i'}}</td>
+                                     <td> {{rand.ora_sfarsit|time:'H:i'}}</td>
                                      <td>{{rand.curs}}</td>
                                      <td>{{rand.tip}}</td>
                                        <td>{{rand.grupa}}</td>
                                      <td>{{rand.profesor}}</td>
                                        <td>{{rand.sala}}</td>
 
-                                     <td align="center">1</td>
+                                     <td align="center">{{rand.pachet}}</td>
                                    </tr>
 
                                    {% endfor %}
@@ -221,15 +221,15 @@
                                    {% for rand in sambata %}
 
                                    <tr>
-                                     <td> {{rand.ora_inceput}}</td>
-                                     <td> {{rand.ora_sfarsit}}</td>
+                                     <td> {{rand.ora_inceput|time:'H:i'}}</td>
+                                     <td> {{rand.ora_sfarsit|time:'H:i'}}</td>
                                      <td>{{rand.curs}}</td>
                                      <td>{{rand.tip}}</td>
                                        <td>{{rand.grupa}}</td>
                                      <td>{{rand.profesor}}</td>
                                        <td>{{rand.sala}}</td>
 
-                                     <td align="center">1</td>
+                                     <td align="center">{{rand.pachet}}</td>
                                    </tr>
 
                                    {% endfor %}
@@ -244,15 +244,15 @@
                                    {% for rand in duminica %}
 
                                    <tr>
-                                     <td> {{rand.ora_inceput}}</td>
-                                     <td> {{rand.ora_sfarsit}}</td>
+                                     <td> {{rand.ora_inceput|time:'H:i'}}</td>
+                                     <td> {{rand.ora_sfarsit|time:'H:i'}}</td>
                                      <td>{{rand.curs}}</td>
                                      <td>{{rand.tip}}</td>
                                        <td>{{rand.grupa}}</td>
                                      <td>{{rand.profesor}}</td>
                                        <td>{{rand.sala}}</td>
 
-                                     <td align="center">1</td>
+                                     <td align="center">{{rand.pachet}}</td>
                                    </tr>
 
                                    {% endfor %}
