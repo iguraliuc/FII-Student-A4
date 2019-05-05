@@ -25,7 +25,22 @@ SECRET_KEY = '-^!cx24xdz^)7vwq&^g$s3x93s(idsa2)cwfq=17z&+k%jmbef'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+if DEBUG:
+    logging.basicConfig(
+        level = logging.DEBUG,
+        format = '%(asctime)s %(levelname)s %(message)s',
+        filename = '/django_debug.log',
+        filemode = 'a'
+    )
+else:
+    logging.basicConfig(
+        level = logging.DEBUG,
+        format = '%(asctime)s %(levelname)s %(message)s',
+        filename = '/django_production.log',
+        filemode = 'a'
+    )
+
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
