@@ -81,7 +81,7 @@ def program_sali(request):
     return HttpResponse(template.render(context, request))
 
 def get_profesori_unique():
-    with open('./orar/orare/nume_profesori.txt', 'r') as file:
+    with open('./orar/orare/nume_profesori', 'r') as file:
         data = file.read().replace('\n', '')
     data=data.replace('\"','')
     data=data.replace('[','')
@@ -102,7 +102,15 @@ def get_materii_unique():
 
 def index(request):
     if '?' not in request.get_raw_uri():
-        return redirect('/orar/?grupa=I2A4')
+        anul_userului = 0
+        if(request.user.an_studiu == 'I'):
+            anul_userului = 1
+        elif (request.user.an_studiu == 'II'):
+            anul_userului = 2
+        elif (request.user.an_studiu == 'III'):
+            anul_userului = 3;
+
+        return redirect("/orar/?grupa=I" + str(anul_userului) + request.user.grupa)
 
     grupe = []
     _grupe_queryset = Rand.objects.all().values_list('grupa').distinct()
@@ -164,7 +172,7 @@ def index(request):
         if request_profesor is not "":
             randuri = randuri.filter(profesor__contains=request_profesor)
             titlu = "Profesor " + request_profesor
-
+    randuri1 = randuri
     if "grupa" in request.GET:
         request_grupa = request.GET['grupa']
         if request_grupa is not "":
@@ -172,16 +180,16 @@ def index(request):
             randuri = randuri.filter(grupa__iregex=(r'([a-z0-9]{0})' + request_grupa + r'([a-z0-9]{0})')).exclude(
                 grupa__iregex=(r'[a-z0-9]' + request_grupa)).exclude(
                 grupa__iregex=(request_grupa + r'[a-z0-9]')).distinct()
-            for i in range(1, grupa_len):
+            for i in range(2, grupa_len):
                 req_group = request_grupa[0:i]
                 print(req_group)
-                randuri = randuri | randuri.filter(
+                randuri = randuri | randuri1.filter(
                     grupa__iregex=(r'([a-z0-9]{0})' + req_group + r'([a-z0-9]{0})')).exclude(
                     grupa__iregex=(r'[a-z0-9]' + req_group)).exclude(
                     grupa__iregex=(req_group + r'[a-z0-9]')).distinct()
             titlu = "Grupa " + request_grupa
 
-    randuri = randuri.distinct()
+    randuri = randuri.distinct('curs','ora_inceput','ora_sfarsit','profesor','sala')
     randuri = randuri.order_by('ora_inceput')
 
     luni = randuri.filter(zi='Luni')
