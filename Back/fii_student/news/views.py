@@ -1,9 +1,13 @@
+from news.forms import NewsForm
 from .models import News
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.db import connection
 from django.views.generic import DetailView
 from django.contrib.auth.decorators import login_required
+import datetime
+from dateutil.relativedelta import relativedelta
+
 
 
 # @login_required
@@ -37,3 +41,22 @@ class NewsDetail(DetailView):
         context = super().get_context_data(**kwargs)
         # context['now'] = timezone.now()
         return context
+
+def add_news(request):
+    if request.method == 'POST':
+        form = NewsForm(request.POST)
+        if form.is_valid():
+            pieceOfNews = form.save(commit=False)
+            pieceOfNews.source="FII"
+            if request.user.is_authenticated:
+                pieceOfNews.author_name=request.get_full_name()
+            else:
+                pieceOfNews.author_name='Anonymous'
+            pieceOfNews.inserted_time=datetime.datetime.now();
+            pieceOfNews.published_time = datetime.datetime.now();
+            pieceOfNews.expire_time = datetime.datetime.now()+relativedelta(years=1);
+            pieceOfNews.save()
+            return redirect('/news')
+    else:
+        form = NewsForm()
+    return render(request, 'add_news.html', {'form': form})
