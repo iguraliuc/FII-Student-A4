@@ -55,8 +55,8 @@
     <hr>
     <div class="w3-cell-row">
       <div class="w3-cell" style="//width:120px;">
-        <h3>Florin</h3>
-        <p>Salem</p>
+        <h3>{{ user.first_name }}</h3>
+        <p>{{ user.last_name }}</p>
       </div>
     </div>
   </div>
@@ -65,17 +65,16 @@
   <form class="w3-container" style="min-width: 360px;max-width: 25%;" method="post">
     {% csrf_token %}
     <label>{{ form.email.label_tag}}</label>
-      {{ form.email }}
+  <input type="email" name="{{ form.email.html_name }}" maxlength="{{ form.email.max_length }}" class="form-control" id="{{ form.email.id_for_label }}" value="{{ user.email }}">
 
     <label>Nume:</label>
-      {{ form.first_name }}
+    <input type="text" name="{{ form.first_name.html_name }}" maxlength="{{ form.first_name.max_length }}" class="form-control" id="{{ form.first_name.id_for_label }}" value="{{ user.first_name }}">
 
     <label>Prenume:</label>
-      {{ form.last_name }}
+    <input type="text" name="{{ form.last_name.html_name }}" maxlength="{{ form.last_name.max_length }}" class="form-control" id="{{ form.last_name.id_for_label }}" value="{{ user.last_name }}">
 
     <hr>
 
-  {% csrf_token %}
     <label>An:</label>
     <select name="{{ form.an_studiu.html_name }}" class="form-control" id="{{ form.an_studiu.id_for_label }}">
       {% for opt1, opt in form.fields.an_studiu.choices %}
@@ -109,16 +108,16 @@
     <hr>
 
     <label>Personalizare:</label></br></br>
-    <input type="color" class="form-control" onchange="updateColor('--navbar', document.getElementById('id_navbar_color').value)" name="navbar_color"
+    <input type="color" onchange="updateColor('--navbar', document.getElementById('id_navbar_color').value)" name="navbar_color"
       id="id_navbar_color" value="{{ user.personalise.navbar_color }}"><label for="">Navbar.</label><br>
 
-    <input type="color" class="form-control" onchange="updateColor('--background', document.getElementById('id_background_color').value)"
+    <input type="color" onchange="updateColor('--background', document.getElementById('id_background_color').value)"
       name="background_color" id="id_background_color" value="{{ user.personalise.background_color }}"><label for=""> Background.</label><br>
 
-    <input type="color" class="form-control" onchange="updateColor('--accent', document.getElementById('id_accent_color').value)" name="accent_color"
+    <input type="color" onchange="updateColor('--accent', document.getElementById('id_accent_color').value)" name="accent_color"
       id="id_accent_color" value="{{ user.personalise.accent_color }}"><label for=""> Accent.</label><br>
 
-    <input type="color" class="form-control" onchange="updateColor('--font', document.getElementById('id_font_color').value)" name="font_color" id="id_font_color"
+    <input type="color" onchange="updateColor('--font', document.getElementById('id_font_color').value)" name="font_color" id="id_font_color"
       value="{{ user.personalise.font_color }}"><label for=""> Font.</label><br><br>
 
     <div class="form-group">
