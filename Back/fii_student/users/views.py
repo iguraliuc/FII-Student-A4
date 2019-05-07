@@ -79,6 +79,7 @@ def settings(request):
                 request.user.personalise.font_color = font_color
             if font_family != '' and font_family != request.user.personalise.font_family:
                 request.user.personalise.font_family = font_family
+            request.user.personalise.save()
             request.user.save()
     else:
         form = SettingsForm()
