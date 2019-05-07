@@ -53,6 +53,7 @@ def settings(request):
             #update data
             first_name = form.data['first_name']
             last_name = form.data['last_name']
+            an_studiu = form.data['an_studiu']
             email = form.data['email']
             rol = form.data['rol']
             navbar_color = form.data['navbar_color']
@@ -61,11 +62,13 @@ def settings(request):
             font_color = form.data['font_color']
             font_family = form.data['font_family']
 
-            if first_name != '':
+            if first_name != '' and first_name != request.user.first_name:
                 request.user.first_name = first_name
-            if last_name != '':
+            if last_name != '' and last_name != request.user.last_name:
                 request.user.last_name = last_name
-            if email != '':
+            if an_studiu != '' and an_studiu != request.user.an_studiu:
+                request.user.an_studiu = an_studiu
+            if email != '' and email != request.user.email:
                 request.user.email = email
             if rol != '' and rol != request.user.rol:
                 request.user.rol = rol

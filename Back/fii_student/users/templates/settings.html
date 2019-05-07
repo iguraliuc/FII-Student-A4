@@ -108,7 +108,6 @@
 
     <hr>
 
-    </div>
     <label>Personalizare:</label></br></br>
     <input type="color" class="form-control" onchange="updateColor('--navbar', document.getElementById('id_navbar_color').value)" name="navbar_color"
       id="id_navbar_color" value="{{ user.personalise.navbar_color }}"><label for="">Navbar.</label><br>
@@ -120,21 +119,21 @@
       id="id_accent_color" value="{{ user.personalise.accent_color }}"><label for=""> Accent.</label><br>
 
     <input type="color" class="form-control" onchange="updateColor('--font', document.getElementById('id_font_color').value)" name="font_color" id="id_font_color"
-      value="{{ user.personalise.font_color }}"><label for=""> Font.</label><br>
-    </br>
+      value="{{ user.personalise.font_color }}"><label for=""> Font.</label><br><br>
 
     <div class="form-group">
       <label for="">Font Family</label>
-      <select onchange="updateColor('--font-family', document.getElementById('if_font_family').value)" name="font_family"
-        class="form-control" id="id_font_family">
-        <option value="Roboto">Roboto</option>
-        <option value="Arvo">Arvo</option>
-        <option value="Montserrat">Montserrat</option>
-        <option value="Lato">Lato</option>
-        <option value="Inconsolata">Inconsolata</option>
-        <option value="Roboto Condensed">Roboto Condensed</option>
+      <select name="{{ form.font_family.html_name }}" class="form-control" id="{{ form.font_family.id_for_label }}"
+      onchange="updateColor('--font-family', document.getElementById('id_font_family').value)" >
+          {% for opt1, opt in form.fields.font_family.choices %}
+            <option value = "{{ opt }}"
+            {% if opt == user.personalise.font_family %}selected="selected"{% endif %}>
+                {{ opt }}
+            </option>
+          {% endfor %}
       </select>
     </div>
+
       <button class="btn btn-primary buttons" type="submit">Save changes</button>
       <button class="btn btn-primary buttons" type="reset" onclick="resetProps(); this.blur();">Undo</button>
   </form>
@@ -143,9 +142,6 @@
   <div>
     <button type="button" class="btn btn-danger">Ștergere cont</button>
   </div>
-  <footer class="w3-container w3-theme w3-margin-top">
-    <h3>Facultatea de informatică</h3>
-  </footer>
   {% load static %}
   <script src="{% static "update_colors.js" %}"></script>
 

@@ -33,7 +33,7 @@ class SignupForm(UserCreationForm):
         for f in self.fields:
             self.fields[f].widget.attrs.update({'class': 'form-control'})
 
-	def clean(self):
+    def clean(self):
         validation_errs = validate_user_details(self.cleaned_data)
         if validation_errs is not None:
             self.add_error("grupa", validation_errs)
@@ -45,18 +45,14 @@ class SettingsForm(forms.Form):
     first_name = forms.CharField(max_length=63, required=False, help_text="Prenume")
     last_name = forms.CharField(max_length=63, required=False, help_text="Numele")
     email = forms.EmailField(max_length=254, required=False, help_text='Este necesara o adresa de email UAIC valida.')
-    rol = forms.ChoiceField(choices=[(x, x) for x in ROLURI], required=False, help_text="")
+    rol = forms.ChoiceField(choices=[(x, x) for x in ROLURI])
     an_studiu = forms.ChoiceField(choices=[(x, x) for x in ANI_STUDIU])
     grupa = forms.ChoiceField(choices=[(x, x) for x in GRUPE])
-    rol = forms.ChoiceField(choices=[(x, x) for x in ROLURI])
     navbar_color = forms.CharField(max_length=255)
     background_color = forms.CharField(max_length=255)
     accent_color = forms.CharField(max_length=255)
     font_color = forms.CharField(max_length=255)
     font_family = forms.ChoiceField(choices=[(x, x) for x in FONT_FAMILY_CHOICES])
-
-    # class Meta:
-    #     fields = ('email', 'first_name', 'last_name', 'email', 'rol', 'an_studiu', 'grupa')
 
     def __init__(self, *args, **kwargs):
         super(SettingsForm, self).__init__(*args, **kwargs)
