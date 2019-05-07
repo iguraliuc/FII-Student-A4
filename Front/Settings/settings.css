@@ -1,0 +1,38 @@
+:root{
+    --background: #ffffff;
+    --navbar:#000000;
+    --accent:#ff0000;
+    --font: #000000;
+    --font-family: 'Roboto Condensed';
+}
+
+.navbar {
+    background-color: var(--navbar);
+}
+
+body{
+    background-color: var(--background);
+    color: var(--font);
+    font-family: var(--font-family);
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+    background-color: var(--accent);
+    color:var(--navbar);
+    
+}
+
+.navbar-inverse .navbar-nav>li>a{
+    color: var(--accent);
+}
+
+.buttons{
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+.buttons:hover{
+    background-color: var(--accent);
+    border-color: var(--accent);
+    filter: brightness(85%);
+}
