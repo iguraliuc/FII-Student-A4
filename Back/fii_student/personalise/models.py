@@ -46,10 +46,32 @@ class Board(models.Model):
 
 class Personalise(models.Model):
 
+    FONT_FAMILY_CHOICES = [
+        "Roboto",
+        "Arvo",
+        "Montsserat",
+        "Lato",
+        "Inconsolata",
+        "Roboto Condensed"
+    ]
+    DEFAULT_COLOURS = {
+        "background": "#ffffff",
+        "navbar":  "#000000",
+        "accent":  "#ff0000",
+        "font": "#000000"
+    }
+    DEFAULT_FONT_FAMILY = "Arvo"
+
     id = models.AutoField(primary_key=True, verbose_name='ID')  # dunno if needed yet
     # user = models.ForeignKey(Student, on_delete=models.CASCADE)  # _id
-    boards = models.ManyToManyField(Board)  #, through='PersonaliseBoard')  # ), on_delete=models.CASCADE)  # _id
+    boards = models.ManyToManyField(Board)  # through='PersonaliseBoard'
     classes = models.ManyToManyField(Rand, through='PersonaliseOrar')
+
+    navbar_color = models.CharField(max_length=255, null=False, default=DEFAULT_COLOURS["navbar"])
+    background_color = models.CharField(max_length=255, null=False, default=DEFAULT_COLOURS["background"])
+    accent_color = models.CharField(max_length=255, null=False, default=DEFAULT_COLOURS["accent"])
+    font_color = models.CharField(max_length=255, null=False, default=DEFAULT_COLOURS["font"])
+    font_family = models.CharField(max_length=255, choices=[(x, x) for x in FONT_FAMILY_CHOICES], default=DEFAULT_FONT_FAMILY)
 
     class Meta:
         db_table = 'personalise'
