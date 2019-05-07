@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 # from django.contrib.auth.models import User
 
 from .models import *
+from .utils import validate_user_details
 
 
 class SignupForm(UserCreationForm):
@@ -22,13 +23,12 @@ class SignupForm(UserCreationForm):
         for f in self.fields:
             self.fields[f].widget.attrs.update({'class': 'form-control'})
 
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        if email and FiiUser.objects.filter(email=email).exists():
-            raise forms.ValidationError(u'Exista deja un user cu aceasta adresa de email.')
-        elif 'info.uaic.ro' not in email:
-            raise forms.ValidationError(u'Adresa de email introdusa nu apartine domeniului facultatii.')
-        return email
+    def clean(self):
+        validation_errs = validate_user_details(self.cleaned_data)
+        if validation_errs is not None:
+            self.add_error("grupa", validation_errs)
+            raise forms.ValidationError(validation_errs)
+        return self.cleaned_data
 
 #
 # class LoginForm(AuthenticationForm):
