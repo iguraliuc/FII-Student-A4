@@ -56,6 +56,7 @@ def settings(request):
             an_studiu = form.data['an_studiu']
             email = form.data['email']
             rol = form.data['rol']
+            grupa = form.data['grupa']
             navbar_color = form.data['navbar_color']
             background_color = form.data['background_color']
             accent_color = form.data['accent_color']
@@ -72,6 +73,8 @@ def settings(request):
                 request.user.email = email
             if rol != '' and rol != request.user.rol:
                 request.user.rol = rol
+            if grupa != '' and grupa != request.user.grupa:
+                request.user.grupa = grupa
             if navbar_color != '' and navbar_color != request.user.personalise.navbar_color:
                 request.user.personalise.navbar_color = navbar_color
             if background_color != '' and background_color != request.user.personalise.background_color:
