@@ -18,8 +18,7 @@
                 </div>
                 <div class="anunt">
                     <p class="top">{{ obj.title }}</p>
-                    <div class="continut">{{ obj.body|safe|striptags|slice:":250" }}...</div>
-                    <a class="more" href="/news/{{ obj.news_id }}">Deschide articolul complet!</a>
+                    <div class="continut">{{ obj.body|safe|striptags}}</div>
                 </div>
             </div>
         {% endfor %}
@@ -66,6 +65,22 @@
             }
         }
     }
+
+
+(function($){
+        $(document).ready(function(){
+            var btns = $('.continut');
+           btns.each(function(index) {
+                $(this).on("click", function(){
+                    if($(this).css('overflow') == 'hidden'){
+                        $(this).css({'overflow': 'unset', "height": "auto"});
+                    } else {
+                        $(this).css({'overflow': 'hidden', "height": "3.6em"});
+                    }
+                });
+            });
+        })
+    })(jQuery);
 
 </script>
 {% endblock %}
