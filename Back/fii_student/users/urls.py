@@ -7,5 +7,6 @@ urlpatterns = [
     path('activation_email_sent/', activation_email_sent, name='activation_email_sent'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('activate/<uidb64>/<token>/', activate, name='activate'),
-    path('logout/', logout_view, name='logout')
+    path('logout/', logout_view, name='logout'),
+    path('settings/', settings, name='settings')
 ]

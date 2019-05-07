@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm
-from .forms import SignupForm
+from .forms import SignupForm, SettingsForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.utils.html import strip_tags
@@ -44,6 +44,45 @@ def signup(request):
     else:
         form = SignupForm()
     return render(request, 'signup2.html', {'form': form})
+
+
+def settings(request):
+    if request.method == 'POST':
+        form = SettingsForm(request.POST)
+        if form.is_valid():
+            #update data
+            first_name = form.data['first_name']
+            last_name = form.data['last_name']
+            email = form.data['email']
+            rol = form.data['rol']
+            navbar_color = form.data['navbar_color']
+            background_color = form.data['background_color']
+            accent_color = form.data['accent_color']
+            font_color = form.data['font_color']
+            font_family = form.data['font_family']
+
+            if first_name != '':
+                request.user.first_name = first_name
+            if last_name != '':
+                request.user.last_name = last_name
+            if email != '':
+                request.user.email = email
+            if rol != '' and rol != request.user.rol:
+                request.user.rol = rol
+            if navbar_color != '' and navbar_color != request.user.personalise.navbar_color:
+                request.user.personalise.navbar_color = navbar_color
+            if background_color != '' and background_color != request.user.personalise.background_color:
+                request.user.personalise.background_color = background_color
+            if accent_color != '' and accent_color != request.user.personalise.accent_color:
+                request.user.personalise.accent_color = accent_color
+            if font_color != '' and font_color != request.user.personalise.font_color:
+                request.user.personalise.font_color = font_color
+            if font_family != '' and font_family != request.user.personalise.font_family:
+                request.user.personalise.font_family = font_family
+            request.user.save()
+    else:
+        form = SettingsForm()
+    return render(request, 'settings.html', {'form': form})
 
 
 def activate(request, uidb64, token):
