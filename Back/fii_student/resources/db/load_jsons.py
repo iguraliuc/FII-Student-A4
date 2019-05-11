@@ -12,7 +12,7 @@ def get_real_data():
         # log_id += 1
         fpath = os.path.join(os.getcwd(), 'jsons', f)
         with open(fpath, 'rb') as fin:
-            json_file = json.loads(fin.read())
+            json_file = json.loads(fin.read().decode('utf-8'))
             if 'site' in json_file :
                 new_command = insert_command + '\'' + json_file['title'] + '\',' + 'null' + ',\'' + json_file['site'] + '\',' + 'null,\'' + json_file['type'] + '\')'
             elif 'content' in json_file :
