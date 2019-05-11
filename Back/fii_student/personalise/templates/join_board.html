@@ -5,8 +5,10 @@
   <meta charset="utf-8">
   <title>Join Boards</title>
     {% load static %}
-    <link href="{% static "join-board-style.css" %}" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <link href="{% static "join-board-style.css" %}" rel="stylesheet" type="text/css">
+{#        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">#}
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600|Open+Sans:300,600,700" rel="stylesheet">
+{#    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>#}
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
         function call_update_user_boards(uid, bid){
@@ -38,9 +40,9 @@
 </head>
 
 <body>
+    <div class="container-all">
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-    {% csrf_token %}
-    <div class="filtru" style="padding-top: 30px;">
+    <div class="filtru">
         <button class="button toti active" onclick="filter('Toti')">Toti anii</button>
         <button class="button anI" onclick="filter('An I')">An I</button>
         <button class="button anII" onclick="filter('An II')">An II</button>
@@ -48,27 +50,24 @@
     </div>
     <div class="main">
             {% for board in boards %}
-            <div class="card">
-                    <div class="box">
-                        <div class="box-container">
-                            <div class="top-container">
-                                <p class="titlu">{{ board.subject }}</p>
-                                <p class="an">An {{ board.year }}</p>
-                                <p class="prof">{{ board.teacher }}</p>
-                            </div>
-                            <div class="bottom-container">
-                                <p class="descriere">{{ board.description }}</p>
-                            </div>
-                        </div>
+                <div class="card">
+                    <div class="top-container">
+                        <p class="titlu">{{ board.subject }}</p>
+                        <p class="an an{{ board.year }}">An {{ board.year }}</p>
                     </div>
-                    <div class="triangle"></div>
-                    {% csrf_token %}
-                    <button class="btn" id="{{ board.id }}" onclick="call_update_user_boards({{ user.id }},{{ board.id }})">JOIN BOARD</button>
+                    <div class="box">
+                        <p class="prof">{{ board.teacher }}</p>
+                        <p class="descriere">{{ board.description }}</p>
 
-                    <button class="btn verified" id="{{ board.id }}" onclick="call_remove_user_boards({{ user.id }},{{ board.id }})">Joined!<img src="{% static 'correct.png' %}"></button>
-            </div>
+                        {% csrf_token %}
+                        <button class="btn" id="{{ board.id }}" onclick="call_update_user_boards({{ user.id }},{{ board.id }})">JOIN BOARD</button>
+                        <button class="btn verified" id="{{ board.id }}" onclick="call_remove_user_boards({{ user.id }},{{ board.id }})">Joined!</button>
+                    </div>
+                </div>
             {% endfor %}
     </div>
+    </div>
+</body>
 <script>
 {#  script which runs after page is load #}
 {#  sets corect buttons according to existing joined boards #}
@@ -95,7 +94,7 @@
                                 btns[i].style.visibility = "hidden";
 
                                 var verified = btns[i].parentElement.getElementsByClassName("verified")[0];
-                                verified.style.display = 'block';
+                                verified.style.display = 'inline-block';
                                 verified.style.visibility = 'visible';
                             }
                         }
@@ -159,7 +158,7 @@
                         this.style.visibility = 'hidden';
                         var show = this.parentElement.getElementsByClassName("joined")[0];
                         show.className = show.className.replace(" joined", "");
-                        show.style.display = 'block';
+                        show.style.display = 'inline-block';
                         show.style.visibility = 'visible';
 
 
@@ -178,7 +177,7 @@
                 joined[i].style.visibility = "hidden";
 
                 var verified = joined[i].parentElement.getElementsByClassName("verified")[0];
-                verified.style.display = 'block';
+                verified.style.display = 'inline-block';
                 verified.style.visibility = 'visible';
             }
         }
