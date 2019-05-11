@@ -46,8 +46,9 @@ def signup(request):
     return render(request, 'signup2.html', {'form': form})
 
 
+@login_required(login_url='/')
 def settings(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user.is_authenticated:
         form = SettingsForm(request.POST)
         if form.is_valid():
             #update data
@@ -88,6 +89,8 @@ def settings(request):
             request.user.personalise.save()
             request.user.save()
     else:
+        if not request.user.is_authenticated:
+            pass  # TODO: should add redirect to error page here
         form = SettingsForm()
     return render(request, 'settings.html', {'form': form})
 

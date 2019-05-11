@@ -1,7 +1,7 @@
 import simplejson as simplejson
 from django.http import HttpResponse, Http404
 
-from .models import Personalise, Board, PersonaliseOrar
+from .models import Personalise, Board, PersonaliseOrar, Card
 from users.models import FiiUser
 from .forms import BoardForm
 from .models import dict_ani_studiu
@@ -358,3 +358,28 @@ def show_orar_personalised(request):
 def reset_orar(request):
     request.user.personalise.init_orar(request.user.an_studiu, request.user.grupa)
     return redirect('../')
+
+
+def get_cards(request):
+    data = [{}]
+    if request.user.is_authenticated:
+        user = request.user
+        cards = Card.objects.filter(personalise=user.personalise)
+        for card in cards:
+            if card.is_valid():
+                json = card.getJSON()
+                data.append(json)
+    serialized_data = simplejson.dumps(data)
+    return HttpResponse(serialized_data, content_type='application/json')
+
+
+def add_card(request):
+    data = {
+        'Status': 'Fail'
+    }
+    if request.user.is_authenticated and request.method == 'POST':
+        # TODO: get data from post, validata and insert to db
+        pass
+    # return status
+    serialized_data = simplejson.dumps(data)
+    return HttpResponse(serialized_data, content_type='application/json')

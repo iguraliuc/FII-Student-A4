@@ -4,8 +4,6 @@ from django.db import models
 # from users.models import FiiUser
 from orar.models import Rand
 
-#  -- DUMMY MODELS --
-
 GRUPE = ['-', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7',
          'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7',
          'X1', 'X2', 'X3', 'alta grupa']
@@ -19,18 +17,21 @@ dict_ani_studiu = {
     'III': 3
 }
 
-
-class Student(models.Model):
-    id = models.AutoField(primary_key=True, verbose_name='ID')
-    year = models.IntegerField(default=1)
-    semian = models.CharField(max_length=5)
-    name = models.CharField(max_length=255)
-    surname = models.CharField(max_length=255)
-
-    def __str__(self):
-        return '{}'.format(self.id)
-
-# -------------------
+FONT_FAMILY_CHOICES = [
+    "Roboto",
+    "Arvo",
+    "Montsserat",
+    "Lato",
+    "Inconsolata",
+    "Roboto Condensed"
+]
+DEFAULT_COLOURS = {
+    "background": "#ffffff",
+    "navbar": "#000000",
+    "accent": "#ff0000",
+    "font": "#000000"
+}
+DEFAULT_FONT_FAMILY = "Arvo"
 
 
 class Board(models.Model):
@@ -46,26 +47,10 @@ class Board(models.Model):
 
 class Personalise(models.Model):
 
-    FONT_FAMILY_CHOICES = [
-        "Roboto",
-        "Arvo",
-        "Montsserat",
-        "Lato",
-        "Inconsolata",
-        "Roboto Condensed"
-    ]
-    DEFAULT_COLOURS = {
-        "background": "#ffffff",
-        "navbar":  "#000000",
-        "accent":  "#ff0000",
-        "font": "#000000"
-    }
-    DEFAULT_FONT_FAMILY = "Arvo"
-
     id = models.AutoField(primary_key=True, verbose_name='ID')  # dunno if needed yet
-    # user = models.ForeignKey(Student, on_delete=models.CASCADE)  # _id
     boards = models.ManyToManyField(Board)  # through='PersonaliseBoard'
     classes = models.ManyToManyField(Rand, through='PersonaliseOrar')
+
 
     navbar_color = models.CharField(max_length=255, null=False, default=DEFAULT_COLOURS["navbar"])
     background_color = models.CharField(max_length=255, null=False, default=DEFAULT_COLOURS["background"])
@@ -123,6 +108,38 @@ class PersonaliseOrar(models.Model):
     personalise = models.ForeignKey(Personalise, on_delete=models.CASCADE)
     rand = models.ForeignKey(Rand, on_delete=models.CASCADE)
     alert = models.BooleanField(default=False, verbose_name='ALERT')
+
+
+class Card(models.Model):
+    id = models.AutoField(primary_key=True, verbose_name='ID')
+    personalise = models.ForeignKey(Personalise, on_delete=models.CASCADE)
+    # orderNumber = models.IntegerField(default=0, null=False)
+    type = models.CharField(default=None, verbose_name='TYPE', max_length=50)
+    f_key = models.IntegerField(default=None, null=True)
+    x = models.IntegerField(default=1)
+    y = models.IntegerField(default=1)
+    width = models.IntegerField(default=1)  # max = 12
+    height = models.IntegerField(default=1)
+
+    # TODO: add function to get object in accordance with choice field
+
+    def __str__(self):
+        return '{}'.format(self.id)
+
+    def is_valid(self):
+        return True
+
+    def getJSON(self):
+        data = dict(
+            id=self.id,
+            type=self.type,
+            x=self.x,
+            y=self.y,
+            width=self.width,
+            height=self.height,
+            data={}
+        )
+        return data
 
 
 class PersonaliseBoard(models.Model):
