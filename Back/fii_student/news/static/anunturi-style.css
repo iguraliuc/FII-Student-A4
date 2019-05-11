@@ -1,45 +1,132 @@
 *{
-    margin:0px;
-    padding:0px;
-    font-size:15px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 15px;
 }
 body{
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1b1354 ;
 }
 
 li{
- list-style: none;   
+ list-style: none;
 }
 
-.container{
-    margin:auto;
-    margin-top:20px;
-    width:80%;
-    display:flex; 
+p{
+    font-family: 'Open Sans', sans-serif;
+}
+.navbar-inverse{
+    margin-bottom:0px;
+    background-color: #030b3d;
+    top:0;
+    position:sticky;
+}
+.nav.navbar-nav li a {
+    color: white;
+}
+/* butoane stanga de filtrare anunturi */
+.meniu{
+    width: 10%;
+    height: 90vh;
+    top:50px;
+    position:fixed;
+}
+
+.navbar-brand img{
+    position: absolute;
+    top:5px;
+    height: 50px;
+
+}
+
+.butn{
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+
+    background-color: #030b3d;
+
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: block;
+
+    width: 100%;
+    height: 26%;
+    padding: 12px 16px;
+}
+
+.butn:hover {
+    background-image: linear-gradient(to right,#f64abd , #ad3abd );
+    color:white;
+  }
+
+.butn.active {
+    background-image: linear-gradient(to right,#f64abd , #ad3abd );
+    color:white;
+  }
+
+.container-main{
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
     margin-bottom: 10px;
 }
+
 .board{
-    width:80%;
+    margin: 0 auto;
+    width: 60%;
 }
+
 .anunt-container{
-    display:flex;
-    margin-bottom:10px;
-    box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    -moz-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    -webkit-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    margin-bottom: 30px;
-}
-
-.anunt-container .anunt .continut{
-    height: 3.6em;
-    line-height: 1.2em;
-    overflow: hidden;
     background-color: white;
-    padding-top: 20px;
-    margin-bottom: 20px;
+    display: flex;
+    margin-top:20px;
+    margin-bottom: 30px;
+    padding-right: 10px;
+}
+
+/* data si ziua anuntului */
+.anunt-container:nth-child(even) .date{
+
+    padding: 10px;
+    background-image: linear-gradient(to right,#1fd191 , #0086aa);
+    color: white;
+
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    flex-direction: column;
+    width: 16%;
+}
+
+.anunt-container:nth-child(odd) .date{
+
+    padding: 10px;
+    background-image: linear-gradient(to right,#f64abd , #ad3abd );
+    color: white;
+
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    flex-direction: column;
+    width: 16%;
+}
+
+.date > p{
+    text-align: center;
+    font-family: 'Monsterat', sans-serif;
+    font-weight: 500;
 }
 
 
+.day{
+    font-family: 'Monsterat', sans-serif;
+    font-weight: 300;
+    font-size: 50px;
+}
 
 .anunt-container .anunt{
     width: 80%;
@@ -49,69 +136,198 @@ li{
 
 }
 
-.anunt-container .anunt > a:last-child{
-    color: #00001c;
-    font-weight: bold;
-    padding: 5px;
-    background-color:#ffe234;
-    text-decoration: none;
-
-}
-
-.date{
-
-    padding:10px;
-    background-color: #09BCFF;
-    color:white;
-
-    display: flex;
-    justify-content: center; /* align horizontal */
-    align-items: center; /* align vertical */
-    flex-direction: column;
-}
-.date > p{
-    text-align:center;
-}
-
-
-.day {
-    font-weight:bold;
-    font-size: 25px;
-}
-
-.top{
+/* titlu anunt */
+.anunt-container .anunt .top{
     background-color: white;
-    border-bottom: 1.2px grey solid;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to right,#1fd191 , #0086aa);
+    border-image-slice: 1;
     padding: 5px 5px 15px 2px;
     width: 80%;
-    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 20px;
+    color: #030b3d;
 }
 
-.meniu{
-    width: 18%;
-    box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    -moz-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    -webkit-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    margin-left: 20px;
-    height: 100%;
+/* continutul anuntului */
+.anunt-container .anunt .continut{
+    height: 3.6em;
+    line-height: 1.4em;
+    overflow: hidden;
+    background-color: white;
+    padding-top: 10px;
+    margin-bottom: 20px;
+
 }
 
-.btn{
-    border: none;
-    outline: none;
-    padding: 12px 16px;
-    background-color: #f1f1f1;
-    cursor: pointer;
-    display:block;
-    width: 100%;
-    margin-bottom:10px;
+.anunt-container .anunt .continut p, .anunt-container .anunt .continut a, .anunt-container .anunt .continut strong, .anunt-container .anunt em{
+    color: #444c72;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+
 }
 
-.btn:hover {
-    background-color: #ddd;
-  }
-
-.btn.active {
-    background-color: #666;
+/* link pentru articolul complet */
+.anunt-container:nth-child(even) .anunt > a:last-child{
     color: white;
-  }
+    padding: 5px;
+    background-image: linear-gradient(to right,#1fd191 , #0086aa);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+
+}
+
+.anunt-container:nth-child(odd) .anunt > a:last-child{
+    color: white;
+    padding: 5px;
+    background-image: linear-gradient(to right,#f64abd , #ad3abd );
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+
+}
+
+/* responsive */
+
+/* for toate anunturile si day font size */
+
+
+/* filter repositioning */
+
+@media screen and (max-width: 1300px) {
+    .day{
+        font-family: 'Monsterat', sans-serif;
+        font-weight: 300;
+        font-size: 4vw;
+    }
+
+    .board{
+        margin: 0;
+        width: 100%;
+    }
+    .container-main{
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .meniu{
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        margin-bottom: 10px;
+
+    }
+    .butn{
+
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+        color: white;
+        font-size: 2vw;
+
+        background-color: #030b3d;
+
+        border: none;
+        outline: none;
+        cursor: pointer;
+        display: block;
+
+        width: 100%;
+        height: 100%;
+        padding: 5px 5px;
+    }
+}
+
+@media screen and (max-width: 800px){
+
+    .butn{
+
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+        color: white;
+        font-size: 2.5vw;
+
+        background-color: #030b3d;
+
+        border: none;
+        outline: none;
+        cursor: pointer;
+        display: block;
+
+        width: 100%;
+        height: 100%;
+        padding: 5px 5px;
+    }
+
+}
+
+@media screen and (max-width: 600px){
+
+
+    /* titlu anunt */
+.anunt-container .anunt .top{
+    background-color: white;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to right,#1fd191 , #0086aa);
+    border-image-slice: 1;
+    /* padding: 5px 5px 15px 2px; */
+    width: 80%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 15px;
+    color: #030b3d;
+}
+
+/* continutul anuntului */
+.anunt-container .anunt .continut{
+    height: 1.6em;
+    overflow: hidden;
+    background-color: white;
+    padding-top: 5px;
+    margin-bottom: 10px;
+
+}
+
+.anunt-container .anunt .continut p, .anunt-container .anunt .continut a, .anunt-container .anunt .continut strong{
+    color: #444c72;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+
+
+}
+
+/* link pentru articolul complet */
+.anunt-container:nth-child(even) .anunt > a:last-child{
+    color: white;
+    padding: 2px;
+    background-image: linear-gradient(to right,#1fd191 , #0086aa);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+
+}
+
+.anunt-container:nth-child(odd) .anunt > a:last-child{
+    color: white;
+    padding: 2px;
+    background-image: linear-gradient(to right,#f64abd , #ad3abd );
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+
+}
+
+
+}

@@ -24,7 +24,7 @@ def get_real_data():
     for f in os.listdir(os.path.join(os.getcwd(), 'jsons')):
         fpath = os.path.join(os.getcwd(), 'jsons', f)
         with open(fpath, 'rb') as fin:
-            jfile = json.loads(fin.read())
+            jfile = json.loads(fin.read().decode('utf-8'))
             jfile['content'] = jfile['content'].replace('\'', '')
             if 'FII' in jfile['source']:
                 day = int(jfile['date'].split(' ')[0])

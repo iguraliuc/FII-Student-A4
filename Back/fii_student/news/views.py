@@ -49,7 +49,7 @@ def add_news(request):
             pieceOfNews = form.save(commit=False)
             pieceOfNews.source="FII"
             if request.user.is_authenticated:
-                pieceOfNews.author_name=request.get_full_name()
+                pieceOfNews.author_name=request.user.first_name + ' ' + request.user.last_name
             else:
                 pieceOfNews.author_name='Anonymous'
             pieceOfNews.inserted_time=datetime.datetime.now();

@@ -12,10 +12,10 @@ class News(models.Model):
     )
 
     news_id = models.AutoField(primary_key=True, verbose_name='ID')
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255,unique=True)
     author_name = models.CharField(max_length=255)
     category = models.CharField(max_length=32, choices=CATEGORY_CHOICES)
-    body = models.TextField(blank=True, null=True)
+    body = models.TextField(blank=True, null=True, unique=True)
     inserted_time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     published_time = models.DateTimeField(auto_now_add=False, blank=True, null=True)
     expire_time = models.DateTimeField(auto_now_add=False, blank=True, null=True)
