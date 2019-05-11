@@ -1,0 +1,126 @@
+*{
+    margin:0px;
+    padding:0px;
+    font-size:15px;
+}
+body{
+    background-color: #1b1354;
+    font-family: 'Open sans', sans-serif;
+    font-weight: 300;
+}
+
+li{
+    list-style: none;   
+}
+
+.board h1{
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color:#1fd191;
+}
+
+.navbar-inverse{
+    top:0;
+    position:sticky;
+    background-color: #030b3d;
+    margin-bottom: 0px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+.nav.navbar-nav li a {
+    color: white;
+}
+
+.navbar-brand img{
+    position: absolute;
+    top:5px;
+    height: 50px;
+
+}
+
+.subtitle{
+
+    margin:auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px #1fd191 solid;
+    padding-bottom: 10px;
+    color: #1fd191;
+    font-weight: 600;
+}
+
+
+.subtitle >p:last-child{
+    color:#1fd191;
+}
+.container-anunt{
+    margin:auto;
+    margin-top:20px;
+    width:80%;
+    display:flex; 
+   
+}
+.board{
+    background-color: white;
+    text-align:center;
+    width:80%;
+    box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.board .content{
+    margin-top:20px;
+}
+
+.board> p:first-child{
+    padding: 5px;
+    background-color:#09BCFF;
+    color:white;
+    width: 20%;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+.meniu{
+    background-color: white;
+    color:#1fd191;
+    width: 18%;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.meniu:hover{
+    transition:0.5s;
+    width: 18%;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    padding: 10px;
+    background-color:#1fd191;
+    text-decoration: none;
+    
+}
+.meniu:hover p{
+    color: white;
+    
+}
+
+.meniu p{
+    margin:auto;
+    font-weight: 700;
+}
+.meniu img{
+    width: 40px;
+}
+

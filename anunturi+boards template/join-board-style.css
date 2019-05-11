@@ -1,0 +1,246 @@
+*{
+    margin:0px;
+    padding:0px;
+    font-size:15px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #1b1354;
+    font-family: 'Open sans', sans-serif;
+    font-weight: 700;
+}
+
+.container-all{
+    display:flex;
+}
+
+.navbar-inverse{
+    top:0;
+    position:sticky;
+    background-color: #030b3d;
+    margin-bottom: 0px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+.nav.navbar-nav li a {
+    color: white;
+}
+
+.nav.navbar-nav li a:hover {
+    transition: 0.3s;
+    background-color:#f64abd;
+}
+
+.navbar-brand img{
+    position: absolute;
+    top:5px;
+    height: 50px;
+
+}
+.filtru{
+    top:50;
+    position:fixed;
+    width: 10%;
+    height: 93vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.filtru button{
+    height: 20%;
+    text-align: center;
+    background-color: #030b3d;
+    color: white;
+    padding: 0.8em;
+    border-style:none;
+    font-size: 1em;
+    margin: 0px;
+}
+
+.filtru .active{
+    background-image: linear-gradient(to right,#f64abd , #ad3abd );
+}
+
+.filtru button:hover{
+    transition:0.5s;
+    text-align: center;
+    background-image: linear-gradient(to right,#f64abd , #ad3abd );
+    color: white;
+    padding: 1em;
+    border-style:none;
+    font-size: 1em;
+   
+}
+.main{
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  
+}
+
+.card{
+    width: 300px;
+    height: 400px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    background-color:white;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+.card:nth-child(even) .top-container{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height:20%;
+    background-image: linear-gradient(to right,#f64abd , #ad3abd );
+    padding: 5px;
+    padding-top:10px;
+}
+
+.card:nth-child(even) .prof{
+    padding-top:10px;
+    padding-bottom: 10px;
+    font-style: italic;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #f64abd;
+}
+
+.card:nth-child(even) .descriere{
+    border-top: 2px solid #f64abd;
+    border-bottom: 2px solid #f64abd;
+    margin: 0 auto;
+    padding: 1em;
+    text-align: center;
+    font-weight: 300;
+    color: black;
+    width: 100%;
+    font-size: 1em;
+
+}
+
+.card:nth-child(even) .btn{
+    margin-top:20px;
+    font-family: 'Monsterrat',sans-serif;
+    font-weight: 700;
+    text-align: center;
+    background-image: linear-gradient(to right,#f64abd , #ad3abd );
+    color: white;
+    padding: 0.5em;
+    border-style:none;
+    font-size: 1em;
+    width: 150px;
+    height: 40px;
+}
+.card:nth-child(even) .btn:hover{
+    margin-top:20px;
+    font-family: 'Monsterrat',sans-serif;
+    font-weight: 700;
+    text-align: center;
+    background-image: linear-gradient(to right,#c23a95 , #6f2579 );
+    color: white;
+    padding: 0.5em;
+    border-style:none;
+    font-size: 1em;
+    width: 150px;
+    height: 40px;
+}
+.card .box{
+    width: 85%;
+    margin: 0 auto;
+}
+
+.card .top-container{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height:20%;
+    background-image: linear-gradient(to right,#1fd191 , #0086aa);
+    padding: 5px;
+    padding-top:10px;
+}
+
+.card .top-container p{
+  
+    text-align: center;
+    color: white;
+    width:100%;
+    margin:auto;
+}
+
+.card .titlu{
+    width: 100%;
+    font-family: 'Monsterrat', sans-serif;
+    font-size: 1.4em;
+    font-weight: 700;
+
+}
+
+ .an{
+    font-size:1.1em;
+}
+ .prof{
+    padding-top:10px;
+    padding-bottom: 10px;
+    font-style: italic;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #1fd191;
+}
+
+
+.box .descriere{
+    border-top: 2px solid #1fd191;
+    border-bottom: 2px solid #1fd191;
+    margin: 0 auto;
+    padding: 1em;
+    text-align: center;
+    font-weight: 300;
+    color: black;
+    width: 100%;
+    font-size: 1em;
+
+}
+
+.btn{
+    margin-top:20px;
+    font-family: 'Monsterrat',sans-serif;
+    font-weight: 700;
+    text-align: center;
+    background-image: linear-gradient(to right,#1fd191 , #0086aa);
+    color: white;
+    padding: 0.5em;
+    border-style:none;
+    font-size: 1em;
+    width: 150px;
+    height: 40px;
+    
+   
+}
+
+.btn:hover{
+    margin-top:20px;
+    font-family: 'Monsterrat',sans-serif;
+    font-weight: 700;
+    text-align: center;
+    background-image: linear-gradient(to right,#158f62 , #00566e);
+    color: white;
+    padding: 0.5em;
+    border-style:none;
+    font-size: 1em;
+    width: 150px;
+    height: 40px;
+    
+}
+
+@media screen and (max-width: 800px) {
+    .container-all{
+        width:100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
