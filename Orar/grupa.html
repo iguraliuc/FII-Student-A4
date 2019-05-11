@@ -5,14 +5,18 @@
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
           <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+          <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
           <link rel="stylesheet" type="text/css" href="grupa.css">
      </head>
 
      <body>
+          <nav>
+               NAVBAR MINUNE
+          </nav>
           <section>
-               <h1>An 2, Semian A, Grupa 4</h1>
+               <h1>GRUPA I2A4</h1>
                <article id="form">
-                    <form action="" method="">
                          <div id="buttons">
                               <button type="submit" name="Examene" value="Examene">Examene</button>
                               <button type="submit" name="An" value="An">Structura anului universitar</button>
@@ -20,9 +24,10 @@
                               <button type="submit" name="An" value="An">Disponibilitate sali</button>
                          </div>
 
+                    <form action="" method="">
                          <div id="selectTags">
-                              <select name="Materie">
-                                   <option value="">--Materie--</option>
+                              <select name="Materie" onchange="this.form.submit();">
+                                   <option value="">Materie</option>
                                    <option value="Analiza bazelor mari de date">Analiza bazelor mari de date</option>
                                    <option value="Analiza retelelor media sociale">Analiza retelelor media sociale</option>
                                    <option value="Antreprenoriat si inovare in IT">Antreprenoriat si inovare in IT</option>
@@ -90,8 +95,8 @@
                                    <option value="Topici speciale de programare .NET">Topici speciale de programare .NET</option>
                               </select>
                               
-                              <select name="Grupa">
-                                   <option value="">--Grupa--</option>
+                              <select name="Grupa" onchange="this.form.submit();">
+                                   <option value="">Grupa</option>
                                    <option value="Master ingineria sistemelor soft, anul 1">Master ingineria sistemelor soft, anul 1</option>
                                    <option value="Master ingineria sistemelor soft, anul 2">Master ingineria sistemelor soft, anul 2</option>
                                    <option value="Master lingvistica computationala, anul 1">Master lingvistica computationala, anul 1</option>
@@ -168,8 +173,8 @@
                                    <option value="Cursanti, anul 3">Cursanti, anul 3</option>
                               </select>        
 
-                              <select name="Profesor">
-                                   <option value="">--Profesor--</option>
+                              <select name="Profesor" onchange="this.form.submit();">
+                                   <option value="">Profesor</option>
                                    <option value="Abacioaie Nicolae, Colab.">Abacioaie Nicolae, Colab.</option>
                                    <option value="Aioanei Dragos, Colab.">Aioanei Dragos, Colab.</option>
                                    <option value="Alboaie Lenuta, Conf. dr.">Alboaie Lenuta, Conf. dr.</option>
@@ -290,8 +295,8 @@
                                    <option value="Zalinescu Adrian, Conf. dr. ">Zalinescu Adrian, Conf. dr. </option>
                               </select>
              
-                              <select name="Sala">
-                                   <option value="">--Sala--</option>
+                              <select name="Sala" onchange="this.form.submit();">
+                                   <option value="">Sala</option>
                                    <!-- Alte sali -->
                                    <option value="Acvariu">Acvariu</option>
                                    <option value="B3">B3</option>
@@ -334,248 +339,247 @@
     
                <article> 
                     <div class="table-responsive">
-                         <table class="table table-sm">
+                         <table>
                               <thead>
                                    <tr>
-                                        <th>De la</th>
-                                        <th>Pana la</th>
-                                        <th>Disciplina</th>
-                                        <th>Tip</th>
-                                        <th>Profesor</th>
-                                        <th>Sala</th> 
-                                        <th>Pachet</th> 
+                                        <th>ORE</th>
+                                        <th>DISCIPLINA</th>
+                                        <th>TIP</th>
+                                        <th>GRUPA</th>
+                                        <th>PROFESOR</th>
+                                        <th>SALA</th>
                                    </tr>
                               </thead>
 
                               <tbody>
                                    <tr class="zi">
-                                        <th colspan="10">Luni</td>
+                                        <th colspan="10">Luni ( 12 ore )</td>
                                    </tr>
 
                                    <tr>
-                                        <td>08:00</td>
-                                        <td>10:00</td>
+                                        <td>08:00-10:00</td>
                                         <td><a href="../discipline/orar_ic.html">Introducere in criptografie</a></td>
                                         <td>Laborator</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_iftene_s.html">Lect.dr. Iftene Sorin</a></td>
                                         <td><a href="../resurse/orar_C409.html" title="Corpul C">C409</a></td>
-                                        <td align="center">1</td>
+                                        
                                    </tr>
 
                                    <tr>
-                                        <td>10:00</td>
-                                        <td>12:00</td>
+                                        <td>10:00-12:00</td>
                                         <td><a href="../discipline/orar_ip.html">Ingineria programarii</a></td>
                                         <td>Curs</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_iftene_a.html">Conf. dr. Iftene Adrian</a></td>
                                         <td><a href="../resurse/orar_C112.html" title="Corpul C">C112</a></td>
-                                        <td align="center"></td>
+                                        
                                    </tr>
 
                                    <tr>
-                                        <td>12:00</td>
-                                        <td>14:00</td>
+                                        <td>12:00-14:00</td>
                                         <td><a href="../discipline/orar_mcm.html">Modele continue si Matlab</a></td>
                                         <td>Curs</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_iacob.html">Lect.dr. Iacob Florin</a></td>
                                         <td><a href="../resurse/orar_C112.html" title="Corpul C">C112</a></td>
-                                        <td align="center">1</td>
+                                        
                                    </tr>
 
                                    <tr>
-                                        <td>16:00</td>
-                                        <td>18:00</td>
+                                        <td>16:00-18:00</td>
                                         <td><a href="../discipline/orar_pav.html">Programare avansata</a></td>
                                         <td>Laborator</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_manolescuC.html">Manolescu Catalin</a></td>
                                         <td><a href="../resurse/orar_C405.html" title="Corpul C">C405</a></td>
-                                        <td align="center"></td>
+                                        
                                    </tr>
 
                                    <tr>
-                                        <td>18:00</td>
-                                        <td>20:00</td>
+                                        <td>18:00-20:00</td>
                                         <td><a href="../discipline/orar_ic.html">Introducere in criptografie</a></td>
                                         <td>Curs</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_tiplea_fl.html">Prof.dr. Tiplea Ferucio Laurentiu</a></td>
                                         <td><a href="../resurse/orar_C112.html" title="Corpul C">C112</a>, <a href="../resurse/orar_laptop.html" title="Corpul C">laptop</a></td>
-                                        <td align="center">1</td>
+                                        
                                    </tr>
 
                                    <tr>
-                                        <td>18:00</td>
-                                        <td>20:00</td>
+                                        <td>18:00-20:00</td>
                                         <td><a href="../discipline/orar_cs.html">Matematica pentru concursuri</a></td>
                                         <td>Alte activitati</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_iacob.html">Lect.dr. Iacob Florin</a></td>
                                         <td><a href="../resurse/orar_C2.html" title="Corpul C">C2</a></td>
-                                        <td align="center"></td>
+                                        
                                    </tr>
 
                                    <tr class="zi">
-                                        <th colspan="10">Marti</td>
+                                        <th colspan="10">Marti ( 12 ore )</td>
                                    </tr>
 
                                    <tr>
-                                        <td>08:00</td>
-                                        <td>10:00</td>
+                                        <td>08:00-10:00</td>
                                         <td><a href="../discipline/orar_psgbd.html">Practica SGBD</a></td>
                                         <td>Curs</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_varlan_c.html">Lect. dr. Varlan Cosmin</a></td>
                                         <td><a href="../resurse/orar_C112.html" title="Corpul C">C112</a></td>
-                                        <td align="center"></td>
+                                        
                                    </tr>
 
                                    <tr>
-                                        <td>10:00</td>
-                                        <td>12:00</td>
+                                        <td>10:00-12:00</td>
                                         <td><a href="../discipline/orar_pf.html">Programare functionala</a></td>
                                         <td>Laborator</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_andrei_a.html">Lect. Dr. Arusoaie Andrei</a></td>
                                         <td><a href="../resurse/orar_C412.html" title="Corpul C">C412</a></td>
-                                        <td align="center">1</td>
+                                        
                                    </tr>
 
                                    <tr>
-                                        <td>12:00</td>
-                                        <td>14:00</td>
+                                        <td>12:00-14:00</td>
                                         <td><a href="../discipline/orar_mcm.html">Modele continue si Matlab</a></td>
                                         <td>Laborator</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_iacob.html">Lect.dr. Iacob Florin</a></td>
                                         <td><a href="../resurse/orar_C210.html" title="Corpul C">C210</a></td>
-                                        <td align="center">1</td>
+                                        
                                    </tr>
 
                                    <tr>
-                                        <td>14:00</td>
-                                        <td>16:00</td>
+                                        <td>14:00-16:00</td>
                                         <td><a href="../discipline/orar_tw.html">Tehnologii Web</a></td>
                                         <td>Curs</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_buraga.html">Conf.dr. Buraga Sabin Corneliu</a></td>
                                         <td><a href="../resurse/orar_C112.html" title="Corpul C">C112</a></td>
-                                        <td align="center"></td>
+                                        
                                    </tr>
 
                                    <tr>
-                                        <td>16:00</td>
-                                        <td>18:00</td>
+                                        <td>16:00-18:00</td>
                                         <td><a href="../discipline/orar_pav.html">Programare avansata</a></td>
                                         <td>Curs</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_frasinaru.html">Lect.dr. Frasinaru Cristian</a></td>
                                         <td><a href="../resurse/orar_C2.html" title="Corpul C">C2</a>, <a href="../resurse/orar_laptop.html" title="Corpul C">laptop</a>, <a href="../resurse/orar_video.html" title="Corpul C">videoproiector</a></td>
-                                        <td align="center"></td>
+                                        
                                    </tr>
 
                                    <tr>
-                                        <td>16:00</td>
-                                        <td>20:00</td>
+                                        <td>16:00-20:00</td>
                                         <td><a href="../discipline/orar_pc4.html">Programare competitiva II, facultativ, pregatire olimpiada</a></td>
                                         <td>Curs</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_diac_p.html">drd. Diac Paul</a><br><a href="../participanti/orar_ionitaA.html">Colab. Ionita Alexandru</a></td>
                                         <td><a href="../resurse/orar_C412.html" title="Corpul C">C412</a></td>
-                                        <td align="center"></td>
+                                        
                                    </tr>
 
                                    <tr class="zi">
-                                        <th colspan="10">Miercuri</td>
+                                        <th colspan="10">Miercuri ( 12 ore )</td>
                                    </tr>
 
                                    <tr>
-                                        <td>08:00</td>
-                                        <td>10:00</td>
+                                        <td>08:00-10:00</td>
                                         <td><a href="../discipline/orar_ip.html">Ingineria programarii</a></td>
                                         <td>Laborator</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_pistol.html">Lect. dr. Pistol Ionut</a></td>
                                         <td><a href="../resurse/orar_C401.html" title="Corpul C">C401</a></td>
-                                        <td align="center"></td>
+                                        
                                    </tr>
 
                                    <tr>
-                                        <td>10:00</td>
-                                        <td>12:00</td>
+                                        <td>10:00-12:00</td>
                                         <td><a href="../discipline/orar_psgbd.html">Practica SGBD</a></td>
                                         <td>Laborator</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_varlan_c.html">Lect. dr. Varlan Cosmin</a></td>
                                         <td><a href="../resurse/orar_C405.html" title="Corpul C">C405</a></td>
-                                        <td align="center"></td>
+                                        
                                    </tr>
 
                                    <tr>
-                                        <td>12:00</td>
-                                        <td>14:00</td>
+                                        <td>12:00-14:00</td>
                                         <td><a href="../discipline/orar_antre.html">Antreprenoriat si inovare in IT</a></td>
                                         <td>Curs</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_forascu.html">Conf.dr. Forascu Corina</a></td>
                                         <td><a href="../resurse/orar_C309.html" title="Corpul C">C309</a></td>
-                                        <td align="center">1</td>
+                                        
                                    </tr>
 
                                    <tr>
-                                        <td>14:00</td>
-                                        <td>16:00</td>
+                                        <td>14:00-16:00</td>
                                         <td><a href="../discipline/orar_mcm.html">Modele continue si Matlab</a></td>
                                         <td>Consultatii</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_iacob.html">Lect.dr. Iacob Florin</a></td>
                                         <td><a href="../resurse/orar_C2.html" title="Corpul C">C2</a></td>
-                                        <td align="center">1</td>
+                                        
                                    </tr>
 
                                    <tr>
-                                        <td>14:00</td>
-                                        <td>16:00</td>
+                                        <td>14:00-16:00</td>
                                         <td><a href="../discipline/orar_pf.html">Programare functionala</a></td>
                                         <td>Curs</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_ciobaca.html">Conf. dr. Ciobaca Stefan</a></td>
                                         <td><a href="../resurse/orar_C112.html" title="Corpul C">C112</a></td>
-                                        <td align="center">1</td>
+                                        
                                    </tr>
 
                                    <tr>
-                                        <td>16:00</td>
-                                        <td>18:00</td>
+                                        <td>16:00-18:00</td>
                                         <td><a href="../discipline/orar_antre.html">Antreprenoriat si inovare in IT</a></td>
                                         <td>Seminar</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_forascu.html">Conf.dr. Forascu Corina</a></td>
                                         <td><a href="../resurse/orar_C905.html" title="Corpul C">C905</a></td>
-                                        <td align="center">1</td>
+                                        
                                    </tr>
 
                                    <tr class="zi">
-                                        <th colspan="10">Joi</td>
+                                        <th colspan="10">Joi ( 4 ore )</td>
                                    </tr>
 
                                    <tr>
-                                        <td>10:00</td>
-                                        <td>12:00</td>
+                                        <td>10:00-12:00</td>
                                         <td><a href="../discipline/orar_le4.html">Limba engleza IV</a></td>
                                         <td>Seminar</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_armanu.html">Armanu Nicoleta</a></td>
                                         <td><a href="../resurse/orar_C909.html" title="Corpul C">C909</a></td>
-                                        <td align="center"></td>
+                                        
                                    </tr>
 
                                    <tr>
-                                        <td>12:00</td>
-                                        <td>14:00</td>
+                                        <td>12:00-14:00</td>
                                         <td><a href="../discipline/orar_tw.html">Tehnologii Web</a></td>
                                         <td>Laborator</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_amariei.html">Colab. Amariei Ciprian</a></td>
                                         <td><a href="../resurse/orar_C412.html" title="Corpul C">C412</a></td>
-                                        <td align="center"></td>
+                                        
                                    </tr>
 
                                    <tr class="zi">
-                                        <th colspan="10">Vineri</td>
+                                        <th colspan="10">Vineri ( 2 ore )</td>
                                    </tr>
 
                                    <tr>
-                                        <td>16:00</td>
-                                        <td>18:00</td>
+                                        <td>16:00-18:00</td>
                                         <td><a href="../discipline/orar_di.html">Didactica informaticii</a></td>
                                         <td>Seminar</td>
+								<td>I2A4</td>
                                         <td><a href="../participanti/orar_tibu.html">Colab. Tibu Mirela</a></td>
                                         <td><a href="../resurse/orar_C909.html" title="Corpul C">C909</a></td>
-                                        <td align="center"></td>
+                                        
                                    </tr>
                               </tbody>
                          </table>
