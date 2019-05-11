@@ -21,7 +21,7 @@ def calculate_sum(queryset):
 
 def get_sali_unique():
     sali_unice = {"Acvariu"}
-    toate_salile = Rand.objects.all()
+    toate_salile = Rand.objects.exclude(tip = 'Examen')
     for sala in toate_salile:
         if sala.get_sala() is not "":
             sali_unice.add(sala.get_sala())
@@ -29,15 +29,15 @@ def get_sali_unique():
 
 
 def get_zile():
-    randuri = Rand.objects.all()
+    randuri = Rand.objects.exclude(tip = 'Examen')
     rand = {}
-    rand['Luni'] = randuri.filter(zi='Luni')
-    rand['Marti'] = randuri.filter(zi='Marti')
-    rand['Miercuri'] = randuri.filter(zi='Miercuri')
-    rand['Joi'] = randuri.filter(zi='Joi')
-    rand['Vineri'] = randuri.filter(zi='Vineri')
-    rand['Sambata'] = randuri.filter(zi='Sambata')
-    rand['Duminica'] = randuri.filter(zi='Duminica')
+    rand['Luni'] = randuri.filter(zi__contains='Luni')
+    rand['Marti'] = randuri.filter(zi__contains='Marti')
+    rand['Miercuri'] = randuri.filter(zi__contains='Miercuri')
+    rand['Joi'] = randuri.filter(zi__contains='Joi')
+    rand['Vineri'] = randuri.filter(zi__contains='Vineri')
+    rand['Sambata'] = randuri.filter(zi__contains='Sambata')
+    rand['Duminica'] = randuri.filter(zi__contains='Duminica')
     return rand
 
 
@@ -100,6 +100,60 @@ def get_materii_unique():
     return sorted(materii_unice)
 
 
+def compara(first_list_item,second_list_item):
+    first = first_list_item.split(".")
+    second = second_list_item.split(".")
+    if first[2] > second[2]:
+        return 1
+    elif first[2] < second[2]:
+        return -1
+    else:
+        if first[1] > second[1]:
+            return 1
+        elif first[1] < second[1]:
+            return -1
+        else:
+            if first[0] > second[0]:
+                return 1
+            elif first[0] < second[0]:
+                return -1
+            else:
+                return 0
+
+def sorteaza_date(lista_date):
+    list_length = len(lista_date)
+    for i in range(list_length-1):
+        for j in range(i+1,list_length):
+            if compara(lista_date[i],lista_date[j]) == 1:
+                aux = lista_date[i]
+                lista_date[i] = lista_date[j]
+                lista_date[j] = aux
+
+
+def get_zile_examene(randuri):
+    lista_date = []
+    for rand in randuri:
+        zi = rand.get_zi().split(", ")
+        lista_date.append(zi[1])
+    lista_date = list(set(lista_date))
+    list_length = len(lista_date)
+    for i in range(list_length - 1):
+        for j in range(i + 1, list_length):
+            if compara(lista_date[i], lista_date[j]) == 1:
+                aux = lista_date[i]
+                lista_date[i] = lista_date[j]
+                lista_date[j] = aux
+    return lista_date
+
+def get_zile_saptamana_examene(zile_examene, randuri_examen):
+    zile_saptamana_examene = {}
+    for zi_examen in zile_examene:
+        x = randuri_examen.filter(zi__contains=zi_examen)
+        for zi in x:
+            zile_saptamana_examene[zi_examen] = zi.get_zi()
+    return zile_saptamana_examene
+
+
 def index(request):
     if '?' not in request.get_raw_uri():
         anul_userului = 0
@@ -142,7 +196,6 @@ def index(request):
             day = "Sambata"
         if day == "Sunday":
             day = "Duminica"
-        print(day)
         time_hour = datetime.datetime.now().time()
         sali_ocupate = Rand.objects.filter(ora_inceput__lt=time_hour, ora_sfarsit__gt=time_hour, zi=day).distinct(
             'sala')
@@ -158,7 +211,7 @@ def index(request):
     if "sala" in request.GET:
         request_sala = request.GET['sala']
         if request_sala is not "":
-            randuri = randuri.filter(sala=request_sala)
+            randuri = randuri.filter(sala__contains=request_sala)
             titlu = "Sala " + request_sala
 
     if "materie" in request.GET:
@@ -177,21 +230,20 @@ def index(request):
         request_grupa = request.GET['grupa']
         if request_grupa is not "":
             grupa_len = len(request_grupa)
-            randuri = randuri.filter(grupa__iregex=(r'([a-z0-9]{0})' + request_grupa + r'([a-z0-9]{0})')).exclude(
-                grupa__iregex=(r'[a-z0-9]' + request_grupa)).exclude(
-                grupa__iregex=(request_grupa + r'[a-z0-9]')).distinct()
-            for i in range(2, grupa_len):
+            randuri = randuri.filter(grupa__iregex=(r'([A-Za-z0-9]{0})' + request_grupa + r'(?![a-zA-Z0-9])')).exclude(
+                    grupa__iregex=(r'[A-Za-z0-9]' + request_grupa )).distinct()
+            for i in range(1, grupa_len):
                 req_group = request_grupa[0:i]
                 print(req_group)
                 randuri = randuri | randuri1.filter(
-                    grupa__iregex=(r'([a-z0-9]{0})' + req_group + r'([a-z0-9]{0})')).exclude(
-                    grupa__iregex=(r'[a-z0-9]' + req_group)).exclude(
-                    grupa__iregex=(req_group + r'[a-z0-9]')).distinct()
+                    grupa__iregex=(r'([A-Z0-9]{0})' + req_group + r'(?![a-zA-Z0-9])')).exclude(
+                    grupa__iregex=(r'[A-Za-z0-9]' + req_group )).distinct()
             titlu = "Grupa " + request_grupa
 
-    randuri = randuri.distinct('curs','ora_inceput','ora_sfarsit','profesor','sala')
-    randuri = randuri.order_by('ora_inceput')
-
+    randuri = randuri.distinct('curs','ora_inceput','ora_sfarsit','profesor','sala','tip')
+    randuri_totale = randuri.order_by('ora_inceput')
+    randuri_examen = randuri_totale.filter(tip = 'Examen')  #randurile pentru examene
+    randuri = randuri_totale.exclude(tip = 'Examen') #randurile pentru orarul propriu-zis
     luni = randuri.filter(zi='Luni')
     marti = randuri.filter(zi='Marti')
     miercuri = randuri.filter(zi='Miercuri')
@@ -199,6 +251,9 @@ def index(request):
     vineri = randuri.filter(zi='Vineri')
     sambata = randuri.filter(zi='Sambata')
     duminica = randuri.filter(zi='Duminica')
+    zile_examene = get_zile_examene(randuri_examen)
+    zile_saptamana_examene = get_zile_saptamana_examene(zile_examene,randuri_examen)
+
     template = loader.get_template('grupa.html')
     list = []
 
@@ -215,6 +270,6 @@ def index(request):
 
     context = {'grupe': lista_grupe, 'sali': get_sali_unique(), 'cursuri': get_materii_unique(),'profesori': get_profesori_unique(), 'lista_ore': list,
                'titlu': titlu, 'luni': luni, 'marti': marti, 'miercuri': miercuri, 'joi': joi, 'vineri': vineri,
-               'sambata': sambata, 'duminica': duminica,'SALAH': request_sala,"GRUPAH": request_grupa, "MATERIAH": request_materie,'PROFESORH':request_profesor}
+               'sambata': sambata, 'duminica': duminica,'SALAH': request_sala,"GRUPAH": request_grupa, "MATERIAH": request_materie,'PROFESORH':request_profesor,'zile_examen':zile_examene,'examene':randuri_examen,'zile_saptamana_examene':zile_saptamana_examene}
 
     return HttpResponse(template.render(context, request))
