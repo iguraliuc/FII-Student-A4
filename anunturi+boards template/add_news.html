@@ -1,0 +1,94 @@
+<html lang="en" class="gr__127_0_0_1"><head>
+    <title>Navbar</title>
+    <meta charset="utf-8">
+      
+      <link rel="shortcut icon" type="image/png" href="/static/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="add_news.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600|Open+Sans:300,600,700" rel="stylesheet">
+ 
+  </head>
+  <body data-gr-c-s-loaded="true">
+  
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"><img src="../logo/logoalb.png" style="width: 140px; position: relative; top: -15px;" alt="FiiStudent"></a>
+      </div>
+      <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Acasa</a></li>
+          <!--<li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Orar<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Sali</a></li>
+              <li><a href="#">Materii</a></li>
+              <li><a href="#">Grupa</a></li>
+            </ul>
+          </li>-->
+                  <li><a href="/orar/">Orar</a></li>
+                  <li><a href="/personalise/boards/">Boards</a></li>
+                  <li><a href="/news/">Noutati</a></li>
+                  <li><a href="/resources/">Resurse</a></li>
+  
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+            
+                <li><a href="/users/login/"><span class="glyphicon glyphicon-log-in"></span> Conectare</a></li>
+                <li><a href="/users/signup/"><span class="glyphicon glyphicon-registration-mark"></span> Inregistrare</a></li>
+            
+  
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
+  
+      
+          <meta charset="utf-8">
+          <title>Add news</title>
+          
+          <link href="/static/add_news.css" rel="stylesheet" type="text/css">
+      
+      
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      
+          <form class="box" method="post">
+              <h1>Add a new Piece of News</h1>
+              <br>
+              <input type="hidden" name="csrfmiddlewaretoken" value="JzRvzSKWpUvlXJtDaXvWi3AYPIaN9IeGRClkwCnA9V9v8BBCVfBlnC7256ALXgzU">
+              
+                  <p>
+                      <label for="id_title">Title:</label><br>
+                      <input type="text" name="title" maxlength="2000" class="form-control" required="" id="id_title">
+                      
+                  </p>
+              
+                  <p>
+                      <label for="id_body">Body:</label><br>
+                      <textarea name="body" cols="40" rows="10" class="form-control" required="" id="id_body"></textarea>
+                      
+                  </p>
+              
+              <button type="submit">Add News</button>
+          </form>
+          
+      
+  
+  
+  </body></html>
