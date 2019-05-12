@@ -34,8 +34,8 @@ body{
 
 .navbar-brand img{
     position: absolute;
-    top:5px;
-    height: 50px;
+    top:-3px;
+    height: 60px;
 
 }
 .filtru{
@@ -241,6 +241,40 @@ body{
     .container-all{
         width:100%;
         display: flex;
-        flex-direction: column;
+        flex-direction: column; 
+    }
+    .navbar-brand img{
+        position: absolute;
+        top:5px;
+        height: 40px;
+    
+    }
+    .filtru{
+        z-index:-100;
+        position:sticky;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        
+    }
+    
+    .filtru button{
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        background-color: #030b3d;
+        color: white;
+        border-style:none;
+        font-size: 10px;
+        margin: 0px;
+    }
+    .main{
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      
     }
 }
