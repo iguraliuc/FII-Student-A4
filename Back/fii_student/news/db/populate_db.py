@@ -21,6 +21,7 @@ MONTH = {
 
 def get_real_data():
     commands = []
+    #commands.append("CREATE INDEX ir_translation_ltns ON news ((md5(body)))")
     for f in os.listdir(os.path.join(os.getcwd(), 'jsons')):
         fpath = os.path.join(os.getcwd(), 'jsons', f)
         with open(fpath, 'rb') as fin:
@@ -47,8 +48,12 @@ def get_real_data():
                 month = int(jfile['valabil_date'].split('.')[1])
                 year = int(jfile['valabil_date'].split('.')[2])
                 valabil_date = datetime.datetime(year=year, month=month, day=day)
+
+            #contor = News.objects.raw('SELECT COUNT(*) FROM news WHERE body=\'' + jfile['content']+'\'');
+            #print(contor);
+
             new_command = insert_command + '\'' + jfile['title'] + '\', \'' + jfile['content'] + \
-                            '\', \'\', \'\', \'' + str(published_date) + '\', \'' + str(valabil_date) + '\',' + '\'' + jfile['source'] + '\')'
+                            '\', \'\', \'\', \'' + str(published_date) + '\', \'' + str(valabil_date) + '\',' + '\'' + jfile['source'] + '\') '
             # print(new_command)
             commands.append(new_command)
             # return commands
@@ -57,3 +62,4 @@ def get_real_data():
 
 if __name__ == "__main__":
     get_real_data()
+
