@@ -2,14 +2,12 @@
 <html lang="en">
 
 <head>
-    {% load static %}
+  {% load static %}
   <title>Profil FII</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="{% static "settings.css" %}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -19,14 +17,19 @@
 
   <style>
     :root {
-      --background: {{ user.personalise.background_color }};
-      --navbar: {{ user.personalise.navbar_color }};
-      --accent: {{ user.personalise.accent_color }};
-      --font: {{ user.personalise.font_color }};
-      --font-family: {{ user.personalise.font_family }};
+      --background-first: #1b1353;
+      --background-second: #000428;
+      --navbar: #000000;
+      --color1-first: #1fd191;
+      --color1-second: #0086aa;
+      --color2-first: #f64abd;
+      --color2-second: #ad3abd;
+      --font: #ffffff;
+      --font-family: 'Roboto Condensed';
     }
   </style>
 </head>
+
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -51,98 +54,161 @@
       </div>
     </div>
   </nav>
-  <div class="w3-container">
-    <hr>
-    <div class="w3-cell-row">
-      <div class="w3-cell" style="//width:120px;">
-        <h3>{{ user.first_name }}</h3>
-        <p>{{ user.last_name }}</p>
-      </div>
-    </div>
-  </div>
-  <hr>
-  {% block content %}
-  <form class="w3-container" style="min-width: 360px;max-width: 25%;" method="post">
-    {% csrf_token %}
-    <label>{{ form.email.label_tag}}</label>
-  <input type="email" name="{{ form.email.html_name }}" maxlength="{{ form.email.max_length }}" class="form-control" id="{{ form.email.id_for_label }}" value="{{ user.email }}">
-
-    <label>Nume:</label>
-    <input type="text" name="{{ form.first_name.html_name }}" maxlength="{{ form.first_name.max_length }}" class="form-control" id="{{ form.first_name.id_for_label }}" value="{{ user.first_name }}">
-
-    <label>Prenume:</label>
-    <input type="text" name="{{ form.last_name.html_name }}" maxlength="{{ form.last_name.max_length }}" class="form-control" id="{{ form.last_name.id_for_label }}" value="{{ user.last_name }}">
-
+  <div class="main-container">
+    <h2>{{ user.first_name }} {{ user.last_name }}</h2>
     <hr>
 
-    <label>An:</label>
-    <select name="{{ form.an_studiu.html_name }}" class="form-control" id="{{ form.an_studiu.id_for_label }}">
-      {% for opt1, opt in form.fields.an_studiu.choices %}
-          <option value="{{ opt }}"
-          {% if opt == user.an_studiu %}selected="selected"{% endif %}>
-            {{ opt }}
-          </option>
-      {% endfor %}
-    </select>
+    {% block content %}
+    <form method="post">
+      {% csrf_token %}
 
-    <label>Grupa:</label>
-    <select name="{{ form.grupa.html_name }}" class="form-control" id="{{ form.grupa.id_for_label }}">
-      {% for opt1, opt in form.fields.grupa.choices %}
-          <option value="{{ opt }}"
-          {% if opt == user.grupa %}selected="selected"{% endif %}>
-            {{ opt }}
-          </option>
-      {% endfor %}
-    </select>
+      <h4>Administrare</h4>
 
-    <label>Rol:</label>
-    <select name="{{ form.rol.html_name }}" class="form-control" id="{{ form.rol.id_for_label }}">
-      {% for opt1, opt in form.fields.rol.choices %}
-          <option value="{{ opt }}"
-          {% if opt == user.rol %}selected="selected"{% endif %}>
-            {{ opt }}
-          </option>
-      {% endfor %}
-    </select>
 
-    <hr>
+      <label>{{ form.email.label_tag}}</label>
+      <input type="email" name="{{ form.email.html_name }}" maxlength="{{ form.email.max_length }}"
+        class="form-control even" id="{{ form.email.id_for_label }}" value="{{ user.email }}">
 
-    <label>Personalizare:</label></br></br>
-    <input type="color" onchange="updateColor('--navbar', document.getElementById('id_navbar_color').value)" name="navbar_color"
-      id="id_navbar_color" value="{{ user.personalise.navbar_color }}"><label for="">Navbar.</label><br>
+      <label>Nume:</label>
+      <input type="text" name="{{ form.first_name.html_name }}" maxlength="{{ form.first_name.max_length }}"
+        class="form-control odd" id="{{ form.first_name.id_for_label }}" value="{{ user.first_name }}">
 
-    <input type="color" onchange="updateColor('--background', document.getElementById('id_background_color').value)"
-      name="background_color" id="id_background_color" value="{{ user.personalise.background_color }}"><label for=""> Background.</label><br>
+      <label>Prenume:</label>
+      <input type="text" name="{{ form.last_name.html_name }}" maxlength="{{ form.last_name.max_length }}"
+        class="form-control even" id="{{ form.last_name.id_for_label }}" value="{{ user.last_name }}">
 
-    <input type="color" onchange="updateColor('--accent', document.getElementById('id_accent_color').value)" name="accent_color"
-      id="id_accent_color" value="{{ user.personalise.accent_color }}"><label for=""> Accent.</label><br>
+      <hr>
 
-    <input type="color" onchange="updateColor('--font', document.getElementById('id_font_color').value)" name="font_color" id="id_font_color"
-      value="{{ user.personalise.font_color }}"><label for=""> Font.</label><br><br>
-
-    <div class="form-group">
-      <label for="">Font Family</label>
-      <select name="{{ form.font_family.html_name }}" class="form-control" id="{{ form.font_family.id_for_label }}"
-      onchange="updateColor('--font-family', document.getElementById('id_font_family').value)" >
-          {% for opt1, opt in form.fields.font_family.choices %}
-            <option value = "{{ opt }}"
-            {% if opt == user.personalise.font_family %}selected="selected"{% endif %}>
-                {{ opt }}
-            </option>
-          {% endfor %}
+      <label>An:</label>
+      <select name="{{ form.an_studiu.html_name }}" class="form-control odd" id="{{ form.an_studiu.id_for_label }}">
+        {% for opt1, opt in form.fields.an_studiu.choices %}
+        <option value="{{ opt }}" {% if opt == user.an_studiu %}selected="selected" {% endif %}>
+          {{ opt }}
+        </option>
+        {% endfor %}
       </select>
-    </div>
 
-      <button class="btn btn-primary buttons" type="submit">Save changes</button>
-      <button class="btn btn-primary buttons" type="reset" onclick="resetProps(); this.blur();">Undo</button>
-  </form>
-  {% endblock %}
-  <hr>
-  <div>
-    <button type="button" class="btn btn-danger">Ștergere cont</button>
-  </div>
-  {% load static %}
-  <script src="{% static "update_colors.js" %}"></script>
+      <label>Grupă:</label>
+      <select name="{{ form.grupa.html_name }}" class="form-control even" id="{{ form.grupa.id_for_label }}">
+        {% for opt1, opt in form.fields.grupa.choices %}
+        <option value="{{ opt }}" {% if opt == user.grupa %}selected="selected" {% endif %}>
+          {{ opt }}
+        </option>
+        {% endfor %}
+      </select>
+
+      <label>Rol:</label>
+      <select name="{{ form.rol.html_name }}" class="form-control odd" id="{{ form.rol.id_for_label }}">
+        {% for opt1, opt in form.fields.rol.choices %}
+        <option value="{{ opt }}" {% if opt == user.rol %}selected="selected" {% endif %}>
+          {{ opt }}
+        </option>
+        {% endfor %}
+      </select>
+
+      <hr>
+
+      <label>Personalizare:</label></br></br>
+      <div class="rows">
+        <div class="form-group">
+          <label for="">Culoarea 1</label>
+          <select onchange="updateColor('--color1-first', document.getElementById('id_color1_first').value);"
+            name="color1_first" class="form-control" id="id_color1_first" value="{{ user.personalise.navbar_color }}">
+            <option style="background-color: #1b1353;" value="#1b1353"></option>
+            <option style="background-color: #aa076b;" value="#aa076b;"></option>
+
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="">Culoarea 2</label>
+          <select onchange="updateColor('--color1-second', document.getElementById('id_color1_second').value);"
+            name="color1_second" class="form-control" id="id_color1_second" value="{{ user.personalise.navbar_color }}">
+            <option style="background-color: #1b1353;" value="#1b1353"></option>
+            <option style="background-color: #aa076b;" value="#aa076b;"></option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="">Culoarea 3</label>
+          <select onchange="updateColor('--color2-first', document.getElementById('id_color2_first').value);"
+            name="color2_first" class="form-control" id="id_color2_first" value="{{ user.personalise.navbar_color }}">
+            <option style="background-color: #1b1353;" value="#1b1353"></option>
+            <option style="background-color: #aa076b;" value="#aa076b;"></option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="">Culoarea 4</label>
+          <select onchange="updateColor('--color2-second', document.getElementById('id_color2_second').value);"
+            name="color2_second" class="form-control" id="id_color2_second" value="{{ user.personalise.navbar_color }}">
+            <option style="background-color: #1b1353;" value="#1b1353"></option>
+            <option style="background-color: #aa076b;" value="#aa076b;"></option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="">Fundal 1</label>
+          <select onchange="updateColor('--background-first', document.getElementById('id_background_first').value);"
+            name="background_first" class="form-control" id="id_background_first"
+            value="{{ user.personalise.navbar_color }}">
+            <option style="background-color: #1b1353;" value="#1b1353"></option>
+            <option style="background-color: #aa076b;" value="#aa076b;"></option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="">Fundal 2</label>
+          <select onchange="updateColor('--background-second', document.getElementById('id_background_second').value);"
+            name="background_second" class="form-control" id="id_background_second"
+            value="{{ user.personalise.navbar_color }}">
+            <option style="background-color: #1b1353;" value="#1b1353"></option>
+            <option style="background-color: #aa076b;" value="#aa076b;"></option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="">Bara de navigare</label>
+          <select onchange="updateColor('--navbar', document.getElementById('id_navbar').value);" name="navbar"
+            class="form-control" id="id_navbar" value="{{ user.personalise.navbar_color }}">
+            <option style="background-color: #1b1353;" value="#1b1353"></option>
+            <option style="background-color: #aa076b;" value="#aa076b;"></option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="">Font</label>
+          <select onchange="updateColor('--font', document.getElementById('id_font').value);" name="font"
+            class="form-control" id="id_font" value="{{ user.personalise.navbar_color }}">
+            <option style="background-color: #1b1353;" value="#1b1353"></option>
+            <option style="background-color: #aa076b;" value="#aa076b;"></option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="">Font</label>
+        <select name="{{ form.font_family.html_name }}" class="form-control" id="{{ form.font_family.id_for_label }}"
+          onchange="updateColor('--font-family', document.getElementById('id_font_family').value)">
+          {% for opt1, opt in form.fields.font_family.choices %}
+          <option value="{{ opt }}" {% if opt == user.personalise.font_family %}selected="selected" {% endif %}>
+            {{ opt }}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <button class="btn btn-primary buttons" type="submit">Salvează</button>
+      <button class="btn btn-primary buttons" type="reset" onclick="resetProps(); this.blur();">Revenire</button>
+    </form>
+    {% endblock %}
+    <hr>
+    <div>
+      <button type="button" class="btn btn-danger">Ștergere cont</button>
+    </div>
+    {% load static %}
+    <script src="{% static "update_colors.js" %}"></script>
 
 </body>
 

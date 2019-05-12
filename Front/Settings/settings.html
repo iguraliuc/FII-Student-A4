@@ -18,11 +18,15 @@
 
   <style>
     :root {
-      --background: #ffffff;
+      --background-first: #1b1353;
+      --background-second: #000428;
       --navbar: #000000;
-      --accent: #ff0000;
-      --font: #000000;
-      --font-family: 'Arvo';
+      --color1-first: #1fd191;
+      --color1-second: #0086aa;
+      --color2-first: #f64abd;
+      --color2-second: #ad3abd;
+      --font: #ffffff;
+      --font-family: 'Roboto Condensed';
     }
   </style>
 </head>
@@ -78,102 +82,84 @@
     </div>
   </nav>
 
-  <!--
-<header class="w3-bar w3-card w3-theme">
-  <button class="w3-bar-item w3-button w3-xxxlarge w3-hover-theme" onclick="openSidebar()">&#9776;</button>
-  <h1 class="w3-bar-item">Profile</h1>
-</header>-->
-
-  <div class="w3-container">
+  <div class="main-container">
+    <h2>NUME PRENUME</h2>
     <hr>
-    <div class="w3-cell-row">
-      <!--<div class="w3-cell" style="width:120px;">
-      <img class="w3-circle" src="user-solid.svg" alt="Profile picture." style="height: 100px;width: 100px;">
-    </div>-->
-      <div class="w3-cell" style="//width:120px;">
-        <h3>Florin</h3>
-        <p>Salem</p>
+
+    <form>
+      <h4>Administrare</h4>
+      <div class="form-group">
+        <label for="">Email</label>
+        <input type="email" class="form-control even" id="email1" placeholder="Adresa de Email">
       </div>
+      <div class="form-group">
+        <input type="password" class="form-control odd" id="password1" placeholder="Parola">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control even" id="password2" placeholder="Parola">
+      </div>
+
+      <h4>Personalizare</h4>
+
+      <div class="form-group">
+        <label for="">Font Family</label>
+        <select onchange="updateColor('--font-family', document.getElementById('family').value);" name="family"
+          class="form-control odd" id="family" value="">
+          <option class="form-control-select" value="Roboto">Roboto</option>
+          <option class="form-control-select" value="Arvo">Arvo</option>
+          <option class="form-control-select" value="Montserrat">Montserrat</option>
+          <option class="form-control-select" value="Lato">Lato</option>
+          <option class="form-control-select" value="Inconsolata">Inconsolata</option>
+          <option class="form-control-select" value="Roboto Condensed">Roboto Condensed</option>
+        </select>
+      </div>
+      <div class="rows">
+        <div class="form-group">
+          <label for="">Font Family</label>
+          <select onchange="updateColor('--font-family', document.getElementById('family').value);" name="family"
+            class="form-control" id="family" value="">
+            <option class="form-control-select" style="background-color: #1b1353;" value="Roboto"></option>
+            <option class="form-control-select" style="background-color: #aa076b;" value="Arvo"></option>
+            <option class="form-control-select" style="background-color: #65e1e0 ;" value="Montserrat"></option>
+            <option class="form-control-select" style="background-color: #004e92 ;" value="Lato"></option>
+
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="">Font Family</label>
+          <select onchange="updateColor('--font-family', document.getElementById('family').value);" name="family"
+            class="form-control" id="family" value="">
+            <option class="form-control-select" style="background-color: #1b1353;" value="Roboto"></option>
+            <option class="form-control-select" style="background-color: #aa076b;" value="Arvo"></option>
+            <option class="form-control-select" style="background-color: #65e1e0 ;" value="Montserrat"></option>
+            <option class="form-control-select" style="background-color: #004e92 ;" value="Lato"></option>
+
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="">Font Family</label>
+          <select onchange="updateColor('--font-family', document.getElementById('family').value);" name="family"
+            class="form-control" id="family" value="">
+            <option class="form-control-select" style="background-color: #1b1353;" value="Roboto"></option>
+            <option class="form-control-select" style="background-color: #aa076b;" value="Arvo"></option>
+            <option class="form-control-select" style="background-color: #65e1e0 ;" value="Montserrat"></option>
+            <option class="form-control-select" style="background-color: #004e92 ;" value="Lato"></option>
+
+          </select>
+        </div>
+
+      </div>
+      <input class="btn btn-primary buttons" type="submit" value="Save changes">
+      <input class="btn btn-primary buttons" type="reset" value="Undo" onclick="resetProps(); this.blur();">
+    </form>
+    <hr>
+    <div>
+      <button type="button" class="btn btn-danger">Ștergere cont</button>
     </div>
   </div>
-  <!--<form action="">
-  <input type="file" name="fileupload" value="fileupload" id="fileupload"><br>
-  <input type="submit" value="Submit">
-  <label for="fileupload">To change your profile picture.</label>
-</form>-->
-  <hr>
-  <form class="w3-container" style="min-width: 360px;max-width: 25%;">
 
-    <label>E-mail nou:</label>
-    <input class="w3-input w3-border w3-round-large w3-animate-input" type="email" style="width:50%" name="email">
-
-    <label>Nume utilizator nou:</label>
-    <input class="w3-input w3-border w3-round-large w3-animate-input" type="text" style="width:50%" name="username">
-
-    <label>Porecla noua:</label>
-    <input class="w3-input w3-border w3-round-large w3-animate-input" type="text" style="width:50%" name="nickname">
-
-    <hr>
-    <label>Parola noua:</label>
-    <input class="w3-input w3-border w3-round-large w3-animate-input" type="password" style="width:50%">
-    <label>Confirmati parola noua:</label>
-    <input class="w3-input w3-border w3-round-large w3-animate-input" type="password" style="width:50%">
-    <hr>
-
-    <label>An:</label>
-    <input class="w3-input w3-border w3-round-large w3-animate-input" type="text" style="width:50%">
-    <label>Grupa:</label>
-    <input class="w3-input w3-border w3-round-large w3-animate-input" type="text" style="width:50%">
-
-
-    <hr>
-
-    </div>
-    <label>Personalizare:</label></br></br>
-    <input type="color" onchange="updateColor('--navbar', document.getElementById('navbar').value)" name="navbar"
-      id="navbar" value=""><label for="">
-      Navbar.</label><br>
-    <input type="color" onchange="updateColor('--background', document.getElementById('background').value)"
-      name="background" id="background" value=""><label for=""> Background.</label><br>
-    <input type="color" onchange="updateColor('--accent', document.getElementById('accent').value)" name="accent"
-      id="accent" value=""><label for=""> Accent.</label><br>
-    <input type="color" onchange="updateColor('--font', document.getElementById('font').value)" name="font" id="font"
-      value=""><label for=""> Font.</label><br>
-    </br>
-
-    <div class="form-group">
-      <label for="">Font Family</label>
-      <select onchange="updateColor('--font-family', document.getElementById('family').value)" name="family"
-        class="form-control" id="family" value="">
-        <option value="Roboto">Roboto</option>
-        <option value="Arvo">Arvo</option>
-        <option value="Montserrat">Montserrat</option>
-        <option value="Lato">Lato</option>
-        <option value="Inconsolata">Inconsolata</option>
-        <option value="Roboto Condensed">Roboto Condensed</option>
-      </select>
-    </div>
-    <input class="btn btn-primary buttons" type="submit" value="Save changes">
-    <input class="btn btn-primary buttons" type="reset" value="Undo" onclick="resetProps(); this.blur();">
-  </form>
-  <hr>
-  <div>
-    <button type="button" class="btn btn-danger">Ștergere cont</button>
-  </div>
-  <footer class="w3-container w3-theme w3-margin-top">
-    <h3>Facultatea de informatică</h3>
-  </footer>
-  <!--
-<script>
-  closeSidebar();
-  function openSidebar() {
-    document.getElementById("mySidebar").style.display = "block";
-  }
-
-  function closeSidebar() {
-    document.getElementById("mySidebar").style.display = "none";
-  }
-</script>-->
   <script src="update_colors.js"></script>
 
 </body>
