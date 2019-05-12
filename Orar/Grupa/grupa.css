@@ -69,10 +69,11 @@ select{
 }
 button{
 	margin: 10px;
-	padding: 7px;
+	padding: auto 7px;
 	background-color: var(--Verde);
 	border-style: none;
 	border-radius: 5px;
+	height: 33px;
 	font-family: MontSerrat;
 	font-size: 12pt;
 	font-weight: 500; /* Medium */
