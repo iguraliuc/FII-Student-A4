@@ -124,4 +124,4 @@ def activation_email_sent(request):
 
 def logout_view(request):
     logout(request)
-    return render(request, 'landing_page2.html')
+    return render(request, 'prezentare_en.html')

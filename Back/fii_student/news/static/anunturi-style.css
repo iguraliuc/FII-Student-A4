@@ -122,6 +122,7 @@ p{
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
     flex-direction: column;
+    width: 15%;
 }
 
 .anunt-container:nth-child(odd) .date{
@@ -134,6 +135,7 @@ p{
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
     flex-direction: column;
+    width: 15%;
 }
 
 .date > p{
