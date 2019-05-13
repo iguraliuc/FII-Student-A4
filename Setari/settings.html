@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Profil FII</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<!--
+<nav class="w3-sidebar w3-bar-block w3-card" id="mySidebar">
+  <div class="w3-container w3-theme-d2">
+    <span onclick="closeSidebar()" class="w3-button w3-display-topright w3-large">X</span>
+    <br>
+    <div class="w3-padding w3-center">
+      <img class="w3-circle" src="user-solid.svg" alt="avatar" style="width:75%">
+      <hr>
+      <h3>Nickname</h3>
+    </div>
+  </div>
+  <a class="w3-bar-item w3-button" href="#">Pagina principala</a>
+  <a class="w3-bar-item w3-button" href="#">Orar</a>
+  <a class="w3-bar-item w3-button" href="#">Logout</a>
+</nav>
+-->
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="Logo.svg" alt="FiiStudent"></a>
+    </div>
+    <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Acasa</a></li>
+        <!--<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Orar<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Sali</a></li>
+            <li><a href="#">Materii</a></li>
+            <li><a href="#">Grupa</a></li>
+          </ul>
+        </li>-->
+				<li><a href="#">Orar</a></li>
+				<li><a href="#">Cursuri</a></li>
+        <li><a href="#">Setari Cont</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Deconectare</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!--
+<header class="w3-bar w3-card w3-theme">
+  <button class="w3-bar-item w3-button w3-xxxlarge w3-hover-theme" onclick="openSidebar()">&#9776;</button>
+  <h1 class="w3-bar-item">Profile</h1>
+</header>-->
+
+<div class="w3-container">
+  <hr>
+  <div class="w3-cell-row">
+    <!--<div class="w3-cell" style="width:120px;">
+      <img class="w3-circle" src="user-solid.svg" alt="Profile picture." style="height: 100px;width: 100px;">
+    </div>-->
+    <div class="w3-cell" style="//width:120px;">
+      <h3>Florin</h3>
+      <p>Salem</p>
+    </div>
+  </div>
+</div>
+<!--<form action="">
+  <input type="file" name="fileupload" value="fileupload" id="fileupload"><br>
+  <input type="submit" value="Submit">
+  <label for="fileupload">To change your profile picture.</label>
+</form>-->
+<hr>
+<form class="w3-container" style="min-width: 360px;max-width: 25%;">
+
+  <label>E-mail nou:</label>
+  <input class="w3-input w3-border w3-round-large w3-animate-input" type="email" style="width:50%">
+
+  <label>Nume utilizator nou:</label>
+  <input class="w3-input w3-border w3-round-large w3-animate-input" type="text" style="width:50%">
+
+  <label>Porecla noua:</label>
+  <input class="w3-input w3-border w3-round-large w3-animate-input" type="text" style="width:50%">
+
+  <hr>
+  <label>Parola noua:</label>
+  <input class="w3-input w3-border w3-round-large w3-animate-input" type="password" style="width:50%">
+  <label>Confirmati parola noua:</label>
+  <input class="w3-input w3-border w3-round-large w3-animate-input" type="password" style="width:50%">
+  <hr>
+
+  <label>An:</label>
+  <input class="w3-input w3-border w3-round-large w3-animate-input" type="text" style="width:50%">
+  <label>Grupa:</label>
+  <input class="w3-input w3-border w3-round-large w3-animate-input" type="text" style="width:50%">
+
+
+  <hr>
+
+  </div>
+  <label>Personalizare:</label></br></br>
+  <input type="color" onchange="updateColor(this.value, '--light-color')"
+    name="light-color" id="lightColor"><label for=""> Prima culoare.</label><br>
+  <input type="color" onchange="updateColor(this.value, '--light-medium-color')"
+    name="light-medium-color" id=""><label for=""> A doua culoare.</label><br>
+  <input type="color" onchange="updateColor(this.value, '--medium-color')"
+    name="medium-color" id=""><label for=""> A treia culoare.</label><br>
+  <input type="color" onchange="updateColor(this.value, '--medium-dark-color')"
+    name="medium-dark-color" id=""><label for=""> A patra culoare.</label><br>
+  <input type="color" onchange="updateColor(this.value, '--dark-color')"
+    name="dark-color" id=""><label for=""> A cincea culoare</label><br>
+  </br>
+  <input type="submit" value="Save changes">
+  <input type="reset" value="Undo">
+</form>
+<hr>
+<div>
+<button class="w3-btn-floating w3-red" onclick=""> Stergere cont</button>
+</div>
+<footer class="w3-container w3-theme w3-margin-top">
+  <h3>Facultatea de informatică</h3>
+</footer>
+<!--
+<script>
+  closeSidebar();
+  function openSidebar() {
+    document.getElementById("mySidebar").style.display = "block";
+  }
+
+  function closeSidebar() {
+    document.getElementById("mySidebar").style.display = "none";
+  }
+</script>-->
+<script src="update_colors.js"></script>
+
+</body>
