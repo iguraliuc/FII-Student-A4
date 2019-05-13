@@ -27,7 +27,7 @@ DEFAULT_COLOURS = {
         "SECOND": "#ff84f2"
     },
     "NAVBAR": "#1b1354",
-    "FONT": "#000000"
+    "FONT": "#ffffff"
 }
 DEFAULT_FONT_FAMILY = "Arvo"
 
