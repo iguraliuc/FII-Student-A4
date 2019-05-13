@@ -9,7 +9,6 @@
     --font: #ffffff;
     --font-family: 'Arvo';
 }
-
 .navbar {
     background-color: var(--navbar);
 }
