@@ -21,31 +21,75 @@ p{
     top:0;
     position:sticky;
 }
+
 .nav.navbar-nav li a {
     color: white;
 }
 
-.add_news{
-    padding:10px;
-    text-decoration:none;
-    margin-left: 10%;
-    color:white;
-    size: 30px;
-    font-size: 20px;
-    height: 50px;
-    background-color: #0086aa;
+.link{
+    height:80px;
+    width:45px;
+}
+.plus{
+    height:45px;
+    position:fixed;
+    top:60px;
+    right:10px;
+    background-color:#1fd191;
+    border-radius:50%;
+    padding: 5px;
+    transition: width 2s;
 }
 
-.add_news:hover{
+@keyframes show {
+    from { width: 0px;  font-size:0px;   opacity:100%;}
+    to { width: 160px;  font-size:20px;   opacity:0%;}
+}
+
+@keyframes button{
+    from{border-radius:50%; height:45px;}
+    to{border-radius:0%;height: 80px;}
+}
+@keyframes in{
+    from{display:none; visibility: hidden;}
+    to{display:none; visibility: hidden;}
+}
+
+.link:hover .plus{
+    border-radius:0px;
+    height:80px;
+    animation:button;
+    animation-duration:0.3s;
+    top:60px;
+}
+
+.link:hover  .add_news{
+    display: block;
+    visibility: visible;
     padding:10px;
     text-decoration:none;
-    margin-left: 10%;
+
     color:white;
     size: 30px;
     font-size: 20px;
-    height: 50px;
-    background-color: #03acdb;
+
+    background-color:#1fd191;
+
+    position:fixed;
+    top:60px;
+    right:90px;
+    height:80px;
+    width: 160px;
+    animation: in 0.3s, show 0.3s ease-out 0.3s;
+    text-align: center;
 }
+
+.add_news{
+    display: none;
+    visibility: hidden;
+}
+
+
 /* butoane stanga de filtrare anunturi */
 .meniu{
     width: 10%;
@@ -122,7 +166,7 @@ p{
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
     flex-direction: column;
-    width: 15%;
+    width: 16%;
 }
 
 .anunt-container:nth-child(odd) .date{
@@ -135,7 +179,7 @@ p{
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
     flex-direction: column;
-    width: 15%;
+    width: 16%;
 }
 
 .date > p{
@@ -291,6 +335,50 @@ p{
         height: 100%;
         padding: 5px 5px;
     }
+
+
+
+    .plus{
+        height:45px;
+        position:fixed;
+        top:115px;
+        right:10px;
+        background-color:#1fd191;
+        border-radius:50%;
+        padding: 5px;
+        transition: width 2s;
+    }
+
+    .link:hover .plus{
+        border-radius:0px;
+        height:80px;
+        animation:button;
+        animation-duration:0.3s;
+        top:115px;
+    }
+
+    .link:hover  .add_news{
+        display: block;
+        visibility: visible;
+        padding:10px;
+        text-decoration:none;
+
+        color:white;
+        size: 30px;
+        font-size: 20px;
+
+        background-color:#1fd191;
+
+        position:fixed;
+        top:115px;
+        right:90px;
+        height:80px;
+        width: 160px;
+        animation: in 0.3s, show 0.3s ease-out 0.3s;
+        text-align: center;
+    }
+
+
 }
 
 @media screen and (max-width: 800px){

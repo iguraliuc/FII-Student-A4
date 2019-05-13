@@ -22,7 +22,10 @@
     </div>
 
 
-    <a href="/news/add_news" class="add_news">Adaugă un anunț!</a>
+    <a class="link" href ="/news/add_news">
+        <img class="plus" src="{% static 'plus.png' %}">
+        <p class="add_news">Adaugă un anunț!</p>
+    </a>
 
     <div class="board">
         {% for obj in objects %}
