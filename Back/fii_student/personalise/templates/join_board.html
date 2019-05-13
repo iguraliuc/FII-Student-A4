@@ -43,10 +43,10 @@
     <div class="container-all">
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
     <div class="filtru">
-        <button class="button toti active" onclick="filter('Toti')">Toti anii</button>
-        <button class="button anI" onclick="filter('An I')">An I</button>
-        <button class="button anII" onclick="filter('An II')">An II</button>
-        <button class="button anIII" onclick="filter('An III')">An III</button>
+        <button class="button toti active" onclick="filter('toti')">Toti anii</button>
+        <button class="button anI" onclick="filter('anI')">An I</button>
+        <button class="button anII" onclick="filter('anII')">An II</button>
+        <button class="button anIII" onclick="filter('anIII')">An III</button>
     </div>
     <div class="main">
             {% for board in boards %}
@@ -109,41 +109,46 @@
 </body>
 
 <script>
+    var lastActiveClass = "button toti";
 
-    function filter(an){
+function filter(an){
 
-        var btns = document.getElementsByClassName("button");
-
-
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function() {
-                var current = document.getElementsByClassName("active");
-                current[0].className = current[0].className.replace(" active", "");
-                this.className += " active";
-            });
+    var current = document.getElementsByClassName("button");
+    for(i=0; i<current.length; i++){
+        if(current[i].className.includes("active")){
+            current = current[i];
+            break
         }
+    }
+    current.className = lastActiveClass;
+    lastActiveClass = "button " + an;
+    var newActive = document.getElementsByClassName(an);
+    newActive[0].className = lastActiveClass + " active";
 
 
-        var button = document.getElementsByClassName("an");
-        for(var i = 0; i<button.length; i++){
-            var board = button[i].parentElement.parentElement.parentElement.parentElement;
-            if(button[i].textContent != an){
-                if(an == "Toti"){
-                    board.style.display = 'block';
-                    board.style.visibility = "visible";
-                }else{
-                    board.style.display = 'none';
-                    board.style.visibility = "hidden";
-                }
-            }else{
+    var button = document.getElementsByClassName("an");
+    for(var i = 0; i<button.length; i++){
+        var board = button[i].parentElement.parentElement;
+        console.log(button[i].className);
+        if(!button[i].className.includes(an)){
+            if(an == "toti"){
                 board.style.display = 'block';
                 board.style.visibility = "visible";
+            }else{
+                board.style.display = 'none';
+                board.style.visibility = "hidden";
             }
+        }else{
+            board.style.display = 'block';
+            board.style.visibility = "visible";
         }
-
-
-
     }
+
+
+
+}
+
+
     var btns = document.getElementsByClassName("btn");
         for (var i = 0; i < btns.length; i++) {
             btns[i].addEventListener("click", function() {
