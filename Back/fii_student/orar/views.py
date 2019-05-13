@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 from django.http import HttpResponse
 from django.template import loader
@@ -21,7 +21,7 @@ def calculate_sum(queryset):
 
 def get_sali_unique():
     sali_unice = {"Acvariu"}
-    toate_salile = Rand.objects.exclude(tip = 'Examen')
+    toate_salile = Rand.objects.exclude(zi__contains=',')
     for sala in toate_salile:
         if sala.get_sala() is not "":
             sali_unice.add(sala.get_sala())
@@ -29,7 +29,7 @@ def get_sali_unique():
 
 
 def get_zile():
-    randuri = Rand.objects.exclude(tip = 'Examen')
+    randuri = Rand.objects.exclude(zi__contains=',')
     rand = {}
     rand['Luni'] = randuri.filter(zi__contains='Luni')
     rand['Marti'] = randuri.filter(zi__contains='Marti')
@@ -71,9 +71,9 @@ def program_sali(request):
             dict[sala].append(dict3)
             for ora in range(0, 12):
                 if verificare_disp(sali[sala], rand[zile[zi]], ora + 8) == 1:
-                    dict[sala][zi].append("green")
+                    dict[sala][zi].append("liber")
                 else:
-                    dict[sala][zi].append("red")
+                    dict[sala][zi].append("ocupat")
 
     context = {'lista': dict, 'sali': sali, 'zile': zile, 'ore': range(8, 20), 'lungime': len(sali),
                'rangesali': range(len(sali)), 'rangezile': range(7), 'rangeore': range(12)}
@@ -153,18 +153,51 @@ def get_zile_saptamana_examene(zile_examene, randuri_examen):
             zile_saptamana_examene[zi_examen] = zi.get_zi()
     return zile_saptamana_examene
 
+def cauta_nume_profesor(first_name, last_name):
+    lista_nume = []
+    first_name = first_name.replace('-', ' ')
+    last_name = last_name.replace('-', ' ')
+    for name in first_name.split():
+        lista_nume.append(name)
+    for name in last_name.split():
+        lista_nume.append(name)
+    nume_profesori = get_profesori_unique()
+    aux = []
+    for nume in lista_nume:
+        for nume_p in nume_profesori:
+            if(nume in nume_p):
+                aux.append(nume_p)
+        nume_profesori = aux
+        aux = []
+    return nume_profesori[0]
 
+@login_required(login_url='/')
 def index(request):
     if '?' not in request.get_raw_uri():
-        anul_userului = 0
-        if(request.user.an_studiu == 'I'):
-            anul_userului = 1
-        elif (request.user.an_studiu == 'II'):
-            anul_userului = 2
-        elif (request.user.an_studiu == 'III'):
-            anul_userului = 3;
+        _query = ''
+        if request.user.rol == 'Student' or request.user.rol == 'Masterand':
+            anul_userului = 0
+            if (request.user.an_studiu == 'I'):
+                anul_userului = 1
+            elif (request.user.an_studiu == 'II'):
+                anul_userului = 2
+            elif (request.user.an_studiu == 'III'):
+                anul_userului = 3;
+            else:
+                anul_userului = 1;
+        if request.user.rol == 'Student':
+            _query = "/orar/?grupa=I" + str(anul_userului) + request.user.grupa
+        elif request.user.rol == 'Masterand':
+            _query = "/orar/?grupa=" + request.user.grupa + str(anul_userului)
+        elif request.user.rol == 'Doctorand' or request.user.rol == '-':
+            _query = "/orar/?grupa=I1A1"
+        elif request.user.rol == 'Profesor':
+            first_name = request.user.first_name
+            last_name = request.user.last_name
+            nume_din_lista_profesori = cauta_nume_profesor(first_name,last_name)
+            _query = "/orar/?profesor=" + nume_din_lista_profesori
 
-        return redirect("/orar/?grupa=I" + str(anul_userului) + request.user.grupa)
+        return redirect(_query)
 
     grupe = []
     _grupe_queryset = Rand.objects.all().values_list('grupa').distinct()
@@ -197,7 +230,8 @@ def index(request):
         if day == "Sunday":
             day = "Duminica"
         time_hour = datetime.datetime.now().time()
-        sali_ocupate = Rand.objects.filter(ora_inceput__lt=time_hour, ora_sfarsit__gt=time_hour, zi=day).distinct(
+        randuri = randuri.exclude(zi__contains=',')
+        sali_ocupate = Rand.objects.exclude(zi__contains=',').filter(ora_inceput__lt=time_hour, ora_sfarsit__gt=time_hour, zi=day).distinct(
             'sala')
         randuri = randuri.exclude(sala__in=sali_ocupate.values('sala')).exclude(sala = "").distinct('sala')
         print(sali_ocupate)
@@ -240,9 +274,11 @@ def index(request):
                     grupa__iregex=(r'[A-Za-z0-9]' + req_group )).distinct()
             titlu = "Grupa " + request_grupa
 
-    randuri = randuri.distinct('curs','ora_inceput','ora_sfarsit','profesor','sala','tip')
+    randuri = randuri.distinct('curs','ora_inceput','ora_sfarsit','profesor','sala','tip','zi')
     randuri_totale = randuri.order_by('ora_inceput')
-    randuri_examen = randuri_totale.filter(tip = 'Examen')  #randurile pentru examene
+    randuri_examen = randuri_totale.filter(zi__contains=',')
+    #randuri_examen = randuri_totale.filter(tip = 'Examen')
+    #randuri_examen = randuri_examen | randuri_totale.filter(tip = 'Restante')#randurile pentru examene
     randuri = randuri_totale.exclude(tip = 'Examen') #randurile pentru orarul propriu-zis
     luni = randuri.filter(zi='Luni')
     marti = randuri.filter(zi='Marti')

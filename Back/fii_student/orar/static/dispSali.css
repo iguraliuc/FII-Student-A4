@@ -1,94 +1,188 @@
-
+/*variables*/
+:root{
+    --Verde: #1fd191;
+    --Green1: linear-gradient(90deg, #1fd191, #0086aa);
+    --Purple: linear-gradient(90deg, #f64abd, #ad3abd);
+    --Albastru-inchis: #1b1354;
+    --Mov: #9c09d3;
+}
+/*html, body*/
+html, body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    margin: 0 auto;
+    background-color: var(--Albastru-inchis);
+}
+/*navbar*/
+nav{
+    background-color: #000428;
+    text-align: center;
+    line-height: 50px;
+    color: #ffffff;
+    width: 100%;
+}
+/*content*/
+section{
+    margin: 20px;
+}
+h1{
+    margin: 20px 0px;
+    text-align: center;
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 25pt;
+    font-weight: bold;  /* 700 */
+}
+/* buttons */
+#buttons{
+    margin: 0px;
+    clear: both;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+button{
+    margin: 10px;
+    padding: 7px;
+    background-color: var(--Verde);
+    border-style: none;
+    border-radius: 5px;
+    font-family: MontSerrat;
+    font-size: 12pt;
+    font-weight: 500; /* Medium */
+    color: #ffffff;
+}
+button:nth-of-type(4){
+    background-color: #18A673;
+}
+button:hover{
+    background-color: #18A673;
+    cursor: pointer;
+}
+/* butoane: liber, ocupat */
+.grid-container{
+    display: grid;
+    margin-top: 15px;
+    grid-template-columns: 150px 150px;
+    grid-gap: 30px;
+    justify-content: center;
+}
+.grid-item1{
+    color: #ffffff;
+    background-color: var(--Verde);
+    padding: 7px;
+    text-align: center;
+    font-family: MontSerrat;
+    font-size: 12pt;
+    font-weight: 700; /* Bold */
+}
+.grid-item2{
+    background-color: var(--Mov);
+    color: #ffffff;
+    padding: 7px;
+    text-align: center;
+    font-family: MontSerrat;
+    font-size: 12pt;
+    font-weight: 700; /* Bold */
+}
+/*content*/
+#H2{
+    font-family: "Montserrat",sans-serif;
+    font-weight: 600; /* Semibold */
+    font-size: 30pt;
+    background-image: var(--Green1);
+    color: white;
+    margin:30px 20px 30px 20px;
+    padding:0px 40px;
+    clear:both;
+}
 /* Table 1 Style */
 table.table1{
-    font-family: "Trebuchet MS", sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.4em;
-    font-style: normal;
-    border-collapse:separate;
-    margin-left:auto; 
+    line-height: 1.5em;
+    border-collapse: collapse;
+    margin-left:auto;
     margin-right:auto;
 }
-.table1 thead th{
-    width: 70px;
+ td{
 
-    color:#fff;
+    border-bottom:2px solid #f7f7f7;
+    border-left:2px solid #f7f7f7;
+    border-right:2px solid #f7f7f7;
+}
+.ore{
+        border-bottom:2px solid #f7f7f7;
+}
+.table1 thead th:nth-of-type(2){
+    border-top-left-radius: 3px;
+}
+.table1 thead th:last-of-type{
+    border-style: none;
+    border-top-right-radius: 3px;
+}
+.table1 tbody tr:first-of-type th{
+    border-top-left-radius: 3px;
+}
+.table1 tbody tr:last-of-type th{
+    border-style: none;
+    border-bottom-left-radius: 3px;
+}
+.table1 thead th{
+    font-family: "Open Sans",sans-serif;
+    font-weight: 600; /* Semibold */
+    font-size: 15pt;
+    width: 70px;
+    height: 35px;
+    color:#ffffff;
     text-shadow:1px 1px 1px #568F23;
-    border:1px solid #93CE37;
-    background-color:#9DD929;
-    background:-webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0.02, rgb(123,192,67)),
-        color-stop(0.51, rgb(139,198,66)),
-        color-stop(0.87, rgb(158,217,41))
-        );
-    background: -moz-linear-gradient(
-        center bottom,
-        rgb(123,192,67) 2%,
-        rgb(139,198,66) 51%,
-        rgb(158,217,41) 87%
-        );
-    -webkit-border-top-left-radius:5px;
-    -webkit-border-top-right-radius:5px;
-    -moz-border-radius:5px 5px 0px 0px;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-image: var(--Purple);
 }
 .table1 thead th:empty{
     background:transparent;
     border:none;
 }
 .table1 tbody th{
-    color:#fff;
-    text-shadow:1px 1px 1px #568F23;
-    background-color:#9DD929;
-    
-    background:-webkit-gradient(
-        linear,
-        left bottom,
-        right top,
-        color-stop(0.02, rgb(158,217,41)),
-        color-stop(0.51, rgb(139,198,66)),
-        color-stop(0.87, rgb(123,192,67))
-        );
-    background: -moz-linear-gradient(
-        left bottom,
-        rgb(158,217,41) 2%,
-        rgb(139,198,66) 51%,
-        rgb(123,192,67) 87%
-        );
-    -moz-border-radius:5px 0px 0px 5px;
-    -webkit-border-top-left-radius:5px;
-    -webkit-border-bottom-left-radius:5px;
-    border-top-left-radius:5px;
-    border-bottom-left-radius:5px;
-}
-.table1 tfoot td{
-    color: #9CD009;
-    font-size:32px;
-    text-align:center;
-    padding:10px 0px;
-    text-shadow:1px 1px 1px #444;
-}
-.table1 tfoot th{
-    color:#666;
+    font-family: "Open Sans",sans-serif;
+    font-weight: 600; /* Semibold */
+    font-size: 12pt;
+    color: #ffffff;
+    background-image: var(--Purple);
 }
 .table1 tbody td{
-    height: 10px;
-    width: 10px;
-    padding:1px;
+    height: 25px;
+    width: 100px;
     text-align:center;
-    background-color:#DEF3CA;      /*AICI E CULOAREA PT FIECARE CAMP*/
-    -moz-border-radius:2px;
-    -webkit-border-radius:2px;
-    border-radius:2px;
-    color:#666;
-    text-shadow:1px 1px 1px #fff;
+    background-color:white;
 }
-.table1 tbody span.check::before{
-    content : url(../images/check0.png)
+.table1 tbody td.liber{
+    background-color: var(--Verde);
+}
+.table1 tbody td.ocupat{
+    background-color: var(--Mov);
+}
+@media screen and (max-width: 600px){
+    #sndArt{
+        overflow: scroll;
+    }
+    h1{
+        font-size: 22pt;
+    }
+    #H2{
+        font-size: 30pt;
+        margin:10px 20px 10px 20px;
+        padding:0px 20px;
+    }
+    .grid-container{
+        grid-template-columns: 150px 150px;
+    }
+    .grid-item1{
+        font-size: 14pt;
+    }
+    .grid-item2{
+        font-size: 14pt;
+    }
 }
 
