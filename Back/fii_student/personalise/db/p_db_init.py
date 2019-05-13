@@ -10,7 +10,7 @@ list_surnames = ['Adrian', 'Alex', 'Alexandru', 'Alin', 'Andreas', 'Andrei', 'Au
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "fii_student.settings")
 django.setup()
-from personalise.models import Student, Board, Personalise
+from personalise.models import Board, Personalise
 
 GRUPE = ['-', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7',
          'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7',
@@ -20,7 +20,7 @@ GRUPE = ['-', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7',
 def add_boards_and_get_ids(file_name):
     # load info from json
     b_list = []
-    with open(file_name, 'r') as ff:
+    with open(file_name, 'r', encoding='utf8') as ff:
         boards = json.load(ff)
         for board in boards:
             b = Board(
@@ -37,9 +37,7 @@ def add_boards_and_get_ids(file_name):
 def insert_values():
 
     # clear db
-    # Student.objects.all().delete()
     Board.objects.all().delete()
-    # Personalise.objects.all().delete()
 
     b_list = add_boards_and_get_ids('boards.json')
     return
