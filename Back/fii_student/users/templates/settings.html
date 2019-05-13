@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
+{% extends 'landing_page2.html' %}
+{% block content %}
 <head>
   {% load static %}
   <title>Profil FII</title>
@@ -11,24 +10,15 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="{% static "settings.css" %}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+{#  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>#}
   <link href="https://fonts.googleapis.com/css?family=Arvo|Inconsolata|Lato|Montserrat|Roboto|Roboto Condensed"
     rel="stylesheet">
 
   <style>
     :root {
-      {#--background-first: #1b1353;#}
-      {#--background-second: #000428;#}
-      {#--navbar: #000000;#}
-      {#--color1-first: #1fd191;#}
-      {#--color1-second: #0086aa;#}
-      {#--color2-first: #f64abd;#}
-      {#--color2-second: #ad3abd;#}
-      {#--font: #ffffff;#}
-      {#--font-family: 'Roboto Condensed';#}
       --background-first: {{ user.personalise.background_first }};
       --background-second: {{ user.personalise.background_second }};
-      --navbar: {{ user.navbar_color }};;
+      --navbar: {{ user.personalise.navbar_color }};;
       --color1-first: {{ user.personalise.color1_first }};
       --color1-second: {{ user.personalise.color1_second }};
       --color2-first: {{ user.personalise.color2_first }};
@@ -40,34 +30,9 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#"><img src="Logo.svg" alt="FiiStudent"></a>
-      </div>
-      <div class="collapse navbar-collapse navbar-right" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Acasa</a></li>
-          <li><a href="#">Orar</a></li>
-          <li><a href="#">Cursuri</a></li>
-          <li><a href="#">Setari Cont</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Deconectare</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
   <div class="main-container">
     <h2>{{ user.first_name }} {{ user.last_name }}</h2>
     <hr>
-
-    {% block content %}
     <form method="post">
       {% csrf_token %}
 
@@ -214,14 +179,13 @@
       <button class="btn btn-primary buttons" type="submit">Salvează</button>
       <button class="btn btn-primary buttons" type="reset" onclick="resetProps(); this.blur();">Revenire</button>
     </form>
-    {% endblock %}
     <hr>
     <div>
       <button type="button" class="btn btn-danger">Ștergere cont</button>
     </div>
     {% load static %}
     <script src="{% static "update_colors.js" %}"></script>
+  </div>
 
 </body>
-
-</html>
+{% endblock %}
