@@ -47,6 +47,7 @@
         <button class="button anI." onclick="filter('anI.')">An I</button>
         <button class="button anII." onclick="filter('anII.')">An II</button>
         <button class="button anIII." onclick="filter('anIII.')">An III</button>
+        <button class="button abonate." onclick="filter('abonate.')">Abonate</button>
     </div>
     <div class="main">
             {% for board in boards %}
@@ -112,10 +113,9 @@
     var lastActiveClass = "button toti";
 
 function filter(an){
-
-    var current = document.getElementsByClassName("button");
-    for(i=0; i<current.length; i++){
-        if(current[i].className.includes("active")){
+        var current = document.getElementsByClassName("button");
+    for (i = 0; i < current.length; i++) {
+        if (current[i].className.includes("active")) {
             current = current[i];
             break
         }
@@ -125,29 +125,44 @@ function filter(an){
     var newActive = document.getElementsByClassName(an);
     newActive[0].className = lastActiveClass + " active";
 
+    if(an != 'abonate.') { //kinda hack
 
-    var button = document.getElementsByClassName("an");
-    for(var i = 0; i<button.length; i++){
-        var board = button[i].parentElement.parentElement;
-        console.log(button[i].className);
-        if(!button[i].className.includes(an)){
-            if(an == "toti"){
+        var button = document.getElementsByClassName("an");
+        for (var i = 0; i < button.length; i++) {
+            var board = button[i].parentElement.parentElement;
+            console.log(button[i].className);
+            if (!button[i].className.includes(an)) {
+                if (an == "toti") {
+                    board.style.display = 'block';
+                    board.style.visibility = "visible";
+                } else {
+                    board.style.display = 'none';
+                    board.style.visibility = "hidden";
+                }
+            } else {
                 board.style.display = 'block';
                 board.style.visibility = "visible";
-            }else{
-                board.style.display = 'none';
-                board.style.visibility = "hidden";
             }
-        }else{
-            board.style.display = 'block';
-            board.style.visibility = "visible";
+        }
+    }else {
+        var joined = document.getElementsByClassName("btn"); //actualy the
+        for (var i = 0; i < joined.length; i++) {
+            var board = joined[i].parentElement.parentElement;
+            if (! joined[i].className.includes("verified")) {
+                if (joined[i].className.includes("joined")) {
+                    console.log('joined');
+                    board.style.display = 'block';
+                    board.style.visibility = "visible";
+                }
+                else {
+                    console.log('not joined');
+                    board.style.display = 'none';
+                    board.style.visibility = "hidden";
+                }
+            }
         }
     }
-
-
-
 }
-
 
     var btns = document.getElementsByClassName("btn");
         for (var i = 0; i < btns.length; i++) {
