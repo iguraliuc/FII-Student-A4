@@ -44,16 +44,16 @@
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
     <div class="filtru">
         <button class="button toti active" onclick="filter('toti')">Toti anii</button>
-        <button class="button anI" onclick="filter('anI')">An I</button>
-        <button class="button anII" onclick="filter('anII')">An II</button>
-        <button class="button anIII" onclick="filter('anIII')">An III</button>
+        <button class="button anI." onclick="filter('anI.')">An I</button>
+        <button class="button anII." onclick="filter('anII.')">An II</button>
+        <button class="button anIII." onclick="filter('anIII.')">An III</button>
     </div>
     <div class="main">
             {% for board in boards %}
                 <div class="card">
                     <div class="top-container">
                         <p class="titlu">{{ board.subject }}</p>
-                        <p class="an an{{ board.year }}">An {{ board.year }}</p>
+                        <p class="an an{{ board.year }}.">An {{ board.year }}</p>
                     </div>
                     <div class="box">
                         <p class="prof">{{ board.teacher }}</p>
