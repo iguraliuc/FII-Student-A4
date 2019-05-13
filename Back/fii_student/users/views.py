@@ -94,7 +94,7 @@ def settings(request):
             if color1_first != '' and color1_first != request.user.personalise.color1_first:
                 request.user.personalise.color1_first = color1_first
             if color1_second != '' and color1_second != request.user.personalise.color1_second:
-                request.user.personalise.color1_first = color1_first
+                request.user.personalise.color1_second = color1_second
             if color2_first != '' and color2_first != request.user.personalise.color2_first:
                 request.user.personalise.color2_first = color2_first
             if color2_second != '' and color2_second != request.user.personalise.color2_second:
