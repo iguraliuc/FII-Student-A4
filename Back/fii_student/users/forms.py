@@ -5,15 +5,7 @@ import django.forms.widgets
 
 from .models import *
 from .utils import validate_user_details
-
-FONT_FAMILY_CHOICES = [
-    "Roboto",
-    "Arvo",
-    "Montsserat",
-    "Lato",
-    "Inconsolata",
-    "Roboto Condensed"
-]
+from personalise.constants import *
 
 
 class SignupForm(UserCreationForm):
@@ -48,20 +40,25 @@ class SettingsForm(forms.Form):
     rol = forms.ChoiceField(choices=[(x, x) for x in ROLURI])
     an_studiu = forms.ChoiceField(choices=[(x, x) for x in ANI_STUDIU])
     grupa = forms.ChoiceField(choices=[(x, x) for x in GRUPE])
-    navbar_color = forms.CharField(max_length=255)
-    background_color = forms.CharField(max_length=255)
-    accent_color = forms.CharField(max_length=255)
-    font_color = forms.CharField(max_length=255)
+    navbar_color = forms.ChoiceField(choices=[(x, x) for x in FLAT_CHOICES])
+    background_first = forms.ChoiceField(choices=[(x, x) for x in BACKGROUND_CHOICES['FIRST']])
+    background_second = forms.ChoiceField(choices=[(x, x) for x in BACKGROUND_CHOICES['SECOND']])
+    color1_first = forms.ChoiceField(choices=[(x, x) for x in ELEMENT_CHOICES['FIRST']])
+    color1_second = forms.ChoiceField(choices=[(x, x) for x in ELEMENT_CHOICES['SECOND']])
+    color2_first = forms.ChoiceField(choices=[(x, x) for x in ELEMENT_CHOICES['FIRST']])
+    color2_second = forms.ChoiceField(choices=[(x, x) for x in ELEMENT_CHOICES['SECOND']])
+    # accent_color = forms.CharField(max_length=255)
+    font_color = forms.ChoiceField(choices=[(x, x) for x in FONT_COLOR_CHOICES])
     font_family = forms.ChoiceField(choices=[(x, x) for x in FONT_FAMILY_CHOICES])
 
     def __init__(self, *args, **kwargs):
         super(SettingsForm, self).__init__(*args, **kwargs)
         for f in self.fields:
             self.fields[f].widget.attrs.update({'class': 'form-control'})
-        self.fields["navbar_color"].widget.attrs.update({'type': 'color'})
-        self.fields["background_color"].widget.attrs.update({'type': 'color'})
-        self.fields["accent_color"].widget.attrs.update({'type': 'color'})
-        self.fields["font_color"].widget.attrs.update({'type': 'color'})
+        # self.fields["navbar_color"].widget.attrs.update({'type': 'color'})
+        # self.fields["background_color"].widget.attrs.update({'type': 'color'})
+        # self.fields["accent_color"].widget.attrs.update({'type': 'color'})
+        # self.fields["font_color"].widget.attrs.update({'type': 'color'})
 #
 # class LoginForm(AuthenticationForm):
 #

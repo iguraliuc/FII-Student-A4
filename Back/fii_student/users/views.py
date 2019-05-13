@@ -59,8 +59,12 @@ def settings(request):
             rol = form.data['rol']
             grupa = form.data['grupa']
             navbar_color = form.data['navbar_color']
-            background_color = form.data['background_color']
-            accent_color = form.data['accent_color']
+            background_first = form.data['background_first']
+            background_second = form.data['background_second']
+            color1_first = form.data['color1_first']
+            color1_second = form.data['color1_second']
+            color2_first = form.data['color2_first']
+            color2_second = form.data['color2_second']
             font_color = form.data['font_color']
             font_family = form.data['font_family']
 
@@ -78,14 +82,23 @@ def settings(request):
                 request.user.grupa = grupa
             if navbar_color != '' and navbar_color != request.user.personalise.navbar_color:
                 request.user.personalise.navbar_color = navbar_color
-            if background_color != '' and background_color != request.user.personalise.background_color:
-                request.user.personalise.background_color = background_color
-            if accent_color != '' and accent_color != request.user.personalise.accent_color:
-                request.user.personalise.accent_color = accent_color
+            if background_first != '' and background_first != request.user.personalise.background_first:
+                request.user.personalise.background_first = background_first
+            if background_second != '' and background_second != request.user.personalise.background_second:
+                request.user.personalise.background_second = background_second
             if font_color != '' and font_color != request.user.personalise.font_color:
                 request.user.personalise.font_color = font_color
             if font_family != '' and font_family != request.user.personalise.font_family:
                 request.user.personalise.font_family = font_family
+
+            if color1_first != '' and color1_first != request.user.personalise.color1_first:
+                request.user.personalise.color1_first = color1_first
+            if color1_second != '' and color1_second != request.user.personalise.color1_second:
+                request.user.personalise.color1_first = color1_first
+            if color2_first != '' and color2_first != request.user.personalise.color2_first:
+                request.user.personalise.color2_first = color2_first
+            if color2_second != '' and color2_second != request.user.personalise.color2_second:
+                request.user.personalise.color2_second = color2_second
             request.user.personalise.save()
             request.user.save()
     else:
