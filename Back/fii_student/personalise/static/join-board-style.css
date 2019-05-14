@@ -1,14 +1,40 @@
+:root{
+    --background-first: #1b1353;
+    --background-second: #000428;
+    --navbar:#030b3d;
+    --color1-first:#1fd191;
+    --color1-second:#0086aa;
+    --color2-first:#f64abd;
+    --color2-second:#ad3abd;
+    --font: #ffffff;
+    --font-family: 'Montserrat', sans-serif;  
+}
+
+/* :root{
+    --background-first: {{user.personalise.background_first}};
+    --background-second: {{user.personalise.background_second}};
+    --navbar:{{ user.personalise.navbar_color }};
+    --color1-first:{{ user.personalise.color1_first }};
+    --color1-second:{{ user.personalise.color1_second }};
+    --color2-first:{{ user.personalise.color2_first }};
+    --color2-second:{{ user.personalise.color2_second }};
+    --font: {{ user.personalise.font_color }};
+    --font-family: {{ user.personalise.font_family }}; 
+} */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,600|Open+Sans:400,600');
+
 *{
-    margin:0px;
-    padding:0px;
-    font-size:15px;
-    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-size: 15px;
 }
 
 body{
-    background-color: #1b1354;
-    font-family: 'Open sans', sans-serif;
-    font-weight: 700;
+    min-height: 100vh;
+    font-family: var(--font-family);
+    font-weight: 600;
+    background: radial-gradient(var(--background-first), var(--background-second));
 }
 
 .container-all{
@@ -16,20 +42,28 @@ body{
 }
 
 .navbar-inverse{
+    z-index:101;
     top:0;
     position:sticky;
-    background-color: #030b3d;
+    background-color: var(--navbar);
     margin-bottom: 0px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-family);
     font-weight: 500;
 }
 .nav.navbar-nav li a {
-    color: white;
+    color: var(--font);
 }
 
 .nav.navbar-nav li a:hover {
     transition: 0.3s;
-    background-color:#f64abd;
+    background-color:var(--color2-first);
+}
+
+.navbar-inverse .navbar-nav>.active>a{
+    background-color:var(--color2-first);
+}
+.navbar-inverse .navbar-nav>.active>a:hover{
+    background-color:var(--color2-first);
 }
 
 .navbar-brand img{
@@ -50,8 +84,8 @@ body{
 .filtru button{
     height: 20%;
     text-align: center;
-    background-color: #030b3d;
-    color: white;
+    background-color: var(--navbar);
+    color: var(--font);
     padding: 0.8em;
     border-style:none;
     font-size: 1em;
@@ -59,31 +93,32 @@ body{
 }
 
 .filtru .active{
-    background-image: linear-gradient(to right,#f64abd , #ad3abd );
+    background-image: linear-gradient(to right,var(--color2-first) , var(--color2-second) );
 }
 
 .filtru button:hover{
     transition:0.5s;
     text-align: center;
-    background-image: linear-gradient(to right,#f64abd , #ad3abd );
-    color: white;
+    background-image: linear-gradient(to right,var(--color2-first) , var(--color2-second) );
+    color:var(--font);
     padding: 1em;
     border-style:none;
     font-size: 1em;
    
 }
 .main{
-    margin: 0 auto;
-    width: 80%;
+    margin-left:150px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding:0px 5%;
   
 }
 
 .card{
     width: 300px;
-    height: 400px;
+    height: 420px;
     margin-right: 20px;
     margin-left: 20px;
     margin-top: 20px;
@@ -97,23 +132,26 @@ body{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height:20%;
-    background-image: linear-gradient(to right,#f64abd , #ad3abd );
+    background-image: linear-gradient(to right,var(--color2-first) , var(--color2-second) );
     padding: 5px;
     padding-top:10px;
 }
 
 .card:nth-child(even) .prof{
+    font-family:'Open Sans', sans-serif;
+    font-weight:600;
+
     padding-top:10px;
     padding-bottom: 10px;
     font-style: italic;
     font-size: 1.1em;
     font-weight: 600;
-    color: #f64abd;
+    color: var(--color2-first);
 }
 
 .card:nth-child(even) .descriere{
-    border-top: 2px solid #f64abd;
-    border-bottom: 2px solid #f64abd;
+    border-top: 2px solid var(--color2-first);
+    border-bottom: 2px solid var(--color2-first);
     margin: 0 auto;
     padding: 1em;
     text-align: center;
@@ -126,10 +164,10 @@ body{
 
 .card:nth-child(even) .btn{
     margin-top:20px;
-    font-family: 'Monsterrat',sans-serif;
+    font-family: var(--font-family);
     font-weight: 700;
     text-align: center;
-    background-image: linear-gradient(to right,#f64abd , #ad3abd );
+    background-image: linear-gradient(to right,var(--color2-first) , var(--color2-second) );
     color: white;
     padding: 0.5em;
     border-style:none;
@@ -139,10 +177,10 @@ body{
 }
 .card:nth-child(even) .btn:hover{
     margin-top:20px;
-    font-family: 'Monsterrat',sans-serif;
+    font-family: var(--font-family);
     font-weight: 700;
     text-align: center;
-    background-image: linear-gradient(to right,#c23a95 , #6f2579 );
+    background-image: linear-gradient(to right,var(--color2-first) , var(--color2-second) );
     color: white;
     padding: 0.5em;
     border-style:none;
@@ -159,7 +197,7 @@ body{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height:20%;
-    background-image: linear-gradient(to right,#1fd191 , #0086aa);
+    background-image: linear-gradient(to right,var(--color1-first) , var(--color1-second) );
     padding: 5px;
     padding-top:10px;
 }
@@ -174,7 +212,7 @@ body{
 
 .card .titlu{
     width: 100%;
-    font-family: 'Monsterrat', sans-serif;
+    font-family: var(--font-family);
     font-size: 1.4em;
     font-weight: 700;
 
@@ -183,19 +221,27 @@ body{
  .an{
     font-size:1.1em;
 }
+
  .prof{
+    font-family:'Open Sans', sans-serif;
+    font-weight:600;
+
     padding-top:10px;
     padding-bottom: 10px;
     font-style: italic;
     font-size: 1.1em;
     font-weight: 600;
-    color: #1fd191;
+    color: var(--color1-first);
 }
 
 
 .box .descriere{
-    border-top: 2px solid #1fd191;
-    border-bottom: 2px solid #1fd191;
+
+    font-family:'Open Sans', sans-serif;
+    font-weight:400;
+
+    border-top: 2px solid  var(--color1-first);
+    border-bottom: 2px solid  var(--color1-first);
     margin: 0 auto;
     padding: 1em;
     text-align: center;
@@ -207,11 +253,12 @@ body{
 }
 
 .btn{
+    margin-bottom:20px;
     margin-top:20px;
-    font-family: 'Monsterrat',sans-serif;
+    font-family: var(--font-family);
     font-weight: 700;
     text-align: center;
-    background-image: linear-gradient(to right,#1fd191 , #0086aa);
+    background-image: linear-gradient(to right,var(--color1-first) , var(--color1-second) );
     color: white;
     padding: 0.5em;
     border-style:none;
@@ -223,8 +270,17 @@ body{
 }
 
 .btn:hover{
-    background-image: linear-gradient(to right,#158f62 , #00566e);
+    margin-top:20px;
+    font-family: var(--font-family);
+    font-weight: 700;
+    text-align: center;
+    background-image: linear-gradient(to right,var(--color1-first) , var(--color1-second) );
     color: white;
+    padding: 0.5em;
+    border-style:none;
+    font-size: 1em;
+    width: 150px;
+    height: 40px;
     
 }
 
@@ -237,33 +293,49 @@ body{
     .container-all{
         width:100%;
         display: flex;
-        flex-direction: column;
+        flex-direction: column; 
     }
     .navbar-brand img{
         position: absolute;
         top:5px;
         height: 40px;
-
+    
     }
     .filtru{
-        z-index:-100;
+        z-index:100;
         position:sticky;
         width: 100%;
         height: 50px;
         display: flex;
         flex-direction: row;
-
+        
     }
-
+    
     .filtru button{
         width: 100%;
         height: 100%;
         text-align: center;
-        background-color: #030b3d;
+        background-color: var(--navbar);
+        color: white;
+        border-style:none;
+        font-size: 10px;
+        padding:0.5em;
+        margin: 0px;
+    }
+
+    .filtru button:hover{
+    
+        background-image: linear-gradient(to right,var(--color2-first) , var(--color2-second) );
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        padding: 0.5em;
         color: white;
         border-style:none;
         font-size: 10px;
         margin: 0px;
+      
+       
     }
     .main{
         margin: 0 auto;
@@ -271,6 +343,6 @@ body{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-
+      
     }
 }
