@@ -6,8 +6,18 @@
 	--Albastru-inchis: #1b1354;
 	--Orange2: linear-gradient(90deg, #ffc16a, #ff6a72);
 	--LightBlue2: linear-gradient(90deg, #65e1e0, #6497e6, #8566e6);
-
 	--DarkPurple2: linear-gradient(90deg, #c6e63b, #1eafb9fb);
+
+		--background-first: #1b1353;
+		--background-second: #000428;
+		--navbar:#000000;
+		--color1-first:#1fd191;
+		--color1-second:#0086aa;
+		--color2-first:#f64abd;
+		--color2-second:#ad3abd;
+		--font: #ffffff;
+		--font-family: 'Arvo';
+
 
 }
 /*html, body*/
@@ -17,16 +27,10 @@ html, body{
 }
 body{
 	margin: 0 auto;
-	background-color: var(--Albastru-inchis);
+	background-color: var(--background-first);
 }
-/*navbar*/
-nav{
-	background-color: #000428;
-	text-align: center;
-	line-height: 50px;
-	color: #ffffff;
-	width: 100%;
-}
+
+
 /*content*/
 section{
 	margin: 20px;
@@ -34,7 +38,7 @@ section{
 h1{
 	margin: 20px 0px;
 	text-align: center;
-	color: #ffffff;
+	color: var(--font);
 	font-family: "Open Sans";
 	font-size: 25pt;
 	font-weight: bold;  /* 700 */
@@ -56,28 +60,29 @@ h1{
 }
 select{
 	margin: 10px 20px;
-	border-color: var(--Verde);
+	border-color: var(--color1-first);
 	border-radius: 5px;
-	background-color: var(--Albastru-inchis);
-	font-family: MontSerrat;
+	background-color: var(--background-first);
+	font-family: "MontSerrat";
 	font-size: 12pt;
 	font-weight: 500; /* Medium */
 	max-width: 120px;
-	color: #ffffff;
+	color: var(--font);
 	padding: 7px;
 	border-width: 2px;
 }
 button{
 	margin: 10px;
 	padding: auto 7px;
-	background-color: var(--Verde);
+	border-color: var(--color1-first);
+background-color: var(--color1-first);
 	border-style: none;
 	border-radius: 5px;
 	height: 33px;
-	font-family: MontSerrat;
+	font-family: "MontSerrat";
 	font-size: 12pt;
 	font-weight: 500; /* Medium */
-	color: #ffffff;
+	color: var(--font);
 }
 button:hover{
 	background-color: #18A673;
@@ -92,11 +97,11 @@ button:hover{
 	font-family: "Open Sans";
 	font-size: 15pt;
 	font-weight: 600;/* Semibold */
-	background-image: var(--Green1);
-	color: #ffffff;
+	background-image: linear-gradient(90deg, var(--color1-first), var(--color1-second));
+	color: var(--font);
 }
 .tabelmare tbody tr:nth-child(odd):not(.zi){
-	background-color: #ffffff;
+	background-color: var(--font);
 }
 .tabelmare tbody tr:nth-child(even):not(.zi){
 	background-color: #f7f5f7;
@@ -105,7 +110,7 @@ button:hover{
 	background-color: #DADADA;
 }
 .tabelmare tbody tr:not(.zi):first-of-type:hover{
-	background-color: #ffffff;
+	background-color: var(--font);
 }
 .tabelmare thead th{
 	border-style: none;
@@ -115,8 +120,8 @@ button:hover{
 	font-family: "MontSerrat";
 	font-size: 15pt;
 	font-weight: 500; /* Medium */
-	background-image: var(--Purple);
-	color: #ffffff;
+	background-image: linear-gradient(90deg, var(--color2-first), var(--color2-second));
+	color: var(--font);
 	text-align: center;
 	vertical-align: middle;
 	width: 1000px;
@@ -134,7 +139,7 @@ button:hover{
 	font-family: "MontSerrat";
 	font-size: 10pt;
 	font-weight: 500; /* Medium */
-	color: #000000;
+	color: var(--navbar);
 	padding: 10px 5px 10px 5px;
 }
 .tabelmare td a{
@@ -143,10 +148,10 @@ button:hover{
 	font-family: "MontSerrat";
 	font-size: 10pt;
 	font-weight: 500; /* Medium */
-	color: #000000;
+	color: var(--navbar);
 }
 .tabelmare td a:hover{
-	color: #000000;
+	color: var(--navbar);
 	text-decoration: underline;
 }
 .spatiu{
@@ -165,7 +170,7 @@ button:hover{
 	border-collapse: collapse;
 }
 .tabelmic tbody tr:nth-child(odd):not(.data){
-	background-color: #ffffff;
+	background-color: var(--font);
 }
 .tabelmic tbody tr:nth-child(even):not(.data){
 	background-color: #f7f5f7;
@@ -174,7 +179,7 @@ button:hover{
 	background-color: #DADADA;
 }
 .tabelmic tbody tr:not(.zi):first-of-type:hover{
-	background-color: #ffffff;
+	background-color: var(--font);
 }
 .tabelmic thead th{
 	border-style: none;
@@ -204,7 +209,7 @@ button:hover{
 	font-family: "MontSerrat";
 	font-size: 10pt;
 	font-weight: 500; /* Medium */
-	color: #000000;
+	color: var(--navbar);
 	padding: 10px 5px 10px 5px;
 
 }
@@ -214,10 +219,10 @@ button:hover{
 	font-family: "MontSerrat";
 	font-size: 10pt;
 	font-weight: 500; /* Medium */
-	color: #000000;
+	color: var(--navbar);
 }
 .tabelmic td a:hover{
-	color: #000000;
+	color: var(--navbar);
 	text-decoration: underline;
 }
 
@@ -226,5 +231,5 @@ button:hover{
 	font-size: 15pt;
 	font-weight: 600;/* Semibold */
 	background-image: var(--LightBlue2);
-	color: #ffffff;
+	color: var(--font);
 }
