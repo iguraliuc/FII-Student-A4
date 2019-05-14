@@ -16,12 +16,22 @@ public class TestLinks
 		WebDriver driver=new ChromeDriver();
 		driver.get("http://127.0.0.1:8000/resources/");
 		
-
+		
 		java.util.List<WebElement> list=new ArrayList<>();
 		list=driver.findElements(By.xpath("//ul[@class='resources-list']/li/a"));
 		for(WebElement obj:list)
 			System.out.println(obj.getText());
 		
+		for(String elem:vector)
+		{
+			String xpath="//a[@href and contains(text(),\"" +elem+ "\")]";
+			driver.findElement(By.xpath(xpath)).click();
+			driver.navigate().back();
+			Thread.sleep(1000);
+		}									
+		
+		
+		vector= new String[]{"Orar", "Boards", "Noutati", "Resurse"};
 		
 		for(String elem:vector)
 		{
