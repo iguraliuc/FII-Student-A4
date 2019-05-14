@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+
   <title>Navbar</title>
   <meta charset="utf-8">
     {% load static %}
+    <link href="{% static "navbar.css" %}" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+<style>
+:root{
+--background-first: {{user.personalise.background_first}};
+--background-second: {{user.personalise.background_second}};
+--navbar:{{ user.personalise.navbar_color }};
+--color1-first:{{ user.personalise.color1_first }};
+--color1-second:{{ user.personalise.color1_second }};
+--color2-first:{{ user.personalise.color2_first }};
+--color2-second:{{ user.personalise.color2_second }};
+--font: {{ user.personalise.font_color }};
+--font-family: {{ user.personalise.font_family }};
+}</style>
 </head>
 <body>
 
@@ -37,7 +55,8 @@
 				<li><a href="/personalise/boards/">Boards</a></li>
 				<li><a href="/news/">Noutati</a></li>
 				<li><a href="/resources/">Resurse</a></li>
-				<li><a href="/users/settings/">Personalizare</a></li>
+				<li><a href="/users/settings/">Personal</a></li>
+				<li><a href="/3d_tour/">3D</a></li>
 {#        <li><a href="#">Setari Cont</a></li>#}
       </ul>
       <ul class="nav navbar-nav navbar-right">

@@ -126,7 +126,7 @@ def activate(request, uidb64, token):
         user.personalise = p
         user.save()
         login(request, user)
-        return redirect('landing_page.html')
+        return redirect('')
     else:
         return render(request, 'activation_email_sent.html')
 

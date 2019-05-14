@@ -15,16 +15,6 @@ li{
 p{
     font-family: 'Open Sans', sans-serif;
 }
-.navbar-inverse{
-    margin-bottom:0px;
-    background-color: #030b3d;
-    top:0;
-    position:sticky;
-}
-
-.nav.navbar-nav li a {
-    color: white;
-}
 
 .link{
     height:80px;
@@ -99,12 +89,6 @@ p{
 
 }
 
-.navbar-brand img{
-    position: absolute;
-    top:-3px;
-    height: 60px;
-
-}
 
 .butn{
 
@@ -484,12 +468,6 @@ p{
 
 }
 
-.navbar-brand img{
-    position: absolute;
-    top:10px;
-    height: 30px;
-
-}
 
 
 }
