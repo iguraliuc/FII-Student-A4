@@ -81,7 +81,7 @@ body{
     position:fixed;
     top:60px;
     right:10px;
-    background-color:#1fd191;
+    background-color:var(--color1-first);
     border-radius:50%;
     padding: 5px;
     transition: width 2s;

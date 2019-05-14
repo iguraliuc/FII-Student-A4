@@ -23,9 +23,15 @@
 {% endif %}
     </head>
     <body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     {% block content2 %}
         <form class="box" method="post">
-            <h1>Add a new Board</h1>
+            <h1>Add a new Board!</h1>
             {% csrf_token %}
             {% for field in form %}
                 <p>
