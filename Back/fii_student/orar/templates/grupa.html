@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'navbar.html' %}
+{% block content %}
      <head>
                   {% load static %}
 
@@ -8,7 +8,6 @@
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
           <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
           <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
-         <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'grupa.css' %}">
 {#<script src="myScript1.js"></script>#}
 <script src="{% static 'js/scrollScript.js' %}"></script>
@@ -32,9 +31,6 @@
      <body>
      {% load static %}
           {% load my_filters %}
-          <nav>
-               NAVBAR MINUNE
-          </nav>
           <section>
                <h1>{{titlu}}</h1>
                <article id="form">
@@ -45,6 +41,7 @@
                              <button type="submit" name="An" value="An" onclick="location.href='http://www.uaic.ro/studii/structura-anului-universitar/';">Structura anului universitar</button>
                               <button type="submit" name="An" value="An" onclick="location.href='http:?sali_libere_acum=-';">Sali libere acum</button>
                               <button type="submit" name="An" value="An" onclick="location.href='/orar/program_sali/';">Disponibilitate sali</button>
+                              <button type="submit" name="An" value="An" onclick="location.href='/personalise/orar/orar_personalised/';">Orar personalizat</button>
                          </div>
 
                     <form action="" method="">
@@ -342,4 +339,4 @@
                     </div>
           </div>
      </body>
-</html>
+{% endblock %}
