@@ -1,10 +1,10 @@
-:root{
+/* :root{
     --first-gradient: linear-gradient(to right, #f64abd 0%,  #ad3abd 100%);
     --second-gradient: linear-gradient(to right, #1fd191 0%, #0086aa 100%);
     --bg-color: #1b1353;
     --text-color: white;
-    --menu-color: #030b3d;
-}
+    --menu-color: #030b3d; */
+/* } */
 
 * {
     margin: 0px;
@@ -13,11 +13,11 @@
 }
 
 html{
-    background: var(--bg-color);
+    background: var(--background-first);
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: var(--font-family);
     color: white;
     display: flex;
     margin-top: 30px;
@@ -41,7 +41,7 @@ li {
     width: 80%;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px var(--text-color) solid;
+    border-bottom: 1px var(--font) solid;
     padding-bottom: 10px;
 }
 
@@ -59,19 +59,19 @@ li {
     width: 80%;
 
     padding: 50px;
-    background: var(--first-gradient);
+    background: linear-gradient(to right, var(--color1-first) 0%, var(--color1-second) 100%);
     box-sizing: border-box;
 }
 
 .board .content {
     margin-top: 20px;
-    background: var(--menu-color);
+    background: var(--background-second);
     padding: 2vw;
 }
 
 .board>p:first-child {
     padding: 5px;
-    background: var(--first-gradient);
+    background: linear-gradient(to right, var(--color1-first) 0%, var(--color1-second) 100%);
     width: 20%;
     font-weight: bold;
     font-size: 20px;
@@ -92,7 +92,7 @@ li {
 .meniu:hover {
     transition: 0.5s;
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--font);
     background-color: #ad3abd;
 }
 
@@ -119,8 +119,8 @@ a.meniu {
 
 
 .btn.active {
-    color: var(--text-color);
+    color: var(--font);
 }
 .meniu>p {
-    color: var(--text-color);
+    color: var(--font);
 }

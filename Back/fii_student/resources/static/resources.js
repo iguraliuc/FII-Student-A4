@@ -2,13 +2,13 @@ const filters = ['internal', 'external'];
 var active = document.getElementsByClassName("show-all")[0];
 
 function setActive(btn) {
-    btn.style.background = "var(--first-gradient)";
+    btn.style.background = "linear-gradient(to right, var(--color1-first) 0%, var(--color1-second) 100%)";
     btn.style.outline = "none";
     btn.style.outline = "none";
 }
 
 function unsetActive(btn) {
-    btn.style.background = "var(--menu-color)";
+    btn.style.background = "var(--background-second)";
     btn.style.outline = "none";
 }
 
