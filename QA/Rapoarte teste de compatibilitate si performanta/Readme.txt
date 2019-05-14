@@ -1,1 +1,0 @@
--Personal note: Overall website performance not so good. 
