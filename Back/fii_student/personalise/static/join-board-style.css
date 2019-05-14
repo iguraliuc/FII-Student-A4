@@ -72,6 +72,54 @@ body{
     height: 60px;
 
 }
+.link{
+    height:80px;
+    width:45px;
+}
+.plus{
+    height:45px;
+    position:fixed;
+    top:60px;
+    right:10px;
+    background-color:#1fd191;
+    border-radius:50%;
+    padding: 5px;
+    transition: width 2s;
+}
+.link:hover .plus{
+    border-radius:0px;
+    height:80px;
+    animation:button;
+    animation-duration:0.3s;
+    top:60px;
+}
+
+/*.link:hover  .add_board{*/
+    /*display: block;*/
+    /*visibility: visible;*/
+    /*padding:10px;*/
+    /*text-decoration:none;*/
+
+    /*color:white;*/
+    /*size: 30px;*/
+    /*font-size: 20px;*/
+
+    /*background-color:#1fd191;*/
+
+    /*position:fixed;*/
+    /*top:60px;*/
+    /*right:90px;*/
+    /*height:80px;*/
+    /*width: 160px;*/
+    /*animation: in 0.3s, show 0.3s ease-out 0.3s;*/
+    /*text-align: center;*/
+/*}*/
+
+.add_board{
+    display: none;
+    visibility: hidden;
+}
+
 .filtru{
     top:50;
     position:fixed;

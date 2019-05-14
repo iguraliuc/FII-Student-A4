@@ -8,7 +8,7 @@ from resources.models import Resources
 class NewsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = News
-        fields = ('news_id', 'title', 'body', 'author_name', 'category')
+        fields = ('news_id', 'title', 'body', 'author_name', 'category', 'source')
 
 
 class PersonaliseSerializer(serializers.HyperlinkedModelSerializer):

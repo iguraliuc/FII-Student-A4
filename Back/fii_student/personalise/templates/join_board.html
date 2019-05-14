@@ -64,6 +64,12 @@
         <button class="button anIII." onclick="filter('anIII.')">An III</button>
         <button class="button abonate." onclick="filter('abonate.')">Abonate</button>
     </div>
+
+    <a class="link" href ="/personalise/add_board">
+        <img class="plus" src="{% static 'plus.png' %}">
+        <p class="add_board">Adaugă board!</p>
+    </a>
+
     <div class="main">
             {% for board in boards %}
                 <div class="card">
