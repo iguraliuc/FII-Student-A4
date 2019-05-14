@@ -124,7 +124,7 @@ def activate(request, uidb64, token):
         p.save()
         p.init_orar(user.an_studiu, user.grupa)
         user.personalise = p
-
+        user.save()
         login(request, user)
         return redirect('landing_page.html')
     else:
