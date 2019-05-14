@@ -3,12 +3,14 @@ from .forms import SignupForm, SettingsForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.utils.html import strip_tags
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
+from django.http import HttpResponse, Http404
+import simplejson as simplejson
 from .tokens import account_activation_token
 from .models import FiiUser, Personalise
 
@@ -106,6 +108,32 @@ def settings(request):
             pass  # TODO: should add redirect to error page here
         form = SettingsForm()
     return render(request, 'settings.html', {'form': form})
+
+
+def reset_settings(request, uid):
+    data = {
+        'status': 'False'
+    }
+    if request.method == 'POST' and request.user.is_authenticated:
+        try:
+            user = get_object_or_404(FiiUser, pk=uid)
+            if not user.personalise:
+                p = Personalise()
+                p.save()
+                p.init_orar(user.an_studiu, user.grupa)
+                user.personalise = p
+                user.save()
+            else:
+                user.personalise.reset_settings()
+                user.personalise.save()
+                user.save()
+            data['status'] = 'True'
+        except Http404:
+            data['message'] = 'Invalid user!'
+    serialized_data = simplejson.dumps(data)
+    # return HttpResponse(serialized_data, content_type='application/json')
+    return redirect('/settings')
+
 
 
 def activate(request, uidb64, token):

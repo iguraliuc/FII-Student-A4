@@ -84,6 +84,18 @@ class Personalise(models.Model):
             return False
         return True
 
+    def reset_settings(self):
+        self.navbar_color = DEFAULT_COLOURS['NAVBAR']
+        self.background_first = DEFAULT_COLOURS['BACKGROUND']['FIRST']
+        self.background_second = DEFAULT_COLOURS['BACKGROUND']['SECOND']
+        self.color1_first = DEFAULT_COLOURS['COLOR1']['FIRST']
+        self.color1_second = DEFAULT_COLOURS['COLOR1']['SECOND']
+        self.color2_first = DEFAULT_COLOURS['COLOR2']['FIRST']
+        self.color2_second = DEFAULT_COLOURS['COLOR2']['SECOND']
+        self.font_color = DEFAULT_COLOURS['FONT']
+        self.font_family = DEFAULT_FONT_FAMILY
+
+
 
 # intermediate model for extra data in ManyToManyField for personalise -> classes
 class PersonaliseOrar(models.Model):

@@ -27,6 +27,20 @@
       --font-family: {{ user.personalise.font_family }};
     }
   </style>
+    <script>
+        function call_reset_settings(uid){
+            $.ajax({
+                url: 'reset_settings/'+uid,
+                type: 'POST',
+                data: {
+                    'csrfmiddlewaretoken': "{{ csrf_token }}"
+                },
+                success: function(data, response) {
+
+                }
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -177,7 +191,7 @@
       </div>
 
       <button class="btn btn-primary buttons" type="submit">Salvează</button>
-      <button class="btn btn-primary buttons" type="reset" onclick="resetProps(); this.blur();">Revenire</button>
+      <button class="btn btn-primary buttons" type="reset" onclick="resetProps(); this.blur(); call_reset_settings({{ user.id }})">Revenire</button>
     </form>
     <hr>
     <div>

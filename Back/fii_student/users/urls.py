@@ -8,5 +8,6 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('activate/<uidb64>/<token>/', activate, name='activate'),
     path('logout/', logout_view, name='logout'),
-    path('settings/', settings, name='settings')
+    path('settings/', settings, name='settings'),
+    path('settings/reset_settings/<int:uid>', reset_settings, name='reset_settings')
 ]
