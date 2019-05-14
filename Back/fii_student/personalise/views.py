@@ -12,6 +12,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django_tables2 import RequestConfig, tables
 from django.urls import reverse
 from django.db import connection
+from django.views.generic import DetailView
 
 import os
 
@@ -133,6 +134,16 @@ def check_joined_boards(request, uid):
 
     serialized_data = simplejson.dumps(data)
     return HttpResponse(serialized_data, content_type='application/json')
+
+class BoardDetail(DetailView):
+    model = Board
+    # post_url = reverse('news-detail')
+    template_name = "board-individual.html"
+    pk_url_kwarg = 'id'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # context['now'] = timezone.now()
+        return context
 
 def show_orar(request):
     if '?' not in request.get_raw_uri():

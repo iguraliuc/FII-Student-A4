@@ -79,7 +79,7 @@
                     </div>
                     <div class="box">
                         <p class="prof">{{ board.teacher }}</p>
-                        <p class="descriere">{{ board.description }}</p>
+                        <p class="descriere"><a href="{{ board.id }}/">{{ board.description }}</a></p>
 
                         {% csrf_token %}
                         <button class="btn" id="{{ board.id }}" onclick="call_update_user_boards({{ user.id }},{{ board.id }})">Abonează-te</button>
