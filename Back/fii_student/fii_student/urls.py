@@ -37,6 +37,6 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('users/', include('users.urls')),
     path('orar/', include('orar.urls')),
-    path('resources/', include('resources.urls'))
-
+    path('resources/', include('resources.urls')),
+    path('3d_tour/', include('3d_tour.urls'))
 ]

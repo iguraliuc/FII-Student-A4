@@ -1,5 +1,10 @@
+from contextlib import suppress
+
 import psycopg2
 import json
+
+from psycopg2._psycopg import IntegrityError
+
 from news.db.populate_db import get_real_data
 
 from configparser import ConfigParser
@@ -33,23 +38,24 @@ def config(filename='database.ini', section='postgresql'):
 
 def create_tables():
     commands = [
-        """
-        DROP TABLE IF EXISTS news;
-        """,
-        """
-        CREATE TABLE news (
-          news_id SERIAL PRIMARY KEY,
-          title VARCHAR(255),
-          body VARCHAR,
-          author_name VARCHAR(255),
- 
-           category VARCHAR(255),
-           inserted_time TIMESTAMP DEFAULT now(),
-           published_time TIMESTAMP,
-           expire_time TIMESTAMP,
-           source VARCHAR(255)
-         )
-         """
+
+        # """
+        # DROP TABLE IF EXISTS news;
+        # """,
+        # """
+        # CREATE TABLE news (
+        #   news_id SERIAL PRIMARY KEY,
+        #   title VARCHAR(255),
+        #   body VARCHAR,
+        #   author_name VARCHAR(255),
+        #
+        #    category VARCHAR(255),
+        #    inserted_time TIMESTAMP DEFAULT now(),
+        #    published_time TIMESTAMP,
+        #    expire_time TIMESTAMP,
+        #    source VARCHAR(255)
+        #  )
+        #  """
     ]
     try:
         print("____________________________________________________________________")
@@ -65,7 +71,21 @@ def create_tables():
         # create table one by one
         print(json.dumps(commands, indent = 2))
         for command in commands:
-            cur.execute(command)
+            try:
+                #print(1)
+
+                params = config()
+                # connect to the PostgreSQL server
+                conn = psycopg2.connect(**params)
+                cur = conn.cursor()
+                cur.execute(command)
+                cur.close()
+                # commit the changes
+                conn.commit()
+                #conn.commit()
+            except Exception as error:
+                 print (error)
+                # pass
         # close communication with the PostgreSQL database server
         cur.close()
         # commit the changes

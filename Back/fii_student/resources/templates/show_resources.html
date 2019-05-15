@@ -1,4 +1,4 @@
-{% extends 'landing_page2.html' %}
+{% extends 'navbar.html' %}
 {% block content %}
 <head>
 
@@ -10,6 +10,17 @@
     <title>Resources</title>
 
     <link rel="stylesheet" type="text/css" href="{% static "resources.css" %}">
+    <style> :root{
+    --background-first: {{user.personalise.background_first}};
+    --background-second: {{user.personalise.background_second}};
+    --navbar:{{ user.personalise.navbar_color }};
+    --color1-first:{{ user.personalise.color1_first }};
+    --color1-second:{{ user.personalise.color1_second }};
+    --color2-first:{{ user.personalise.color2_first }};
+    --color2-second:{{ user.personalise.color2_second }};
+    --font: {{ user.personalise.font_color }};
+    --font-family: {{ user.personalise.font_family }};
+} </style>
 
 </head>
 

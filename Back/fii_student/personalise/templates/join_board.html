@@ -1,4 +1,4 @@
-{% extends 'landing_page2.html' %}
+﻿{% extends 'navbar.html' %}
 
 {% block content %}
 <head>
@@ -35,33 +35,55 @@
                 }
             });
         }
-
     </script>
+{% if user.is_authenticated %}
+    <style>
+    :root{
+        --background-first: {{user.personalise.background_first}};
+        --background-second: {{user.personalise.background_second}};
+        --navbar:{{ user.personalise.navbar_color }};
+        --color1-first:{{ user.personalise.color1_first }};
+        --color1-second:{{ user.personalise.color1_second }};
+        --color2-first:{{ user.personalise.color2_first }};
+        --color2-second:{{ user.personalise.color2_second }};
+        --font: {{ user.personalise.font_color }};
+        --font-family: {{ user.personalise.font_family }};
+    }
+    </style>
+{% endif %}
+
 </head>
 
 <body>
     <div class="container-all">
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
     <div class="filtru">
-        <button class="button toti active" onclick="filter('Toti')">Toti anii</button>
-        <button class="button anI" onclick="filter('An I')">An I</button>
-        <button class="button anII" onclick="filter('An II')">An II</button>
-        <button class="button anIII" onclick="filter('An III')">An III</button>
+        <button class="button toti active" onclick="filter('toti')">Toti anii</button>
+        <button class="button anI." onclick="filter('anI.')">An I</button>
+        <button class="button anII." onclick="filter('anII.')">An II</button>
+        <button class="button anIII." onclick="filter('anIII.')">An III</button>
+        <button class="button abonate." onclick="filter('abonate.')">Abonate</button>
     </div>
+
+    <a class="link" href ="/personalise/add_board">
+        <img class="plus" src="{% static 'plus.png' %}">
+        <p class="add_board">Adaugă board!</p>
+    </a>
+
     <div class="main">
             {% for board in boards %}
                 <div class="card">
                     <div class="top-container">
                         <p class="titlu">{{ board.subject }}</p>
-                        <p class="an an{{ board.year }}">An {{ board.year }}</p>
+                        <p class="an an{{ board.year }}.">An {{ board.year }}</p>
                     </div>
                     <div class="box">
                         <p class="prof">{{ board.teacher }}</p>
-                        <p class="descriere">{{ board.description }}</p>
+                        <p class="descriere"><a href="{{ board.id }}/">{{ board.description }}</a></p>
 
                         {% csrf_token %}
-                        <button class="btn" id="{{ board.id }}" onclick="call_update_user_boards({{ user.id }},{{ board.id }})">JOIN BOARD</button>
-                        <button class="btn verified" id="{{ board.id }}" onclick="call_remove_user_boards({{ user.id }},{{ board.id }})">Joined!</button>
+                        <button class="btn" id="{{ board.id }}" onclick="call_update_user_boards({{ user.id }},{{ board.id }})">Abonează-te</button>
+                        <button class="btn verified" id="{{ board.id }}" onclick="call_remove_user_boards({{ user.id }},{{ board.id }})">Dezabonează-te</button>
                     </div>
                 </div>
             {% endfor %}
@@ -109,41 +131,60 @@
 </body>
 
 <script>
+    var lastActiveClass = "button toti";
 
-    function filter(an){
-
-        var btns = document.getElementsByClassName("button");
-
-
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function() {
-                var current = document.getElementsByClassName("active");
-                current[0].className = current[0].className.replace(" active", "");
-                this.className += " active";
-            });
+function filter(an){
+        var current = document.getElementsByClassName("button");
+    for (i = 0; i < current.length; i++) {
+        if (current[i].className.includes("active")) {
+            current = current[i];
+            break
         }
+    }
+    current.className = lastActiveClass;
+    lastActiveClass = "button " + an;
+    var newActive = document.getElementsByClassName(an);
+    newActive[0].className = lastActiveClass + " active";
 
+    if(an != 'abonate.') { //kinda hack
 
         var button = document.getElementsByClassName("an");
-        for(var i = 0; i<button.length; i++){
-            var board = button[i].parentElement.parentElement.parentElement.parentElement;
-            if(button[i].textContent != an){
-                if(an == "Toti"){
+        for (var i = 0; i < button.length; i++) {
+            var board = button[i].parentElement.parentElement;
+            console.log(button[i].className);
+            if (!button[i].className.includes(an)) {
+                if (an == "toti") {
                     board.style.display = 'block';
                     board.style.visibility = "visible";
-                }else{
+                } else {
                     board.style.display = 'none';
                     board.style.visibility = "hidden";
                 }
-            }else{
+            } else {
                 board.style.display = 'block';
                 board.style.visibility = "visible";
             }
         }
-
-
-
+    }else {
+        var joined = document.getElementsByClassName("btn"); //actualy the
+        for (var i = 0; i < joined.length; i++) {
+            var board = joined[i].parentElement.parentElement;
+            if (! joined[i].className.includes("verified")) {
+                if (joined[i].className.includes("joined")) {
+                    console.log('joined');
+                    board.style.display = 'block';
+                    board.style.visibility = "visible";
+                }
+                else {
+                    console.log('not joined');
+                    board.style.display = 'none';
+                    board.style.visibility = "hidden";
+                }
+            }
+        }
     }
+}
+
     var btns = document.getElementsByClassName("btn");
         for (var i = 0; i < btns.length; i++) {
             btns[i].addEventListener("click", function() {

@@ -1,16 +1,15 @@
-
 const filters = ['internal', 'external'];
 var active = document.getElementsByClassName("show-all")[0];
 
 function setActive(btn) {
-    btn.style.color = "var(--medium-dark-color)";
-    btn.style.backgroundColor = "var(--medium-color)";
-
+    btn.style.background = "linear-gradient(to right, var(--color1-first) 0%, var(--color1-second) 100%)";
+    btn.style.outline = "none";
+    btn.style.outline = "none";
 }
 
 function unsetActive(btn) {
-    btn.style.color = "var(--light-color)";
-    btn.style.backgroundColor = "var(--light-medium-color)";
+    btn.style.background = "var(--background-second)";
+    btn.style.outline = "none";
 }
 
 

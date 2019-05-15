@@ -3,35 +3,13 @@ from django.db import models
 
 # from users.models import FiiUser
 from orar.models import Rand
+from .constants import *
 
 GRUPE = ['-', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7',
          'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7',
          'X1', 'X2', 'X3', 'alta grupa']
 
 ANI_STUDIU = ['-', 'I', 'II', 'III']
-
-dict_ani_studiu = {
-    '-': 0,
-    'I': 1,
-    'II': 2,
-    'III': 3
-}
-
-FONT_FAMILY_CHOICES = [
-    "Roboto",
-    "Arvo",
-    "Montsserat",
-    "Lato",
-    "Inconsolata",
-    "Roboto Condensed"
-]
-DEFAULT_COLOURS = {
-    "background": "#ffffff",
-    "navbar": "#000000",
-    "accent": "#ff0000",
-    "font": "#000000"
-}
-DEFAULT_FONT_FAMILY = "Arvo"
 
 
 class Board(models.Model):
@@ -51,12 +29,16 @@ class Personalise(models.Model):
     boards = models.ManyToManyField(Board)  # through='PersonaliseBoard'
     classes = models.ManyToManyField(Rand, through='PersonaliseOrar')
 
-
-    navbar_color = models.CharField(max_length=255, null=False, default=DEFAULT_COLOURS["navbar"])
-    background_color = models.CharField(max_length=255, null=False, default=DEFAULT_COLOURS["background"])
-    accent_color = models.CharField(max_length=255, null=False, default=DEFAULT_COLOURS["accent"])
-    font_color = models.CharField(max_length=255, null=False, default=DEFAULT_COLOURS["font"])
-    font_family = models.CharField(max_length=255, choices=[(x, x) for x in FONT_FAMILY_CHOICES], default=DEFAULT_FONT_FAMILY)
+    # personalise colors
+    navbar_color = models.CharField(max_length=20, choices=[(x, x) for x in FLAT_CHOICES], default=DEFAULT_COLOURS['NAVBAR'])
+    background_first = models.CharField(max_length=20, choices=[(x, x) for x in BACKGROUND_CHOICES['FIRST']], default=DEFAULT_COLOURS['BACKGROUND']['FIRST'])
+    background_second = models.CharField(max_length=20, choices=[(x, x) for x in BACKGROUND_CHOICES['SECOND']], default=DEFAULT_COLOURS['BACKGROUND']['SECOND'])
+    color1_first = models.CharField(max_length=20, choices=[(x, x) for x in ELEMENT_CHOICES['FIRST']], default=DEFAULT_COLOURS['COLOR1']['FIRST'])
+    color1_second = models.CharField(max_length=20, choices=[(x, x) for x in ELEMENT_CHOICES['SECOND']], default=DEFAULT_COLOURS['COLOR1']['SECOND'])
+    color2_first = models.CharField(max_length=20, choices=[(x, x) for x in ELEMENT_CHOICES['FIRST']], default=DEFAULT_COLOURS['COLOR2']['FIRST'])
+    color2_second = models.CharField(max_length=20, choices=[(x, x) for x in ELEMENT_CHOICES['SECOND']], default=DEFAULT_COLOURS['COLOR2']['SECOND'])
+    font_color = models.CharField(max_length=20, choices=[(x, x) for x in FONT_COLOR_CHOICES], default=DEFAULT_COLOURS['FONT'])
+    font_family = models.CharField(max_length=50, choices=[(x, x) for x in FONT_FAMILY_CHOICES], default=DEFAULT_FONT_FAMILY)
 
     class Meta:
         db_table = 'personalise'
@@ -101,6 +83,18 @@ class Personalise(models.Model):
         if not isinstance(board, Board) or len(self.boards.filter(pk=board.id)) == 0:
             return False
         return True
+
+    def reset_settings(self):
+        self.navbar_color = DEFAULT_COLOURS['NAVBAR']
+        self.background_first = DEFAULT_COLOURS['BACKGROUND']['FIRST']
+        self.background_second = DEFAULT_COLOURS['BACKGROUND']['SECOND']
+        self.color1_first = DEFAULT_COLOURS['COLOR1']['FIRST']
+        self.color1_second = DEFAULT_COLOURS['COLOR1']['SECOND']
+        self.color2_first = DEFAULT_COLOURS['COLOR2']['FIRST']
+        self.color2_second = DEFAULT_COLOURS['COLOR2']['SECOND']
+        self.font_color = DEFAULT_COLOURS['FONT']
+        self.font_family = DEFAULT_FONT_FAMILY
+
 
 
 # intermediate model for extra data in ManyToManyField for personalise -> classes

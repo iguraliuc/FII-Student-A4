@@ -1,14 +1,26 @@
-{% extends 'landing_page2.html' %}
+﻿{% extends 'navbar.html' %}
 
 {% block content %}
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Anunturi</title>
     {% load static %}
-    <link href="{% static "anunturi-style.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'anunturi-style.css' %}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600|Roboto:300,400i" rel="stylesheet">
 
+ <style> :root{
+    --background-first: {{user.personalise.background_first}};
+    --background-second: {{user.personalise.background_second}};
+    --navbar:{{ user.personalise.navbar_color }};
+    --color1-first:{{ user.personalise.color1_first }};
+    --color1-second:{{ user.personalise.color1_second }};
+    --color2-first:{{ user.personalise.color2_first }};
+    --color2-second:{{ user.personalise.color2_second }};
+    --font: {{ user.personalise.font_color }};
+    --font-family: {{ user.personalise.font_family }};
+} </style>
+
     <!--TODO: this fucks up everything -->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
+ <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +33,12 @@
         <button class="butn" onclick="filterSelection(&#39;orar&#39;)"> ORAR</button>
     </div>
 
+
+    <a class="link" href ="/news/add_news">
+        <img class="plus" src="{% static 'plus.png' %}">
+        <p class="add_news">Adaugă un anunț!</p>
+    </a>
+
     <div class="board">
         {% for obj in objects %}
         <div class="anunt-container {{ obj.source }}">
@@ -30,8 +48,8 @@
                 <p>{{ obj.author_name}}</p>
             </div>
             <div class="anunt">
-                <p class="top">{{ obj.title }}</p>
-                <div class="continut">{{ obj.body|safe|striptags}}</div>
+                <p class="top"><a href="{{ obj.news_id }}/">{{ obj.title }}</a></p>
+                <div class="continut">{{ obj.body|safe}}</div>
             </div>
         </div>
         {% endfor %}

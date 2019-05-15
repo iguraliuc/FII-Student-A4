@@ -16,8 +16,8 @@ from personalise.models import Personalise
 from .managers import UserManager
 
 GRUPE = ['-', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7',
-         'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7',
-         'X1', 'X2', 'X3', 'alta grupa']
+         'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'E1', 'E2',
+         'X1', 'X2', 'X3', 'MIS', 'MLC', 'MOC', 'MSD', 'MSI', 'alta grupa']
 ANI_STUDIU = ['-', 'I', 'II', 'III']
 ROLURI = ['-', 'Profesor', 'Student', 'Masterand', 'Doctorand']
 

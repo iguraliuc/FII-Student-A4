@@ -26,3 +26,6 @@ class Rand(models.Model):
 
     def get_profesor(self):
         return self.profesor
+
+    def get_zi(self):
+        return self.zi

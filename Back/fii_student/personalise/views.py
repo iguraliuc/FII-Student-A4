@@ -12,6 +12,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django_tables2 import RequestConfig, tables
 from django.urls import reverse
 from django.db import connection
+from django.views.generic import DetailView
 
 import os
 
@@ -134,9 +135,42 @@ def check_joined_boards(request, uid):
     serialized_data = simplejson.dumps(data)
     return HttpResponse(serialized_data, content_type='application/json')
 
+class BoardDetail(DetailView):
+    model = Board
+    # post_url = reverse('news-detail')
+    template_name = "board-individual.html"
+    pk_url_kwarg = 'id'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # context['now'] = timezone.now()
+        return context
+
 def show_orar(request):
     if '?' not in request.get_raw_uri():
-        return redirect('/personalise/orar/?grupa=I' + str(dict_ani_studiu[request.user.an_studiu]) + request.user.grupa)
+        _query = ''
+        if request.user.rol == 'Student' or request.user.rol == 'Masterand':
+            anul_userului = 0
+            if (request.user.an_studiu == 'I'):
+                anul_userului = 1
+            elif (request.user.an_studiu == 'II'):
+                anul_userului = 2
+            elif (request.user.an_studiu == 'III'):
+                anul_userului = 3;
+            else:
+                anul_userului = 1;
+        if request.user.rol == 'Student':
+            _query = "/personalise/orar/?grupa=I" + str(anul_userului) + request.user.grupa
+        elif request.user.rol == 'Masterand':
+            _query = "/personalise/orar/?grupa=" + request.user.grupa + str(anul_userului)
+        elif request.user.rol == 'Doctorand' or request.user.rol == '-':
+            _query = "/personalise/orar/?grupa=I1A1"
+        elif request.user.rol == 'Profesor':
+            first_name = request.user.first_name
+            last_name = request.user.last_name
+            nume_din_lista_profesori = cauta_nume_profesor(first_name,last_name)
+            _query = "/personalise/orar/?profesor=" + nume_din_lista_profesori
+
+        return redirect(_query)
 
     grupe = []
     _grupe_queryset = Rand.objects.all().values_list('grupa').distinct()
@@ -148,10 +182,35 @@ def show_orar(request):
             _grupe_set.add(aux)
     lista_grupe = sorted(_grupe_set)
 
+    print(datetime.datetime.now().strftime("%A"))
     randuri = Rand.objects.all()
     titlu = ""
 
-
+    if "sali_libere_acum" in request.GET:
+        day = datetime.datetime.now().strftime("%A")
+        if day == "Monday":
+            day = "Luni"
+        if day == "Tuesday":
+            day = "Marti"
+        if day == "Wednesday":
+            day = "Miercuri"
+        if day == "Thursday":
+            day = "Joi"
+        if day == "Friday":
+            day = "Vineri"
+        if day == "Saturday":
+            day = "Sambata"
+        if day == "Sunday":
+            day = "Duminica"
+        time_hour = datetime.datetime.now().time()
+        randuri = randuri.exclude(zi__contains=',')
+        sali_ocupate = Rand.objects.exclude(zi__contains=',').filter(ora_inceput__lt=time_hour, ora_sfarsit__gt=time_hour, zi=day).distinct(
+            'sala')
+        randuri = randuri.exclude(sala__in=sali_ocupate.values('sala')).exclude(sala = "").distinct('sala')
+        print(sali_ocupate)
+        template = loader.get_template('saliLibere.html')
+        context = {'grupe': lista_grupe, 'sali': get_sali_unique(), 'cursuri': get_materii_unique(), 'randuri': randuri}
+        return HttpResponse(template.render(context, request))
     request_materie = ""
     request_grupa = ""
     request_sala = ""
@@ -159,7 +218,7 @@ def show_orar(request):
     if "sala" in request.GET:
         request_sala = request.GET['sala']
         if request_sala is not "":
-            randuri = randuri.filter(sala=request_sala)
+            randuri = randuri.filter(sala__contains=request_sala)
             titlu = "Sala " + request_sala
 
     if "materie" in request.GET:
@@ -173,26 +232,27 @@ def show_orar(request):
         if request_profesor is not "":
             randuri = randuri.filter(profesor__contains=request_profesor)
             titlu = "Profesor " + request_profesor
-
+    randuri1 = randuri
     if "grupa" in request.GET:
         request_grupa = request.GET['grupa']
         if request_grupa is not "":
             grupa_len = len(request_grupa)
-            randuri = randuri.filter(grupa__iregex=(r'([a-z0-9]{0})' + request_grupa + r'([a-z0-9]{0})')).exclude(
-                grupa__iregex=(r'[a-z0-9]' + request_grupa)).exclude(
-                grupa__iregex=(request_grupa + r'[a-z0-9]')).distinct()
+            randuri = randuri.filter(grupa__iregex=(r'([A-Za-z0-9]{0})' + request_grupa + r'(?![a-zA-Z0-9])')).exclude(
+                    grupa__iregex=(r'[A-Za-z0-9]' + request_grupa )).distinct()
             for i in range(1, grupa_len):
                 req_group = request_grupa[0:i]
                 print(req_group)
-                randuri = randuri | randuri.filter(
-                    grupa__iregex=(r'([a-z0-9]{0})' + req_group + r'([a-z0-9]{0})')).exclude(
-                    grupa__iregex=(r'[a-z0-9]' + req_group)).exclude(
-                    grupa__iregex=(req_group + r'[a-z0-9]')).distinct()
+                randuri = randuri | randuri1.filter(
+                    grupa__iregex=(r'([A-Z0-9]{0})' + req_group + r'(?![a-zA-Z0-9])')).exclude(
+                    grupa__iregex=(r'[A-Za-z0-9]' + req_group )).distinct()
             titlu = "Grupa " + request_grupa
 
-    randuri = randuri.distinct()
-    randuri = randuri.order_by('ora_inceput')
-
+    randuri = randuri.distinct('curs','ora_inceput','ora_sfarsit','profesor','sala','tip','zi')
+    randuri_totale = randuri.order_by('ora_inceput')
+    randuri_examen = randuri_totale.filter(zi__contains=',')
+    #randuri_examen = randuri_totale.filter(tip = 'Examen')
+    #randuri_examen = randuri_examen | randuri_totale.filter(tip = 'Restante')#randurile pentru examene
+    randuri = randuri_totale.exclude(tip = 'Examen') #randurile pentru orarul propriu-zis
     luni = randuri.filter(zi='Luni')
     marti = randuri.filter(zi='Marti')
     miercuri = randuri.filter(zi='Miercuri')
@@ -200,6 +260,9 @@ def show_orar(request):
     vineri = randuri.filter(zi='Vineri')
     sambata = randuri.filter(zi='Sambata')
     duminica = randuri.filter(zi='Duminica')
+    zile_examene = get_zile_examene(randuri_examen)
+    zile_saptamana_examene = get_zile_saptamana_examene(zile_examene,randuri_examen)
+
     template = loader.get_template('orar.html')
     list = []
 
@@ -211,11 +274,15 @@ def show_orar(request):
     list.append(calculate_sum(sambata))
     list.append(calculate_sum(duminica))
 
-    context = {'grupe': lista_grupe, 'sali': get_sali_unique(), 'cursuri': get_materii_unique(), 'profesori': get_profesori_unique(), 'lista_ore': list,
+    # grupe = Rand.objects.all().values('grupa').exclude(grupa__contains=',').distinct()
+    # print(Rand.objects.values('sala').distinct())
+
+    context = {'grupe': lista_grupe, 'sali': get_sali_unique(), 'cursuri': get_materii_unique(),'profesori': get_profesori_unique(), 'lista_ore': list,
                'titlu': titlu, 'luni': luni, 'marti': marti, 'miercuri': miercuri, 'joi': joi, 'vineri': vineri,
-               'sambata': sambata, 'duminica': duminica,'SALAH': request_sala,"GRUPAH": request_grupa, "MATERIAH": request_materie, "PROFESORH": request_profesor}
+               'sambata': sambata, 'duminica': duminica,'SALAH': request_sala,"GRUPAH": request_grupa, "MATERIAH": request_materie,'PROFESORH':request_profesor,'zile_examen':zile_examene,'examene':randuri_examen,'zile_saptamana_examene':zile_saptamana_examene}
 
     return HttpResponse(template.render(context, request))
+
 
 
 def add_rand(request, uid, rid):
@@ -285,11 +352,37 @@ def show_orar_personalised(request):
         for aux in gr.split(','):
             _grupe_set.add(aux)
     lista_grupe = sorted(_grupe_set)
-    ids = [ora.rand_id for ora in PersonaliseOrar.objects.filter(personalise = request.user.personalise)]
+
+    print(datetime.datetime.now().strftime("%A"))
+    ids = [ora.rand_id for ora in PersonaliseOrar.objects.filter(personalise = request.user.personalise)]		
     randuri = Rand.objects.filter(id__in=ids)
     titlu = ""
 
-
+    if "sali_libere_acum" in request.GET:
+        day = datetime.datetime.now().strftime("%A")
+        if day == "Monday":
+            day = "Luni"
+        if day == "Tuesday":
+            day = "Marti"
+        if day == "Wednesday":
+            day = "Miercuri"
+        if day == "Thursday":
+            day = "Joi"
+        if day == "Friday":
+            day = "Vineri"
+        if day == "Saturday":
+            day = "Sambata"
+        if day == "Sunday":
+            day = "Duminica"
+        time_hour = datetime.datetime.now().time()
+        randuri = randuri.exclude(zi__contains=',')
+        sali_ocupate = Rand.objects.exclude(zi__contains=',').filter(ora_inceput__lt=time_hour, ora_sfarsit__gt=time_hour, zi=day).distinct(
+            'sala')
+        randuri = randuri.exclude(sala__in=sali_ocupate.values('sala')).exclude(sala = "").distinct('sala')
+        print(sali_ocupate)
+        template = loader.get_template('saliLibere.html')
+        context = {'grupe': lista_grupe, 'sali': get_sali_unique(), 'cursuri': get_materii_unique(), 'randuri': randuri}
+        return HttpResponse(template.render(context, request))
     request_materie = ""
     request_grupa = ""
     request_sala = ""
@@ -297,7 +390,7 @@ def show_orar_personalised(request):
     if "sala" in request.GET:
         request_sala = request.GET['sala']
         if request_sala is not "":
-            randuri = randuri.filter(sala=request_sala)
+            randuri = randuri.filter(sala__contains=request_sala)
             titlu = "Sala " + request_sala
 
     if "materie" in request.GET:
@@ -311,25 +404,27 @@ def show_orar_personalised(request):
         if request_profesor is not "":
             randuri = randuri.filter(profesor__contains=request_profesor)
             titlu = "Profesor " + request_profesor
-
+    randuri1 = randuri
     if "grupa" in request.GET:
         request_grupa = request.GET['grupa']
         if request_grupa is not "":
             grupa_len = len(request_grupa)
-            randuri = randuri.filter(grupa__iregex=(r'([a-z0-9]{0})' + request_grupa + r'([a-z0-9]{0})')).exclude(
-                grupa__iregex=(r'[a-z0-9]' + request_grupa)).exclude(
-                grupa__iregex=(request_grupa + r'[a-z0-9]')).distinct()
+            randuri = randuri.filter(grupa__iregex=(r'([A-Za-z0-9]{0})' + request_grupa + r'(?![a-zA-Z0-9])')).exclude(
+                    grupa__iregex=(r'[A-Za-z0-9]' + request_grupa )).distinct()
             for i in range(1, grupa_len):
                 req_group = request_grupa[0:i]
                 print(req_group)
-                randuri = randuri | randuri.filter(
-                    grupa__iregex=(r'([a-z0-9]{0})' + req_group + r'([a-z0-9]{0})')).exclude(
-                    grupa__iregex=(r'[a-z0-9]' + req_group)).exclude(
-                    grupa__iregex=(req_group + r'[a-z0-9]')).distinct()
+                randuri = randuri | randuri1.filter(
+                    grupa__iregex=(r'([A-Z0-9]{0})' + req_group + r'(?![a-zA-Z0-9])')).exclude(
+                    grupa__iregex=(r'[A-Za-z0-9]' + req_group )).distinct()
             titlu = "Grupa " + request_grupa
-    randuri = randuri.distinct()
-    randuri = randuri.order_by('ora_inceput')
 
+    randuri = randuri.distinct('curs','ora_inceput','ora_sfarsit','profesor','sala','tip','zi')
+    randuri_totale = randuri.order_by('ora_inceput')
+    randuri_examen = randuri_totale.filter(zi__contains=',')
+    #randuri_examen = randuri_totale.filter(tip = 'Examen')
+    #randuri_examen = randuri_examen | randuri_totale.filter(tip = 'Restante')#randurile pentru examene
+    randuri = randuri_totale.exclude(tip = 'Examen') #randurile pentru orarul propriu-zis
     luni = randuri.filter(zi='Luni')
     marti = randuri.filter(zi='Marti')
     miercuri = randuri.filter(zi='Miercuri')
@@ -337,6 +432,9 @@ def show_orar_personalised(request):
     vineri = randuri.filter(zi='Vineri')
     sambata = randuri.filter(zi='Sambata')
     duminica = randuri.filter(zi='Duminica')
+    zile_examene = get_zile_examene(randuri_examen)
+    zile_saptamana_examene = get_zile_saptamana_examene(zile_examene,randuri_examen)
+
     template = loader.get_template('orar.html')
     list = []
 
@@ -348,9 +446,12 @@ def show_orar_personalised(request):
     list.append(calculate_sum(sambata))
     list.append(calculate_sum(duminica))
 
-    context = {'grupe': lista_grupe, 'sali': get_sali_unique(), 'cursuri': get_materii_unique(), 'profesori': get_profesori_unique(), 'lista_ore': list,
+    # grupe = Rand.objects.all().values('grupa').exclude(grupa__contains=',').distinct()
+    # print(Rand.objects.values('sala').distinct())
+
+    context = {'grupe': lista_grupe, 'sali': get_sali_unique(), 'cursuri': get_materii_unique(),'profesori': get_profesori_unique(), 'lista_ore': list,
                'titlu': titlu, 'luni': luni, 'marti': marti, 'miercuri': miercuri, 'joi': joi, 'vineri': vineri,
-               'sambata': sambata, 'duminica': duminica,'SALAH': request_sala,"GRUPAH": request_grupa, "MATERIAH": request_materie, "PROFESORH": request_profesor}
+               'sambata': sambata, 'duminica': duminica,'SALAH': request_sala,"GRUPAH": request_grupa, "MATERIAH": request_materie,'PROFESORH':request_profesor,'zile_examen':zile_examene,'examene':randuri_examen,'zile_saptamana_examene':zile_saptamana_examene}
 
     return HttpResponse(template.render(context, request))
 

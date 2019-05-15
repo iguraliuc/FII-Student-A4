@@ -3,12 +3,14 @@ from .forms import SignupForm, SettingsForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.utils.html import strip_tags
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
+from django.http import HttpResponse, Http404
+import simplejson as simplejson
 from .tokens import account_activation_token
 from .models import FiiUser, Personalise
 
@@ -59,8 +61,12 @@ def settings(request):
             rol = form.data['rol']
             grupa = form.data['grupa']
             navbar_color = form.data['navbar_color']
-            background_color = form.data['background_color']
-            accent_color = form.data['accent_color']
+            background_first = form.data['background_first']
+            background_second = form.data['background_second']
+            color1_first = form.data['color1_first']
+            color1_second = form.data['color1_second']
+            color2_first = form.data['color2_first']
+            color2_second = form.data['color2_second']
             font_color = form.data['font_color']
             font_family = form.data['font_family']
 
@@ -78,14 +84,23 @@ def settings(request):
                 request.user.grupa = grupa
             if navbar_color != '' and navbar_color != request.user.personalise.navbar_color:
                 request.user.personalise.navbar_color = navbar_color
-            if background_color != '' and background_color != request.user.personalise.background_color:
-                request.user.personalise.background_color = background_color
-            if accent_color != '' and accent_color != request.user.personalise.accent_color:
-                request.user.personalise.accent_color = accent_color
+            if background_first != '' and background_first != request.user.personalise.background_first:
+                request.user.personalise.background_first = background_first
+            if background_second != '' and background_second != request.user.personalise.background_second:
+                request.user.personalise.background_second = background_second
             if font_color != '' and font_color != request.user.personalise.font_color:
                 request.user.personalise.font_color = font_color
             if font_family != '' and font_family != request.user.personalise.font_family:
                 request.user.personalise.font_family = font_family
+
+            if color1_first != '' and color1_first != request.user.personalise.color1_first:
+                request.user.personalise.color1_first = color1_first
+            if color1_second != '' and color1_second != request.user.personalise.color1_second:
+                request.user.personalise.color1_second = color1_second
+            if color2_first != '' and color2_first != request.user.personalise.color2_first:
+                request.user.personalise.color2_first = color2_first
+            if color2_second != '' and color2_second != request.user.personalise.color2_second:
+                request.user.personalise.color2_second = color2_second
             request.user.personalise.save()
             request.user.save()
     else:
@@ -93,6 +108,32 @@ def settings(request):
             pass  # TODO: should add redirect to error page here
         form = SettingsForm()
     return render(request, 'settings.html', {'form': form})
+
+
+def reset_settings(request, uid):
+    data = {
+        'status': 'False'
+    }
+    if request.method == 'POST' and request.user.is_authenticated:
+        try:
+            user = get_object_or_404(FiiUser, pk=uid)
+            if not user.personalise:
+                p = Personalise()
+                p.save()
+                p.init_orar(user.an_studiu, user.grupa)
+                user.personalise = p
+                user.save()
+            else:
+                user.personalise.reset_settings()
+                user.personalise.save()
+                user.save()
+            data['status'] = 'True'
+        except Http404:
+            data['message'] = 'Invalid user!'
+    serialized_data = simplejson.dumps(data)
+    # return HttpResponse(serialized_data, content_type='application/json')
+    return redirect('/settings')
+
 
 
 def activate(request, uidb64, token):
@@ -111,9 +152,9 @@ def activate(request, uidb64, token):
         p.save()
         p.init_orar(user.an_studiu, user.grupa)
         user.personalise = p
-
+        user.save()
         login(request, user)
-        return redirect('landing_page.html')
+        return redirect('')
     else:
         return render(request, 'activation_email_sent.html')
 
@@ -124,4 +165,4 @@ def activation_email_sent(request):
 
 def logout_view(request):
     logout(request)
-    return render(request, 'landing_page2.html')
+    return render(request, 'prezentare_en.html')

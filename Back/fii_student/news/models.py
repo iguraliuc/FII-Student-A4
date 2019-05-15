@@ -12,7 +12,7 @@ class News(models.Model):
     )
 
     news_id = models.AutoField(primary_key=True, verbose_name='ID')
-    title = models.CharField(max_length=255,unique=True)
+    title = models.CharField(max_length=255)
     author_name = models.CharField(max_length=255)
     category = models.CharField(max_length=32, choices=CATEGORY_CHOICES)
     body = models.TextField(blank=True, null=True, unique=True)

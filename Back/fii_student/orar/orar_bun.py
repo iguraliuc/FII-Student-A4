@@ -43,7 +43,7 @@ def generate_orare():
         item[0] = BASE_URL + item[0]
         get_orare(item[0], item[1])
         get_examene(item[0], item[1])
-    with open(r'./orare/orar_full', 'w') as f:
+    with open(r'./fixtures/orar_full.json', 'w') as f:
         json.dump(final_list, f, indent=4)
     f.close()
 

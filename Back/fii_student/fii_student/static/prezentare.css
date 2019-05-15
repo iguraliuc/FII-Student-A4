@@ -14,24 +14,25 @@ article {
 
 section {
     display: flex;
-    
+
     width: 100%;
     height: 100%;
     object-fit: contain;
     background-size: cover;
     background-repeat: no-repeat;
-    
+
 }
 
 section:nth-of-type(1) {
-    background: linear-gradient(to top, #a18cd1, #fbc2eb);
+    background: linear-gradient(to top, #004e92, #000428); //#a18cd1, #fbc2eb);
     height: 100vh;
     align-items: center;
+
 }
 
 section#persons {
-    background: linear-gradient( rgb(89, 5, 167), rgb(80, 4, 124));
-    text-align: center;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+     text-align: center;
     height: auto;
     flex-wrap: wrap;
     padding-top: 5vh;
@@ -61,7 +62,7 @@ section#tech
     justify-content: center;
     padding: 30px 0;
 flex-wrap: wrap;
-   
+
 }
 
 section#tech h2,
@@ -162,7 +163,7 @@ select {
     margin: 1vh;
     background: #3a3a3ab9;
     color: white;
-    
+
 }
 
 .p-promovare {
@@ -204,8 +205,9 @@ img {
 }
 
 .card-content {
-    padding: 20px 30px;
+    padding: 2px;//padding: 20px 30px;
     text-align: center;
+    background-color: white;
 }
 
 .card-header {
@@ -273,7 +275,7 @@ hr {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-  
+
   .ptext {
     position: absolute;
     width: 80vw;
@@ -301,7 +303,7 @@ select {
   margin: 1vh;
   background: #3a3a3ab9;
   color: white;
-  
+
 }
 
 .button {
@@ -361,7 +363,7 @@ select {
         width: 250px;
         align-content: center;
       }
-      
+
       .slideimg
       {
         height:Auto;
@@ -369,7 +371,7 @@ select {
         padding-top:auto;
         padding-bottom: auto;
         align-content: center;
-       
+
       }
 
       h2 {
@@ -379,10 +381,10 @@ select {
       }
 
       .imgSlide {
-        
+
             max-width: 100%;
             height: 100%;
-        
+
       }
 
       .imgLogo {
@@ -400,5 +402,5 @@ select {
         text-transform: uppercase;
         font-size: 40px;
         letter-spacing: 4px;
-       
+
     }

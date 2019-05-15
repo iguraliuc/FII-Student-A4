@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'users',
     'resources',
     'orar',
-    'fii_student'
+    'fii_student',
+    '3d_tour'
 ]
 
 LOGIN_URL = '/users/login/'

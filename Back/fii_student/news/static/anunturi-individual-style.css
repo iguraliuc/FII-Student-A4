@@ -1,10 +1,39 @@
+:root{
+    --background-first: #1b1353;
+    --background-second: #000428;
+    --navbar:#030b3d;
+    --color1-first:#1fd191;
+    --color1-second:#0086aa;
+    --color2-first:#f64abd;
+    --color2-second:#ad3abd;
+    --font: #ffffff;
+    --font-family: 'Montserrat', sans-serif;
+}
+
+/* :root{
+    --background-first: {{user.personalise.background_first}};
+    --background-second: {{user.personalise.background_second}};
+    --navbar:{{ user.personalise.navbar_color }};
+    --color1-first:{{ user.personalise.color1_first }};
+    --color1-second:{{ user.personalise.color1_second }};
+    --color2-first:{{ user.personalise.color2_first }};
+    --color2-second:{{ user.personalise.color2_second }};
+    --font: {{ user.personalise.font_color }};
+    --font-family: {{ user.personalise.font_family }};
+} */
+
 *{
     margin:0px;
     padding:0px;
     font-size:15px;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,600|Roboto:300,400');
 body{
-    font-family: 'Montserrat';
+    min-height: 100vh;
+    background: radial-gradient(var(--background-first), var(--background-second));
+    font-family: var(--font-family);
+    font-weight: 500;
 }
 
 li{
@@ -13,7 +42,40 @@ li{
 
 .board h1{
     font-size: 40px;
+    font-weight: 700;
     margin-bottom: 10px;
+    color:var(--color2-first);
+}
+
+.navbar-inverse{
+    top:0;
+    position:sticky;
+    background-color: var(--navbar);
+    margin-bottom: 0px;
+    font-family: var(--font-family);
+    font-weight: 500;
+}
+.nav.navbar-nav li a {
+    color: var(--font);
+}
+
+.nav.navbar-nav li a:hover {
+    transition: 0.1s;
+    background-color:var(--color2-first);
+}
+
+.navbar-inverse .navbar-nav>.active>a{
+    background-color:var(--color2-first);
+}
+.navbar-inverse .navbar-nav>.active>a:hover{
+    background-color:var(--color2-first);
+}
+
+.navbar-brand img{
+    position: absolute;
+    top:-3px;
+    height: 60px;
+
 }
 
 .subtitle{
@@ -22,98 +84,103 @@ li{
     width: 80%;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px gray solid;
+    border-bottom: 2px var(--color2-first) solid;
     padding-bottom: 10px;
+    color: var(--color2-first);
+    font-weight: 600;
 }
 
 
 .subtitle >p:last-child{
-    color:gray;
+    color:var(--color2-first);
 }
-.container{
+.container-anunt{
     margin:auto;
     margin-top:20px;
     width:80%;
     display:flex;
+
 }
 .board{
-    text-align:left;
-    //width:80%;
-    box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    -moz-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    -webkit-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
+    background-color: white;
+    text-align:center;
+    width:80%;
     padding: 50px;
     box-sizing: border-box;
-    margin-bottom: 20px;
+}
+
+.board h1{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
 }
 
 .board .content{
     margin-top:20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 
-.board> p:first-child{
-    padding: 5px;
-    background-color:#09BCFF;
-    color:white;
-margin-bottom: 10px;
-    font-weight: bold;
-    font-size: 20px;
-
-}
 .meniu{
-    box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    -moz-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    -webkit-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    padding: 10px;
+    background-color: white;
+    color:var(--color1-first);
+    width: 18%;
+    margin-left: 20px;
     display: flex;
     justify-content: space-around;
+    height: 100px;
+    padding: 10px;
+    text-align: center;
     text-decoration: none;
-    color: inherit;
 }
 
 .meniu:hover{
     transition:0.5s;
-    box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    -moz-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    -webkit-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
+    width: 18%;
+    margin-left: 20px;
     display: flex;
     justify-content: space-around;
+    height: 100px;
     padding: 10px;
-    background-color:#09BCFF;
+    background-color:var(--color1-first);
+    text-decoration: none;
 
 }
 .meniu:hover p{
     color: white;
 
 }
-.meniu{
 
-    text-align: center;
-    text-decoration: none;
-}
 .meniu p{
     margin:auto;
-}
-.meniu img{
-    width: 50px;
+    font-weight: 700;
 }
 
-.btn{
-    border: none;
-    outline: none;
-    padding: 12px 16px;
-    background-color: #f1f1f1;
-    cursor: pointer;
-    display:block;
-    width: 100%;
-    margin-bottom:10px;
+@media screen and (max-width: 800px){
+    .container-anunt{
+        width:90%;
+        flex-direction: column-reverse;
+    }
+    .board{
+        width: 100%;
+    }
+    .meniu{
+        width: 40%;
+        margin-left:0px;
+        border-bottom: 1px var(--color1-first) solid;
+    }
+    .meniu:hover{
+        transition:0.5s;
+        width: 40%;
+        margin-left: 0px;
+        background-color:var(--color1-first);
+
+    }
+    .subtitle{
+        width: 100%;
+        font-size: 10px;
+    }
+    .board h1{
+        font-size: 30px;
+    }
+
 }
-
-.btn:hover {
-    background-color: #ddd;
-  }
-
-.btn.active {
-    background-color: #666;
-    color: white;
-  }

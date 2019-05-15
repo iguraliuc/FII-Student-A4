@@ -15,9 +15,9 @@ class PersonaliseForm(forms.ModelForm):
 
 class BoardForm(forms.ModelForm):
     year = forms.ChoiceField(choices=[(x, x) for x in YEARS], required=True)
-    subject = forms.CharField(max_length=255, required=True)
-    teacher = forms.CharField(max_length=255, required=True)
-    description = forms.CharField(max_length=2000, required=True)
+    subject = forms.CharField(max_length=29, required=True)
+    teacher = forms.CharField(max_length=29, required=True)
+    description = forms.CharField(max_length=180, required=True)
 
     class Meta:
         model = Board
