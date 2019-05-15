@@ -50,7 +50,7 @@
     <form method="post">
       {% csrf_token %}
 
-      <h4>Administrare</h4>
+      <h4>Administrare</h4> <br>
 
 
       <label>{{ form.email.label_tag}}</label>
@@ -96,14 +96,15 @@
 
       <hr>
 
-      <label>Personalizare:</label></br></br>
+      <h4>Personalizare</h4>
+      <br>
       <div class="rows">
         <div class="form-group">
           <label for="">Culoarea 1</label>
           <select onchange="updateColor('--color1-first', document.getElementById('{{ form.color1_first.id_for_label }}').value);"
             name="{{ form.color1_first.html_name }}" class="form-control" id="{{ form.color1_first.id_for_label }}" style="background-color: var(--color1-first)">
               {% for opt1, opt in form.fields.color1_first.choices %}
-                <option style="background-color: {{ opt }};" {% if opt == user.personalise.color1_first %}selected="selected"{% endif %}>{{ opt }}</option>
+                <option style="background-color: {{ opt }}; color: {{ opt }};" {% if opt == user.personalise.color1_first %}selected="selected"{% endif %}>{{ opt }}</option>
               {% endfor %}
           </select>
         </div>
@@ -113,7 +114,7 @@
           <select onchange="updateColor('--color1-second', document.getElementById('{{ form.color1_second.id_for_label }}').value);"
             name="{{ form.color1_second.html_name }}" class="form-control" id="{{ form.color1_second.id_for_label }}" style="background-color: var(--color1-second)">
               {% for opt1, opt in form.fields.color1_second.choices %}
-                <option style="background-color: {{ opt }};" {% if opt == user.personalise.color1_second %}selected="selected"{% endif %}>{{ opt }}</option>
+                <option style="background-color: {{ opt }}; color: {{ opt }};" {% if opt == user.personalise.color1_second %}selected="selected"{% endif %}>{{ opt }}</option>
               {% endfor %}
           </select>
         </div>
@@ -123,7 +124,7 @@
           <select onchange="updateColor('--color2-first', document.getElementById('{{ form.color2_first.id_for_label }}').value);"
             name="{{ form.color2_first.html_name }}" class="form-control" id="{{ form.color2_first.id_for_label }}" style="background-color: var(--color2-first)">
               {% for opt1, opt in form.fields.color2_first.choices %}
-                <option style="background-color: {{ opt }};" {% if opt == user.personalise.color2_first %}selected="selected"{% endif %}>{{ opt }}</option>
+                <option style="background-color: {{ opt }}; color: {{ opt }};" {% if opt == user.personalise.color2_first %}selected="selected"{% endif %}>{{ opt }}</option>
               {% endfor %}
           </select>
         </div>
@@ -133,7 +134,7 @@
           <select onchange="updateColor('--color2-second', document.getElementById('{{ form.color2_second.id_for_label }}').value);"
             name="{{ form.color2_second.html_name }}" class="form-control" id="{{ form.color2_second.id_for_label }}" style="background-color: var(--color2-second)">
               {% for opt1, opt in form.fields.color2_second.choices %}
-                <option style="background-color: {{ opt }};" {% if opt == user.personalise.color2_second %}selected="selected"{% endif %}>{{ opt }}</option>
+                <option style="background-color: {{ opt }}; color: {{ opt }};" {% if opt == user.personalise.color2_second %}selected="selected"{% endif %}>{{ opt }}</option>
               {% endfor %}
           </select>
         </div>
@@ -143,7 +144,7 @@
           <select onchange="updateColor('--background-first', document.getElementById('{{ form.background_first.id_for_label }}').value);"
             name="{{ form.background_first.html_name }}" class="form-control" id="{{ form.background_first.id_for_label }}" style="background-color: var(--background-first)">
               {% for opt1, opt in form.fields.background_first.choices %}
-                <option style="background-color: {{ opt }};" {% if opt == user.personalise.background_first %}selected="selected"{% endif %}>{{ opt }}</option>
+                <option style="background-color: {{ opt }}; color: {{ opt }};" {% if opt == user.personalise.background_first %}selected="selected"{% endif %}>{{ opt }}</option>
               {% endfor %}
           </select>
         </div>
@@ -153,7 +154,7 @@
           <select onchange="updateColor('--background-second', document.getElementById('{{ form.background_second.id_for_label }}').value);"
             name="{{ form.background_second.html_name }}" class="form-control" id="{{ form.background_second.id_for_label }}" style="background-color: var(--background-second)">
               {% for opt1, opt in form.fields.background_second.choices %}
-                <option style="background-color: {{ opt }};" {% if opt == user.personalise.background_second %}selected="selected"{% endif %}>{{ opt }}</option>
+                <option style="background-color: {{ opt }}; color: {{ opt }};" {% if opt == user.personalise.background_second %}selected="selected"{% endif %}>{{ opt }}</option>
               {% endfor %}
           </select>
         </div>
@@ -163,7 +164,7 @@
           <select onchange="updateColor('--navbar', document.getElementById('{{ form.navbar_color.id_for_label }}').value);"
                   name="{{ form.navbar_color.html_name}}" class="form-control" id="{{ form.navbar_color.id_for_label }}" style="background-color: var(--navbar)">
                 {% for opt1, opt in form.fields.navbar_color.choices %}
-                <option style="background-color: {{ opt }};" {% if opt == user.personalise.navbar_color %}selected="selected"{% endif %}>{{ opt }}</option>
+                <option style="background-color: {{ opt }}; color: {{ opt }};" {% if opt == user.personalise.navbar_color %}selected="selected"{% endif %}>{{ opt }}</option>
                 {% endfor %}
           </select>
         </div>
@@ -173,7 +174,7 @@
           <select onchange="updateColor('--font', document.getElementById('{{ form.font_color.id_for_label }}').value);"
                   name="{{ form.font_color.html_name }}" class="form-control" id="{{ form.font_color.id_for_label }}" style="background-color: var(--font)">
                 {% for opt1, opt in form.fields.font_color.choices %}
-                <option style="background-color: {{ opt }};" {% if opt == user.personalise.font_color %}selected="selected"{% endif %}>{{ opt }}</option>
+                <option style="background-color: {{ opt }}; color: {{ opt }};" {% if opt == user.personalise.font_color %}selected="selected"{% endif %}>{{ opt }}</option>
                 {% endfor %}
           </select>
         </div>

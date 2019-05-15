@@ -60,6 +60,16 @@ body{
     color: var(--font);
 }
 
+.even option{
+    font-size:1.2em !important;
+     background-color: var(--color1-first);
+}
+
+.odd option{
+    font-size:1.2em !important;
+     background-color: var(--color2-first);
+}
+
 .form-control option{
     font-size:1.4em;
      background-color: var(--color1-first);
@@ -71,6 +81,9 @@ body{
     font-weight: bold;
 }
 
+label {
+    padding-top:10px;
+}
 
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
     background-color: var(--color1-first);
