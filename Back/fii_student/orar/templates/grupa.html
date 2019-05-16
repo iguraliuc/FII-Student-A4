@@ -110,12 +110,13 @@
                               <table class="tabelmare">
                              <thead >
                                    <tr>
-                                        <th style="border-right : 10px solid #1b1354">ORE</th>
-                                        <th style="border-right : 10px solid #1b1354">DISCIPLINA</th>
-                                        <th style="border-right : 10px solid #1b1354">TIP</th>
-                                        <th style="border-right : 10px solid #1b1354">GRUPA</th>
-                                        <th style="border-right : 10px solid #1b1354">PROFESOR</th>
-                                        <th>SALA</th>
+                                        <th style="border-right : 10px solid {{ user.personalise.background_first }}">ORE</th>
+                                        <th style="border-right : 10px solid {{ user.personalise.background_first }}">DISCIPLINA</th>
+                                        <th style="border-right : 10px solid {{ user.personalise.background_first }}">TIP</th>
+                                        <th style="border-right : 10px solid {{ user.personalise.background_first }}">GRUPA</th>
+                                        <th style="border-right : 10px solid {{ user.personalise.background_first }}">PROFESOR</th>
+                                        <th style="border-right : 10px solid {{ user.personalise.background_first }}">SALA</th>
+                                       <th>PACHET</th>
                                    </tr>
                               </thead>
 
@@ -129,13 +130,14 @@
                                                   <td></td>
                                                   <td></td>
                                                   <td></td>
+                                                  <td></td>
 
                                              </tr>
 
                                   {% if luni %}
                                    <tr class="zi">
                                        <th colspan="10">
-                                         <b>Luni</b>({{ lista_ore.0 }} ore)
+                                         <b>Luni </b>({{ lista_ore.0 }} ore)
                                        </th>
                                    </tr>
                                    {% endif %}
@@ -148,6 +150,7 @@
                                      <td>{{rand.grupa}}</td>
                                      <td>{{rand.profesor}}</td>
                                      <td>{{rand.sala}}</td>
+                                     <td>{{rand.pachet}}</td>
                                    </tr>
 
                                    {% endfor %}
@@ -155,7 +158,7 @@
                                    {% if marti %}
                                    <tr class="zi">
                                        <th colspan="10">
-                                         <b>Marti</b>({{ lista_ore.1 }} ore)
+                                         <b>Marti </b>({{ lista_ore.1 }} ore)
                                        </th>
                                    </tr>
                                    {% endif %}
@@ -168,6 +171,7 @@
                                        <td>{{rand.grupa}}</td>
                                      <td>{{rand.profesor}}</td>
                                        <td>{{rand.sala}}</td>
+                                       <td>{{rand.pachet}}</td>
                                    </tr>
 
                                    {% endfor %}
@@ -175,7 +179,7 @@
                                    {% if miercuri %}
                                    <tr class="zi">
                                        <th colspan="10">
-                                         <b>Miercuri</b>({{ lista_ore.2 }} ore)
+                                         <b>Miercuri </b>({{ lista_ore.2 }} ore)
                                        </th>
                                    </tr>
                                    {% endif %}
@@ -188,6 +192,7 @@
                                        <td>{{rand.grupa}}</td>
                                      <td>{{rand.profesor}}</td>
                                        <td>{{rand.sala}}</td>
+                                       <td>{{rand.pachet}}</td>
                                    </tr>
 
 
@@ -196,7 +201,7 @@
                                    {% if joi %}
                                    <tr class="zi">
                                        <th colspan="10">
-                                         <b>Joi</b>({{ lista_ore.3 }} ore)
+                                         <b>Joi </b>({{ lista_ore.3 }} ore)
                                        </th>
                                    </tr>
                                    {% endif %}
@@ -209,6 +214,7 @@
                                        <td>{{rand.grupa}}</td>
                                      <td>{{rand.profesor}}</td>
                                        <td>{{rand.sala}}</td>
+                                       <td>{{rand.pachet}}</td>
                                    </tr>
 
 
@@ -217,7 +223,7 @@
                                    {% if vineri %}
                                  <tr class="zi">
                                        <th colspan="10">
-                                         <b>Vineri</b>({{ lista_ore.4 }} ore)
+                                         <b>Vineri </b>({{ lista_ore.4 }} ore)
                                        </th>
                                    </tr>
                                    {% endif %}
@@ -230,6 +236,7 @@
                                        <td>{{rand.grupa}}</td>
                                      <td>{{rand.profesor}}</td>
                                        <td>{{rand.sala}}</td>
+                                       <td>{{rand.pachet}}</td>
                                    </tr>
 
 
@@ -238,7 +245,7 @@
                                    {% if sambata %}
                                    <tr class="zi">
                                        <th colspan="10">
-                                         <b>Sambata</b>({{ lista_ore.5 }} ore)
+                                         <b>Sambata </b>({{ lista_ore.5 }} ore)
                                        </th>
                                    </tr>
                                    {% endif %}
@@ -251,6 +258,7 @@
                                        <td>{{rand.grupa}}</td>
                                      <td>{{rand.profesor}}</td>
                                        <td>{{rand.sala}}</td>
+                                      <td>{{rand.pachet}}</td>
                                    </tr>
 
 
@@ -259,7 +267,7 @@
                                    {% if duminica %}
                                    <tr class="zi">
                                        <th colspan="10">
-                                         <b>Duminica</b>({{ lista_ore.6 }} ore)
+                                         <b>Duminica </b>({{ lista_ore.6 }} ore)
                                        </th>
                                    </tr>
                                    {% endif %}
@@ -272,6 +280,7 @@
                                        <td>{{rand.grupa}}</td>
                                      <td>{{rand.profesor}}</td>
                                        <td>{{rand.sala}}</td>
+                                       <td>{{rand.pachet}}</td>
                                    </tr>
 
 
@@ -293,16 +302,18 @@
                <table class="tabelmic">
                     <thead >
                           <tr>
-                               <th style="border-right : 10px solid #1b1354">ORE</th>
-                               <th style="border-right : 10px solid #1b1354">DISCIPLINA</th>
-                               <th style="border-right : 10px solid #1b1354">TIP</th>
-                               <th style="border-right : 10px solid #1b1354">GRUPA</th>
-                               <th style="border-right : 10px solid #1b1354">PROFESOR</th>
-                               <th>SALA</th>
+                               <th style="border-right : 10px solid {{ user.personalise.background_first }}">ORE</th>
+                               <th style="border-right : 10px solid {{ user.personalise.background_first }}">DISCIPLINA</th>
+                               <th style="border-right : 10px solid {{ user.personalise.background_first }}">TIP</th>
+                               <th style="border-right : 10px solid {{ user.personalise.background_first }}">GRUPA</th>
+                               <th style="border-right : 10px solid {{ user.personalise.background_first }}">PROFESOR</th>
+                               <th style="border-right : 10px solid {{ user.personalise.background_first }}">SALA</th>
+                               <th>PACHET</th>
                           </tr>
                      </thead>
                      <tbody>
                                <tr class="spatiu">
+                                         <td></td>
                                          <td></td>
                                          <td></td>
                                          <td></td>
@@ -326,6 +337,7 @@
                                      <td>{{rand.grupa}}</td>
                                      <td>{{rand.profesor}}</td>
                                      <td>{{rand.sala}}</td>
+                                     <td>{{rand.pachet}}</td>
                                    </tr>
 
                                    {% endfor %}
