@@ -14,9 +14,6 @@
     border: 0px;
 }
 
-html{
-    background: var(--background-first);
-}
 
 body {
     background: radial-gradient(var(--background-first), var(--background-second));
@@ -29,54 +26,65 @@ body {
 
 .resources-main-container {
     display: grid;
-    grid-template-areas: "b r r r r";
+    grid-template-areas: "b r";
     align-items: center;
 }
+
+.x{
+    margin-left: 200px;
+    width: calc(100vw - 300px);
+}
+
+@media (max-width: 600px){
+    .x{
+    margin-left: 130px;
+    width: calc(100vw - 150px);
+}
+}
+
 
 .buttons-container{
     grid-area: b;
     align-self: flex-start;
     display: flex;
     flex-direction: column;
-    width: 15%;
-    height: 100%;
+    width: 120px;
+    height: 87%;
     position: fixed;
 }
 
 .filter-btn {
     border: none;
     display: inline-block;
-    width: 100%;
     height: 100%;
     color: var(--font);
     background: var(--background-second);
     font-weight: 700;
-    font-size: 30pt;
+    font-size: 20px;
     justify-self: space-between;
 }
 
-/* .filter-btn:hover {
-    color: var(--medium-dark-color);
-    background-color: var(--medium-color);
-} */
+.filter-btn:hover {
+    background: linear-gradient(to right, var(--color1-first) 0%, var(--color1-second) 100%);
+}
 
 .resources-container {
     grid-area: r;
     margin: 0px;
     border: 0px;
-    width: 90%;
+    
     height: 100%;
     background: transparent;
     display: flex;
     align-self: center;
     justify-self: center;
     flex-direction: column;
-    font-size: 20pt;
+    font-size: 20px;
 }
 
 .resources-list {
     display: flex;
-    widows: 100%;
+    
     list-style: none;
     flex-direction: column;
     align-items: center;
@@ -85,12 +93,13 @@ body {
 
 .resources-item {
     display: flex;
-    height: 3vw;
+    height: auto;
     width: 95%;
     padding: 0px;
     align-items: center;
     justify-content: center;
-    margin-bottom: 3vw;
+    margin-bottom: 20px;
+    display: inline-block;
 }
 
 .resources-item:nth-child(odd){
