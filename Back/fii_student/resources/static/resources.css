@@ -19,11 +19,12 @@ html{
 }
 
 body {
+    background: radial-gradient(var(--background-first), var(--background-second));
+    color: var(--font);
     font-family: var(--font-family);
     margin: 0px;
     padding: 0px;
     border: 0px;
-    background-color: #1b1354;
 }
 
 .resources-main-container {
