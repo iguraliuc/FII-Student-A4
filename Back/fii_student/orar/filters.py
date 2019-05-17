@@ -11,3 +11,4 @@ class RanduriFilter(django_filters.FilterSet):
         model=Rand
         fields = []
     def filter_materii(self,queryset,name,value):
+        pass

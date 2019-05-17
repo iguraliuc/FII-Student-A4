@@ -14,7 +14,7 @@ class NewsSerializer(serializers.HyperlinkedModelSerializer):
 class PersonaliseSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Personalise
-        fields = None  # to add fields here
+        fields = '__all__'
 
 
 class BoardSerializer(serializers.HyperlinkedModelSerializer):
@@ -32,3 +32,4 @@ class OrarSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Rand
         fields = ('__all__')
+

@@ -284,7 +284,6 @@ def show_orar(request):
     return HttpResponse(template.render(context, request))
 
 
-
 def add_rand(request, uid, rid):
     data = {
         'status': 'False'

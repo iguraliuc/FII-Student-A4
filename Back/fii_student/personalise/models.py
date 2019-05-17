@@ -109,7 +109,7 @@ class Card(models.Model):
     personalise = models.ForeignKey(Personalise, on_delete=models.CASCADE)
     # orderNumber = models.IntegerField(default=0, null=False)
     type = models.CharField(default=None, verbose_name='TYPE', max_length=50)
-    f_key = models.IntegerField(default=None, null=True)
+    # f_key = models.IntegerField(default=None, null=True)
     x = models.IntegerField(default=1)
     y = models.IntegerField(default=1)
     width = models.IntegerField(default=1)  # max = 12
