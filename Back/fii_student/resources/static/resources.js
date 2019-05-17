@@ -20,17 +20,27 @@ filters.forEach(element => {
         active = btn;
         setActive(active);
 
-        listItems = document.getElementsByClassName('resources-item');
-
-        for (i = 0; i < listItems.length; i++) {
-            itemFilterType = listItems[i].getAttribute('data-type');
+        const listItems = document.getElementsByClassName('resources-item');
+        let parity = 0;
+        for (let i = 0; i < listItems.length; i++) {
+            const itemFilterType = listItems[i].getAttribute('data-type');
 
             if (itemFilterType === element) {
                 listItems[i].style.display = "";
+                if (parity % 2 == 0) {
+                    listItems[i].classList.remove("odd");
+                    listItems[i].classList.add("even");
+                }
+                else {
+                    listItems[i].classList.remove("even");
+                    listItems[i].classList.add("odd");
+                }
+                parity++;
             } else {
                 listItems[i].style.display = "none";
             }
         }
+
     });
 });
 
@@ -40,8 +50,35 @@ btnShowAll.addEventListener("click", () => {
     unsetActive(active);
     active = btnShowAll;
     setActive(active);
-    listItems = document.getElementsByClassName('resources-item');
-    for (i = 0; i < listItems.length; i++) {
+    const listItems = document.getElementsByClassName('resources-item');
+    let parity = 0;
+    for (let i = 0; i < listItems.length; i++) {
         listItems[i].style.display = "";
+        if (parity % 2 == 0) {
+            listItems[i].classList.remove("odd");
+            listItems[i].classList.add("even");
+        }
+        else {
+            listItems[i].classList.remove("even");
+            listItems[i].classList.add("odd");
+        }
+        parity++;
     }
 });
+
+window.onload = function () {
+    const listItems = document.getElementsByClassName('resources-item');
+    let parity = 0;
+    for (let i = 0; i < listItems.length; i++) {
+        listItems[i].style.display = "";
+        if (parity % 2 == 0) {
+            listItems[i].classList.remove("odd");
+            listItems[i].classList.add("even");
+        }
+        else {
+            listItems[i].classList.remove("even");
+            listItems[i].classList.add("odd");
+        }
+        parity++;
+    }
+}
