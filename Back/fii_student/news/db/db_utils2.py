@@ -37,7 +37,7 @@ def config(filename='database.ini', section='postgresql'):
 
 
 def create_tables():
-    commands = [
+    commandsCreateIndex = [
 
         # """
         # DROP TABLE IF EXISTS news;
@@ -56,12 +56,43 @@ def create_tables():
         #    source VARCHAR(255)
         #  )
         #  """
+        """DROP INDEX IF EXISTS index_unique_news""" ,
+        """CREATE UNIQUE INDEX index_unique_news ON news(md5(body))"""
     ]
+
+    commands = []
+
+
     try:
         print("____________________________________________________________________")
         # get_announcements_fii()
         # get_announcements_orar()
         # get_announcements_uaic()
+
+
+        for command in commandsCreateIndex:
+            try:
+                #print(1)
+                print(command)
+                params = config()
+                # connect to the PostgreSQL server
+                conn = psycopg2.connect(**params)
+                cur = conn.cursor()
+                cur.execute(command)
+                cur.close()
+                # commit the changes
+                conn.commit()
+                #conn.commit()
+            except Exception as error:
+                 print (error)
+                # pass
+        # close communication with the PostgreSQL database server
+        cur.close()
+        # commit the changes
+        conn.commit()
+
+
+
         commands += get_real_data()
         # read the connection parameters
         params = config()

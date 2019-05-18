@@ -7,22 +7,22 @@ from resources.db.load_jsons import get_real_data
 
 def create_tables():
     commands = [
-        """
-        BEGIN;
-         --
-         -- Create model Resources
-         --
-         DROP TABLE IF EXISTS resources;
-         CREATE TABLE "resources" (
-             "resources_id" serial NOT NULL PRIMARY KEY, 
-             "title" varchar(128) NOT NULL, 
-             "timestamp" timestamp with time zone NULL, 
-             "url" text, 
-             "content" text,
-             "type" text
-         );
-         COMMIT;
-         """
+        # """
+        # BEGIN;
+        #  --
+        #  -- Create model Resources
+        #  --
+        #  DROP TABLE IF EXISTS resources;
+        #  CREATE TABLE "resources" (
+        #      "resources_id" serial NOT NULL PRIMARY KEY,
+        #      "title" varchar(128) NOT NULL,
+        #      "timestamp" timestamp with time zone NULL,
+        #      "url" text,
+        #      "content" text,
+        #      "type" text
+        #  );
+        #  COMMIT;
+        #  """
         # """
         # INSERT INTO resources(log_id, title, timestamp, url, content)
         #     VALUES(1, 'Ghidul Studentului UAIC', null, 'http://www.uaic.ro/studenti/ghidul-studentului-uaic/', null);
@@ -45,6 +45,10 @@ def create_tables():
         # INSERT INTO resources(log_id, title, timestamp, url, content)
         #     VALUES(10, 'Biblioteci', null, 'http://www.uaic.ro/studenti/biblioteci/', null);
         # """
+        """DROP INDEX IF EXISTS index_unique_resources_url""",
+        """DROP INDEX IF EXISTS index_unique_resources_content""",
+        """CREATE UNIQUE INDEX index_unique_resources_url ON resources(md5(url))""",
+        """CREATE UNIQUE INDEX index_unique_resources_content ON resources(md5(content))"""
     ]
     try:
         # read the connection parameters
@@ -56,7 +60,19 @@ def create_tables():
         commands += get_real_data()
         # create table one by one
         for command in commands:
-            cur.execute(command)
+
+            try:
+                params=config()
+                conn = psycopg2.connect(**params)
+                cur = conn.cursor()
+                #print(command)
+                cur.execute(command)
+                cur.close()
+                conn.commit()
+
+
+            except Exception as error:
+                 print (error)
         # close communication with the PostgreSQL database server
         cur.close()
         # commit the changes
