@@ -7,6 +7,7 @@ from django.views.generic import DetailView
 from django.contrib.auth.decorators import login_required
 import datetime
 from dateutil.relativedelta import relativedelta
+import re
 
 
 
@@ -14,6 +15,14 @@ from dateutil.relativedelta import relativedelta
 def show_news(request):
     post_url = reverse('news_show')
     generic_objects = News.objects.all()
+
+    for object in generic_objects:
+        object.body.replace('/bin', 'https://www.info.uaic.ro/bin')
+        object.save()
+
+    # for object in generic_objects:
+    #     result=re.findall('<img (.)+>', object.body);
+    #     print(result);
     # print(request)
     # print(request.read())
     # filtered_objects = generic_objects
