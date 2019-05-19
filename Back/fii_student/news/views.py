@@ -16,9 +16,10 @@ def show_news(request):
     post_url = reverse('news_show')
     generic_objects = News.objects.all()
 
-    for object in generic_objects:
-        object.body.replace('/bin', 'https://www.info.uaic.ro/bin')
-        object.save()
+    # for object in generic_objects:
+    #     object.body.replace('/bin', 'https://www.info.uaic.ro/bin')
+    #     #object.body.replace('127.0.0.1:8000', 'https://www.info.uaic.ro')
+    #     object.save()
 
     # for object in generic_objects:
     #     result=re.findall('<img (.)+>', object.body);

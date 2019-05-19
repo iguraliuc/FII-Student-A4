@@ -52,9 +52,15 @@ def get_real_data():
             #contor = News.objects.raw('SELECT COUNT(*) FROM news WHERE body=\'' + jfile['content']+'\'');
             #print(contor);
 
+            jfile['content']=jfile['content'].replace('=/bin', '=https://www.info.uaic.ro/bin')
+            print(jfile['content'])
+            # object.body.replace('127.0.0.1:8000', 'https://www.info.uaic.ro')
+
             new_command = insert_command + '\'' + jfile['title'] + '\', \'' + jfile['content'] + \
                             '\', \'\', \'\', \'' + str(published_date) + '\', \'' + str(valabil_date) + '\',' + '\'' + jfile['source'] + '\') '
             # print(new_command)
+
+
             commands.append(new_command)
             # return commands
     return commands

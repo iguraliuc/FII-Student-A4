@@ -5,8 +5,8 @@ class Resources(models.Model):
     resources_id = models.AutoField(primary_key=True, verbose_name='ID')
     title = models.CharField(max_length=128)
     timestamp = models.DateTimeField(auto_now_add=False, blank=True, null=True)
-    url = models.TextField()
-    content = models.TextField()
+    url = models.TextField(null=True)
+    content = models.TextField(null=True)
     type = models.TextField()
 
     class Meta:
