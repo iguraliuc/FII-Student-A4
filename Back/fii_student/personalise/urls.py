@@ -20,6 +20,8 @@ urlpatterns = [
 
     # REST API for cards
     # path('cards/<int:uid>/<string:type>/<int:x>/<int:y>/<>')
-    path('cards/', get_cards, name='get_cards'),
+    # path('cards/', get_cards, name='get_cards'),
     path('cards/add_card', add_card, name='add_card'),
+    path('cards/update_card/<int:cid>', update_card, name='update_card'),
+    path('cards/remove_card/<int:cid>', remove_card, name='remove_card')
 ]

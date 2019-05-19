@@ -25,6 +25,7 @@ from fii_student import views as fii_student_views
 router = routers.DefaultRouter()
 router.register('news', NewsViewSet)
 router.register('boards', BoardViewSet)
+router.register('cards', CardsViewSet)
 router.register('resources', ResourcesViewSet)
 router.register('orar', OrarViewSet)
 router.register('personalise', PersonaliseViewSet)

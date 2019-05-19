@@ -96,7 +96,6 @@ class Personalise(models.Model):
         self.font_family = DEFAULT_FONT_FAMILY
 
 
-
 # intermediate model for extra data in ManyToManyField for personalise -> classes
 class PersonaliseOrar(models.Model):
     personalise = models.ForeignKey(Personalise, on_delete=models.CASCADE)
@@ -104,12 +103,10 @@ class PersonaliseOrar(models.Model):
     alert = models.BooleanField(default=False, verbose_name='ALERT')
 
 
-class Card(models.Model):
+class Cards(models.Model):
     id = models.AutoField(primary_key=True, verbose_name='ID')
     personalise = models.ForeignKey(Personalise, on_delete=models.CASCADE)
-    # orderNumber = models.IntegerField(default=0, null=False)
     type = models.CharField(default=None, verbose_name='TYPE', max_length=50)
-    # f_key = models.IntegerField(default=None, null=True)
     x = models.IntegerField(default=1)
     y = models.IntegerField(default=1)
     width = models.IntegerField(default=1)  # max = 12

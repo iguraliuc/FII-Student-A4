@@ -1,7 +1,7 @@
 import simplejson as simplejson
 from django.http import HttpResponse, Http404
 
-from .models import Personalise, Board, PersonaliseOrar, Card
+from .models import Personalise, Board, PersonaliseOrar, Cards
 from users.models import FiiUser
 from .forms import BoardForm
 from .models import dict_ani_studiu
@@ -135,15 +135,18 @@ def check_joined_boards(request, uid):
     serialized_data = simplejson.dumps(data)
     return HttpResponse(serialized_data, content_type='application/json')
 
+
 class BoardDetail(DetailView):
     model = Board
     # post_url = reverse('news-detail')
     template_name = "board-individual.html"
     pk_url_kwarg = 'id'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # context['now'] = timezone.now()
         return context
+
 
 def show_orar(request):
     if '?' not in request.get_raw_uri():
@@ -464,7 +467,7 @@ def get_cards(request):
     data = [{}]
     if request.user.is_authenticated:
         user = request.user
-        cards = Card.objects.filter(personalise=user.personalise)
+        cards = Cards.objects.filter(personalise=user.personalise)
         for card in cards:
             if card.is_valid():
                 json = card.getJSON()
@@ -478,8 +481,58 @@ def add_card(request):
         'Status': 'Fail'
     }
     if request.user.is_authenticated and request.method == 'POST':
-        # TODO: get data from post, validata and insert to db
-        pass
-    # return status
+        try:
+            x = request.POST['x']
+            y = request.POST['y']
+            width = request.POST['width']
+            height = request.POST['height']
+            type = request.POST['type']
+            card = Cards(personalise_id=request.user.personalise_id, x=int(x), y=int(y), width=int(width), height=int(height), type=type)
+            card.save()
+            data['Status'] = 'Success'
+            data['id'] = card.id
+        except:
+            data['Status'] = 'Fail'
+    serialized_data = simplejson.dumps(data)
+    return HttpResponse(serialized_data, content_type='application/json')
+
+
+def remove_card(request, cid):
+    data = {
+        'Status': 'Fail'
+    }
+    if request.user.is_authenticated and request.method == 'POST':
+        try:
+            card = get_object_or_404(Cards, pk=cid)
+            card.delete()
+            data['Status'] = 'Success'
+        except Http404:
+            data['Status'] = 'Fail'
+            data['message'] = 'Invalid card id'
+        except:
+            data['Status'] = 'Fail'
+        serialized_data = simplejson.dumps(data)
+        return HttpResponse(serialized_data, content_type='application/json')
+
+
+def update_card(request, cid):
+    data = {
+        'Status': 'Fail'
+    }
+    if request.user.is_authenticated and request.method == 'POST':
+        try:
+            card = get_object_or_404(Cards, pk=cid)
+            x = request.POST['x']
+            y = request.POST['y']
+            width = request.POST['width']
+            height = request.POST['height']
+            card.x = int(x)
+            card.y = int(y)
+            card.width = int(width)
+            card.height = int(height)
+            card.save()
+            data['Status'] = 'Success'
+        except:
+            data['Status'] = 'Fail'
     serialized_data = simplejson.dumps(data)
     return HttpResponse(serialized_data, content_type='application/json')

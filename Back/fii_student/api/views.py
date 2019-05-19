@@ -20,7 +20,8 @@ class PersonaliseViewSet(viewsets.ModelViewSet):
     serializer_class = PersonaliseSerializer
 
     filter_backends = (DjangoFilterBackend,)
-    filterset_fields = ('id', 'font_family', )
+    filterset_fields = ('id', 'navbar_color', 'background_first', 'background_second', 'color1_first', 'color1_second',
+                        'color2_first', 'color2_second', 'font_color', 'font_family', 'boards', 'classes', )
 
 
 class BoardViewSet(viewsets.ModelViewSet):
@@ -30,12 +31,19 @@ class BoardViewSet(viewsets.ModelViewSet):
     filterset_fields = ('id', 'year', 'subject', 'teacher', 'description', )
 
 
+class CardsViewSet(viewsets.ModelViewSet):
+    queryset = Cards.objects.all()
+    serializer_class = CardsSerializer
+    filter_backends = (DjangoFilterBackend,)
+    filterset_fields = ('id', 'personalise', 'personalise_id', 'type', 'x', 'y', 'width', 'height', )
+
+
 class ResourcesViewSet(viewsets.ModelViewSet):
     queryset = Resources.objects.all()
     serializer_class = ResourcesSerializer
 
     filter_backends = (DjangoFilterBackend,)
-    filterset_fields = ('resources_id', 'title', 'url', 'content', )
+    filterset_fields = ('id', 'resources_id', 'title', 'url', 'content', )
 
 
 class OrarViewSet(viewsets.ModelViewSet):
@@ -43,5 +51,5 @@ class OrarViewSet(viewsets.ModelViewSet):
     serializer_class = OrarSerializer
 
     filter_backends = (DjangoFilterBackend,)
-    filterset_fields = ('curs', 'zi', 'ora_inceput', 'ora_sfarsit', 'grupa', 'tip', 'sala', 'profesor', 'pachet', )
+    filterset_fields = ('id', 'curs', 'zi', 'ora_inceput', 'ora_sfarsit', 'grupa', 'tip', 'sala', 'profesor', 'pachet', )
 
