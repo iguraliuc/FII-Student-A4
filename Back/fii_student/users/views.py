@@ -114,7 +114,7 @@ def reset_settings(request, uid):
     data = {
         'status': 'False'
     }
-    if request.method == 'POST' and request.user.is_authenticated:
+    if request.user.is_authenticated:
         try:
             user = get_object_or_404(FiiUser, pk=uid)
             if not user.personalise:
@@ -132,7 +132,7 @@ def reset_settings(request, uid):
             data['message'] = 'Invalid user!'
     serialized_data = simplejson.dumps(data)
     # return HttpResponse(serialized_data, content_type='application/json')
-    return redirect('/settings')
+    return redirect('/users/settings')
 
 
 

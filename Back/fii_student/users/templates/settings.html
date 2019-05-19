@@ -219,7 +219,8 @@
 
       <button class="btn btn-primary buttons" type="submit">Salvează</button>
       <button class="btn btn-primary buttons" type="reset"
-        onclick="resetProps(); this.blur(); call_reset_settings({{ user.id }})">Revenire</button>
+{#        onclick="resetProps(); this.blur(); call_reset_settings({{ user.id }})">Revenire</button>#}
+        onclick="location.href='../settings/reset_settings/{{ user.id }}'">Resetare</button>
     </form>
     <hr>
     <div>

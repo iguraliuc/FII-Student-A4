@@ -23,10 +23,10 @@ DEFAULT_COLOURS = {
         "SECOND": "#0086aa"
     },
     "COLOR2": {
-        "FIRST": "#ffc53f",
-        "SECOND": "#ff84f2"
+        "FIRST": "#65e1e0",
+        "SECOND": "#0086aa"
     },
-    "NAVBAR": "#1b1354",
+    "NAVBAR": "#030b3d",
     "FONT": "#ffffff"
 }
 DEFAULT_FONT_FAMILY = "Arvo"
@@ -35,51 +35,43 @@ BACKGROUND_CHOICES = {
     'FIRST': [
         "#1b1353",
         "#00396e",
-        "#004e92"
+        "#004e92",
+        "#000428"
     ],
     'SECOND': [
-        "#000428"
+        "#1b1353",
+        "#000428",
     ]
 }
 
 ELEMENT_CHOICES = {
     'FIRST': [
-        "#ffc53f",
-        "#ffc16a",
         "#1fd191",
-        "#2af598",
-        "#f9f586",
         "#f64abd",
         "#aa076b",
         "#ff9692",
-        "#aa076b",
         "#65e1e0",
-        "#004e92",
-        "#c31432"
-    ],
-    'SECOND': [
-        "#ff84f2",
-        "#ff6a72",
-        "#0086aa",
-        "#009efd",
-        "#1fd191",
-        "#ad3abd",
         "#000428",
         "#fc73c2",
-        "#610457",
-        "#6497e6",
+        "#0086aa",
+        "#c31432",
+    ],
+    'SECOND': [
+        "#1fd191",
+        "#f64abd",
+        "#aa076b",
+        "#ff9692",
+        "#65e1e0",
         "#000428",
-        "#240b36"
+        "#fc73c2",
+        "#0086aa",
+        "#c31432",
     ]
 }
 
 FLAT_CHOICES = [
-    "#1fd191",
     "#1b1354",
     "#030b3d",
-    "#ff9e3e",
-    "#9c09d3",
-    "#ce4abd"
 ]
 
 FONT_COLOR_CHOICES = [
