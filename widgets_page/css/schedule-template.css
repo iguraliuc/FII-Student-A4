@@ -1,0 +1,85 @@
+:root{
+    --Verde: #1fd191;
+    --Green1: linear-gradient(90deg, #1fd191, #0086aa);
+    --Purple: linear-gradient(90deg, #f64abd, #ad3abd);
+    --Albastru-inchis: #1b1354;
+    --Orange2: linear-gradient(90deg, #ffc16a, #ff6a72);
+    --LightBlue2: linear-gradient(90deg, #65e1e0, #6497e6, #8566e6);
+  
+    --DarkPurple2: linear-gradient(90deg, #c6e63b, #1eafb9fb);
+  
+  }
+  /*table*/
+  
+  .tabelmare{
+    margin: 0px 0px;
+    border-collapse: collapse;
+  }
+  .zi{
+    font-family: "Open Sans";
+    font-size: 15pt;
+    font-weight: 600;/* Semibold */
+    background-image: var(--Green1);
+    color: #ffffff;
+  }
+  .tabelmare tbody tr:nth-child(odd):not(.zi){
+    background-color: #ffffff;
+  }
+  .tabelmare tbody tr:nth-child(even):not(.zi){
+    background-color: #f7f5f7;
+  }
+  .tabelmare tbody tr:not(.zi):hover{
+    background-color: #DADADA;
+  }
+  .tabelmare tbody tr:not(.zi):first-of-type:hover{
+    background-color: #ffffff;
+  }
+  .tabelmare thead th{
+    border-style: none;
+    padding: 5px 5px;
+    text-align: center;
+    font-family: "MontSerrat";
+    font-size: 10pt;
+    font-weight: 500; /* Medium */
+    background-image: var(--Purple);
+    color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
+    width: 1000px;
+  }
+  .tabelmare thead {
+    border-spacing: 1em 0em;
+    padding:0px 10px;
+  }
+  .tabelmare tbody th{
+    text-align: left;
+    text-indent: 30px;
+  }
+  .tabelmare td{
+    text-align: center;
+    font-family: "MontSerrat";
+    font-size: 10pt;
+    font-weight: 500; /* Medium */
+    color: #000000;
+    padding: 7px 5px 7px 5px;
+  }
+  .tabelmare td a{
+    text-decoration: none;
+    text-align: center;
+    font-family: "MontSerrat";
+    font-size: 10pt;
+    font-weight: 500; /* Medium */
+    color: #000000;
+  }
+  .tabelmare td a:hover{
+    color: #000000;
+    text-decoration: underline;
+  }
+  
+  .data{
+    font-family: "Open Sans";
+    font-size: 15pt;
+    font-weight: 600;/* Semibold */
+    background-image: var(--LightBlue2);
+    color: #ffffff;
+  }
