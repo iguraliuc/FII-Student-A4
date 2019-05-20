@@ -1,6 +1,7 @@
 import os
 import json
 import datetime
+import re
 
 insert_command = "INSERT INTO news(title, body, author_name, category, published_time, expire_time, source) VALUES("
 
@@ -53,8 +54,23 @@ def get_real_data():
             #print(contor);
 
             jfile['content']=jfile['content'].replace('=/bin', '=https://www.info.uaic.ro/bin')
-            print(jfile['content'])
+            #print(jfile['content'])
             # object.body.replace('127.0.0.1:8000', 'https://www.info.uaic.ro')
+
+            vectorImg = re.findall('<a.*>.*<img.*>.*</a>', jfile['content'])
+            #for image in vectorImg:
+                #jfile['content'] = jfile['content'].replace(image, '')
+            #print(vectorImg)
+            #
+            for image in vectorImg:
+                imagines =re.findall('<img.*/>', image);
+                #print(imagines);
+                for imagePiece in imagines:
+                    print(imagePiece)
+                    pieceSource=re.findall('src="[^"]*"', imagePiece);
+                    print('<img width="150" height="150" '+pieceSource[0]+' />')
+                    jfile['content']=jfile['content'].replace(imagePiece, '<img width="150" height="150" '+pieceSource[0]+' />')
+                    #print(piece)
 
             new_command = insert_command + '\'' + jfile['title'] + '\', \'' + jfile['content'] + \
                             '\', \'\', \'\', \'' + str(published_date) + '\', \'' + str(valabil_date) + '\',' + '\'' + jfile['source'] + '\') '
