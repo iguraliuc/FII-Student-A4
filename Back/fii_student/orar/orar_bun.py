@@ -6,6 +6,7 @@ from lxml.html import fromstring
 
 BASE_URL = r"https://profs.info.uaic.ro/~orar/"
 ORAR_URL = r"https://profs.info.uaic.ro/~orar/orar_studenti.html"
+PROF_URL = r"https://profs.info.uaic.ro/~orar/orar_profesori.html"
 
 counter = 1
 
@@ -43,7 +44,17 @@ def generate_orare():
         item[0] = BASE_URL + item[0]
         get_orare(item[0], item[1])
         get_examene(item[0], item[1])
-    with open(r'./fixtures/orar_full.json', 'w') as f:
+
+    request = requests.get(PROF_URL)
+    _data = request.text
+    site_prof = re.findall(r'<li><a href="([^"]+)">\s*([^<]+)</a>', _data)
+    for it in site_prof:
+        it = list(it)
+        it[0] = BASE_URL + it[0]
+        get_profesori(it[0], it[1])
+        get_prof_ex(it[0], it[1])
+
+    with open(r'./orare/orar_full', 'w') as f:
         json.dump(final_list, f, indent=4)
     f.close()
 
@@ -203,5 +214,155 @@ def get_examene(site, title):
                 subject_dict['pachet'] = item[i][6]
                 subject_dict['zi'] = item[0][0]
             final_list.append(day_dict)
+
+
+def get_profesori(site, title):
+
+    global counter, final_list
+    print(site)
+    r = requests.get(site)
+    # print(r.text)
+    page = fromstring(r.text)
+    # print(page)
+    try:
+        rows = page.xpath("body/table")[0].findall("tr")
+    except:
+        return {}
+    data = list()
+    for row in rows:
+        data.append([c.text_content() for c in row.getchildren()])
+
+    # print(data)
+
+    y = []
+    for row in data:
+        z = []
+        for item in row:
+            # print(item)
+            item = re.sub(r'\r\n', '', item).strip()
+            z.append(item)
+        y.append(z)
+        # print(item)
+
+    # print(y)
+
+    days = ['Luni', 'Marti', 'Miercuri', 'Joi', 'Vineri', 'Sambata', 'Duminica']
+    index = []
+    for i in range(len(y)):
+        # print()
+        if y[i][0].split(' ')[0] in days:
+            index.append(i)
+    index.append(len(y))
+    all_days = []
+    for i in range(len(index) - 1):
+        all_day = []
+        for j in range(index[i], index[i + 1]):
+            all_day.append(y[j])
+        all_days.append(all_day)
+
+
+    for item in all_days:
+        print(item)
+        for i in range(1, len(item)):
+            day_dict = {}
+            subject_dict = {}
+            day_dict['model'] = "orar.Rand"
+            day_dict['pk'] = counter
+
+            day_dict['fields'] = subject_dict
+
+            counter = counter + 1
+            # print(len(item[i]))
+            subject_dict['ora_inceput'] = item[i][0]
+            subject_dict['ora_sfarsit'] = item[i][1]
+            subject_dict['grupa'] = re.sub('\s+', ' ', item[i][4]).strip()
+            subject_dict['curs'] = item[i][2]
+            subject_dict['tip'] = item[i][3]
+            title = title.split(',')[0]
+            title = re.sub(r'\r\n', '', title).strip()
+            subject_dict['profesor'] = title
+            subject_dict['sala'] = re.sub('\s+', ' ', item[i][5]).strip()
+            # subject_dict['frecventa'] = item[i][7]
+
+            subject_dict['pachet'] = item[i][-1]
+
+            subject_dict['zi'] = item[0][0].split(' ')[0]
+            print(day_dict)
+            final_list.append(day_dict)
+
+
+def get_prof_ex(site, title):
+
+    global counter, final_list
+    print(site)
+    r = requests.get(site)
+    # print(r.text)
+    page = fromstring(r.text)
+    # print(page)
+    try:
+        rows = page.xpath("body/table")[1].findall("tr")
+    except:
+        return {}
+    data = list()
+    for row in rows:
+        data.append([c.text_content() for c in row.getchildren()])
+
+    # print(data)
+
+    y = []
+    for row in data:
+        z = []
+        for item in row:
+            # print(item)
+            item = re.sub(r'\r\n', '', item).strip()
+            z.append(item)
+        y.append(z)
+        # print(item)
+
+    # print(y)
+
+    days = ['Luni', 'Marti', 'Miercuri', 'Joi', 'Vineri', 'Sambata', 'Duminica']
+    index = []
+    for i in range(len(y)):
+        # print()
+        if y[i][0].split(',')[0] in days:
+            index.append(i)
+    index.append(len(y))
+    all_days = []
+    for i in range(len(index) - 1):
+        all_day = []
+        for j in range(index[i], index[i + 1]):
+            all_day.append(y[j])
+        all_days.append(all_day)
+
+    for item in all_days:
+        print(item)
+        for i in range(1, len(item)):
+            day_dict = {}
+            subject_dict = {}
+            day_dict['model'] = "orar.Rand"
+            day_dict['pk'] = counter
+
+            day_dict['fields'] = subject_dict
+
+            counter = counter + 1
+            # print(len(item[i]))
+            subject_dict['ora_inceput'] = item[i][0]
+            subject_dict['ora_sfarsit'] = item[i][1]
+            subject_dict['grupa'] = re.sub('\s+', ' ', item[i][4]).strip()
+            subject_dict['curs'] = item[i][2]
+            subject_dict['tip'] = item[i][3]
+            title = title.split(',')[0]
+            title = re.sub(r'\r\n', '', title).strip()
+            subject_dict['profesor'] = title
+            subject_dict['sala'] = re.sub('\s+', ' ', item[i][5]).strip()
+            # subject_dict['frecventa'] = item[i][7]
+
+            subject_dict['pachet'] = item[i][-1]
+
+            subject_dict['zi'] = item[0][0]
+            print(day_dict)
+            final_list.append(day_dict)
+
 
 generate_orare()
