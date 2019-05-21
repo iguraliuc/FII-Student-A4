@@ -137,3 +137,12 @@ class Cards(models.Model):
 class PersonaliseBoard(models.Model):
     # extra data for each board chosen
     pass
+
+class Notification(models.Model):
+    personalise = models.ForeignKey(Personalise, on_delete=models.CASCADE)
+    category = models.CharField(max_length=20, choices=[(x, x) for x in {"Boards", "Noutati", "Resurse"}])
+    keyword = models.CharField(max_length=30)
+
+
+    def __str__(self):
+        return '{}'.format(0)

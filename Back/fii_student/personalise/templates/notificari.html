@@ -20,15 +20,43 @@
 </head>
 <body>
 
-<form>
-Categorie: <select name="category">
-  <option value="boards">Boards</option>
-  <option value="noutati">Noutati</option>
-  <option value="resurse">Resurse</option>
-</select><br>
-Cuvant cheie: <input type="text" name="keyword"><br>
-<input type="submit" value="Abonare">
-</form>
+Esti abonat la:<br>
+{% for notification in notifications %}
+<a href="/personalise/notificari/remove_notification/{{notification.id}}">Categoria <b>{{notification.category}}</b> cu keyword-ul <b>{{notification.keyword}}</b><br></a>
+{% endfor %}
+<br><br>
+
+<form class="box" method="post">
+{% csrf_token %}
+{% for field in form %}
+  <p>
+  {{ field.label_tag }}<br>
+  {{ field }}
+    {% for error in field.errors %}
+      <p style="color: red">{{ error }}</p>
+    {% endfor %}
+  </p>
+  {% endfor %}
+<button type="submit">Abonare</button>
+</form><br><br>
+
+Boards:<br>
+{% for board in boards %}
+<a href="/personalise/boards/{{board.id}}">{{board.subject}}</a><br>
+{% endfor %}
+<br><br>
+
+Noutati:<br>
+{% for new in news %}
+<a href="/news/{{new.news_id}}">{{new.title}}</a><br>
+{% endfor %}
+<br><br>
+
+Resurse:<br>
+{% for resource in resources %}
+<a href="/resources/{{resource.resources_id}}">{{resource.title}}</a><br>
+{% endfor %}
+<br><br>
 
 </body>
 {% endblock %}

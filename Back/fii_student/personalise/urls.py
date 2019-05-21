@@ -18,6 +18,7 @@ urlpatterns = [
     path('orar/orar_personalised/', show_orar_personalised, name='show_orar_personalised'),
     path('orar/orar_personalised/reset_orar/', reset_orar, name='reset_orar'),
     path('notificari/', show_notificari, name='show_notificari'),
+    path('notificari/remove_notification/<int:id>', remove_notification, name='remove_notification'),
 
     # REST API for cards
     # path('cards/<int:uid>/<string:type>/<int:x>/<int:y>/<>')

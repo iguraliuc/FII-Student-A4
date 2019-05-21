@@ -4,6 +4,10 @@ from django.http import HttpResponse, Http404
 from .models import Personalise, Board, PersonaliseOrar, Cards
 from users.models import FiiUser
 from .forms import BoardForm
+from .forms import NotificationForm
+from .models import Board
+from resources.models import Resources
+from .models import Notification
 from .models import dict_ani_studiu
 from orar.models import Rand
 from orar.views import *
@@ -13,6 +17,7 @@ from django_tables2 import RequestConfig, tables
 from django.urls import reverse
 from django.db import connection
 from django.views.generic import DetailView
+from news.models import News
 
 import os
 
@@ -538,6 +543,33 @@ def update_card(request, cid):
     return HttpResponse(serialized_data, content_type='application/json')
 
 def show_notificari(request):
-    template = loader.get_template('notificari.html')
-    context = {}
-    return HttpResponse(template.render(context, request))
+    notifications = Notification.objects.filter(personalise=request.user.personalise)
+    boards = Board.objects.none()
+    news = News.objects.none()
+    resources = Resources.objects.none()
+    for notification in notifications:
+        if notification.category == 'Boards':
+            boards |= Board.objects.filter(subject__icontains=notification.keyword) | Board.objects.filter(teacher__icontains=notification.keyword) | Board.objects.filter(description__icontains=notification.keyword)
+        if notification.category == 'Noutati':
+            news |= News.objects.filter(title__icontains=notification.keyword) | News.objects.filter(author_name__icontains=notification.keyword) | News.objects.filter(category__icontains=notification.keyword) | News.objects.filter(body__icontains=notification.keyword)
+        if notification.category == 'Resurse':
+            resources |= Resources.objects.filter(title__icontains=notification.keyword) | Resources.objects.filter(content__icontains=notification.keyword) | Resources.objects.filter(type__icontains=notification.keyword)
+    boards = boards.order_by('year')
+    news = news.order_by('inserted_time')
+    resources = resources.order_by('timestamp')
+    if request.user.is_authenticated and request.method == 'POST':
+        form = NotificationForm(request.POST)
+        if form.is_valid():
+            notification = Notification(personalise_id=request.user.personalise_id, category=request.POST['category'], keyword=request.POST['keyword'])
+            notification.save()
+            return redirect('/personalise/notificari')
+    else:
+        form = NotificationForm()
+    context = {'form': form, 'notifications' : notifications, 'boards' : boards, 'news': news, 'resources' : resources}
+    return render(request, 'notificari.html', context)
+
+def remove_notification(request, id):
+    if request.user.is_authenticated:
+        notification = get_object_or_404(Notification, id=id)
+        notification.delete()
+    return redirect('/personalise/notificari')

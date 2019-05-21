@@ -1,5 +1,5 @@
 from django import forms
-from .models import Personalise, Board
+from .models import Personalise, Board, Notification
 
 YEARS = ['I', 'II', 'III']
 
@@ -25,5 +25,18 @@ class BoardForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(BoardForm, self).__init__(*args, **kwargs)
+        for f in self.fields:
+            self.fields[f].widget.attrs.update({'class': 'form-control'})
+
+class NotificationForm(forms.ModelForm):
+    category = forms.ChoiceField(choices=[(x, x) for x in {"Boards", "Noutati", "Resurse"}], required=True)
+    keyword = forms.CharField(max_length=30, required=True)
+
+    class Meta:
+        model = Notification
+        fields = ('category', 'keyword')
+
+    def __init__(self, *args, **kwargs):
+        super(NotificationForm, self).__init__(*args, **kwargs)
         for f in self.fields:
             self.fields[f].widget.attrs.update({'class': 'form-control'})
