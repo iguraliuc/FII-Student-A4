@@ -536,3 +536,8 @@ def update_card(request, cid):
             data['Status'] = 'Fail'
     serialized_data = simplejson.dumps(data)
     return HttpResponse(serialized_data, content_type='application/json')
+
+def show_notificari(request):
+    template = loader.get_template('notificari.html')
+    context = {}
+    return HttpResponse(template.render(context, request))

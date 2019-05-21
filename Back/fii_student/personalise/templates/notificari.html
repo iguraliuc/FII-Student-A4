@@ -1,0 +1,34 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}">
+<style>
+    :root {
+      --background-first: {{ user.personalise.background_first }};
+      --background-second: {{ user.personalise.background_second }};
+      --navbar: {{ user.personalise.navbar_color }};;
+      --color1-first: {{ user.personalise.color1_first }};
+      --color1-second: {{ user.personalise.color1_second }};
+      --color2-first: {{ user.personalise.color2_first }};
+      --color2-second: {{ user.personalise.color2_second }};
+      --font: {{ user.personalise.font_color }};
+      --font-family: {{ user.personalise.font_family }};
+    }
+</style>
+<title>Notificari</title>
+</head>
+<body>
+
+<form>
+Categorie: <select name="category">
+  <option value="boards">Boards</option>
+  <option value="noutati">Noutati</option>
+  <option value="resurse">Resurse</option>
+</select><br>
+Cuvant cheie: <input type="text" name="keyword"><br>
+<input type="submit" value="Abonare">
+</form>
+
+</body>
+{% endblock %}

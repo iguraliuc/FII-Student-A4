@@ -1,4 +1,4 @@
-{% extends 'navbar.html' %}
+﻿{% extends 'navbar.html' %}
 {% block content %}
 
 <head>
@@ -6,7 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
+    <link href="{% static "navbar.css" %}" rel="stylesheet" type="text/css">
     <link href="{% static "prezentare.css" %}" rel="stylesheet" type="text/css">
+<style>
+    :root {
+      --background-first: {{ user.personalise.background_first }};
+      --background-second: {{ user.personalise.background_second }};
+      --navbar: {{ user.personalise.navbar_color }};;
+      --color1-first: {{ user.personalise.color1_first }};
+      --color1-second: {{ user.personalise.color1_second }};
+      --color2-first: {{ user.personalise.color2_first }};
+      --color2-second: {{ user.personalise.color2_second }};
+      --font: {{ user.personalise.font_color }};
+      --font-family: {{ user.personalise.font_family }};
+    }
+</style>
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
