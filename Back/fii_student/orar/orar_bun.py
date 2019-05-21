@@ -54,7 +54,7 @@ def generate_orare():
         get_profesori(it[0], it[1])
         get_prof_ex(it[0], it[1])
 
-    with open(r'./orare/orar_full', 'w') as f:
+    with open(r'./fixtures/orar_full.json', 'w') as f:
         json.dump(final_list, f, indent=4)
     f.close()
 
