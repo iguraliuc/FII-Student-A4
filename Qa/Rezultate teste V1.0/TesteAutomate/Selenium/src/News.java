@@ -23,15 +23,35 @@ public class News
 		
 		try 
 		{
-		for(WebElement obj:list)
-		{
-			obj.click();
-			driver.navigate().back();
-		}
-		}catch(Exception e)
+			for(char elem='1';elem<='9';elem++)
+			{
+				String xpath="//a[@href='" +elem+ "/']";
+				System.out.println(driver.findElement(By.xpath(xpath)).getText());
+				driver.findElement(By.xpath(xpath)).click();
+				driver.findElement(By.xpath("//a[@class='meniu']")).click();
+				Thread.sleep(1000);
+			}	
+			
+			driver.findElement(By.xpath("//img[@src='/static/plus.png']")).click();
+			Thread.sleep(3000);
+			
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys("");
+			driver.findElement(By.xpath("//textarea[@name='body']")).sendKeys("");
+			driver.findElement(By.xpath("//button[@type='submit']")).click();
+			
+			Thread.sleep(3000);
+			
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys("Pun anunt desi nu sunt logat");
+			driver.findElement(By.xpath("//textarea[@name='body']")).sendKeys("Acesta este mesajul unui user care nu este autentificat si nici nu are permisiuni");
+			driver.findElement(By.xpath("//button[@type='submit']")).click();
+			
+		} catch (Exception e) 
 		{
 			System.out.println(e.getMessage());
 		}
-
+		
+		
+		driver.close();
+		driver.quit();
 	}
 }

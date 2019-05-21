@@ -39,5 +39,8 @@ public class Boards
 				Thread.sleep(1000);
 			}
 		}
+		
+		driver.close();
+		driver.quit();
 	}
 }
