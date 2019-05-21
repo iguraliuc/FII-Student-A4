@@ -1,31 +1,31 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>GridStack.js</title>
+  <title>Widgets Page</title>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
-    integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.0/lodash.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/shim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.4.0/gridstack.all.js"></script>
-  <script src="knockout.mapping-latest.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/gridstack.css" />
+  <link rel="stylesheet" href="css/bootstrap.css" />
 
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css"> -->
 
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+  <script src="js/jquery-3.4.1.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/lodash.js"></script>
+  <script src="js/shim.js"></script>
+  <script src="js/knockout.js"></script>
+  <script src="js/knockout.mapping-latest.js"></script>
+
+  <script src="js/bootstrap.js"></script>
+  <script src="js/bootstrap-select.js"></script>
+  <script src="js/gridstack.all.js"></script>
+
+
+
 
 
 </head>
@@ -35,9 +35,11 @@
 
     <div class="menu-container">
 
-      <div>
-        <button class="btn" data-bind="click: addNewWidget">Add new widget</button>
-        <button class="btn" type="submit" data-bind="click: saveChanges">Save settings</button>
+      <div style="display: flex; padding: 0px 10px;">
+        <form action="" method="POST" enctype="application/x-www-form-urlencoded" style="padding: 0px 10px;">
+          <button class="btn" type="submit" data-bind="click: saveChanges">Save settings</button>
+        </form>
+        <button class="btn" data-bind="click: addNewWidget" style="padding: 0px 10px;">Add new widget</button>
 
       </div>
 
@@ -46,13 +48,8 @@
           size="1"></select>
       </div>
 
-      <div class="select-container" data-bind="if: selectedType">
+      <div class="select-container" data-bind="if: hasSecond">
         <select class="form-control" data-bind="optionsCaption: ' ', options: availableSubTypes, value: selectedSubType"
-          size="1"></select>
-      </div>
-
-      <div class="select-container" data-bind="if: isSchedule">
-        <select class="form-control" data-bind="optionsCaption: ' ', options: availableValues, value: selectedValue"
           size="1"></select>
       </div>
 
@@ -64,49 +61,41 @@
 
   </div>
 
+  <!-- WIDGET TEMPLATE -->
   <template id="widgets-grid-template">
     <div class="grid-stack" data-bind="foreach: {data: widgets, afterRender: afterAddWidget}">
       <div class="grid-stack-item"
         data-bind="attr: {'data-gs-id': $data.id, 'data-gs-x': $data.x, 'data-gs-y': $data.y, 'data-gs-width': $data.width, 'data-gs-height': $data.height, 'data-gs-min-width': $data.minWidth, 'data-gs-min-height': $data.minHeight, 'data-gs-auto-position': $data.autoPosition}">
         <div class="grid-stack-item-content">
           <div class="drag-handle">
-            <div class="widget-title">Title</div>
+            <div data-bind="text: $data.type.toUpperCase()" class="widget-title"></div>
             <button class="close-widget-button" data-bind="click: $root.deleteWidget"><span>x</span></button>
           </div>
-          <div class="widget-container">
-            <div class="widget-content"
-              data-bind="template: { name: $data.type, data: {subtype: $data.subtype, value: $data.value, specific: $data.specific} }">
+          <div class="widget-container"
+            data-bind="style: {'overflow-x': $data.specialStyle, 'overflow-y': $data.specialStyle}">
+            <div style="height:95%; width: 95%;" class="widget-content"
+              data-bind="template: { name: $data.type, data: {subtype: $data.subtype, specific: $data.specific} }">
             </div>
           </div>
 
         </div>
-      </div>
-    </div>
+      </div></div>
     <!-- FARA SPATIU INTRE ULTIMELE DOUA TAGURI </div> 
            ALTFEL NU SE VOR STERGE WIDGETURILE -->
   </template>
 
 
   <script type="text/javascript">
+    // https://cors-anywhere.herokuapp.com/
 
-    var scheduleURL = "https://cors-anywhere.herokuapp.com/http://fiistudent.ddns.us/api/orar/";
-    var newsURL = "https://cors-anywhere.herokuapp.com/http://fiistudent.ddns.us/api/news/";
-    var resourcesURL = "https://cors-anywhere.herokuapp.com/http://fiistudent.ddns.us/api/resources/";
+    var newsURL = "http://fiistudent.ddns.us/api/news/";
+    var resourcesURL = "http://fiistudent.ddns.us/api/resources/";
 
-    var schedulesAwait = null;
     var newsAwait = null;
     var resourcesAwait = null;
 
-
-
-    // var widgetAddType = "schedule";
-    var testDataGlobal = "test";
-    var widgetsGlobalData = null;
-    // var scheduleType = false;
-    // var newsType = false;
-    // var resourceType = false;
-
-
+    var hasWeatherAlready = false;
+    var currentDeleted = [];
 
     ko.components.register('widgets-grid', {
       viewModel: {
@@ -122,7 +111,6 @@
             }).data('gridstack');
 
             this.widgets = controller.widgets;
-            // this.resources = controller.resources;
 
             this.afterAddWidget = function (items) {
 
@@ -163,28 +151,15 @@
         var self = this;
         this.widgets = ko.observableArray(widgets);
 
-        // this.schedules = ko.observable(schedulesAwait);
-        // this.news = ko.observable(newsAwait);
-        // this.resources = ko.observable(resourcesAwait);
-
-
-
         this.selectedType = ko.observable("");
         this.selectedSubType = ko.observable("");
-        this.selectedValue = ko.observable("");
 
-        this.availableTypes = ["schedule", "news", "resources"];
-
-        // this.availableScheduleST = ["grupa", "materie", "profesor", "sala", "saliLibere", "dispSala"];
-        // this.availableNewsST = ["uaic", "fii", "orar", "all"];
-        // this.availableResourcesST = ["internal", "external", "all"];
+        this.availableTypes = ["vremea", "calendar", "news", "resources"];
 
         this.availableSubTypes = ko.computed(function () {
           var returnValue = null;
           var localSelectedType = self.selectedType();
-          if (localSelectedType === "schedule") {
-            returnValue = ["grupa", "materie", "profesor", "sala"];
-          } else if (localSelectedType === "news") {
+          if (localSelectedType === "news") {
             returnValue = ["uaic", "fii", "orar", "all"];
           } else if (localSelectedType === "resources") {
             returnValue = ["internal", "external", "all"];
@@ -192,35 +167,14 @@
           return returnValue;
         }, this);
 
-        this.availableValues = ko.computed(function () {
-          var returnValue = "";
-          var localSelectedType = self.selectedSubType();
-          if (localSelectedType === "grupa") {
-            returnValue = ["1", "2", "3", "4", "5", "6"];
-          } else if (localSelectedType === "materie") {
-            returnValue = ["mate", "sd", "ip", "all"];
-          } else if (localSelectedType === "profesor") {
-            returnValue = ["Ip", "AI", "FLT", "all"];
-          } else if (localSelectedType === "sala") {
-            returnValue = ["6", "7", "8", "all"];
-          } else if (localSelectedType === "saliLibere") {
-            returnValue = ["44", "44", "33", "all"];
-          } else if (localSelectedType === "dispSala") {
-            returnValue = ["555", "555", "555", "all"];
-          }
-          return returnValue;
-        }, this);
-
-        this.isSchedule = ko.computed(function () {
-
+        this.hasSecond = ko.computed(function () {
           var selectedLocal = self.selectedType();
-          if (selectedLocal === "schedule") {
+          if (selectedLocal === "news" || selectedLocal === "resources") {
             return true;
           } else {
             return false;
           }
         });
-
 
         this.getMaxId = function () {
           var gridStack = $(".grid-stack").data('gridstack');
@@ -237,48 +191,103 @@
         }
 
         this.addNewWidget = function () {
+          if(!self.selectedType()){
+            return false;
+          }
+
           let tempSpecific = [];
-          if (self.selectedType() === 'schedule') {
+          let minHeight = 1;
+          let minWidth = 1;
+          let specialStyle = "";
 
+          if (self.selectedType() === "vremea") {
+            specialStyle = 'hidden';
+            self.widgets().forEach(wid => {
+              if (wid.type === "vremea") {
+                alert(134);
+                hasWeatherAlready = true;
+              }
+            });
+            minHeight = 2;
+            minWidth = 6;
+          } else if (self.selectedType() === "calendar") {
+            specialStyle = 'hidden';
+
+            minHeight = 3;
+            minWidth = 3;
           } else if (self.selectedType() === "news") {
-
+            specialStyle = 'auto';
+            tempSpecific = newsAwait;
+            minHeight = 4;
+            minWidth = 6;
+            if (self.selectedSubType() === 'uaic') {
+              tempSpecific = tempSpecific.filter(function (element) {
+                return element.source === 'UAIC';
+              });
+            } else if (self.selectedSubType() === 'fii') {
+              tempSpecific = tempSpecific.filter(function (element) {
+                return element.source === 'FII';
+              });
+            } else if (self.selectedSubType() === 'orar') {
+              tempSpecific = tempSpecific.filter(function (element) {
+                return element.source === 'ORAR';
+              });
+            } else if (!self.selectedSubType()){
+              return false;
+            }
           } else if (self.selectedType() === "resources") {
+            specialStyle = 'auto';
+            minHeight = 2;
+            minWidth = 4;
             tempSpecific = resourcesAwait;
             if (self.selectedSubType() === 'internal') {
+              minHeight = 2;
+              minWidth = 2;
               tempSpecific = tempSpecific.filter(function (element) {
                 return element.url === null;
               });
             } else if (self.selectedSubType() === 'external') {
+              minHeight = 2;
+              minWidth = 4;
               tempSpecific = tempSpecific.filter(function (element) {
                 return element.url !== null;
               });
+            } else if (!self.selectedSubType()){
+              return false;
             }
           }
 
 
           // Aici se adauga widgets noi
-          this.widgets.push({
-            id: this.getMaxId() + 1,
-            width: 3,
-            height: 4,
+         if(!hasWeatherAlready){ 
+            this.widgets.push({
+            id: this.getMaxId().toString() + "new_created",
+            width: minWidth,
+            height: minHeight,
             autoPosition: true,
-            minWidth: 4,
-            minHeight: 4,
+            minWidth: minWidth,
+            minHeight: minHeight,
             type: self.selectedType(),
             subtype: self.selectedSubType(),
-            value: self.selectedValue(),
             specific: tempSpecific,
-            minHeight: 4,
-            minWidth: 4,
+            specialStyle: specialStyle
           });
+        }
 
           selectedType = null;
           selectedSubType = null;
-          selectedValue = null;
           return false;
         };
 
         this.deleteWidget = function (item) {
+          if (item.type === "vremea") {
+            hasWeatherAlready = false;
+          }
+          
+          if(item.id.toString().search("new_created") === -1){
+            currentDeleted.push(item.id);
+          }
+
           self.widgets.remove(item);
           return false;
         };
@@ -287,70 +296,157 @@
           let searchedWidget = widgets.find(function (element) {
             return element.id === id;
           });
-          let typeString = searchedWidget.type + "-" + searchedWidget.subtype + "-" + searchedWidget.value;
+          let typeString = searchedWidget.type + "-" + searchedWidget.subtype;
           return typeString;
         }
 
+
         // Functia asta face submit catre server pentru a salva dimensiunile si pozitiile
         this.saveChanges = function () {
-          console.log();
           var gridStack = $(".grid-stack").data('gridstack');
           var widgets = gridStack.grid.nodes;
 
-          let savedWidgets = [];
-          widgets.forEach(widget => {
-            savedWidgets.push({
-              id: widget.id,
-              x: widget.x,
-              y: widget.y,
-              width: widget.width,
-              height: widget.height,
-              type: this.getTypeOfId(parseInt(widget.id))
+          // let savedWidgets = [];
+          // widgets.forEach(widget => {
+          //   savedWidgets.push({
+          //     id: widget.id,
+          //     x: widget.x,
+          //     y: widget.y,
+          //     width: widget.width,
+          //     height: widget.height,
+          //     type: this.getTypeOfId(parseInt(widget.id))
+          //   });
+          // });
+          // console.log(savedWidgets);
+
+          currentDeleted.forEach(function (elemId) {
+              $.ajax({
+              url: '/personalise/cards/remove_card/' + elemId,
+              type: 'POST',
+              data: {
+                'csrfmiddlewaretoken': "{{ csrf_token }}",
+              },
+              success: function (data, response) {
+
+              }
             });
+          })
+
+          widgets.forEach(function (widget) {
+
+            if (widget.id.search("new_created") === -1) {
+              $.ajax({
+                url: '/personalise/cards/update_card/' + widget.id,
+                type: 'POST',
+                data: {
+                  'csrfmiddlewaretoken': "{{ csrf_token }}",
+                  'x': widget.x,
+                  'y': widget.y,
+                  'width': widget.width,
+                  'height': widget.height
+                },
+                success: function (data, response) {
+
+                }
+              });
+            } else {
+
+              $.ajax({
+                url: '/personalise/cards/add_card',
+                type: 'POST',
+                data: {
+                  'csrfmiddlewaretoken': "{{ csrf_token }}",
+                  'x': widget.x,
+                  'y': widget.y,
+                  'width': widget.width,
+                  'height': widget.height,
+                  'type': this.getTypeOfId(parseInt(widget.id))
+                },
+                success: function (data, response) {
+                  widget.id = data.id;
+
+                }
+              });
+            }
           });
-          console.log(savedWidgets);
-        }
+
+          currentDeleted = [];
+        } // END saveChanges FUNCTION
+
+
+        /*  Widgets properties
+   
+         autoPosition: false
+         height: 1
+         id: "1"
+         maxHeight: undefined
+         maxWidth: undefined
+         minHeight: undefined
+         minWidth: undefined
+         noMove: false
+         noResize: false
+         width: 2
+         x: 2
+         y: 0
+   
+       */
       };
 
-      /*  Widgets properties
-    
-          autoPosition: false
-          height: 1
-          id: "1"
-          maxHeight: undefined
-          maxWidth: undefined
-          minHeight: undefined
-          minWidth: undefined
-          noMove: false
-          noResize: false
-          width: 2
-          x: 2
-          y: 0
-    
-    */
+
 
 
       function processServerWidgets(widgetsParam) {
         this.processedWidgets = [];
         widgetsParam.forEach(wid => {
           let typeArr = wid.type.split("-");
-          let valueToAdd = "";
-          if (typeArr.length === 3) {
-            valueToAdd = typeArr[2];
-          }
-
           let tempSpecific = [];
-          if (typeArr[0] === 'schedule') {
+          let minHeight = 1;
+          let minWidth = 1;
+          let specialStyle = "";
 
-          } else if (typeArr[0] === "news") {
+          if (typeArr[0] === "vremea") {
+            specialStyle = "hidden";
+            hasWeatherAlready = true;
+            minHeight = 2;
+            minWidth = 6;
+          } else if (typeArr[0] === "calendar") {
+            specialStyle = "hidden";
+            minHeight = 3;
+            minWidth = 3;
+          }
+          else if (typeArr[0] === "news") {
+            specialStyle = "auto";
+            minHeight = 4;
+            minWidth = 6;
+            tempSpecific = newsAwait;
+            if (typeArr[1] === 'uaic') {
+              tempSpecific = tempSpecific.filter(function (element) {
+                return element.source === "UAIC";
+              });
+            } else if (typeArr[1] === 'fii') {
+              tempSpecific = tempSpecific.filter(function (element) {
+                return element.source === "FII";
+              });
+            } else if (typeArr[1] === 'orar') {
+              tempSpecific = tempSpecific.filter(function (element) {
+                return element.source === "ORAR";
+              });
+            }
 
           } else if (typeArr[0] === "resources") {
+            specialStyle = "auto";
+            minHeight = 2;
+            minWidth = 4;
             tempSpecific = resourcesAwait;
             if (typeArr[1] === 'internal') {
+              minHeight = 2;
+              minWidth = 2;
               tempSpecific = tempSpecific.filter(function (element) {
                 return element.url === null;
               });
             } else if (typeArr[1] === 'external') {
+              minHeight = 2;
+              minWidth = 4;
               tempSpecific = tempSpecific.filter(function (element) {
                 return element.url !== null;
               });
@@ -365,10 +461,10 @@
             height: wid.height,
             type: typeArr[0],
             subtype: typeArr[1],
-            value: valueToAdd,
             specific: tempSpecific,
-            minHeight: 4,
-            minWidth: 4,
+            minHeight: minHeight,
+            minWidth: minWidth,
+            specialStyle: specialStyle,
             autoPosition: true
           });
         });
@@ -379,36 +475,47 @@
       // primesc widgets de aici, widgets luate de la SERVER
       var widgetsFromServer = [
         {
-          id: 0, x: 0, y: 0, width: 6, height: 4,
-          type: "schedule-grupa-A4",
-
+          id: 0, x: 0, y: 0, width: 6, height: 2,
+          type: "vremea"
         },
         {
-          id: 1, x: 3, y: 0, width: 6, height: 4,
+          id: 1, x: 6, y: 0, width: 6, height: 4,
+          type: "calendar"
+        },
+        {
+          id: 2, x: 0, y: 3, width: 6, height: 7,
           type: "news-fii"
         },
         {
-          id: 2, x: 6, y: 0, width: 4, height: 5,
-          type: "schedule-profesor-FLT"
-        },
-        {
-          id: 3, x: 3, y: 0, width: 3, height: 3,
-          type: "resources-internal"
+          id: 3, x: 6, y: 5, width: 6, height: 5,
+          type: "resources-all"
         }
       ];
 
 
+      // weather widget
+      !function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (!d.getElementById(id)) {
+          js = d.createElement(s);
+          js.id = id;
+          js.src = 'https://weatherwidget.io/js/widget.min.js';
+          fjs.parentNode.insertBefore(js, fjs);
+        }
+      }(document, 'script', 'weatherwidget-io-js');
 
 
       async function getServerData() {
-        // schedulesAwait = await fetch(scheduleURL)
-        //   .then(function (response) {
-        //     return response.json();
-        //   });
-        // newsAwait = await fetch(newsURL)
-        //   .then(function (response) {
-        //     return response.json();
-        //   });
+
+        newsAwait = await fetch(newsURL)
+          .then(function (response) {
+            return response.json();
+          }).then(function (processed) {
+            processed.forEach(element => {
+              element.subtype = element.source;
+            });
+            return processed;
+          });
         resourcesAwait = await fetch(resourcesURL)
           .then(function (response) {
             return response.json();
@@ -416,19 +523,21 @@
             processed.forEach(element => {
               if (element.url) {
                 element.subtype = "external"
+                element.redirectLink = element.url;
               } else {
                 element.subtype = "internal"
+                element.redirectLink = 'http://fiistudent.ddns.us/resources/' + element.resources_id;
               }
             });
             return processed;
           });
 
-        // ko.mapping.fromJS(schedulesAwait, {}, controller.schedules);
+
         // ko.mapping.fromJS(newsAwait, {}, controller.news);
         // ko.mapping.fromJS(resourcesAwait, {}, controller.resources);
-        // console.log(schedulesAwait);
         // console.log(newsAwait);
         console.log(resourcesAwait);
+        console.log(newsAwait);
 
 
 
@@ -445,6 +554,7 @@
 
 
 
+
       // ko.mapping.fromJS(controller.selectedType, {}, controller.activateSubType);
 
       // var globalWidgetsData = document.querySelectorAll(".grid-stack-item");
@@ -455,525 +565,62 @@
   </script>
 
 
-  <script type="text/html" id="schedule">
-    <link rel="stylesheet" href="./css/schedule-template.css">
-      
-      <div>   
-        <table class="tabelmare">
-       <thead >
-             <tr>
-                  <th style="border-right : 10px solid #1b1354">ORE</th>
-                  <th style="border-right : 10px solid #1b1354">DISCIPLINA</th>
-                  <th style="border-right : 10px solid #1b1354">TIP</th>
-                  <th style="border-right : 10px solid #1b1354">GRUPA</th>
-                  <th style="border-right : 10px solid #1b1354">PROFESOR</th>
-                  <th>SALA</th>
-             </tr>
-        </thead>
-        <tbody>
 
-             <tr class="zi">
-                  <th colspan="10">Luni ( 12 ore )</td>
-             </tr>
-
-             <tr>
-                  <td>08:00-10:00</td>
-                  <td><a href="../discipline/orar_ic.html">Introducere in criptografie</a></td>
-                  <td>Laborator</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_iftene_s.html">Lect.dr. Iftene Sorin</a></td>
-                  <td><a href="../resurse/orar_C409.html" title="Corpul C">C409</a></td>
-                  
-             </tr>
-
-             <tr>
-                  <td>10:00-12:00</td>
-                  <td><a href="../discipline/orar_ip.html">Ingineria programarii</a></td>
-                  <td>Curs</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_iftene_a.html">Conf. dr. Iftene Adrian</a></td>
-                  <td><a href="../resurse/orar_C112.html" title="Corpul C">C112</a></td>
-                  
-             </tr>
-
-             <tr>
-                  <td>12:00-14:00</td>
-                  <td><a href="../discipline/orar_mcm.html">Modele continue si Matlab</a></td>
-                  <td>Curs</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_iacob.html">Lect.dr. Iacob Florin</a></td>
-                  <td><a href="../resurse/orar_C112.html" title="Corpul C">C112</a></td>
-                  
-             </tr>
-
-             <tr>
-                  <td>16:00-18:00</td>
-                  <td><a href="../discipline/orar_pav.html">Programare avansata</a></td>
-                  <td>Laborator</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_manolescuC.html">Manolescu Catalin</a></td>
-                  <td><a href="../resurse/orar_C405.html" title="Corpul C">C405</a></td>
-                  
-             </tr>
-
-             <tr>
-                  <td>18:00-20:00</td>
-                  <td><a href="../discipline/orar_ic.html">Introducere in criptografie</a></td>
-                  <td>Curs</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_tiplea_fl.html">Prof.dr. Tiplea Ferucio Laurentiu</a></td>
-                  <td><a href="../resurse/orar_C112.html" title="Corpul C">C112</a>, <a href="../resurse/orar_laptop.html" title="Corpul C">laptop</a></td>
-                  
-             </tr>
-
-             <tr>
-                  <td>18:00-20:00</td>
-                  <td><a href="../discipline/orar_cs.html">Matematica pentru concursuri</a></td>
-                  <td>Alte activitati</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_iacob.html">Lect.dr. Iacob Florin</a></td>
-                  <td><a href="../resurse/orar_C2.html" title="Corpul C">C2</a></td>
-                  
-             </tr>
-
-             <tr class="zi">
-                  <th colspan="10">Marti ( 12 ore )</td>
-             </tr>
-
-             <tr>
-                  <td>08:00-10:00</td>
-                  <td><a href="../discipline/orar_psgbd.html">Practica SGBD</a></td>
-                  <td>Curs</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_varlan_c.html">Lect. dr. Varlan Cosmin</a></td>
-                  <td><a href="../resurse/orar_C112.html" title="Corpul C">C112</a></td>
-                  
-             </tr>
-
-             <tr>
-                  <td>10:00-12:00</td>
-                  <td><a href="../discipline/orar_pf.html">Programare functionala</a></td>
-                  <td>Laborator</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_andrei_a.html">Lect. Dr. Arusoaie Andrei</a></td>
-                  <td><a href="../resurse/orar_C412.html" title="Corpul C">C412</a></td>
-                  
-             </tr>
-
-             <tr>
-                  <td>12:00-14:00</td>
-                  <td><a href="../discipline/orar_mcm.html">Modele continue si Matlab</a></td>
-                  <td>Laborator</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_iacob.html">Lect.dr. Iacob Florin</a></td>
-                  <td><a href="../resurse/orar_C210.html" title="Corpul C">C210</a></td>
-                  
-             </tr>
-
-             <tr>
-                  <td>14:00-16:00</td>
-                  <td><a href="../discipline/orar_tw.html">Tehnologii Web</a></td>
-                  <td>Curs</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_buraga.html">Conf.dr. Buraga Sabin Corneliu</a></td>
-                  <td><a href="../resurse/orar_C112.html" title="Corpul C">C112</a></td>
-                  
-             </tr>
-
-             <tr>
-                  <td>16:00-18:00</td>
-                  <td><a href="../discipline/orar_pav.html">Programare avansata</a></td>
-                  <td>Curs</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_frasinaru.html">Lect.dr. Frasinaru Cristian</a></td>
-                  <td><a href="../resurse/orar_C2.html" title="Corpul C">C2</a>, <a href="../resurse/orar_laptop.html" title="Corpul C">laptop</a>, <a href="../resurse/orar_video.html" title="Corpul C">videoproiector</a></td>
-                  
-             </tr>
-
-             <tr>
-                  <td>16:00-20:00</td>
-                  <td><a href="../discipline/orar_pc4.html">Programare competitiva II, facultativ, pregatire olimpiada</a></td>
-                  <td>Curs</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_diac_p.html">drd. Diac Paul</a><br><a href="../participanti/orar_ionitaA.html">Colab. Ionita Alexandru</a></td>
-                  <td><a href="../resurse/orar_C412.html" title="Corpul C">C412</a></td>
-                  
-             </tr>
-
-             <tr class="zi">
-                  <th colspan="10">Miercuri ( 12 ore )</td>
-             </tr>
-
-             <tr>
-                  <td>08:00-10:00</td>
-                  <td><a href="../discipline/orar_ip.html">Ingineria programarii</a></td>
-                  <td>Laborator</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_pistol.html">Lect. dr. Pistol Ionut</a></td>
-                  <td><a href="../resurse/orar_C401.html" title="Corpul C">C401</a></td>
-                  
-             </tr>
-
-             <tr>
-                  <td>10:00-12:00</td>
-                  <td><a href="../discipline/orar_psgbd.html">Practica SGBD</a></td>
-                  <td>Laborator</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_varlan_c.html">Lect. dr. Varlan Cosmin</a></td>
-                  <td><a href="../resurse/orar_C405.html" title="Corpul C">C405</a></td>
-                  
-             </tr>
-
-             <tr>
-                  <td>12:00-14:00</td>
-                  <td><a href="../discipline/orar_antre.html">Antreprenoriat si inovare in IT</a></td>
-                  <td>Curs</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_forascu.html">Conf.dr. Forascu Corina</a></td>
-                  <td><a href="../resurse/orar_C309.html" title="Corpul C">C309</a></td>
-                  
-             </tr>
-
-             <tr>
-                  <td>14:00-16:00</td>
-                  <td><a href="../discipline/orar_mcm.html">Modele continue si Matlab</a></td>
-                  <td>Consultatii</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_iacob.html">Lect.dr. Iacob Florin</a></td>
-                  <td><a href="../resurse/orar_C2.html" title="Corpul C">C2</a></td>
-                  
-             </tr>
-
-             <tr>
-                  <td>14:00-16:00</td>
-                  <td><a href="../discipline/orar_pf.html">Programare functionala</a></td>
-                  <td>Curs</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_ciobaca.html">Conf. dr. Ciobaca Stefan</a></td>
-                  <td><a href="../resurse/orar_C112.html" title="Corpul C">C112</a></td>
-                  
-             </tr>
-
-             <tr>
-                  <td>16:00-18:00</td>
-                  <td><a href="../discipline/orar_antre.html">Antreprenoriat si inovare in IT</a></td>
-                  <td>Seminar</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_forascu.html">Conf.dr. Forascu Corina</a></td>
-                  <td><a href="../resurse/orar_C905.html" title="Corpul C">C905</a></td>
-                  
-             </tr>
-
-             <tr class="zi">
-                  <th colspan="10">Joi ( 4 ore )</td>
-             </tr>
-
-             <tr>
-                  <td>10:00-12:00</td>
-                  <td><a href="../discipline/orar_le4.html">Limba engleza IV</a></td>
-                  <td>Seminar</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_armanu.html">Armanu Nicoleta</a></td>
-                  <td><a href="../resurse/orar_C909.html" title="Corpul C">C909</a></td>
-                  
-             </tr>
-
-             <tr>
-                  <td>12:00-14:00</td>
-                  <td><a href="../discipline/orar_tw.html">Tehnologii Web</a></td>
-                  <td>Laborator</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_amariei.html">Colab. Amariei Ciprian</a></td>
-                  <td><a href="../resurse/orar_C412.html" title="Corpul C">C412</a></td>
-                  
-             </tr>
-
-             <tr class="zi">
-                  <th colspan="10">Vineri ( 2 ore )</td>
-             </tr>
-
-             <tr>
-                  <td>16:00-18:00</td>
-                  <td><a href="../discipline/orar_di.html">Didactica informaticii</a></td>
-                  <td>Seminar</td>
-<td>I2A4</td>
-                  <td><a href="../participanti/orar_tibu.html">Colab. Tibu Mirela</a></td>
-                  <td><a href="../resurse/orar_C909.html" title="Corpul C">C909</a></td>
-                  
-             </tr>
-        </tbody>
-   </table>
-</div>
-
-</script>
-
-
+  <!-- NEWS TEMPLATE -->
   <script type="text/html" id="news">
     <link rel="stylesheet" href="./css/news-template.css">
 
-    <div>
-        <div class="board">
+    <div style="overflow-x: auto; overflow-y: auto; background-color: var(--background-first); display: flex;">
+        <div class="board" data-bind="foreach: {data: $data.specific}">
         
-            <div class="anunt-container uaic">
-                <div class="date">
+            <div class="anunt-container uaic" style="display: flex; justify-content: center;">
+                <!-- <div class="date">
                     <p>April 15, 2019, 10:59 a.m.</p>
                     <p class="day"> Mie.</p>
-                </div>
-                <div class="anunt">
-                    <p class="top">Burse sociale  semestrul 1, anul universitar 2018-2019 </p>
+                </div> -->
+                <div class="anunt" style="display: flex; flex-direction: column; align-items: center;">
+                    <p class="top" data-bind="text: $data.title"></p>
 
-                    <div class="continut"> <!-- in div-ul cu clasa continut se pune continutul articolului formatat -->
-                        <p>Dosarele pentru acordarea burselor sociale în semestrul 1 se vor depune la secretariatul Facultății de Informatică în perioada <strong class="strong">8-19 octombrie 2018</strong>.</p>
-                        <p>Documentația aferentă poate fi consultată <a href="http://127.0.0.1:8000/bin/download/Students/N1810021253/burse_sociale_sem_I_2018-2019.pdf">aici</a>...</p>
+                    <div class="continut" data-bind="html: $data.body">
                     </div>
 
-                    <a href="http://127.0.0.1:8000/news/1">Deschide articolul complet!</a>
+                    <a data-bind="attr: {href: 'http://fiistudent.ddns.us/news/'+$data.news_id}">Deschide articolul complet!</a>
                 </div>
             </div>
-        
-            <div class="anunt-container fii">
-                <div class="date">
-                    <p>April 15, 2019, 10:59 a.m.</p>
-                    <p class="day"> Mon.</p>
-                </div>
-                <div class="anunt">
-                    <p class="top">Cazare 2018 </p>
-                    <div class="continut">
-                        <p>Lista studenților care beneficiază de cazare în anul universitar 2018-2019 poate fi consultată <a href="https://www.info.uaic.ro/bin/download/Students/N1809211441/cazari_info_2018.pdf">aici</a>. Studenții sunt rugați să consulte și <a href="https://www.info.uaic.ro/bin/download/Students/N1809211441/informatii_utile.pdf">aceste informații utile</a>...</p>
-                    </div>
-                    <a href="http://127.0.0.1:8000/news/2">Deschide articolul complet!</a>
-                </div>
-            </div>
-        
-            <div class="anunt-container fii">
-                <div class="date">
-                    <p>April 15, 2019, 10:59 a.m.</p>
-                    <p class="day"> Mie.</p>
-                </div>
-                <div class="anunt">
-                    <p class="top">Cazare 2018  etapa a 2-a </p>
-        
-                    <div class="continut">
-                        <p>Lista studenților care beneficiază de cazare în urma redistribuirii poate fi consultată <a href="http://127.0.0.1:8000/bin/download/Students/N1809271157/cazari_info_2_2018.pdf">aici</a>...</p>
-                    </div>
-                    
-                    <a href="http://127.0.0.1:8000/news/3">Deschide articolul complet!</a>
-                </div>
-            </div>
-        
-            <div class="anunt-container orar">
-                <div class="date">
-                    <p>April 15, 2019, 10:59 a.m.</p>
-                    <p class="day"> Mie.</p>
-                </div>
-                <div class="anunt">
-                    <p class="top">Contracte de studii  cursanți </p>
-
-                    <div class="continut">
-                        <p>Cursanții înmatriculați la studii de licență și master, anul universitar 2018/2019, sunt invitați să semneze <em class="italic">Contractele de studii universitare pentru prelungirea școlarității</em>, în perioada 08-19 octombrie 2018, la secretariatul Facultății de Informatică...</p>
-                    </div>
-
-                    <a href="http://127.0.0.1:8000/news/4">Deschide articolul complet!</a>
-                </div>
-            </div>
-        
-            <div class="anunt-container ">
-                <div class="date">
-                    <p>April 15, 2019, 10:59 a.m.</p>
-                    <p class="day"> Mie.</p>
-                </div>
-                <div class="anunt">
-                    <p class="top">Deschiderea anului universitar 2018-2019 </p>
-                    <div class="continut">
-                        <p>
-                            Festivitatea de deschidere a anului universitar 2018-2019 la Universitatea „Alexandru Ioan Cuza” din Iași va avea loc luni, 1 octombrie 2018,
-                            începând cu ora 14:00, în Aula Magna „Mihai Eminescu” (Corp A).<br>
-                            La Facultatea de Informatică, festivitatea de deschidere va avea loc luni, 1 octombrie 2018, începând cu ora 15:30, în amfiteatrul C3 (corp C, etaj 2)...
-                        </p>
-                    </div>
-
-                    <a href="http://127.0.0.1:8000/news/5">Deschide articolul complet!</a>
-                </div>
-            </div>
-        
-            <div class="anunt-container ">
-                <div class="date">
-                    <p>April 15, 2019, 10:59 a.m.</p>
-                    <p class="day"> Mie.</p>
-                </div>
-                <div class="anunt">
-                    <p class="top">Examen de disertație sesiunea februarie 2019 </p>
-                    <div class="continut">
-                        <p>Susținerea examenului de disertație va avea loc în ziua de&nbsp;<strong>vineri 15 februarie 2019</strong>. Programarea candidaților va fi disponibilă la finalul zilei de luni 11 februarie.</p>
-                        <p>Înscrierile se fac la secretariatul Facultăţii de Informatică în perioada&nbsp;<strong>4-8 februarie 2019</strong>.</p>
-                        <p>Dosarul de înscriere va conţine următoarele acte:</p>
-                        <ul>
-                            <li>cerere de înscriere (formularul se ridică de la secretariat sau poate fi descărcat de&nbsp;<a href="http://profs.info.uaic.ro/~webdata/anunturi/formular%20inscriere%20DISERTATIE%20feb%202019.doc">aici</a>)</li>
-                            <li>fişa de lichidare (formularul se ridică de la secretariat sau poate fi descărcat de&nbsp;<a href="http://profs.info.uaic.ro/~webdata/anunturi/fisa%20de%20lichidare.doc">aici</a>)</li>
-                            <li>copie după certificatul de naştere</li><li>copie după certificatul de căsătorie sau documentul care atestă schimbarea numelui</li><li>copie după actul de identitate</li>
-                            <li>un exemplar din&nbsp;lucrarea de disertaţie – format A4, brosat, cu paginile numerotate(lucrarea se redactează și se susține în limba de predare a programului de studii), avizată de coordonatorul ştiinţific şi însoţită de&nbsp;<a href="http://profs.info.uaic.ro/~webdata/anunturi/Anexa%201%20-%20Declaratie%20plagiat.docx">Declaraţia de originalitate</a></li><li>chitanţa de plată a taxei de repetare a examenului de disertaţie (unde este cazul)</li>
-                            <li>diploma de bacalaureat şi diploma de licenţă, în original</li>
-                            <li>situaţia şcolară (document care se eliberează de la Baze de date, cam. 201, doar în scopul susţinerii examenului de disertaţie)</li>
-                            <li>dosar plic</li>
-                        </ul>
-                        <p>Condiţii de înscriere:</p>
-                        <ul>
-                            <li>Promovarea tuturor disciplinelor, conform planului de invăţământ.</li>
-                            <li>Achitarea integrală a tuturor categoriilor de taxe (taxe de şcolarizare, de refacere activitate didactică etc.– după caz).</li>
-                        </ul>
-                        <p>Observaţii:</p>
-                        <ul>
-                            <li>Examenul de finalizare a studiilor se va desfăşura în perioada&nbsp;<strong>11-17 februarie 2019</strong>, coordonatele exacte (data, ora, sala) urmând să fie comunicate de către secretarul comisiei de examinare.</li>
-                            <li>Secretarul comisiei va aduce la cunoștința candidaților dacă este necesar să fie depus la dosar și formatul electronic al lucrării....</li>
-                        </ul>
-                    </div>
-                    <a href="http://127.0.0.1:8000/news/6">Deschide articolul complet!</a>
-                
-            </div>
-            </div>
-        
-            <div class="anunt-container ">
-                <div class="date">
-                    <p>April 15, 2019, 10:59 a.m.</p>
-                    <p class="day"> Mie.</p>
-                </div>
-                <div class="anunt">
-                    <p class="top">Examen de licență  sesiunea februarie 2019 </p>
-
-                    <div class="continut">
-                        <p>Înscrierile se fac la secretariatul Facultăţii de Informatică în perioada&nbsp;<strong>4-8 februarie 2019</strong>.</p>
-                        <p>Dosarul de înscriere va conţine următoarele acte:</p>
-                        <ul>
-                            <li>cerere de înscriere (formularul se ridică de la secretariat sau poate fi descărcat de&nbsp;<a href="http://profs.info.uaic.ro/~webdata/anunturi/formular%20inscriere%20LICENTA%20feb%202019.doc">aici</a>)</li>
-                            <li>fişa de lichidare (formularul se ridică de la secretariat sau poate fi descărcat de&nbsp;<a href="http://profs.info.uaic.ro/~webdata/anunturi/fisa%20de%20lichidare.doc">aici</a>)</li>
-                            <li>copie după certificatul de naştere</li><li>copie după certificatul de căsătorie sau documentul care atestă schimbarea numelui</li><li>copie după actul de identitate</li>
-                            <li>situaţia şcolară (se eliberează de la Baze de date, cam. 201 – document ce se foloseşte doar în vederea susţinerii examenului de licenţă)</li><li>diploma de bacalaureat, în original</li>
-                            <li>un exemplar din&nbsp;lucrarea de licenţă – format A4, brosat, cu paginile numerotate&nbsp;(lucrarea se redactează și se susține în limba de predare a programului de studii), avizată de coordonatorul ştiinţific şi însoţită de&nbsp;<a href="http://profs.info.uaic.ro/~webdata/anunturi/Anexa%201%20-%20Declaratie%20plagiat.docx">Declaraţia de originalitate</a></li>
-                            <li>chitanţa de plată a taxei de repetare a examenului de licență (unde este cazul)</li>
-                            <li>dosar plic</li>
-                        </ul>
-                        <p>Condiţii de înscriere:</p>
-                        <ul>
-                            <li>Promovarea tuturor disciplinelor, conform planului de invăţământ.</li>
-                            <li>Achitarea integrală a tuturor categoriilor de taxe (taxe de şcolarizare, de refacere activitate didactică etc.– după caz).</li>
-                        </ul>
-                        <p>Observaţii:</p>
-                        <ul>
-                            <li>Examenul de finalizare a studiilor se va desfăşura în perioada&nbsp;<strong>11-17 februarie 2019</strong>, coordonatele exacte (data, ora, sala) urmând să fie comunicate de către secretarii comisiilor de examinare.</li>
-                            <li>Secretarii comisiilor de examinare vor anunța, în timp util, dacă este necesară și înscrierea online....</li>
-                        </ul> 
-                    </div>  
-
-                    <a href="http://127.0.0.1:8000/news/7">Deschide articolul complet!</a>
-                </div>
-            </div>
-        
-            <div class="anunt-container ">
-                <div class="date">
-                    <p>April 15, 2019, 10:59 a.m.</p>
-                    <p class="day"> Mie.</p>
-                </div>
-                <div class="anunt">
-                    <p class="top">Mobilități studențești de studiu Erasmus+, semestrul 2 </p>
-                    <div class="continut">
-                        <p>În data de 8 octombrie a început procesul de selecție pentru mobilitățile studențești de studiu Erasmus+, semestrul 2 din anul universitar 2018-2019. Cei interesați pot găsi informatiile necesare <a href="http://profs.info.uaic.ro/~rvlad/erasmus">aici</a>...</p>
-                    </div>
-                    <a href="http://127.0.0.1:8000/news/8">Deschide articolul complet!</a>
-                </div>
-            </div>
-        
-            <div class="anunt-container ">
-                <div class="date">
-                    <p>April 15, 2019, 10:59 a.m.</p>
-                    <p class="day"> Mie.</p>
-                </div>
-                <div class="anunt">
-                    <p class="top">Repartizarea studenților pe discipline opționale </p>
-                    <div class="continut">
-                        <p>Repartizarea studenților din anii II și III pe discipline opționale:</p>
-                        <ul class="star">
-                            <li><a href="https://www.info.uaic.ro/bin/download/Students/N1809261934/repartizare_optionale_anul+II.pdf">anul II</a></li>
-                            <li><a href="http://127.0.0.1:8000/bin/download/Students/N1809261934/repartizare_optionale_anul+III.pdf">anul III</a>...</li>
-                        </ul>
-                    </div>
-                    <a href="http://127.0.0.1:8000/news/9">Deschide articolul complet!</a>
-                </div>
-            </div>
-        
-            <div class="anunt-container ">
-                <div class="date">
-                    <p>April 15, 2019, 10:59 a.m.</p>
-                    <p class="day"> Mie.</p>
-                </div>
-                <div class="anunt">
-                    <p class="top">Repartizarea studenților pe grupe în anul universitar 2018-2019 </p>
-                    <div class="continut">
-                    <p>Repartizarea pe grupe a studenților de nivel licență:</p>
-                        <ul class="star">
-                            <li><a href="http://127.0.0.1:8000/bin/download/Students/N1809282006/grupe_1Ro.pdf">anul I, limba română</a></li>
-                            <li><a href="http://127.0.0.1:8000/bin/download/Students/N1809282006/grupe_1En.pdf">anul I, limba engleză</a></li>
-                            <li><a href="http://127.0.0.1:8000/bin/download/Students/N1809282006/grupe_2Ro.pdf">anul II, limba română</a></li>
-                            <li><a href="http://127.0.0.1:8000/bin/download/Students/N1809282006/grupe_2En.pdf">anul II, limba engleză</a></li>
-                            <li><a href="http://127.0.0.1:8000/bin/download/Students/N1809282006/grupe_3Ro.pdf">anul III, limba română</a></li>
-                            <li><a href="http://127.0.0.1:8000/bin/download/Students/N1809282006/grupe_3En.pdf">anul III, limba engleză</a>...</li>
-                        </ul>
-                    </div>
-                    <a href="http://127.0.0.1:8000/news/10">Deschide articolul complet!</a>
-                </div>
-            </div>
-        
-            <div class="anunt-container ">
-                <div class="date">
-                    <p>April 15, 2019, 10:59 a.m.</p>
-                    <p class="day"> Mie.</p>
-                </div>
-                <div class="anunt">
-                    <p class="top">Studenți  consimțământ privind prelucrarea  datelor cu caracter personal </p>
-                    <div class="continut">
-                        <p class>În conformitate cu noua legislație privind protecția datelor personale, studenții de la toate nivelele de studiu trebuie să completeze și să depună la secretariat declarația de consimțământ privind prelucrarea  datelor cu caracter personal.</p>
-                        <a href="http://profs.info.uaic.ro/~webdata/anunturi/Declaratie%20de%20confidentialitate.pdf">Modelul de declarație poate fi descărcat de aici</a>. Fișierul trebuie tipărit, completat, semnat și depus la secretariatul Facultății de Informatică, în timpul orelor de program cu publicul, până cel târziu <strong class="strong">miercuri 21 noiembrie 2018, ora 12:00</strong>.</p>
-                        <p>Atenție: la finalul declarației, înainte de semnătură, trebuie completat numărul contractului de studii al studentului respectiv. Fiecare student, la semnarea acestui contract, a primit un exemplar, pe care este trecut numărul său...</p>
-                    </div>
-                    <a href="http://127.0.0.1:8000/news/11">Deschide articolul complet!</a>
-                </div>
-            </div>
-        
-            <div class="anunt-container ">
-                <div class="date">
-                    <p>April 15, 2019, 10:59 a.m.</p>
-                    <p class="day"> Mie.</p>
-                </div>
-                <div class="anunt">
-                    <p class="top">În atenţia studenţilor reînmatriculaţi în luna septembrie 2018 </p>
-                    <div class="continut">
-                        <p>Studenţii din anii de studii II şi III licență care s-au reînmatriculat în luna septembrie 2018 sunt invitaţi la secretariatul Facultăţii de Informatică, camera C201 (parter, lângă intrarea dinspre corpul B, birou secretar şef), până vineri 5 octombrie, între orele 10-12, pentru înscrierea la disciplinele opţionale în anul universitar 2018-2019...</p>
-                    </div>
-                    <a href="http://127.0.0.1:8000/news/12">Deschide articolul complet!</a>
-                </div>
-            </div>
-        
 
         </div>
     </div>
 
   </script>
 
-
+  <!-- RESOURCES TEMPLATE -->
   <script type="text/html" id="resources">
     <link rel="stylesheet" href="./css/resources-template.css">
-    <!-- data-bind="text: $data.title"  data-bind="foreach: {data: $root.resources}"-->
-    <!-- <div data-bind="text: $root.resources"></div> -->
     <div>
-        <div class="resources-container">
-            <ul data-bind="foreach: {data: $data.specific}" class="resources-list">
-                <li class="resources-item" data-bind="visible: $data.subtype" >
-                    <a class="list-item-text" data-bind="text: $data.title, attr:{href: 'http://fiistudent.ddns.us/resources/'+$data.resources_id}"></a>
-                </li>
+    <div class="resources-container">
+    <ul data-bind="foreach: {data: $data.specific}" class="resources-list">
+      <li class="resources-item" data-bind="visible: $data.subtype">
+        <a class="list-item-text"
+          data-bind="text: $data.title, attr:{href: $data.redirectLink}"></a>
+      </li>
 
-            </ul>
-        </div>
-    </div>
+    </ul>
+  </div>
+  </div>
 
+  </script>
+
+  <!-- VREMEA TEMPLATE -->
+  <script type="text/html" id="vremea">
+    <a class="weatherwidget-io" href="https://forecast7.com/ro/47d1627d60/iasi/" data-label_1="IAȘI" data-label_2="Vremea" data-font="Arimo" data-icons="Climacons Animated" data-theme="pure" >IAȘI Vremea</a>
+  </script>
+
+  <!-- CALENDAR TEMPLATE -->
+  <script type="text/html" id="calendar">
+
+    <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FBucharest&amp;src=anI2NWM2dmM2OWplbDZxcTNodmU1ZWVkb2dAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23F6BF26&amp;showTitle=0&amp;showNav=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0" 
+    style="position: relative; width: 100%; height: 100%;" frameborder="0" scrolling="no" allowfullscreen="">
+    </iframe>
   </script>
 
 </body>

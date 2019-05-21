@@ -1,45 +1,66 @@
 /* Style adaugat in fata originalului */
 
-html{
-    background-color: #1b1354;
-  }
+:root {
+    --background-first: #1b1353;
+    --background-second: #000428;
+    --navbar: #030b3d;
+    --color1-first: #1fd191;
+    --color1-second: #0086aa;
+    --color2-first: #f64abd;
+    --color2-second: #ad3abd;
+    --font: #ffffff;
+    --font-family: 'Montserrat', sans-serif;
+}
 
-  .widgets-container {
+/* :root{
+    --background-first: {{user.personalise.background_first}};
+    --background-second: {{user.personalise.background_second}};
+    --navbar:{{ user.personalise.navbar_color }};
+    --color1-first:{{ user.personalise.color1_first }};
+    --color1-second:{{ user.personalise.color1_second }};
+    --color2-first:{{ user.personalise.color2_first }};
+    --color2-second:{{ user.personalise.color2_second }};
+    --font: {{ user.personalise.font_color }};
+    --font-family: {{ user.personalise.font_family }}; 
+} */
+
+html {
+    background-color: var(--background-first);
+    font-family: var(--font-family);
+}
+
+.widgets-container {
     margin: 0px;
     padding: 0px;
     border: 0px;
     width: 100%;
     height: 100%;
-    background-color: #1b1354;
-  }
-  
-  .grid-stack {
+    background-color: var(--background-first);
+}
+
+.grid-stack {
     margin: 0px;
     padding: 0px;
     border: 0px;
     width: 100%;
     height: 100%;
     background: transparent;
-    
-  }
-  
-  .grid-stack-item-content {
-    color: #2c3e50;
+}
+
+.grid-stack-item-content {
     text-align: center;
-    background-color: white;
     border-radius: 10px 10px 10px 10px;
-  }
-  
-  
-  .drag-handle{
-    width: 100%; 
-    height: 30px; 
-    background: linear-gradient(to right, #f64abd 0%, #ad3abd 100%
-    );
-    border-bottom: 2px #DADADA solid;
-  }
-  
-  .close-widget-button{
+    background-color: var(--font);
+}
+
+.drag-handle {
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(to right, var(--color2-first) 0%, var(--color2-second) 100%);
+    border-bottom: 2px var(--font) solid;
+}
+
+.close-widget-button {
     position: absolute;
     right: 0px;
     top: 0px;
@@ -52,20 +73,18 @@ html{
     align-items: center;
     justify-content: center;
     justify-items: center;
-  
     align-self: center;
     justify-self: flex-end;
     float: right;
     border-radius: 100px;
     text-align: center;
     border: none;
-  
-    color: white;
+    color: var(--font);
     background: transparent;
-  }
-  
-  .widget-title{
-    color: white;
+}
+
+.widget-title {
+    color: var(--font);
     height: 100%;
     display: flex;
     margin-right: 15px;
@@ -73,21 +92,17 @@ html{
     align-items: center;
     justify-content: center;
     justify-items: center;
-  }
-  
-  .widget-container{
-      height: calc(100% - 30px);
-      overflow-x: auto;
-      overflow-y: auto;
-  }
-
-
-.menu-container{
-    display: flex;
 }
 
+.widget-container {
+    height: calc(100% - 30px);
+    /* overflow-x: auto;
+    overflow-y: auto; */
+}
 
-
+.menu-container {
+    display: flex;
+}
 
 /*  
    => Sursa CSS original: https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.4.0/gridstack.min.css
@@ -113,8 +128,10 @@ html{
 }
 
 .grid-stack .grid-stack-placeholder>.placeholder-content {
-    border-radius: 10px 10px 10px 10px; /* adaugat de mine */
-    border: 1px dashed white; /* adaugat de mine */
+    border-radius: 10px 10px 10px 10px;
+    /* adaugat de mine */
+    border: 1px dashed var(--font);
+    /* adaugat de mine */
     margin: 0;
     position: absolute;
     top: 0;
@@ -123,13 +140,13 @@ html{
     bottom: 0;
     width: auto;
     z-index: 0!important;
-    text-align: center
+    text-align: center;
 }
 
 .grid-stack>.grid-stack-item {
     min-width: 8.3333333333%;
     position: absolute;
-    padding: 0
+    padding: 0;
 }
 
 .grid-stack>.grid-stack-item>.grid-stack-item-content {
@@ -141,9 +158,11 @@ html{
     bottom: 0;
     width: auto;
     z-index: 0;
-    overflow-x: hidden; /* adaugat de mine */
+    overflow-x: hidden;
+    /* adaugat de mine */
     overflow-y: hidden;
-    border: 2px #DADADA solid; /* adaugat de mine */
+    border: 2px var(--font) solid;
+    /* adaugat de mine */
 }
 
 .grid-stack>.grid-stack-item>.ui-resizable-handle {
