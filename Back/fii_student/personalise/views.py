@@ -354,10 +354,11 @@ def show_orar_personalised(request):
     _grupe_queryset = Rand.objects.all().values_list('grupa').distinct()
     for gr in _grupe_queryset:
         grupe.append(gr[0])
-    _grupe_set = {'I1'}
+    _grupe_set = {'I1A1'}
     for gr in grupe:
         for aux in gr.split(','):
-            _grupe_set.add(aux)
+            if(len(aux)>=4):
+                _grupe_set.add(aux)
     lista_grupe = sorted(_grupe_set)
 
     print(datetime.datetime.now().strftime("%A"))
