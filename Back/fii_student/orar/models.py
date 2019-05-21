@@ -9,7 +9,7 @@ class Rand(models.Model):
     zi = models.CharField(max_length=25,default=None, blank=True, null=True)
     ora_inceput = models.TimeField(default=None, blank=True, null=True)
     ora_sfarsit = models.TimeField(default=None, blank=True, null=True)
-    grupa = models.CharField(max_length=50,default=None, blank=True, null=True)
+    grupa = models.CharField(max_length=60,default=None, blank=True, null=True)
     tip = models.CharField(max_length=20,default=None, blank=True, null=True)
     sala = models.CharField(max_length=50,default=None, blank=True, null=True)
     profesor = models.CharField(max_length=200,default=None, blank=True, null=True)
