@@ -260,10 +260,12 @@ def get_profesori(site, title):
             all_day.append(y[j])
         all_days.append(all_day)
 
-
     for item in all_days:
         print(item)
         for i in range(1, len(item)):
+            print(item[i][4])
+            if item[i][4]:
+                continue
             day_dict = {}
             subject_dict = {}
             day_dict['model'] = "orar.Rand"
@@ -287,7 +289,7 @@ def get_profesori(site, title):
             subject_dict['pachet'] = item[i][-1]
 
             subject_dict['zi'] = item[0][0].split(' ')[0]
-            print(day_dict)
+            # print(day_dict)
             final_list.append(day_dict)
 
 
@@ -336,8 +338,11 @@ def get_prof_ex(site, title):
         all_days.append(all_day)
 
     for item in all_days:
-        print(item)
+        # print(item)
         for i in range(1, len(item)):
+            print(item[i][4])
+            if item[i][4]:
+                continue
             day_dict = {}
             subject_dict = {}
             day_dict['model'] = "orar.Rand"
@@ -361,7 +366,7 @@ def get_prof_ex(site, title):
             subject_dict['pachet'] = item[i][-1]
 
             subject_dict['zi'] = item[0][0]
-            print(day_dict)
+            # print(day_dict)
             final_list.append(day_dict)
 
 
