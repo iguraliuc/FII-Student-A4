@@ -188,6 +188,7 @@ def show_orar(request):
     for gr in grupe:
         for aux in gr.split(','):
             _grupe_set.add(aux)
+    _grupe_set.remove('')
     lista_grupe = sorted(_grupe_set)
 
     print(datetime.datetime.now().strftime("%A"))
@@ -253,6 +254,9 @@ def show_orar(request):
                 randuri = randuri | randuri1.filter(
                     grupa__iregex=(r'([A-Z0-9]{0})' + req_group + r'(?![a-zA-Z0-9])')).exclude(
                     grupa__iregex=(r'[A-Za-z0-9]' + req_group )).distinct()
+            randuri = randuri | randuri1.filter(grupa__contains=request_grupa).distinct()
+            if request_grupa == 'I1' or request_grupa == 'I2':
+                randuri.exclude(grupa__contains='MSI')
             titlu = "Grupa " + request_grupa
 
     randuri = randuri.distinct('curs','ora_inceput','ora_sfarsit','profesor','sala','tip','zi')
@@ -260,7 +264,7 @@ def show_orar(request):
     randuri_examen = randuri_totale.filter(zi__contains=',')
     #randuri_examen = randuri_totale.filter(tip = 'Examen')
     #randuri_examen = randuri_examen | randuri_totale.filter(tip = 'Restante')#randurile pentru examene
-    randuri = randuri_totale.exclude(tip = 'Examen') #randurile pentru orarul propriu-zis
+    randuri = randuri_totale.exclude(zi__contains=',') #randurile pentru orarul propriu-zis
     luni = randuri.filter(zi='Luni')
     marti = randuri.filter(zi='Marti')
     miercuri = randuri.filter(zi='Miercuri')
