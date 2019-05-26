@@ -64,7 +64,7 @@ li{
     background-color: var(--navbar);
 }
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
-    background-color: var(--color1-first);
+    background-color: var(--color2-first);
     color:var(--navbar);
 
 }

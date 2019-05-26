@@ -85,15 +85,6 @@ label {
     padding-top:10px;
 }
 
-.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
-    background-color: var(--color1-first);
-    color:var(--navbar);
-    
-}
-
-.navbar-inverse .navbar-nav>li>a{
-    color: var(--accent);
-}
 
 .buttons{
     background-color: var(--color1-first);
@@ -104,4 +95,35 @@ label {
     background-color: var(--color1-first);
     border-color: var(--color1-first);
     filter: brightness(85%);
+}
+
+.nav.navbar-nav li a {
+    color: var(--font);
+}
+
+.nav.navbar-nav li a:hover {
+    transition: 0.3s;
+    background-color:var(--color2-first);
+}
+
+.navbar-inverse .navbar-nav>.active>a{
+    background-color:var(--color2-first);
+}
+.navbar-inverse .navbar-nav>.active>a:hover{
+    background-color:var(--color2-first);
+}
+
+.navbar-brand img{
+    position: absolute;
+    top:-3px;
+    height: 60px;
+
+}
+.navbar {
+    background-color: var(--navbar);
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+    background-color: var(--color2-first);
+    color:var(--navbar);
+
 }
