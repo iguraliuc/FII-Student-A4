@@ -23,8 +23,6 @@
     --font-family: {{ user.personalise.font_family }};
 } */
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500,600|Roboto:300,400');
-
 * {
     margin: 0;
     padding: 0;

@@ -1,6 +1,5 @@
 ﻿{% extends 'navbar.html' %}
 {% block content %}
-
 <head>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,6 +7,7 @@
     {% load static %}
     <link href="{% static "navbar.css" %}" rel="stylesheet" type="text/css">
     <link href="{% static "prezentare.css" %}" rel="stylesheet" type="text/css">
+    {% if user.is_authenticated %}
 <style>
     :root {
       --background-first: {{ user.personalise.background_first }};
@@ -21,6 +21,7 @@
       --font-family: {{ user.personalise.font_family }};
     }
 </style>
+    {% endif %}
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -32,7 +33,7 @@
     .persons {
       position: relative;
       height: 100%;
-      background: linear-gradient(rgb(89, 5, 167), rgb(80, 4, 124));
+      background-image: linear-gradient(45deg,#65e1e0, #6497e6, #8566e6);
       text-align: center;
       height: auto;
       padding-top: 5vh;
@@ -45,7 +46,7 @@
 
     body {
       background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-family: 'Open Sans', sans-serif;
       font-size: 14px;
       color: #000;
       margin: 0;
@@ -58,11 +59,11 @@
   <header>
 
   </header>
-  <section>
-    <img src="{% static 'img/alb.png' %}" class="imgLogo"
+  <section id="start" >
+    <img src="{% static 'Logoalbpelat.png' %}" class="imgLogo"
       alt="" />
     <div class="divInfo">
-      <p>For students by students.</p>
+      <p>FĂCUT DE STUDENȚI, PENTRU STUDENȚI</p>
     </div>
   </section>
 
@@ -606,9 +607,9 @@
       <div class="card2-text">
         <h4>Localizare</h4>
 
-        <p>Urmeaza a fi implementat. Studentul va putea sa se plimbe printr-o macheta 3d a facultatii.
+        <p>Studentul poate vizualiza sălile libere și să se plimbe într-o macheta 3D a facultății.
         </p>
-        <button class="button">Learn more</button>
+        <button class="button">Accesează Pagina</button>
       </div>
     </article>
     <article class="card2">
@@ -620,9 +621,9 @@
       <div class="card2-text">
         <h4>Editare orar</h4>
 
-        <p>Studentul va putea sa-si vizualizeze si personalizeze propriul orar.
+        <p>Studentul va putea să-și vizualizeze și personalizeze propriul orar.
         </p>
-        <button class="button" onclick="window.location.href = 'https://w3docs.com';">Learn more</button>
+        <button class="button" onclick="window.location.href = 'https://w3docs.com';">Accesează Pagina</button>
       </div>
     </article>
 
@@ -633,11 +634,11 @@
 
 
       <div class="card2-text">
-        <h4>Anunturi</h4>
+        <h4>Anunțuri</h4>
 
-        <p>Studentul va primi notificari referitoare la ultimile anunturi. Acesta va putea sa-si personalizeze board-urile de la care va primi aceste anunturi.
+        <p>Studentul va putea primi notificări cu privire la ultimele anunțuri.
         </p>
-        <button class="button">Learn more</button>
+        <button class="button">Accesează Pagina</button>
       </div>
     </article>
 

@@ -7,7 +7,7 @@
     --color2-first:#f64abd;
     --color2-second:#ad3abd;
     --font: #ffffff;
-    --font-family: 'Arvo';
+    --font-family: 'Montserrat', sans-serif;
 }
 .navbar {
     background-color: var(--navbar);

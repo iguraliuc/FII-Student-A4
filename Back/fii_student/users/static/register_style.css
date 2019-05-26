@@ -1,93 +1,144 @@
-
-*{
+* {
     margin: 0;
     padding: 0;
 
 }
-p{
+
+h2{
+
+    font-family: 'Open Sans',sans-serif;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: bolder;
+    letter-spacing: 8px;
+    color: white;
+}
+
+p {
     color: #35363A;
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: normal;
 }
 
-form p{
+form p {
     text-align: center;
     width: 100%;
 }
 
-a{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: normal;   
+
+h2 {
+    font-size: 40px;
 }
 
-h1{
-
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-size: 50px;
-    font-weight: normal;
-}
-
-h2{
-    color: #35363A;
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-size:30px;
-    font-weight: normal;
-
-}
-
-.container{
+.container {
     display: flex;
     height: 100vh;
 }
 
-.left{
-    width: 100%;
+.left {
+    width: 150%;
     height: 100vh;
-    background-color: #3B3D6D;
-    
-    background-image: url('/static/login-tech.jpg');
+    background: #01ddf5;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center; 
-    
-}
-.left .titlu{
-    margin-top: 10%;
-    margin-left: 20%;
+    background-position: center;
+    background-image: linear-gradient(45deg, #65e1e0, #6497e6, #8566e6);
+
 }
 
-.left .titlu h1, .left .titlu p{
-    color: white;
-}
-.right-container{
-    background-color: #E6E7F4;
+
+.right-container {
+    background-color: #1b1354;
     height: 100vh;
     width: 100%;
 }
-.right{
-    margin-top:20px;
-    background-color: #E6E7F4;
-   /* display: flex;
+
+.right {
+    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    */
-    width:100%;
+    width: 100%;
     height: 80vh;
-    
+    margin-top: 30px;
 }
-.right .titlu{
+
+.right .titlu {
     text-align: center;
-    margin-bottom: 50px;
+    padding: 5%;
 }
+
+form .form-control {
+    text-align: center;
+    margin: auto;
+    display: block;
+    width: 100%;
+    border-style: none;
+    height: 50px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    animation-name: expand;
+    animation-duration: 2s;
+
+}
+
+form .form-control:focus {
+    outline: none;
+    border: 1px #7877B8 solid;
+
+}
+.form-control#id_rol{
+    border-radius:5px;
+    border: 1px solid white;
+    width:80%;
+
+}
+.form-control#id_an_studiu{
+    border-radius:5px;
+    border: 1px solid white;
+    width:80%;
+}
+.form-control#id_grupa{
+    border-radius:5px;
+    border: 1px solid white;
+    width:80%;
+}
+label {
+    color: white;
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+select {
+    font-family: 'Open Sans', sans-serif;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    border: none;
+    color: white;
+    background-image: linear-gradient(45deg, #65e1e0, #6497e6, #8566e6);
+    padding: 15px;
+    width: 80%;
+    animation-name: expand;
+    animation-duration: 2s;
+
+}
+
+select option {
+    color: black;
+}
+
 
 form{
     height: 100%;
-    width: 80%;
+    width: 60%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -96,102 +147,183 @@ form{
 
 }
 
-form  a{
-    text-decoration: none;
-     font-size: 18px;
-     color:#45419A;
- }
 
- form .form-control{
+form .pass-container {
     text-align: center;
-    margin:auto;
+    width: 100%;
 
-    display: block;
-    width: 80%;
-    border-style: none;
-    height: 50px;
-    padding-left:10px;
-    box-sizing: border-box;
+}
 
-    background-image: linear-gradient(to right, #bfbedf, #c8c8e4, #d2d2ea, #dcddef, #e6e7f4);
+form .pass-container input {
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
 
-    animation-name: expand;
-    animation-duration: 2s;
- }
-
-
-
-
-form .bottom{
-    margin-top: 20px;
-    display:flex;
+form .bottom {
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height:70px;
+    height: 70px;
+    margin-top: 20px;
 }
-
-
-select{
-    border:none;
-    color:white;
-    background-image: linear-gradient(to right, #bfbedf, #c8c8e4, #d2d2ea, #dcddef, #e6e7f4);
-    padding: 15px;
-    width:80%;
-    animation-name: expand;
-    animation-duration: 2s;
+a{
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
 
 }
-
-select option{
-    color:black;
+a:hover{
+    color: #8566e6;
 }
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
 /* animation */
 
 @keyframes expand {
-    from {width:0%;}
-    to {width:80%;}
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 80%;
+    }
 }
 
 @keyframes appear {
-    from {opacity: 0;}
-    to {opacity:1;}
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* end animations */
 
+input[type=text] {
+    font-family: 'Open Sans', sans-serif;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    display: block;
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid white;
+    height: 50px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    background-image: linear-gradient(45deg, #65e1e0, #6497e6, #8566e6);
+    animation-name: expand;
+    animation-duration: 2s;
+}
+input[type=password] {
+    font-family: 'Open Sans', sans-serif;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    border: 1px solid white;
+    display: block;
+    width: 80%;
+    border-radius: 5px;
+    height: 50px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    background-image: linear-gradient(45deg, #65e1e0, #6497e6, #8566e6);
+    animation-name: expand;
+    animation-duration: 2s;
+}
+input[type=email] {
+    font-family: 'Open Sans', sans-serif;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid white;
+    display: block;
+    width: 80%;
+    height: 50px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    background-image: linear-gradient(45deg, #65e1e0, #6497e6, #8566e6);
+    animation-name: expand;
+    animation-duration: 2s;
+}
 
-form .form-control:focus{
-    outline:none;
-    border:1px #7877B8 solid;
+input[type=text]:focus {
+    outline: none;
+    border: 1px white;
 
 }
 
-input[type=text]::-webkit-input-placeholder{
-    color:white;
+input[type=text]::-webkit-input-placeholder {
+    color: white;
 }
 
-input[type=submit]{
-
-    height:40px;
+input[type=submit] {
+    height: 40px;
     width: 120px;
-    border: 1px solid #7877B8;
-    background-color:#E6E7F4;
-    color:#7877B8;
+    border: 1px solid white;
+    background-image: linear-gradient(45deg, #65e1e0, #6497e6, #8566e6);
+    color: white;
     font-weight: bold;
     border-radius: 20px;
 }
-.logo{
-    max-width: 70%;
-}
-input[type=submit]:hover{
+
+input[type=submit]:hover {
     transition: 200ms;
-    height:40px;
+    height: 40px;
     width: 120px;
-    border: 1px solid #7877B8;
-    background-color:#7877B8;
-    color:#E6E7F4;
+    border: 1px solid white;
+    background-image: linear-gradient(to right, #8566e6, #5b66e6);
+    color: #E6E7F4;
     font-weight: bold;
     border-radius: 20px;
 }
 
+.left .logo {
+    position: center;
+    top: 100px;
+    width: 100%;
+}
+
+img {
+    margin-top: 20%;
+    width: 100%;
+    position: center;
+}
+.right .titlu{
+    margin-top: 15px;
+}
+@media screen and (max-width: 500px) {
+    .container{
+    display: flex;
+    flex-direction:row;
+    height:100vh;
+
+    }
+    .left{
+        order:2;
+        width:0%;
+        height:0%;
+    }
+    .right-container{
+        order:1;
+        height:100%;
+        width:100%;
+    }
+    h2{
+        size:10px;
+    }
+}

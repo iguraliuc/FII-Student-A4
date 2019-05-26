@@ -22,6 +22,7 @@ from news.models import News
 import os
 
 
+@login_required(login_url='/')
 def show_personalise(request):
     post_url = reverse('personalise_show')
     generic_objects = Personalise.objects.all()
@@ -42,6 +43,7 @@ def show_personalise(request):
                    })
 
 
+@login_required(login_url='/')
 def show_join_board(request):
     post_url = reverse('join_board_show')
     generic_objects = Board.objects.all()
@@ -55,6 +57,7 @@ def show_join_board(request):
                    })
 
 
+@login_required(login_url='/')
 def add_board(request):
     if request.method == 'POST':
         form = BoardForm(request.POST)
@@ -152,7 +155,7 @@ class BoardDetail(DetailView):
         # context['now'] = timezone.now()
         return context
 
-
+@login_required(login_url='/')
 def show_orar(request):
     if '?' not in request.get_raw_uri():
         _query = ''
@@ -163,9 +166,9 @@ def show_orar(request):
             elif (request.user.an_studiu == 'II'):
                 anul_userului = 2
             elif (request.user.an_studiu == 'III'):
-                anul_userului = 3;
+                anul_userului = 3
             else:
-                anul_userului = 1;
+                anul_userului = 1
         if request.user.rol == 'Student':
             _query = "/personalise/orar/?grupa=I" + str(anul_userului) + request.user.grupa
         elif request.user.rol == 'Masterand':

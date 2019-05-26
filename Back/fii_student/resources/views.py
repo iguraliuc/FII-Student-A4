@@ -4,8 +4,11 @@ from .models import Resources
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import DetailView
+from django.contrib.auth.decorators import login_required
 from pprint import pprint
 
+
+@login_required(login_url='/')
 def show_resources(request):
     post_url = reverse('resources_show')
     generic_objects = Resources.objects.all()

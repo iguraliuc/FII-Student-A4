@@ -263,6 +263,8 @@ body{
     font-family: var(--font-family);
     font-size: 1.4em;
     font-weight: 700;
+    height: max-content;
+
 
 }
 

@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.utils.html import strip_tags
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, update_session_auth_hash
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -13,6 +13,7 @@ from django.http import HttpResponse, Http404
 import simplejson as simplejson
 from .tokens import account_activation_token
 from .models import FiiUser, Personalise
+from .forms import PasswordChangeForm
 
 
 def signup(request):
@@ -135,7 +136,6 @@ def reset_settings(request, uid):
     return redirect('/users/settings')
 
 
-
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
@@ -166,3 +166,17 @@ def activation_email_sent(request):
 def logout_view(request):
     logout(request)
     return render(request, 'prezentare_en.html')
+
+
+@login_required(login_url='/')
+def password_change(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            return render(request, 'password_changed.html')
+    else:
+        form = PasswordChangeForm(user=request.user)
+    return render(request, 'password_change.html', {'form': form})
+

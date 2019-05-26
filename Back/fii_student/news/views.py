@@ -10,8 +10,7 @@ from dateutil.relativedelta import relativedelta
 import re
 
 
-
-# @login_required
+@login_required(login_url='/')
 def show_news(request):
     post_url = reverse('news_show')
     generic_objects = News.objects.all()
@@ -42,16 +41,21 @@ def show_news(request):
                    # 'filtered_objects': filtered,
                    })
 
+
+# @login_required(login_url='/')
 class NewsDetail(DetailView):
     model = News
     # post_url = reverse('news-detail')
     template_name = "anunturi-individual.html"
     pk_url_kwarg = 'news_id'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # context['now'] = timezone.now()
         return context
 
+
+@login_required(login_url='/')
 def add_news(request):
     if request.method == 'POST':
         form = NewsForm(request.POST)
