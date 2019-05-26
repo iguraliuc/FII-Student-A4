@@ -215,7 +215,7 @@ img {
     position: relative;
     overflow: hidden;
     height: 350px;
-    background-position: center;
+    
     background-size: cover;
     background-repeat: no-repeat;
 }
