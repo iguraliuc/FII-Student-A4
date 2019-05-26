@@ -359,8 +359,7 @@ def show_orar_personalised(request):
     _grupe_set.add('MSI')
     for gr in grupe:
         for aux in gr.split(','):
-            if(len(aux)>=4):
-                _grupe_set.add(aux)
+            _grupe_set.add(aux)
     _grupe_set.remove('')
     lista_grupe = sorted(_grupe_set)
 
