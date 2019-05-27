@@ -165,7 +165,7 @@ def activation_email_sent(request):
 
 def logout_view(request):
     logout(request)
-    return render(request, 'prezentare_en.html')
+    return render(request, 'prezentare.html')
 
 
 @login_required(login_url='/')
