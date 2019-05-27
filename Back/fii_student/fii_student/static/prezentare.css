@@ -448,11 +448,7 @@ section#start p{
     font-size: 20px;
 }
 }
-@media screen and (max-width:1024px){
-    section#start .imgLogo{
-        width: 60vh;
-    }
-}
+
 
 
 @keyframes scroll {
