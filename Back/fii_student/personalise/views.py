@@ -555,6 +555,8 @@ def update_card(request, cid):
     serialized_data = simplejson.dumps(data)
     return HttpResponse(serialized_data, content_type='application/json')
 
+
+@login_required(login_url='/')
 def show_notificari(request):
     notifications = Notification.objects.filter(personalise=request.user.personalise)
     boards = Board.objects.none()
