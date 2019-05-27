@@ -1,4 +1,5 @@
-
+﻿{% extends 'navbar.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -29,9 +30,7 @@
 
     <body>
     {% load my_filters %}
-        <nav class="navbar">
-            LOC PT NAVBAR
-        </nav>
+
      <section>
             <h1>DISPONIBILITATEA SĂLILOR</h1>
             <article>
@@ -83,3 +82,4 @@
      </section>
     </body>
 </html>
+{% endblock %}
