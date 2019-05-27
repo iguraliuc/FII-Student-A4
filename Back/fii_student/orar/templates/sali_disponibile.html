@@ -1,8 +1,10 @@
+﻿{% extends 'navbar.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         {% load static %}
-        <title>Disponibilitate sali</title>
+        <title>Disponibilitate săli</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 {#        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">#}
@@ -28,17 +30,15 @@
 
     <body>
     {% load my_filters %}
-        <nav class="navbar">
-            LOC PT NAVBAR
-        </nav>
+
      <section>
-            <h1>DISPONIBILITATEA SÄ‚LILOR</h1>
+            <h1>DISPONIBILITATEA SĂLILOR</h1>
             <article>
                 <div id="buttons">
                                          <button type="submit" name="An" value="An" onclick="location.href='/orar/';">Orar</button>
                              <button type="submit" name="An" value="An" onclick="location.href='http://www.uaic.ro/studii/structura-anului-universitar/';">Structura anului universitar</button>
-                              <button type="submit" name="An" value="An" onclick="location.href='/orar?sali_libere_acum=-';">Sali libere acum</button>
-                              <button type="submit" name="An" value="An" onclick="location.href='/orar/program_sali/';">Disponibilitate sali</button>
+                              <button type="submit" name="An" value="An" onclick="location.href='/orar?sali_libere_acum=-';">Săli libere acum</button>
+                              <button type="submit" name="An" value="An" onclick="location.href='/orar/program_sali/';">Disponibilitate săli</button>
                 </div>
                 <div class="grid-container">
                     <div class="grid-item1">LIBER</div>
@@ -82,3 +82,4 @@
      </section>
     </body>
 </html>
+{% endblock %}
