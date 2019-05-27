@@ -31,12 +31,11 @@ html{
 body {
     font-family: var(--font-family);
     color: white;
+    background-image: radial-gradient(var(--background-first),var(--background-second));
     display: flex;
+    flex-direction: column;
     margin-top: 30px;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
+
 }
 
 li {
@@ -60,7 +59,7 @@ li {
 
 .container {
 
-    width: 80%;
+    width: 60%;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -68,10 +67,11 @@ li {
 
 .board {
     text-align: center;
-    width: 80%;
-
+    width: 100%;
     padding: 50px;
-    background: linear-gradient(to right, var(--color1-first) 0%, var(--color1-second) 100%);
+    /*background: linear-gradient(to right,var(--color1-first) 0%, var(--color1-second) 100%);*/
+    /*background-image: radial-gradient(var(--background-first),var(--background-second));*/
+    background: transparent;
     box-sizing: border-box;
 }
 
@@ -137,15 +137,6 @@ a.meniu {
     color: var(--font);
 }
 
-.navbar-inverse{
-    z-index:101;
-    top:0;
-    position:sticky;
-    background-color: var(--navbar);
-    margin-bottom: 0px;
-    font-family: var(--font-family);
-    font-weight: 500;
-}
 .nav.navbar-nav li a {
     color: var(--font);
 }
@@ -167,4 +158,18 @@ a.meniu {
     top:-3px;
     height: 60px;
 
+}
+.navbar {
+    background-color: var(--navbar);
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+    background-color: var(--color2-first);
+    color:var(--navbar);
+
+}
+
+@media screen and (max-width: 800px){
+    .container{
+        width:100%;
+    }
 }
