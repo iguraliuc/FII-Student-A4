@@ -345,12 +345,7 @@ body{
         display: flex;
         flex-direction: column; 
     }
-    .navbar-brand img{
-        position: absolute;
-        top:5px;
-        height: 40px;
-    
-    }
+
     .filtru{
         z-index:100;
         position:sticky;
