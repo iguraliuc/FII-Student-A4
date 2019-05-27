@@ -1,11 +1,13 @@
 from builtins import super
-
+from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import DetailView
 from pprint import pprint
 
+
+@login_required(login_url='/')
 def show_3d_scheme(request):
 
     # filtered_objects = generic_objects

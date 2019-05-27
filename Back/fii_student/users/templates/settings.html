@@ -12,8 +12,7 @@
   <link rel="stylesheet" href="{% static "settings.css" %}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   {#  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>#}
-  <link href="https://fonts.googleapis.com/css?family=Arvo|Lato|Montserrat|Open+Sans|Roboto|Roboto+Condensed"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Lato|Montserrat|Open+Sans|Roboto|Roboto+Condensed" rel="stylesheet">
 
   <style>
     :root {
@@ -224,7 +223,8 @@
     </form>
     <hr>
     <div>
-      <button type="button" class="btn btn-danger">Ștergere cont</button>
+      <button type="button" class="btn btn-danger" onclick="location.href='./password_change'">Schimbare parolă</button>
+{#        <p>&#187; <a href="{% url 'password_change' %}">Change Password</a> </p>#}
     </div>
     <br>
     {% load static %}

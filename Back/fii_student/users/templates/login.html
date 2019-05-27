@@ -2,8 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Login</title>
     {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autentificare</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
     <link href="{% static "login_style.css" %}" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
 </head>
@@ -14,14 +17,14 @@
 
         <div class="left">
             <div class="titlu">
-                <img src="{% static 'logoalb.png' %}" class="logo">
+                <img src="{% static 'logo-01.png' %}" class="logo">
             </div>
         </div>
 
         <div class="right-container">
             <div class="right">
                 <div class="titlu">
-                    <h1>LOGIN</h1>
+                    <h1>AUTENTIFICARE</h1>
                     {#                    <h3>-mesaj de intampinare-</h3>#}
                 </div>
                 {#                <form method="post">#}
@@ -42,12 +45,14 @@
                         <div class="pass-container">
                             {#                            <input type="text" name="Password" placeholder="Password">#}
                             {{ form.password }}
+                             <a href="{% url 'show_landing_page' %}">Am uitat parola</a>
                         </div>
                     </div>
+
                     <div class="bottom">
-                        <input type="submit" value="SIGN IN">
-                        <a href="{% url 'signup' %}">Creeaza cont</a>
-                        <a href="{% url 'show_landing_page' %}">Am uitat parola</a>
+                        <input type="submit" value="Autentificare">
+                        <a href="{% url 'signup' %}">Creează cont</a>
+
 
                     </div>
                 </form>

@@ -22,6 +22,7 @@ from news.models import News
 import os
 
 
+@login_required(login_url='/')
 def show_personalise(request):
     post_url = reverse('personalise_show')
     generic_objects = Personalise.objects.all()
@@ -42,6 +43,7 @@ def show_personalise(request):
                    })
 
 
+@login_required(login_url='/')
 def show_join_board(request):
     post_url = reverse('join_board_show')
     generic_objects = Board.objects.all()
@@ -55,6 +57,7 @@ def show_join_board(request):
                    })
 
 
+@login_required(login_url='/')
 def add_board(request):
     if request.method == 'POST':
         form = BoardForm(request.POST)
@@ -152,7 +155,7 @@ class BoardDetail(DetailView):
         # context['now'] = timezone.now()
         return context
 
-
+@login_required(login_url='/')
 def show_orar(request):
     if '?' not in request.get_raw_uri():
         _query = ''
@@ -163,9 +166,9 @@ def show_orar(request):
             elif (request.user.an_studiu == 'II'):
                 anul_userului = 2
             elif (request.user.an_studiu == 'III'):
-                anul_userului = 3;
+                anul_userului = 3
             else:
-                anul_userului = 1;
+                anul_userului = 1
         if request.user.rol == 'Student':
             _query = "/personalise/orar/?grupa=I" + str(anul_userului) + request.user.grupa
         elif request.user.rol == 'Masterand':
@@ -188,6 +191,7 @@ def show_orar(request):
     for gr in grupe:
         for aux in gr.split(','):
             _grupe_set.add(aux)
+    _grupe_set.remove('')
     lista_grupe = sorted(_grupe_set)
 
     print(datetime.datetime.now().strftime("%A"))
@@ -253,6 +257,9 @@ def show_orar(request):
                 randuri = randuri | randuri1.filter(
                     grupa__iregex=(r'([A-Z0-9]{0})' + req_group + r'(?![a-zA-Z0-9])')).exclude(
                     grupa__iregex=(r'[A-Za-z0-9]' + req_group )).distinct()
+            randuri = randuri | randuri1.filter(grupa__contains=request_grupa).distinct()
+            if request_grupa == 'I1' or request_grupa == 'I2':
+                randuri.exclude(grupa__contains='MSI')
             titlu = "Grupa " + request_grupa
 
     randuri = randuri.distinct('curs','ora_inceput','ora_sfarsit','profesor','sala','tip','zi')
@@ -260,7 +267,7 @@ def show_orar(request):
     randuri_examen = randuri_totale.filter(zi__contains=',')
     #randuri_examen = randuri_totale.filter(tip = 'Examen')
     #randuri_examen = randuri_examen | randuri_totale.filter(tip = 'Restante')#randurile pentru examene
-    randuri = randuri_totale.exclude(tip = 'Examen') #randurile pentru orarul propriu-zis
+    randuri = randuri_totale.exclude(zi__contains=',') #randurile pentru orarul propriu-zis
     luni = randuri.filter(zi='Luni')
     marti = randuri.filter(zi='Marti')
     miercuri = randuri.filter(zi='Miercuri')
@@ -355,10 +362,12 @@ def show_orar_personalised(request):
     for gr in _grupe_queryset:
         grupe.append(gr[0])
     _grupe_set = {'I1A1'}
+    _grupe_set.add('MIS1')
+    _grupe_set.add('MSI')
     for gr in grupe:
         for aux in gr.split(','):
-            if(len(aux)>=4):
-                _grupe_set.add(aux)
+            _grupe_set.add(aux)
+    _grupe_set.remove('')
     lista_grupe = sorted(_grupe_set)
 
     print(datetime.datetime.now().strftime("%A"))
@@ -425,6 +434,9 @@ def show_orar_personalised(request):
                 randuri = randuri | randuri1.filter(
                     grupa__iregex=(r'([A-Z0-9]{0})' + req_group + r'(?![a-zA-Z0-9])')).exclude(
                     grupa__iregex=(r'[A-Za-z0-9]' + req_group )).distinct()
+            randuri = randuri | randuri1.filter(grupa__contains=request_grupa).distinct()
+            if request_grupa == 'I1' or request_grupa == 'I2':
+                randuri.exclude(grupa__contains='MSI')
             titlu = "Grupa " + request_grupa
 
     randuri = randuri.distinct('curs','ora_inceput','ora_sfarsit','profesor','sala','tip','zi')
@@ -432,7 +444,7 @@ def show_orar_personalised(request):
     randuri_examen = randuri_totale.filter(zi__contains=',')
     #randuri_examen = randuri_totale.filter(tip = 'Examen')
     #randuri_examen = randuri_examen | randuri_totale.filter(tip = 'Restante')#randurile pentru examene
-    randuri = randuri_totale.exclude(tip = 'Examen') #randurile pentru orarul propriu-zis
+    randuri = randuri_totale.exclude(zi__contains=',') #randurile pentru orarul propriu-zis
     luni = randuri.filter(zi='Luni')
     marti = randuri.filter(zi='Marti')
     miercuri = randuri.filter(zi='Miercuri')
@@ -543,6 +555,8 @@ def update_card(request, cid):
     serialized_data = simplejson.dumps(data)
     return HttpResponse(serialized_data, content_type='application/json')
 
+
+@login_required(login_url='/')
 def show_notificari(request):
     notifications = Notification.objects.filter(personalise=request.user.personalise)
     boards = Board.objects.none()

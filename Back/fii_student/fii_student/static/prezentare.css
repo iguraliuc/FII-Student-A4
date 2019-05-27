@@ -14,7 +14,6 @@ article {
 
 section {
     display: flex;
-
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -24,14 +23,33 @@ section {
 }
 
 section:nth-of-type(1) {
-    background: linear-gradient(to top, #004e92, #000428); //#a18cd1, #fbc2eb);
+     background-image: linear-gradient(45deg,#65e1e0, #6497e6, #8566e6);
     height: 100vh;
     align-items: center;
 
 }
+section#start{
+  display:flex;
+  flex-direction: column;
+}
+section#start .imgLogo{
 
+  height:60%;
+  margin-top:5%;
+  width:50%;
+  position:center;
+}
+section#start p{
+   font-family: 'Open Sans', sans-serif;
+    font-stretch: normal ;
+    font-style: normal;
+    font-weight: bolder;
+    letter-spacing:8px;
+    color:white;
+    position: center;
+}
 section#persons {
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+     background-image: linear-gradient(45deg,#65e1e0, #6497e6, #8566e6);
      text-align: center;
     height: auto;
     flex-wrap: wrap;
@@ -44,7 +62,7 @@ section#persons {
 }
 
 section#functionality {
-    background: linear-gradient(to right, #2C35A2, #630692);
+    background: #1b1354;
     padding: 7%;
     box-sizing: border-box;
     background-size: cover;
@@ -61,7 +79,7 @@ section#tech
     font-size: 50px;
     justify-content: center;
     padding: 30px 0;
-flex-wrap: wrap;
+    flex-wrap: wrap;
 
 }
 
@@ -109,11 +127,7 @@ section#links{
     margin: 10px 30px;
     cursor: pointer;
     transition: all .2s ease;
-    background: radial-gradient(circle at top left, #202778,#0F133B)
-}
-
-.card2:hover {
-    transform: scale(1.04);
+    background: radial-gradient(circle at top left,#65e1e0, #6497e6, #8566e6)
 }
 
 .ptext {
@@ -240,14 +254,17 @@ hr {
 }
 
 .card2-text {
+    font-family: 'Open Sans', sans-serif;
     margin-top: 10vh;
-    color: #d3d3d3;
+    color: white;
     line-height: 1.5;
+
 }
 
 .card2-text h4 {
     color: rgb(255, 255, 255);
     text-transform: uppercase;
+    font-weight: bold;
     font-size: 30px;
     letter-spacing: 2px;
     margin-top: -50px;
@@ -260,7 +277,7 @@ hr {
 }
 
 .card2 .button:hover {
-    background: rgb(34, 170, 190);
+    background: #8566e6;
 }
 
 @media only screen and (max-width: 600px) {
@@ -275,7 +292,26 @@ hr {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-
+    section#start{
+   margin: 0;
+  display:flex;
+  flex-direction: column;
+}
+section#start .imgLogo{
+  height: 20vh;
+  width:60%;
+  position: center;
+  margin-left: 10%;
+  margin-top: 20%;
+  margin-bottom: 20%;
+}
+section#start p{
+  size: 10px;
+  position: center;
+    text-align: center;
+  margin-right: -25px;
+  font-size: 30px;
+}
   .ptext {
     position: absolute;
     width: 80vw;

@@ -6,6 +6,7 @@
         <title>Add a new board</title>
         {% load static %}
         <link href="{% static "add_board.css" %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Lato|Montserrat|Open+Sans|Roboto|Roboto+Condensed" rel="stylesheet">
     {% if user.is_authenticated %}
     <style>
     :root{
@@ -31,7 +32,7 @@
     <br>
     {% block content2 %}
         <form class="box" method="post">
-            <h1>Add a new Board!</h1>
+            <h1>Adaugă un board nou!</h1>
             {% csrf_token %}
             {% for field in form %}
                 <p>
@@ -42,7 +43,7 @@
                     {% endfor %}
                 </p>
             {% endfor %}
-            <button type="submit">Add Board</button>
+            <button type="submit">Adaugă Board</button>
         </form>
         </body>
     {% endblock %}

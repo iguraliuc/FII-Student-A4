@@ -10,7 +10,7 @@ def show_landing_page(request):
                    'post_url_name': 'show_main_page',
                    })
     else:
-        return render(request, 'prezentare_en.html',
+        return render(request, 'prezentare.html',
                   {'title': 'MainPage',
                    'post_url_name': 'show_main_page',
                    })

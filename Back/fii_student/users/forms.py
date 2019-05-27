@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 # from django.contrib.auth.models import User
 import django.forms.widgets
 
@@ -9,9 +9,9 @@ from personalise.constants import *
 
 
 class SignupForm(UserCreationForm):
-    first_name = forms.CharField(max_length=63, required=True, help_text="Prenume este obligatoriu")
-    last_name = forms.CharField(max_length=63, required=True, help_text="Numele este obligatoriu")
-    email = forms.EmailField(max_length=254, help_text='Este necesara o adresa de email UAIC valida.')
+    first_name = forms.CharField(max_length=63, required=True, help_text="Prenume este obligatoriu")#, widget=forms.TextInput(attrs={'placeholder': 'Nume'}))
+    last_name = forms.CharField(max_length=63, required=True, help_text="Numele este obligatoriu")#, widget=forms.TextInput(attrs={'placeholder': 'Prenume'}))
+    email = forms.EmailField(max_length=254, help_text='Este necesara o adresa de email UAIC valida.')#, widget=forms.TextInput(attrs={'placeholder': 'Email'}))
     rol = forms.ChoiceField(choices=[(x, x) for x in ROLURI], required=True, help_text="")
     an_studiu = forms.ChoiceField(choices=[(x, x) for x in ANI_STUDIU])
     grupa = forms.ChoiceField(choices=[(x, x) for x in GRUPE])
@@ -24,6 +24,9 @@ class SignupForm(UserCreationForm):
         super(SignupForm, self).__init__(*args, **kwargs)
         for f in self.fields:
             self.fields[f].widget.attrs.update({'class': 'form-control'})
+        # self.fields['password1'].widget.attrs.update({'placeholder': 'Parola'})
+        # self.fields['password2'].widget.attrs.update({'placeholder': 'Confirmă parola'})
+        # self.fields['rol'].widget.attrs.update({'': 'Selecteaza rolul'})
 
     def clean(self):
         validation_errs = validate_user_details(self.cleaned_data)

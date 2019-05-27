@@ -6,6 +6,18 @@
     --menu-color: #030b3d; */
 /* } */
 
+:root {
+    --background-first: #1b1353;
+    --background-second: #000428;
+    --navbar: #030b3d;
+    --color1-first: #1fd191;
+    --color1-second: #0086aa;
+    --color2-first: #f64abd;
+    --color2-second: #ad3abd;
+    --font: #ffffff;
+    --font-family: 'Montserrat', sans-serif;
+}
+
 * {
     margin: 0px;
     padding: 0px;
@@ -19,12 +31,11 @@ html{
 body {
     font-family: var(--font-family);
     color: white;
+    background-image: radial-gradient(var(--background-first),var(--background-second));
     display: flex;
+    flex-direction: column;
     margin-top: 30px;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
+
 }
 
 li {
@@ -48,7 +59,7 @@ li {
 
 .container {
 
-    width: 80%;
+    width: 60%;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -56,10 +67,11 @@ li {
 
 .board {
     text-align: center;
-    width: 80%;
-
+    width: 100%;
     padding: 50px;
-    background: linear-gradient(to right, var(--color1-first) 0%, var(--color1-second) 100%);
+    /*background: linear-gradient(to right,var(--color1-first) 0%, var(--color1-second) 100%);*/
+    /*background-image: radial-gradient(var(--background-first),var(--background-second));*/
+    background: transparent;
     box-sizing: border-box;
 }
 
@@ -123,4 +135,41 @@ a.meniu {
 }
 .meniu>p {
     color: var(--font);
+}
+
+.nav.navbar-nav li a {
+    color: var(--font);
+}
+
+.nav.navbar-nav li a:hover {
+    transition: 0.3s;
+    background-color:var(--color2-first);
+}
+
+.navbar-inverse .navbar-nav>.active>a{
+    background-color:var(--color2-first);
+}
+.navbar-inverse .navbar-nav>.active>a:hover{
+    background-color:var(--color2-first);
+}
+
+.navbar-brand img{
+    position: absolute;
+    top:-3px;
+    height: 60px;
+
+}
+.navbar {
+    background-color: var(--navbar);
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+    background-color: var(--color2-first);
+    color:var(--navbar);
+
+}
+
+@media screen and (max-width: 800px){
+    .container{
+        width:100%;
+    }
 }

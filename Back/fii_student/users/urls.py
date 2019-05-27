@@ -9,5 +9,7 @@ urlpatterns = [
     path('activate/<uidb64>/<token>/', activate, name='activate'),
     path('logout/', logout_view, name='logout'),
     path('settings/', settings, name='settings'),
-    path('settings/reset_settings/<int:uid>', reset_settings, name='reset_settings')
+    path('settings/reset_settings/<int:uid>', reset_settings, name='reset_settings'),
+    path('settings/password_change', password_change, name='password_change')
+    # path('settings/password_changed', password_changed, name='password_changed')
 ]

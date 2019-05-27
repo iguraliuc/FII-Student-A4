@@ -2,7 +2,8 @@
 {% block content %}
 <head>
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'notif.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Lato|Montserrat|Open+Sans|Roboto|Roboto+Condensed" rel="stylesheet">
 <style>
     :root {
       --background-first: {{ user.personalise.background_first }};
@@ -16,11 +17,12 @@
       --font-family: {{ user.personalise.font_family }};
     }
 </style>
-<title>Notificari</title>
+<title>Notificări</title>
 </head>
 <body>
 
-Esti abonat la:<br>
+<h2>Ești abonat la:</h2>
+<br>
 {% for notification in notifications %}
 <a href="/personalise/notificari/remove_notification/{{notification.id}}">Categoria <b>{{notification.category}}</b> cu keyword-ul <b>{{notification.keyword}}</b><br></a>
 {% endfor %}
@@ -40,19 +42,22 @@ Esti abonat la:<br>
 <button type="submit">Abonare</button>
 </form><br><br>
 
-Boards:<br>
+<h2>Boards:</h2>
+<br>
 {% for board in boards %}
 <a href="/personalise/boards/{{board.id}}">{{board.subject}}</a><br>
 {% endfor %}
 <br><br>
 
-Noutati:<br>
+<h2>Noutăți:</h2>
+<br>
 {% for new in news %}
 <a href="/news/{{new.news_id}}">{{new.title}}</a><br>
 {% endfor %}
 <br><br>
 
-Resurse:<br>
+<h2>Resurse:</h2>
+<br>
 {% for resource in resources %}
 <a href="/resources/{{resource.resources_id}}">{{resource.title}}</a><br>
 {% endfor %}

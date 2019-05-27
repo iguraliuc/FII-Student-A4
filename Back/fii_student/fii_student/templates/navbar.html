@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Lato|Montserrat|Open+Sans|Roboto|Roboto+Condensed" rel="stylesheet">
 
 
 <style>
@@ -41,7 +42,7 @@
     </div>
     <div class="collapse navbar-collapse navbar-right" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Acasa</a></li>
+        <li class="active"><a href="/">Acasă</a></li>
         <!--<li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Orar<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -52,8 +53,9 @@
         </li>-->
 				<li><a href='/orar/'>Orar</a></li>
 				<li><a href="/personalise/boards/">Boards</a></li>
-				<li><a href="/news/">Noutati</a></li>
+				<li><a href="/news/">Noutăți</a></li>
 				<li><a href="/resources/">Resurse</a></li>
+				<li><a href="/personalise/notificari">Notificări</a></li>
 				<li><a href="/users/settings/">Personal</a></li>
 				<li><a href="/3d_tour/">3D</a></li>
 {#        <li><a href="#">Setari Cont</a></li>#}
@@ -66,7 +68,7 @@
                     <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> Deconectare</a></li>
           {% else %}
               <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Conectare</a></li>
-              <li><a href="{% url 'signup' %}"><span class="glyphicon glyphicon-registration-mark"></span> Inregistrare</a></li>
+              <li><a href="{% url 'signup' %}"><span class="glyphicon glyphicon-registration-mark"></span> Înregistrare</a></li>
           {% endif %}
 {#        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Deconectare</a></li>#}
       </ul>

@@ -28,7 +28,6 @@
     font-size:15px;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500,600|Roboto:300,400');
 body{
     min-height: 100vh;
     background: radial-gradient(var(--background-first), var(--background-second));
@@ -46,21 +45,12 @@ li{
     margin-bottom: 10px;
     color:var(--color2-first);
 }
-
-.navbar-inverse{
-    top:0;
-    position:sticky;
-    background-color: var(--navbar);
-    margin-bottom: 0px;
-    font-family: var(--font-family);
-    font-weight: 500;
-}
 .nav.navbar-nav li a {
     color: var(--font);
 }
 
 .nav.navbar-nav li a:hover {
-    transition: 0.1s;
+    transition: 0.3s;
     background-color:var(--color2-first);
 }
 
@@ -77,6 +67,15 @@ li{
     height: 60px;
 
 }
+.navbar {
+    background-color: var(--navbar);
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+    background-color: var(--color1-first);
+    color:var(--navbar);
+
+}
+
 
 .subtitle{
 
@@ -123,7 +122,7 @@ li{
 .meniu{
     background-color: white;
     color:var(--color1-first);
-    width: 18%;
+    width: max-content;
     margin-left: 20px;
     display: flex;
     justify-content: space-around;
@@ -131,11 +130,12 @@ li{
     padding: 10px;
     text-align: center;
     text-decoration: none;
+
 }
 
 .meniu:hover{
     transition:0.5s;
-    width: 18%;
+    width: max-content;
     margin-left: 20px;
     display: flex;
     justify-content: space-around;
