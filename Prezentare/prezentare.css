@@ -1128,3 +1128,24 @@ select {
         box-sizing: border-box;
         background-color: white;
       }
+
+
+
+section#video h2 {
+  margin-top: 0;
+}
+
+section#video{
+  background:#f5f5f5;
+  text-align: center;
+  color:#1b1353;
+  font-size: 50px;
+  flex-wrap: wrap;
+  padding: 30px 0;
+  justify-content: center;
+}
+
+#video h2 {
+  width: 100%;
+}
+    
