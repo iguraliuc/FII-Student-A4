@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="prezentare.css">
-  <link rel="stylesheet" type="text/css" href="navbar.css">
+    {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static "prezentare_proiect.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "navbar.css" %}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <title>Presentation Page</title>
@@ -18,7 +19,7 @@
 
   </header>
   <section>
-    <img src="./img/alb.png" class="imgLogo"
+    <img src="{% static "img/alb.png" %}" class="imgLogo"
       alt="" />
     <div class="divInfo">
       <p>FOR STUDENTS BY STUDENTS!</p>
@@ -94,7 +95,7 @@
     <div class="slider">
       <div class="slide-track">
         <div class="slide">
-          <img src="./img/git.svg" class="imgSlide"
+          <img src="{% static "img/git.svg" %}" class="imgSlide"
             height="100" width="250" alt="" />
         </div>
         <div class="slide">
@@ -142,15 +143,15 @@
   <section id="links">
     <h2> Links</h2>
     <div class="section-img">
-      <a href="https://github.com/iguraliuc/FII-Student-A4/tree/master"><img src="./img/git.svg" /></a>
+      <a href="https://github.com/iguraliuc/FII-Student-A4/tree/master"><img src="{% static "img/git.svg" %}" /></a>
 
     </div>
     <div class="section-img">
-      <a href="https://docs.google.com/spreadsheets/d/1ia2uLItnTTqila0xYP9YHGV_nCDqNe8Nsu_ZeuVOPso/edit#gid=1706986900"><img src="./img/google.png" /></a>
+      <a href="https://docs.google.com/spreadsheets/d/1ia2uLItnTTqila0xYP9YHGV_nCDqNe8Nsu_ZeuVOPso/edit#gid=1706986900"><img src="{% static "img/google.png" %}" /></a>
 
     </div>
     <div class="section-img">
-      <a href="https://trello.com/b/GUJZpRRB/a4-ip"><img src="./img/trello.png" /></a>
+      <a href="https://trello.com/b/GUJZpRRB/a4-ip"><img src="{% static "img/trello.png" %}" /></a>
 
     </div>
   </section>
@@ -160,7 +161,7 @@
   <div class="persons">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <div class="card-header" style="background-image: url(img/Asoltanei.jpg)">
+        <div class="card-header" style="background-image: url({% static "img/Asoltanei.jpg" %})">
 
           <div class="card-title">
             <h2>Asoltanei Cristian</h2>
@@ -174,7 +175,7 @@
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="card-header" style="background-image: url(img/balan.jpg)">
+        <div class="card-header" style="background-image: url({% static "img/balan.jpg" %})">
 
           <div class="card-title">
             <h2>Bălan Maria</h2>
@@ -188,7 +189,7 @@
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="card-header" style="background-image: url(img/birzu.jpg)">
+        <div class="card-header" style="background-image: url({% static "img/birzu.jpg" %})">
 
           <div class="card-title">
             <h2>Bîrzu Alexandra</h2>
@@ -202,7 +203,7 @@
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="card-header" style="background-image: url(img/bujoreanu.jpg)">
+        <div class="card-header" style="background-image: url({% static "img/bujoreanu.jpg" %})">
 
           <div class="card-title">
             <h2>Bujoreanu Vlad</h2>
@@ -216,7 +217,7 @@
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="card-header" style="background-image: url(img/calarasu.jpg)">
+        <div class="card-header" style="background-image: url({% static "img/calarasu.jpg" %})">
 
           <div class="card-title">
             <h2>Călărașu Teodora</h2>
@@ -230,7 +231,7 @@
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="card-header" style="background-image: url(img/nopic.jpg)">
+        <div class="card-header" style="background-image: url({% static "img/nopic.jpg" %})">
 
           <div class="card-title">
             <h2>Chipăruș Denis</h2>
@@ -244,7 +245,7 @@
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="card-header" style="background-image: url(img/cirstean.jpg)">
+        <div class="card-header" style="background-image: url({% static "img/cirstean.jpg" %})">
 
           <div class="card-title">
             <h2>Cîrstean Vlad</h2>
@@ -258,7 +259,7 @@
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="card-header" style="background-image: url(img/corban.jpg)">
+        <div class="card-header" style="background-image: url({% static "img/corban.jpg" %})">
 
           <div class="card-title">
             <h2>Corban Cristian</h2>
@@ -272,7 +273,7 @@
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="card-header" style="background-image: url(img/cretu.jpg)">
+        <div class="card-header" style="background-image: url({% static "img/cretu.jpg" %})">
 
           <div class="card-title">
             <h2>Crețu Marian</h2>
@@ -286,7 +287,7 @@
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="card-header" style="background-image: url(img/gheorghita.jpg)">
+        <div class="card-header" style="background-image: url({% static "img/gheorghita.jpg" %})">
 
           <div class="card-title">
             <h2 style="font-size:21px">Dăscalița Gheorghiță</h2>
@@ -300,7 +301,7 @@
         </div>
       </div>
        <div class="swiper-slide">
-                <div class="card-header" style="background-image: url(img/gafita.jpg)">
+                <div class="card-header" style="background-image: url({% static "img/gafita.jpg" %})">
 
                     <div class="card-title">
                       <h2>Gafița Andrei</h2>
@@ -314,7 +315,7 @@
                   </div>
           </div> 
           <div class="swiper-slide">
-            <div class="card-header" style="background-image: url(img/guraliuc.jpg)">
+            <div class="card-header" style="background-image: url({% static "img/guraliuc.jpg" %})">
 
                 <div class="card-title">
                   <h2>Guraliuc Iulian</h2>
@@ -328,7 +329,7 @@
               </div>
       </div> 
       <div class="swiper-slide">
-        <div class="card-header" style="background-image: url(img/hugeanu.jpg)">
+        <div class="card-header" style="background-image: url({% static "img/hugeanu.jpg" %})">
 
             <div class="card-title">
               <h2>Hugeanu Felix </h2>
@@ -342,7 +343,7 @@
           </div>
   </div> 
   <div class="swiper-slide">
-    <div class="card-header" style="background-image: url(img/iordache.jpg)">
+    <div class="card-header" style="background-image: url({% static "img/iordache.jpg" %})">
 
         <div class="card-title">
           <h2>Iordache Viorel</h2>
@@ -356,7 +357,7 @@
       </div>
 </div> 
 <div class="swiper-slide">
-  <div class="card-header" style="background-image: url(img/manoleasa.jpg)">
+  <div class="card-header" style="background-image: url({% static "img/manoleasa.jpg" %})">
 
       <div class="card-title">
         <h2>Tudor Manoleasa </h2>
@@ -370,7 +371,7 @@
     </div>
 </div> 
 <div class="swiper-slide">
-  <div class="card-header" style="background-image: url(img/munteanu.jpg)">
+  <div class="card-header" style="background-image: url({% static "img/munteanu.jpg" %})">
 
       <div class="card-title">
         <h2>Munteanu Rareș </h2>
@@ -384,7 +385,7 @@
     </div>
 </div> 
 <div class="swiper-slide">
-  <div class="card-header" style="background-image: url(img/padurarua.jpg)">
+  <div class="card-header" style="background-image: url({% static "img/padurarua.jpg" %})">
 
       <div class="card-title">
         <h2>Păduraru Andra</h2>
@@ -398,7 +399,7 @@
     </div>
 </div> 
 <div class="swiper-slide">
-  <div class="card-header" style="background-image: url(img/paduraru.jpg)">
+  <div class="card-header" style="background-image: url({% static "img/paduraru.jpg" %})">
 
       <div class="card-title">
         <h2>Păduraru Teodor </h2>
@@ -412,7 +413,7 @@
     </div>
 </div> 
 <div class="swiper-slide">
-  <div class="card-header" style="background-image: url(img/pantiru.jpg)">
+  <div class="card-header" style="background-image: url({% static "img/pantiru.jpg" %})">
 
       <div class="card-title">
         <h2>Panțiru Gabriel</h2>
@@ -426,7 +427,7 @@
     </div>
 </div> 
 <div class="swiper-slide">
-  <div class="card-header" style="background-image: url(img/popa.jpg)">
+  <div class="card-header" style="background-image: url({% static "img/popa.jpg" %})">
 
       <div class="card-title">
         <h2>Popa George </h2>
@@ -440,7 +441,7 @@
     </div>
 </div> 
 <div class="swiper-slide">
-  <div class="card-header" style="background-image: url(img/teodorescu.jpg)">
+  <div class="card-header" style="background-image: url({% static "img/teodorescu.jpg" %})">
 
       <div class="card-title">
         <h2>Teodorescu Alexandru</h2>
@@ -454,7 +455,7 @@
     </div>
 </div> 
 <div class="swiper-slide">
-  <div class="card-header" style="background-image: url(img/tesu.jpg)">
+  <div class="card-header" style="background-image: url({% static "img/tesu.jpg" %})">
 
       <div class="card-title">
         <h2>Teșu Cristina</h2>
@@ -468,7 +469,7 @@
     </div>
 </div> 
 <div class="swiper-slide">
-  <div class="card-header" style="background-image: url(img/nopic.jpg)">
+  <div class="card-header" style="background-image: url({% static "img/nopic.jpg" %})">
 
       <div class="card-title">
         <h2>Țocu Andrei </h2>
@@ -482,7 +483,7 @@
     </div>
 </div> 
 <div class="swiper-slide">
-  <div class="card-header" style="background-image: url(img/ursu.jpg)">
+  <div class="card-header" style="background-image: url({% static "img/ursu.jpg" %})">
 
       <div class="card-title">
         <h2>Ursu Dragoș</h2>
@@ -496,7 +497,7 @@
     </div>
 </div> 
 <div class="swiper-slide">
-  <div class="card-header" style="background-image: url(img/vlaiduc.jpg)">
+  <div class="card-header" style="background-image: url({% static "img/vlaiduc.jpg" %})">
 
       <div class="card-title">
         <h2>Vlaiduc Rareș</h2>
@@ -510,7 +511,7 @@
     </div>
 </div> 
 <div class="swiper-slide">
-  <div class="card-header" style="background-image: url(img/zbant.jpg)">
+  <div class="card-header" style="background-image: url({% static "img/zbant.jpg" %})">
 
       <div class="card-title">
         <h2>Zbanț Radu</h2>
@@ -532,7 +533,7 @@
     <div class="swiper-button-prev"></div>
   </div>
 
-  <script src="swiper.js"></script>
+  <script src="{% static "swiper.js" %}"></script>
 
   <!-- Initialize Swiper -->
   <script>
@@ -557,7 +558,7 @@
   <section id="video">
     <h2>Presentation</h2>
     <video width= 70% height= 70% controls>
-      <source src="video.mp4" type="video/mp4">
+      <source src="{% static "video.mp4" %}" type="video/mp4">
     </video>
   </section>
 

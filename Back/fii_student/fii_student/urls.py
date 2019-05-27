@@ -32,6 +32,7 @@ router.register('personalise', PersonaliseViewSet)
 
 urlpatterns = [
     path('', fii_student_views.show_landing_page, name='show_landing_page'),
+    path('prezentare', fii_student_views.show_prezentare_page, name='show_prezentare_page'),
     path('admin/', admin.site.urls),
     path('news/', include('news.urls')),
     path('personalise/', include('personalise.urls')),
