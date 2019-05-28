@@ -11,6 +11,30 @@ li{
     list-style: none;   
 }
 
+.board{
+    text-align:center;
+    width:80%;
+    box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.board .content{
+    margin-top:20px;
+}
+
+.board> p:first-child{
+    padding: 5px;
+    background-color:#09BCFF;
+    color:white;
+    width: 20%;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
 .board h1{
     font-size: 40px;
     margin-bottom: 10px;
@@ -35,29 +59,6 @@ li{
     margin-top:20px;
     width:80%;
     display:flex; 
-}
-.board{
-    text-align:center;
-    width:80%;
-    box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    -moz-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    -webkit-box-shadow: 3px 0px 6px 4px rgba(0, 0, 0, 0.16);
-    padding: 50px;
-    box-sizing: border-box;
-}
-
-.board .content{
-    margin-top:20px;
-}
-
-.board> p:first-child{
-    padding: 5px;
-    background-color:#09BCFF;
-    color:white;
-    width: 20%;
-    font-weight: bold;
-    font-size: 20px;
-
 }
 .meniu{
     width: 18%;
