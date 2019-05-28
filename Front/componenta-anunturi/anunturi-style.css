@@ -11,16 +11,6 @@ li{
  list-style: none;   
 }
 
-.container{
-    margin:auto;
-    margin-top:20px;
-    width:80%;
-    display:flex; 
-    margin-bottom: 10px;
-}
-.board{
-    width:80%;
-}
 .anunt-container{
     display:flex;
     margin-bottom:10px;
@@ -59,17 +49,29 @@ li{
     
 }
 
+.board{
+    width:80%;
+}
+
+.container{
+    margin:auto;
+    margin-top:20px;
+    width:80%;
+    display:flex; 
+    margin-bottom: 10px;
+}
+
 .date{
     
     padding:10px;
     background-color: #09BCFF;
     color:white;
-   
     display: flex;
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
     flex-direction: column;
 }
+
 .date > p{
     text-align:center;
 }
