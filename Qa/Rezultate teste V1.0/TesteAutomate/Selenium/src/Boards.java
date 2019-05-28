@@ -16,8 +16,8 @@ public class Boards
 		WebDriver driver=new ChromeDriver();
 		driver.get("http://fiistudent.ddns.us/users/login/");
 		
-		driver.findElement(By.name("username")).sendKeys("tudor.manoleasa@info.uaic.ro");
-		driver.findElement(By.name("password")).sendKeys("aaaaaaip");
+		driver.findElement(By.name("username")).sendKeys("teodora.calarasu@students.info.uaic.ro");
+		driver.findElement(By.name("password")).sendKeys("valoare1");
 		driver.findElement(By.xpath("//input[@type='submit']")).click();
 		
 		driver.get("http://fiistudent.ddns.us");

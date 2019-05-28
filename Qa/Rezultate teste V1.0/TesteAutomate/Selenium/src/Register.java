@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class Register 
 {
@@ -20,7 +21,7 @@ public class Register
 		WebDriver driver=new ChromeDriver();
 		
 		
-		driver.get("http://127.0.0.1:8000/users/signup/");
+		driver.get("http://fiistudent.ddns.us/users/signup/");
 		for(String obj1:username)
 			for(String obj2:mail)
 				for(String obj3:password)
@@ -30,6 +31,12 @@ public class Register
 					driver.findElement(By.name("password2")).sendKeys(obj2);
 					driver.findElement(By.name("first_name")).sendKeys(obj2);
 					driver.findElement(By.name("last_name")).sendKeys(obj2);
+					Select category=new Select(driver.findElement(By.name("rol")));
+					category.selectByIndex((int) (Math.random()*3+1));
+					Select category2=new Select(driver.findElement(By.name("an_studiu")));
+					category2.selectByIndex((int) (Math.random()*3+1));
+					Select category3=new Select(driver.findElement(By.name("grupa")));
+					category3.selectByIndex((int) (Math.random()*10+1));
 					driver.findElement(By.xpath("//div[@class='bottom']")).click();
 					Thread.sleep(1000);	
 					driver.findElement(By.name("email")).clear();
